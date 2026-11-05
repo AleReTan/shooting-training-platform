@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-pobeguli",
+  "name": {
+    "ru": "Побегули"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/380"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 42,
+  "distance": {
+    "min": 12,
+    "max": 12,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Побегули"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение в конце галереи на усмотрение стрела. После поражения двух попперов, трех тарелок, двух IPSC мишеней и остального картона, необходимо перебежать в начало галерею и поразить еще три тарелки, поппер, движку и картонки в любой последовательности.\nДострел разрешен, положение оружия — №1."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

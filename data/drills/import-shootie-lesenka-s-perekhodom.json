@@ -5,7 +5,9 @@
     "ru": "Лесенка с переходом"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

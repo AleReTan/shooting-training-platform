@@ -5,7 +5,9 @@
     "ru": "«Г» и стрельба в перем. с переходом"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

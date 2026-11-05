@@ -5,7 +5,8 @@
     "ru": "Обходной лист при увольнении"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · Контрольный Смыв",

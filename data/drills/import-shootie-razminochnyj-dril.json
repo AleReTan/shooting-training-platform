@@ -5,7 +5,8 @@
     "ru": "Разминочный ДРИЛ"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · TNR",

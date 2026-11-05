@@ -5,7 +5,9 @@
     "ru": "Перестрелка с гномами-хуекрадами"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · muehehehehe.gif",

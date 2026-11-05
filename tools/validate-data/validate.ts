@@ -1,7 +1,11 @@
 // Валидация данных упражнений и курсов — правила из спеки §4, §4.1, §5, §7.
 // Чистая функция без побочных эффектов; используется тестами и CLI (CI).
 
-import type { Course, Drill, Layout, Taxonomy } from '../../src/data/types';
+import type { Course, Discipline, Drill, Layout, Taxonomy } from '../../src/data/types';
+
+// Доступные дисциплины (спека §8: MVP был только карабин; расширение —
+// решение владельца, shotgun/pistol-traumatic разрешены с 2026-11-05)
+const DISCIPLINES = new Set<Discipline>(['carbine', 'shotgun', 'pistol-traumatic']);
 
 export interface FileEntry<T = unknown> {
   file: string; // имя файла, напр. "x-drill.json"
@@ -32,8 +36,14 @@ function validateDrill(entry: FileEntry, tagIds: Set<string>, errors: string[]):
     if (!tagIds.has(tag)) errors.push(`${file}: тег "${tag}" вне таксономии`);
   }
 
-  if (JSON.stringify(d.discipline) !== JSON.stringify(['carbine'])) {
-    errors.push(`${file}: discipline должен быть ["carbine"] (MVP, спека §8)`);
+  if (!Array.isArray(d.discipline) || d.discipline.length === 0) {
+    errors.push(`${file}: discipline — непустой список (carbine/shotgun/pistol-traumatic)`);
+  } else {
+    for (const disc of d.discipline) {
+      if (!DISCIPLINES.has(disc)) {
+        errors.push(`${file}: неизвестная discipline "${disc}"`);
+      }
+    }
   }
   if (!Number.isInteger(d.difficulty) || d.difficulty < 1 || d.difficulty > 5) {
     errors.push(`${file}: difficulty должен быть целым 1–5`);

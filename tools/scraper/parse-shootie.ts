@@ -8,7 +8,7 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Drill } from '../../src/data/types';
+import type { Discipline, Drill } from '../../src/data/types';
 
 export interface SkipRecord {
   file: string;
@@ -95,6 +95,14 @@ const DIFFICULTY: Record<string, 1 | 2 | 3 | 4 | 5> = {
   'Сложная': 4,
 };
 
+// Тип оружия shootie → дисциплина приложения. Смешанные этапы дают
+// несколько дисциплин (упражнение доступно в обоих фильтрах каталога).
+const WEAPON_MAP: Record<string, Discipline> = {
+  rifle: 'carbine',
+  pistol: 'pistol-traumatic',
+  shotgun: 'shotgun',
+};
+
 const INERTIA_RE = /<script data-page="app" type="application\/json">([\s\S]*?)<\/script>/;
 
 export function parseShootieHtml(file: string, html: string): ScrapeResult {
@@ -126,9 +134,10 @@ export function parseShootieHtml(file: string, html: string): ScrapeResult {
     return { drill: null, extraDrills: [], skipped: [{ file, reason: 'этап без названия' }] };
   }
 
-  // оружие: карабин или не указано → импорт; пистолет/ружьё без карабина → skip
+  // оружие → дисциплины; неизвестный тип оружия → skip (разбирается вручную)
   const weapons = new Set((stage.weaponTypes ?? []).map((w) => w.value));
-  if (weapons.size > 0 && !weapons.has('rifle')) {
+  const unknown = [...weapons].filter((w) => !(w in WEAPON_MAP));
+  if (unknown.length > 0) {
     return {
       drill: null,
       extraDrills: [],
@@ -136,11 +145,16 @@ export function parseShootieHtml(file: string, html: string): ScrapeResult {
         {
           file,
           id: `import-shootie-${slugify(title)}`,
-          reason: `оружие ${[...weapons].sort().join('/')} — вне MVP (карабин)`,
+          reason: `неизвестный тип оружия ${unknown.sort().join('/')} — проверить вручную`,
         },
       ],
     };
   }
+  // пустой weaponTypes → ['carbine'] (как в MVP); смешанные → все дисциплины
+  const discipline: Discipline[] =
+    weapons.size > 0
+      ? [...new Set([...weapons].map((w) => WEAPON_MAP[w] ?? 'carbine'))].sort()
+      : ['carbine'];
 
   const description = htmlToText(stage.descriptionHtml ?? '');
   const sectionTexts = (stage.sections ?? [])
@@ -155,7 +169,7 @@ export function parseShootieHtml(file: string, html: string): ScrapeResult {
     schemaVersion: 1,
     id: `import-shootie-${slugify(title)}`,
     name: { ru: title },
-    discipline: ['carbine'],
+    discipline,
     source: {
       origin: stage.author?.name ? `shootie.pro · ${stage.author.name}` : 'shootie.pro',
       kind: 'forum',

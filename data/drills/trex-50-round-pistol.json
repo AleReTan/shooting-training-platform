@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-50-round-pistol",
+  "name": {
+    "ru": "T-Rex: 50 патронов, пистолет",
+    "en": "T-Rex: 50 Round Pistol Course of Fire"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/50-round-pistol-course-of-fire-57"
+  },
+  "tags": [
+    "speed",
+    "accuracy",
+    "transitions",
+    "movement",
+    "recoil-control"
+  ],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 50,
+  "distance": {
+    "min": 5,
+    "max": 20,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 3
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Полный пистолетный курс T-Rex: 50 патронов, 3 USPSA-мишени, рубеж 20×20 м — баланс скорости и меткости с движением и переносами",
+    "en": "Full T-Rex pistol course: 50 rounds, 3 USPSA targets, 20×20 m bay — speed-accuracy balance with movement and transitions"
+  },
+  "steps": {
+    "ru": [
+      "Рубеж 20×20 м; 3 USPSA-мишени; 50 патронов",
+      "Официальный PDF T-Rex (ссылка в источнике) содержит полную раскладку, бланк попаданий и времени — распечатай его",
+      "Курс связывает базовые навыки пистолета с движением и переносами через серию заданий",
+      "Хит-фактор по каждому заданию и суммарно",
+      "Замер недели: суммарный хит-фактор курса — метрика прогресса стрелка с пистолетом"
+    ]
+  },
+  "safety": {
+    "ru": "Смешанные задания (движение + переносы): размечай рубеж и проверяй сектора до начала"
+  },
+  "equipment": [
+    "пистолет",
+    "4–5 магазинов (50 патронов)",
+    "кобура",
+    "рубеж 20×20 м",
+    "бланк PDF T-Rex"
+  ],
+  "variants": {
+    "ru": [
+      "Половина курса (25 патронов)",
+      "Прогон из-под одежды (скрытое ношение) для реалистичности"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 22,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 10,
+        "y": 1,
+        "label": {
+          "ru": "старт"
+        }
+      },
+      {
+        "id": "P2",
+        "x": 10,
+        "y": 10,
+        "label": {
+          "ru": "позиция 2"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 4,
+        "y": 12,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 10,
+        "y": 17,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 16,
+        "y": 20,
+        "type": "ipsc-metric"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P1",
+        "to": "P2",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 6
+      },
+      {
+        "action": "move",
+        "from": "P1",
+        "to": "P2"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 8
+      }
+    ]
+  },
+  "related": [
+    "trex-50-round-cof",
+    "trex-carry-pistol"
+  ]
+}

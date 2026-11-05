@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-otrabotka-serij-3-pozitsii",
+  "name": {
+    "ru": "Отработка серий — 3 позиции"
+  },
+  "discipline": [
+    "shotgun"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/112"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 6,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Отработка серий — 3 позиции"
+  },
+  "steps": {
+    "ru": [
+      "Положение №1. Патрон в патроннике. 6 стальных попперов.\r\n\r\nПеред стрелком стенка с одним центральным портом. По сигналу таймера с произвольной стороны поразить 2 стальных поппера, перезарядиться и поразить еще 2 стальных поппера, еще раз перезарядиться и поразить 2 стальных поппера."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

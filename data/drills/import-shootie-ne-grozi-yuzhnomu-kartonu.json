@@ -5,7 +5,9 @@
     "ru": "Не грози южному картону"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · muehehehehe.gif",

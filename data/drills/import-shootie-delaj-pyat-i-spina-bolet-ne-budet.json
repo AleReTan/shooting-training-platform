@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-delaj-pyat-i-spina-bolet-ne-budet",
+  "name": {
+    "ru": "Делай пять — и спина болеть не будет"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/306"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 32,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Делай пять — и спина болеть не будет"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия: третье.\r\nСтартовая позиция стрелка: на усмотрение стреляющего.\r\nМишени: семь картонных мишеней, два свингера, шесть попперов, весемь тарелок, 12 штрафных мишеней.\r\n\r\nПо сигналу таймера стрелок поражает картонные мишени двумя выстрелами в каждую, а металлический – до падения. Сброс магазинов с патронами будет караться процедурным штрафом."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

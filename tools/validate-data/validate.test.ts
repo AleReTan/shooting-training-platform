@@ -87,9 +87,18 @@ test('hit-factor без points отклоняется', () => {
   expect(res.errors.join('\n')).toContain('points');
 });
 
-test('discipline не [carbine] отклоняется', () => {
-  const res = run([entry('x-drill.json', drill({ discipline: ['shotgun'] }))]);
-  expect(res.errors.join('\n')).toContain('carbine');
+test('discipline: любое непустое подмножество дисциплин допустимо', () => {
+  for (const discipline of [['shotgun'], ['pistol-traumatic'], ['carbine', 'pistol-traumatic']]) {
+    const res = run([entry('x-drill.json', drill({ discipline }))]);
+    expect(res.errors, JSON.stringify(discipline)).toEqual([]);
+  }
+});
+
+test('discipline: пустой список или неизвестная дисциплина отклоняются', () => {
+  const empty = run([entry('x-drill.json', drill({ discipline: [] }))]);
+  expect(empty.errors.join('\n')).toContain('discipline');
+  const unknown = run([entry('x-drill.json', drill({ discipline: ['laser'] }))]);
+  expect(unknown.errors.join('\n')).toContain('"laser"');
 });
 
 test('difficulty вне 1–5 отклоняется', () => {

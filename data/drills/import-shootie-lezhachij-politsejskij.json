@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-lezhachij-politsejskij",
+  "name": {
+    "ru": "Лежачий полицейский"
+  },
+  "discipline": [
+    "shotgun"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/158"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 8,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Лежачий полицейский"
+  },
+  "steps": {
+    "ru": [
+      "Оружие заряжено, патрон в патроннике. Единовременно в ружье не может быть заряжено более 2-х патронов.\r\n\r\nИз положения №1, лёжа, необходимо поразить сначала одну группу мишеней, и, не вставая, поразить вторую группу мишеней. Очередность групп на усмотрение стрелка.\r\n\r\nВсе мишени поражаются по мере видимости.\r\n\r\nПоражение мишеней из положения, кроме лежачего — процедурная ошибка."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

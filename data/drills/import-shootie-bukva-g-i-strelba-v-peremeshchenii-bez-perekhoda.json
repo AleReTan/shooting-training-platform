@@ -5,7 +5,8 @@
     "ru": "Буква «Г» и стрельба в перемещении без перехода"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

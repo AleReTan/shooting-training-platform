@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-port-ne-morskoj",
+  "name": {
+    "ru": "Порт (не морской)"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/378"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 19,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Порт (не морской)"
+  },
+  "steps": {
+    "ru": [
+      "Из порта поразить три железные тарелки и две картонные мишени, подняться и, используя укрытие слева, поразить поппер, движку и группу дальних мишеней.\nДострел разрешен, положение оружия — №2."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

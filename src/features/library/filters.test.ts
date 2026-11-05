@@ -57,3 +57,16 @@ test('диапазон сложности', () => {
   const res = run({ query: '', tags: [], difficultyMin: 2, difficultyMax: 2 });
   expect(res.map((d) => d.id)).toEqual(['bill-drill-carbine']);
 });
+
+test('фильтр по дисциплине; смешанные входят в каждую из своих', () => {
+  const list: Drill[] = [
+    ...drills,
+    { ...oneTo5, id: 'x-pistol', discipline: ['pistol-traumatic'] } as Drill,
+    { ...oneTo5, id: 'x-mixed', discipline: ['carbine', 'shotgun'] } as Drill,
+  ];
+  const by = (discipline: CatalogFilters['discipline']) =>
+    filterDrills(list, { query: '', tags: [], discipline }).map((d) => d.id);
+  expect(by('pistol-traumatic')).toEqual(['x-pistol']);
+  expect(by('shotgun')).toEqual(['x-mixed']);
+  expect(by('carbine').sort()).toEqual(['bill-drill-carbine', 'one-to-five', 'wall-dry', 'x-mixed']);
+});

@@ -5,7 +5,8 @@
     "ru": "Курс карабин / пистолет от T-rex"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

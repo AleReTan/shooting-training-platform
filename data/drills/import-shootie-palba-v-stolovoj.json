@@ -5,7 +5,9 @@
     "ru": "Пальба в столовой"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

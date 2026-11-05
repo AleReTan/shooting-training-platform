@@ -5,7 +5,9 @@
     "ru": "Коридор смерти"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · Стас Василич",

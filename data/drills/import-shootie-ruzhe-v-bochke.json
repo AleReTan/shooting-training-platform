@@ -5,7 +5,9 @@
     "ru": "Ружье в бочке"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

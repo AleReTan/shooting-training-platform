@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-16-11-el-prezidente",
+  "name": {
+    "ru": "16.11 Эль президенте"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/284"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 7,
+    "max": 7,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "16.11 Эль президенте"
+  },
+  "steps": {
+    "ru": [
+      "Три картонки на расстоянии 7 метров от стрелка. По сигналу таймера нужно сделать по 2 выстрела в каждую мишень, а затем поразить их двумя выстрелами снова. Стартовое положение: первое, ёмкость магазина ограничена 10 выстрелами. Стартовая позиция: стрелок стоит спиной к мишеням, карабин направлен в сторону мишеней, пистолет в кобуре."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

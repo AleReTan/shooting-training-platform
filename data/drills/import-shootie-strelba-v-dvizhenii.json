@@ -5,7 +5,8 @@
     "ru": "Стрельба в движении"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

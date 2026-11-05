@@ -5,7 +5,8 @@
     "ru": "Неудобненький клин"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

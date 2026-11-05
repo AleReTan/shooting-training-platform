@@ -5,7 +5,9 @@
     "ru": "Вход в позицию слева"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

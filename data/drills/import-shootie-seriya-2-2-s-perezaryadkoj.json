@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-seriya-2-2-s-perezaryadkoj",
+  "name": {
+    "ru": "Серия 2+2 с перезарядкой"
+  },
+  "discipline": [
+    "shotgun"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/111"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 4,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Серия 2+2 с перезарядкой"
+  },
+  "steps": {
+    "ru": [
+      "Контроль, вкладка, скорость перезарядки.\r\n\r\nПоложение №1. Два патрона в ружье, два — в патронташе или кармане. Упражнение из-за укрытия. По сигналу таймера нужно поразить две мишени с одной стороны, используя укрытие, перезарядиться и поразить две мишени с другой стороны, так же используя укрытие."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

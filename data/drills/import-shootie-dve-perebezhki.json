@@ -5,7 +5,8 @@
     "ru": "Две перебежки"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

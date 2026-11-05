@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-mayatnik-k-tsentru",
+  "name": {
+    "ru": "Маятник к центру"
+  },
+  "discipline": [
+    "shotgun"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/113"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 8,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Маятник к центру"
+  },
+  "steps": {
+    "ru": [
+      "Положение №1 (патрон в патроннике). По сигналу таймера нужно поразить 8 стальных тарелок, стоящих перед стрелком по принципу маятника, то есть начать с краев и закончить в центре. Поражение мишеней в следующем порядке: [1 и 8 мишени], затем [2 и 7 мишени], затем [3 и 6 мишени], затем [4 и 5] мишени."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

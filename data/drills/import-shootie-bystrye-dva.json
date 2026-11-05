@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-bystrye-dva",
+  "name": {
+    "ru": "Быстрые два"
+  },
+  "discipline": [
+    "shotgun"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/110"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 2,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Быстрые два"
+  },
+  "steps": {
+    "ru": [
+      "Точность + темп стрельбы по двум целям.\n\nПоложение №1 (патрон в патронике). По сигналу таймера нужно как можно быстрее поразить два стальных поппера. Рекомендуется несколько повторений."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

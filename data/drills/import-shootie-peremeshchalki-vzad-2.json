@@ -5,7 +5,8 @@
     "ru": "Перемещалки взад #2"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · Травма",

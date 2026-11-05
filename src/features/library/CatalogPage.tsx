@@ -4,7 +4,7 @@ import { filterDrills, type CatalogFilters } from './filters';
 import { DrillCard } from './DrillCard';
 import { TagChip } from '../../ui/TagChip';
 import type { AppData } from '../../data/load';
-import type { FireMode } from '../../data/types';
+import type { Discipline, FireMode } from '../../data/types';
 
 /** Каталог упражнений: поиск, фильтры, список (спека §8 п.1). */
 export default function CatalogPage({ data }: { data: AppData }) {
@@ -13,6 +13,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
   const [query, setQuery] = useState('');
   const [tags, setTags] = useState<string[]>([]);
   const [fireMode, setFireMode] = useState<'' | FireMode>('');
+  const [discipline, setDiscipline] = useState<'' | Discipline>('');
   const [difficultyMin, setDifficultyMin] = useState(1);
   const [difficultyMax, setDifficultyMax] = useState(5);
   const [maxRounds, setMaxRounds] = useState<number | ''>('');
@@ -27,6 +28,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
     query,
     tags,
     fireMode: fireMode || undefined,
+    discipline: discipline || undefined,
     difficultyMin,
     difficultyMax,
     maxRounds: maxRounds === '' ? undefined : maxRounds,
@@ -35,7 +37,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
 
   const visible = useMemo(
     () => filterDrills(drills, filters),
-    [drills, query, tags, fireMode, difficultyMin, difficultyMax, maxRounds, distanceMax],
+    [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax],
   );
 
   const toggleTag = (id: string) =>
@@ -45,6 +47,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
     setQuery('');
     setTags([]);
     setFireMode('');
+    setDiscipline('');
     setDifficultyMin(1);
     setDifficultyMax(5);
     setMaxRounds('');
@@ -91,6 +94,19 @@ export default function CatalogPage({ data }: { data: AppData }) {
             <option value="">любой</option>
             <option value="live">боевые</option>
             <option value="dry">сухие</option>
+          </select>
+        </label>
+
+        <label>
+          Оружие
+          <select
+            value={discipline}
+            onChange={(e) => setDiscipline((e.target as HTMLSelectElement).value as '' | Discipline)}
+          >
+            <option value="">любое</option>
+            <option value="carbine">карабин</option>
+            <option value="pistol-traumatic">пистолет / травмат</option>
+            <option value="shotgun">ружьё</option>
           </select>
         </label>
 

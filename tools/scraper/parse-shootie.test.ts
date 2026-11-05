@@ -39,11 +39,21 @@ test('страница этапа (Inertia JSON) → Drill с needsReview', () =
   expect(d.goal.ru).toBe('V-Drill'); // фоллбек до вычитки
 });
 
-test('пистолетный этап → skipped с причиной', () => {
+test('пистолетный этап → Drill с discipline [pistol-traumatic]', () => {
   const res = parseShootieHtml('stage-pistol.html', read('stage-pistol.html'));
-  expect(res.drill).toBeNull();
-  expect(res.skipped).toHaveLength(1);
-  expect(res.skipped[0]?.reason).toBe('оружие pistol — вне MVP (карабин)');
+  expect(res.drill?.discipline).toEqual(['pistol-traumatic']);
+  expect(res.skipped).toEqual([]);
+});
+
+test('ружейный этап → Drill с discipline [shotgun]', () => {
+  const res = parseShootieHtml('stage-shotgun.html', read('stage-shotgun.html'));
+  expect(res.drill?.discipline).toEqual(['shotgun']);
+  expect(res.skipped).toEqual([]);
+});
+
+test('смешанное оружие (rifle+pistol) → обе дисциплины сразу', () => {
+  const res = parseShootieHtml('stage-mixed.html', read('stage-mixed.html'));
+  expect(res.drill?.discipline).toEqual(['carbine', 'pistol-traumatic']);
 });
 
 test('страница каталога (Stages/Index) → skipped, не карточка этапа', () => {

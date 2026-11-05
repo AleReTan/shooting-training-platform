@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-tarelochnyj-v-drill",
+  "name": {
+    "ru": "Тарелочный V-Drill"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Контрольный Смыв",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/370"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Тарелочный V-Drill"
+  },
+  "steps": {
+    "ru": [
+      "Тарелочный V-Drill"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

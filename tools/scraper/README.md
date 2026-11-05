@@ -17,9 +17,11 @@ shootie.pro — Laravel + Inertia: контент страницы лежит JS
 `params` (`shotsCount`, `distance` в метрах, `difficulty`: Лёгкая/Средняя/Сложная
 → 2/3/4), `weaponTypes[]`, `author.name`.
 
-Импортируются этапы с оружием «Карабин» или без указанного оружия; пистолетные
-и ружейные (без карабина) — в `tools/scraper/skipped/*.md` с пометкой.
-Страницы каталога (`Stages/Index`) пропускаются.
+Тип оружия → дисциплина: `rifle` → `carbine`, `pistol` → `pistol-traumatic`,
+`shotgun` → `shotgun`. Смешанные этапы (несколько типов оружия) получают
+несколько дисциплин сразу и находятся в каждом из фильтров. Без указанного
+оружия → `['carbine']`. Неизвестный тип оружия и страницы каталога
+(`Stages/Index`) — в `tools/scraper/skipped/*.md` с пометкой.
 
 Все импортированные: `needsReview: true`, `source.origin: 'shootie.pro · <автор>'`,
 `kind: 'forum'`, `tags: []`, `scoring: none`, мишени — плейсхолдер `ipsc-metric ×1`

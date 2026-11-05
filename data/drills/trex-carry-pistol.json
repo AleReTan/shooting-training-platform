@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-carry-pistol",
+  "name": {
+    "ru": "T-Rex: Carry Pistol",
+    "en": "T-Rex: Carry Pistol Assessment"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/carry-pistol-assessment-298"
+  },
+  "tags": [
+    "first-shot",
+    "speed",
+    "accuracy",
+    "movement"
+  ],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 60,
+  "distance": {
+    "min": 3,
+    "max": 20,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 2
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Ассессмент для тех, кто носит пистолет как основное оружие (открыто или скрытно): практический замер текущего уровня и подсветка слабых мест",
+    "en": "Assessment for those carrying a pistol as primary weapon: a practical baseline of current capabilities and areas to improve"
+  },
+  "steps": {
+    "ru": [
+      "Рубеж 20×10 м; 2 USPSA-мишени; 60 патронов",
+      "Старт из кобуры — в том ношении, в котором ходишь ежедневно (AIWB/OWB)",
+      "Официальный PDF T-Rex (ссылка в источнике) содержит полную раскладку и бланк — распечатай его",
+      "Серии выстрелов с движением между позициями; хит-фактор по заданиям",
+      "Сравнивай результаты в своей обычной экипировке, а не в спортивной"
+    ]
+  },
+  "safety": {
+    "ru": "Работа из кобуры: контролируй направление ствола при извлечении и возврате оружия"
+  },
+  "equipment": [
+    "пистолет",
+    "кобура повседневного ношения",
+    "4–6 магазинов (60 патронов)",
+    "рубеж 20×10 м",
+    "бланк PDF T-Rex"
+  ],
+  "variants": {
+    "ru": [
+      "Прогон в повседневной одежде (скрытое ношение)",
+      "Половина ассессмента (30 патронов) для короткого рубежа"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 22,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 5,
+        "y": 1,
+        "label": {
+          "ru": "старт (кобура)"
+        }
+      },
+      {
+        "id": "P2",
+        "x": 5,
+        "y": 8,
+        "label": {
+          "ru": "позиция 2"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 3,
+        "y": 15,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 7,
+        "y": 20,
+        "type": "ipsc-metric"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P1",
+        "to": "P2",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "move",
+        "from": "P1",
+        "to": "P2"
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      }
+    ]
+  },
+  "related": [
+    "trex-50-round-pistol",
+    "trex-secondary-pistol"
+  ]
+}

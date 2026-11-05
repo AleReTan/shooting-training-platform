@@ -2,7 +2,7 @@
 // Семантика: заполненные поля сужают (AND); внутри tags — OR;
 // query — без учёта регистра по имени/цели/шагам (ru, затем en).
 
-import type { Drill, FireMode } from '../../data/types';
+import type { Discipline, Drill, FireMode } from '../../data/types';
 
 export interface CatalogFilters {
   query: string;
@@ -10,6 +10,7 @@ export interface CatalogFilters {
   difficultyMin?: number;
   difficultyMax?: number;
   fireMode?: FireMode;
+  discipline?: Discipline;
   maxRounds?: number;
   distanceMax?: number;
 }
@@ -36,6 +37,7 @@ export function filterDrills(drills: Drill[], f: CatalogFilters): Drill[] {
     if (f.difficultyMin != null && d.difficulty < f.difficultyMin) return false;
     if (f.difficultyMax != null && d.difficulty > f.difficultyMax) return false;
     if (f.fireMode != null && !d.fireMode.includes(f.fireMode)) return false;
+    if (f.discipline != null && !d.discipline.includes(f.discipline)) return false;
     if (f.maxRounds != null && d.rounds > f.maxRounds) return false;
     if (f.distanceMax != null && d.distance.min > f.distanceMax) return false;
     return matchesQuery(d, f.query);

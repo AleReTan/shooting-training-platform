@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-delaj-raz",
+  "name": {
+    "ru": "Делай раз"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/302"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 9,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Делай раз"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия: второе. Ёмкость магазинов ограничена 10 патронами.\nСтартовая позиция стрелка: стрелок стоит на платформе, руки расслаблены.\nМишени: три картонные мишени, три поппера, шесть штрафных мишеней.\n\nПо сигналу таймера стрелок поражает картонные мишени двумя выстрелами в каждую, а металлический – до падения."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

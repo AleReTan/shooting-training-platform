@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-dver-v-novyj-divnyj-mir-02-11",
+  "name": {
+    "ru": "Дверь в новый дивный мир 02.11"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/268"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 19,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Дверь в новый дивный мир 02.11"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружия – первое. Позиция стрелка – на усмотрение стрелка. Кол-во мишеней – 8 картонных мишеней, 3 поппера, 5 бабок."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

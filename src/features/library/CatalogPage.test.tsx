@@ -31,6 +31,13 @@ test('фильтр fireMode «сухие» оставляет только dry',
   expect(screen.queryByText('От 1 до 5')).toBeNull();
 });
 
+test('фильтр «Оружие: пистолет» оставляет пистолетные упражнения', () => {
+  render(<CatalogPage data={data} />);
+  fireEvent.change(screen.getByLabelText('Оружие'), { target: { value: 'pistol-traumatic' } });
+  expect(screen.getByText('T-Rex: 50 патронов, пистолет')).toBeTruthy();
+  expect(screen.queryByText('T-Rex: 50 патронов, карабин')).toBeNull();
+});
+
 test('чип тега «Первый выстрел» оставляет одно упражнение', () => {
   render(<CatalogPage data={data} />);
   fireEvent.click(screen.getByRole('button', { name: 'Первый выстрел' }));

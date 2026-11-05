@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-krupnaya-svoloch",
+  "name": {
+    "ru": "Крупная сволочь"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/379"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 46,
+  "distance": {
+    "min": 12,
+    "max": 12,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Крупная сволочь"
+  },
+  "steps": {
+    "ru": [
+      "Стартовая позиция на усмотрение стрелка. Уронить все железки, два поппера, две движки и убить весь картон, не причин вреда белым мишеням. В мишенной обстановке также есть две ISPC-мини мишени — их тоже надо.\nДострел разрешен, стартовое положение — №1."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

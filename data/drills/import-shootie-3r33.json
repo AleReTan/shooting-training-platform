@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-3r33",
+  "name": {
+    "ru": "3R33"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Father EDC (Коля)",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/162"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 9,
+  "distance": {
+    "min": 9,
+    "max": 9,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "3R33"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок стоит на расстоянии 10 ярдов (9,1 м) перед метрической IPSC мишенью.\r\nПистолет в кобуре, патрон в патроннике.\r\n\r\n1 магазин - 3 патрона \r\n2 магазин - 6 патронов\r\n\r\nПо сигналу таймера:\r\n1) Cтрелок извлекает пистолет и совершает 3 выстрела держа пистолет двумя руками.\r\n2) Перезарядка\r\n3) 3 выстрела правой рукой\r\n4) 3 выстрела левой рукой"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

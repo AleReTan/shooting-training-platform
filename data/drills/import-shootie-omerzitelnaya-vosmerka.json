@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-omerzitelnaya-vosmerka",
+  "name": {
+    "ru": "Омерзительная восьмерка"
+  },
+  "discipline": [
+    "shotgun"
+  ],
+  "source": {
+    "origin": "shootie.pro · Howdy",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/89"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 8,
+  "distance": {
+    "min": 6,
+    "max": 6,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Омерзительная восьмерка"
+  },
+  "steps": {
+    "ru": [
+      "Схема мишеней"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

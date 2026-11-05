@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-secondary-pistol",
+  "name": {
+    "ru": "T-Rex: Secondary Pistol",
+    "en": "T-Rex: Secondary Pistol Assessment"
+  },
+  "discipline": [
+    "carbine",
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/secondary-pistol-assessment-130"
+  },
+  "tags": [
+    "transitions",
+    "speed",
+    "accuracy",
+    "movement"
+  ],
+  "needsReview": true,
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 60,
+  "distance": {
+    "min": 5,
+    "max": 45,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 4
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Оценивает работу с пистолетом как вторым оружием за карабином: переходы карабин↔пистолет, точность на скорости (хит-фактор)",
+    "en": "Evaluates pistol capability as a secondary weapon behind a carbine: transitions and accuracy at speed via hit-factor scoring"
+  },
+  "steps": {
+    "ru": [
+      "Рубеж 45×10 м; 4 USPSA-мишени; 60 патронов (боеприпас карабина, пистолет — по раскладке)",
+      "Часть заданий — карабином, часть — с переходом на пистолет (полная раскладка в PDF T-Rex, ссылка в источнике)",
+      "Переход: карабин на грудь, извлечение пистолета — прогоняй отдельно на сухую до-live",
+      "Хит-фактор по каждому заданию поощряет точность на скорости",
+      "Дальний край 45 м: подтверждай прицел карабином, пистолетные серии — ближе"
+    ]
+  },
+  "safety": {
+    "ru": "Перевес оружия при переходах: карабин на ремне/слинге, ствол в безопасном секторе при извлечении пистолета"
+  },
+  "equipment": [
+    "карабин + пистолет",
+    "слинг карабина, кобура пистолета",
+    "магазины на обе системы",
+    "рубеж 45×10 м",
+    "бланк PDF T-Rex"
+  ],
+  "variants": {
+    "ru": [
+      "Только пистолетные задания (для чистого пистолетного замера)",
+      "Прогон в бронежилете"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 47,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 5,
+        "y": 1,
+        "label": {
+          "ru": "старт (карабин)"
+        }
+      },
+      {
+        "id": "P2",
+        "x": 5,
+        "y": 20,
+        "label": {
+          "ru": "позиция 2"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 2,
+        "y": 15,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 8,
+        "y": 25,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 3,
+        "y": 35,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T4",
+        "x": 7,
+        "y": 45,
+        "type": "ipsc-metric"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P1",
+        "to": "P2",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T4",
+        "shots": 6
+      },
+      {
+        "action": "move",
+        "from": "P1",
+        "to": "P2"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T4",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T4",
+        "shots": 12
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 12
+      }
+    ]
+  },
+  "related": [
+    "trex-carry-pistol",
+    "trex-50-round-pistol",
+    "trex-cqr-assessment"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-v-dulka",
+  "name": {
+    "ru": "V-дулка"
+  },
+  "discipline": [
+    "shotgun"
+  ],
+  "source": {
+    "origin": "shootie.pro · TNR",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/428"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 6,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "V-дулка"
+  },
+  "steps": {
+    "ru": [
+      "Три стрелковые позиции разнесенные v-образно и 6 поперов раставленных по 2 на дистанции в 10 метров от стрелковой позиции и 5 метров друг от друга. \n\nПо сигналу таймера стрелок поражает и все попера,начиная из любой позиции.\nСтартовое положение патрон в патроннике. Не более двух патронов в оружии."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

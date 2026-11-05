@@ -5,7 +5,8 @@
     "ru": "ДУПа"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "pistol-traumatic"
   ],
   "source": {
     "origin": "shootie.pro · TNR",

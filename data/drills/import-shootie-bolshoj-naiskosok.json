@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-bolshoj-naiskosok",
+  "name": {
+    "ru": "Большой наискосок"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/381"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 54,
+  "distance": {
+    "min": 12,
+    "max": 12,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Большой наискосок"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение на усмотрение стрелка. Поразить все попперы, тарелки и картон. Дострел разрешен, положение оружия — №1."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

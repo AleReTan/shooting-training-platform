@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-travmaticheskij-marafon",
+  "name": {
+    "ru": "Травматический марафон"
+  },
+  "discipline": [
+    "pistol-traumatic"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/395"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 60,
+  "distance": {
+    "min": 8,
+    "max": 8,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Травматический марафон"
+  },
+  "steps": {
+    "ru": [
+      "Поразить все мишени, двигаясь из начала сектора в конец, не причинив вреда штрафным. Количество магазинов не ограничено, однако два магазина должны лежать на столах, которыми обязательно нужно воспользоваться. Количество патронов в магазинах не регламентировано.\n\nПоложение оружия — №1. Дострел разрешен. Все мишени поражаются мозамбик."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}
