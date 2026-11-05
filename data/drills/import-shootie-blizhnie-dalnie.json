@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-blizhnie-dalnie",
+  "name": {
+    "ru": "Ближние/Дальние"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/92"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 6,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Ближние/Дальние"
+  },
+  "steps": {
+    "ru": [
+      "Картиночка"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

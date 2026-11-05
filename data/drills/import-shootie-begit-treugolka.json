@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-begit-treugolka",
+  "name": {
+    "ru": "Бегит треуголка"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/301"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 37,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Бегит треуголка"
+  },
+  "steps": {
+    "ru": [
+      "Поразить все мишени в произвольном порядке, не причинив вреда штрафным мишеням."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

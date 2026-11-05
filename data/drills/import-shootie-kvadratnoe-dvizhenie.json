@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-kvadratnoe-dvizhenie",
+  "name": {
+    "ru": "Квадратное движение"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/220"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 23,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Квадратное движение"
+  },
+  "steps": {
+    "ru": [
+      "7 картонных мишеней и 2 тарелки / поппера для травмата и карабина соответственно. Положение №1 — патрон в патроннике. Карабин — лоу рэди, пистолет в кобуре.\r\n\r\nЗадача: в отведенных рамках поразить СНАЧАЛА все картонные мишени и только потом — металлические, находясь в любой точке, которая отведена в рамках упражнения."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

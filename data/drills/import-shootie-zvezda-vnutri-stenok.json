@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-zvezda-vnutri-stenok",
+  "name": {
+    "ru": "Звезда внутри стенок"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/187"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 19,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Звезда внутри стенок"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок начинает внутри стенок по центру. Карабин находится в бочке у правого порта.\r\n\r\nПо сигналу таймера стрелок поражает из ружья техасскую звезду, затем перемещается к правому порту, поражает пять тарелок, меняет оружие и поражает три картонные мишени двумя выстрелами в каждую.\r\n\r\nВсего выстрелов: 6 из карабина / пистолета и 13 из ружья"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

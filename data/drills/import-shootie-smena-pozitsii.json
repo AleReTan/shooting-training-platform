@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-smena-pozitsii",
+  "name": {
+    "ru": "Смена позиции"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/93"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Смена позиции"
+  },
+  "steps": {
+    "ru": [
+      "Картиночка"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

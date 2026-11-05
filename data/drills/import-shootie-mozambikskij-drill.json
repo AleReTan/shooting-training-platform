@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-mozambikskij-drill",
+  "name": {
+    "ru": "Мозамбикский дрилл"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Давид",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/218"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 6,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Мозамбикский дрилл"
+  },
+  "steps": {
+    "ru": [
+      "Мозамбикский дрилл (две в грудь, одна в голову) 2 мишени IDPI. 6 выстрелов со сменой магазина, 10 метров."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

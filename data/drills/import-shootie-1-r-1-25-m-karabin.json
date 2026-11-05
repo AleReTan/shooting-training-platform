@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-1-r-1-25-m-karabin",
+  "name": {
+    "ru": "“1-R-1” (25 м) Карабин"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · TNR",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/127"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 25,
+    "max": 25,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "“1-R-1” (25 м) Карабин"
+  },
+  "steps": {
+    "ru": [
+      "По сигналу таймера поражается гонг на дистанции 25 метров, производиться смена магазина без сохранения и повторно поражается гонг.\r\nОружие: патруль\r\nПатрон: в патроннике\r\nПредохранитель: вкл"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

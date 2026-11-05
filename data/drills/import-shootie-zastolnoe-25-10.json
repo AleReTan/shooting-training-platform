@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-zastolnoe-25-10",
+  "name": {
+    "ru": "Застольное 25.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/247"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Застольное 25.10"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружия – третье (оружие и магазины лежат на столе)\r\nСтартовая позиция – стрелок сидит расслабленно за столом, пятки касаются ножек стула\r\nМишени – шесть поражаемых мишеней, три штрафные мишени. Свингер – Up&Down (активируется руками со стола)\r\nЗадача – поразить все мишени двумя выстрелами в каждую"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

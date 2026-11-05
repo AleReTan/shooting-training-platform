@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-slabaya-ruka",
+  "name": {
+    "ru": "Слабая рука"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Давид",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/219"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 15,
+    "max": 15,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Слабая рука"
+  },
+  "steps": {
+    "ru": [
+      "Работа слабой рукой. Мишень грудная #4, 10 выстрелов, 15 метров. Время не ограничено."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

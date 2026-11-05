@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-vosmerka-s-bochkami",
+  "name": {
+    "ru": "Восьмерка с бочками"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/121"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 7,
+    "max": 7,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Восьмерка с бочками"
+  },
+  "steps": {
+    "ru": [
+      "Железо или картон на выбор. Также можно ставить сразу оба типа мишеней для карабинщиков / пистолетчиков и ружьистов"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

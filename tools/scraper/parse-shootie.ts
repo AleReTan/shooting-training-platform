@@ -1,13 +1,14 @@
 // Парсер сохранённых страниц shootie.pro/stages (dump-based импорт, Task 17).
-// Регексы вместо DOM-парсера: зависимостей минимум. Структура карточки этапа
-// зафиксирована по фикстуре fixtures/stages-page.html и описана в README.md;
-// при расхождении с реальным дампом структуру правим здесь + в фикстуре.
-// Автоматический обход логина запрещён брифом — только файлы, сохранённые
-// пользователем из залогиненного браузера.
+// Формат: Laravel + Inertia — данные страницы в <script data-page="app"
+// type="application/json">. Дампы собирает пользователь из залогиненного
+// браузера (или одноразовым авторизованным обходом по явной просьбе);
+// автоматический обход логина сам по себе запрещён брифом.
+// Структура зафиксирована по реальным страницам (fixtures/*.html).
 
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
-import type { Drill, Scoring, TargetSpec } from '../../src/data/types';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import type { Drill } from '../../src/data/types';
 
 export interface SkipRecord {
   file: string;
@@ -16,8 +17,8 @@ export interface SkipRecord {
 }
 
 export interface ScrapeResult {
-  drill: Drill | null; // первый валидный карабинный этап файла
-  extraDrills: Drill[]; // остальные валидные этапы того же файла
+  drill: Drill | null; // этап страницы (Stages/Show) или null
+  extraDrills: Drill[]; // зарезервировано: несколько этапов в одном файле
   skipped: SkipRecord[];
 }
 
@@ -55,124 +56,132 @@ export function skippedFileName(file: string): string {
   return `${file.replace(/\.html?$/i, '')}-untitled`;
 }
 
-// --- разбор полей карточки ------------------------------------------------
+// --- разбор Inertia-страницы ---------------------------------------------
 
-const TARGET_MAP: [RegExp, string][] = [
-  [/ipsc\s*metric/i, 'ipsc-metric'],
-  [/ipsc\s*classic/i, 'ipsc-classic'],
-  [/попер/i, 'steel-popper'],
-  [/а4|a4/i, 'a4-paper'],
-  [/сталь|стальн|steel/i, 'steel-circle'],
-];
-
-function parseTargets(raw: string): TargetSpec[] {
-  // "4 × IPSC Metric" → { type: 'ipsc-metric', count: 4 }
-  const m = raw.match(/(\d+)\s*[×xX]\s*(.+)/);
-  if (!m) return [{ type: 'ipsc-metric', count: 1 }];
-  const count = Number(m[1]) || 1;
-  const name = (m[2] ?? '').trim();
-  const type = TARGET_MAP.find(([re]) => re.test(name))?.[1] ?? 'ipsc-metric';
-  return [{ type, count }];
+interface InertiaStage {
+  id: number;
+  title: string;
+  descriptionHtml?: string | null;
+  sections?: { title?: string; descriptionHtml?: string | null }[] | null;
+  weaponTypes?: { value: string; label: string }[] | null;
+  params?: {
+    shotsCount?: number | null;
+    distance?: number | null;
+    difficulty?: string | null;
+  } | null;
+  author?: { name?: string } | null;
 }
 
-function parseDistance(raw: string): { min: number; max: number; unit: 'm' } {
-  // "10–25 м" | "25 м" → диапазон или точка
-  const range = raw.match(/(\d+)\s*[–—−-]\s*(\d+)/);
-  if (range) return { min: Number(range[1]), max: Number(range[2]), unit: 'm' };
-  const single = raw.match(/(\d+)/);
-  const v = single ? Number(single[1]) : 0;
-  return { min: v, max: v, unit: 'm' };
+/** HTML-фрагмент (Tiptap) → читаемый текст с переносами строк. */
+function htmlToText(html: string): string {
+  return html
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '• ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
-function parseScoring(raw: string): Scoring {
-  const s = raw.toLowerCase();
-  if (s.includes('хит')) return { type: 'hit-factor', points: 5 };
-  if (s.includes('пар') || s.includes('время')) return { type: 'par-time' };
-  return { type: 'none' };
-}
+// «Лёгкая» → 2, «Средняя» → 3, «Сложная» → 4; остальное/нет → 3 до вычитки
+const DIFFICULTY: Record<string, 1 | 2 | 3 | 4 | 5> = {
+  'Лёгкая': 2,
+  'Средняя': 3,
+  'Сложная': 4,
+};
 
-function textAfter(raw: string, marker: string): string {
-  const idx = raw.indexOf(marker);
-  return idx === -1 ? '' : raw.slice(idx + marker.length).trim();
-}
-
-// --- парсинг одного HTML-файла -------------------------------------------
-
-const CARD_RE = /<article class="stage-card"[^>]*data-discipline="([^"]*)"[^>]*>([\s\S]*?)<\/article>/g;
+const INERTIA_RE = /<script data-page="app" type="application\/json">([\s\S]*?)<\/script>/;
 
 export function parseShootieHtml(file: string, html: string): ScrapeResult {
-  const extraDrills: Drill[] = [];
-  const skipped: SkipRecord[] = [];
-  let drill: Drill | null = null;
-
-  for (const m of html.matchAll(CARD_RE)) {
-    const discipline = m[1] ?? '';
-    const body = m[2] ?? '';
-
-    const titleM = body.match(/<h2 class="stage-title"[^>]*>(?:\s*<a[^>]*href="([^"]*)"[^>]*>)?([^<]*)/);
-    const title = (titleM?.[2] ?? '').trim();
-    const url = titleM?.[1] || undefined;
-
-    if (!title) {
-      skipped.push({ file, reason: 'блок без заголовка — мусор' });
-      continue;
-    }
-
-    if (discipline !== 'carbine') {
-      skipped.push({
-        file,
-        id: `import-shootie-${slugify(title)}`,
-        reason: `дисциплина ${discipline || '?'} — вне MVP (карабин)`,
-      });
-      continue;
-    }
-
-    const author = body.match(/class="stage-author"[^>]*>\s*Автор:\s*([^<]+)/i)?.[1]?.trim();
-    const meta = new Map<string, string>();
-    for (const li of body.matchAll(/<li data-key="(\w+)">([^<]*)<\/li>/g)) {
-      meta.set(li[1] ?? '', (li[2] ?? '').trim());
-    }
-    const description =
-      body.match(/class="stage-description"[^>]*>([^<]*)/)?.[1]?.trim() ?? '';
-
-    const stepsHtml = body.match(/class="stage-steps"[^>]*>([\s\S]*?)<\/ol>/)?.[1] ?? '';
-    const steps = [...stepsHtml.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((s) =>
-      (s[1] ?? '').trim(),
-    );
-
-    const d: Drill = {
-      schemaVersion: 1,
-      id: `import-shootie-${slugify(title)}`,
-      name: { ru: title },
-      discipline: ['carbine'],
-      source: {
-        origin: author ? `shootie.pro · ${author}` : 'shootie.pro',
-        kind: 'forum',
-        ...(url ? { url } : {}),
-      },
-      tags: [], // расставляются вручную при вычитке (Step 6)
-      difficulty: 3, // дефолт до вычитки
-      fireMode: ['live'],
-      rounds: Number(meta.get('rounds')?.match(/\d+/)?.[0] ?? 0),
-      distance: parseDistance(meta.get('distance') ?? ''),
-      targets: parseTargets(meta.get('targets') ?? ''),
-      scoring: parseScoring(meta.get('scoring') ?? ''),
-      goal: { ru: textAfter(description, 'Цель упражнения — ') || title },
-      steps: { ru: steps.length ? steps : [description || title] },
-      equipment: [],
-      needsReview: true,
-    };
-
-    if (!drill) drill = d;
-    else extraDrills.push(d);
+  const m = html.match(INERTIA_RE);
+  if (!m) {
+    return { drill: null, extraDrills: [], skipped: [{ file, reason: 'нет Inertia-данных (data-page)' }] };
   }
 
-  return { drill, extraDrills, skipped };
+  let stage: InertiaStage | undefined;
+  let component = '';
+  try {
+    const page = JSON.parse(m[1] ?? '') as { component?: string; props?: { stage?: InertiaStage } };
+    component = page.component ?? '';
+    stage = page.props?.stage;
+  } catch {
+    return { drill: null, extraDrills: [], skipped: [{ file, reason: 'битый JSON data-page' }] };
+  }
+
+  if (component !== 'Stages/Show' || !stage) {
+    return {
+      drill: null,
+      extraDrills: [],
+      skipped: [{ file, reason: 'страница каталога — не карточка этапа' }],
+    };
+  }
+
+  const title = stage.title?.trim() ?? '';
+  if (!title) {
+    return { drill: null, extraDrills: [], skipped: [{ file, reason: 'этап без названия' }] };
+  }
+
+  // оружие: карабин или не указано → импорт; пистолет/ружьё без карабина → skip
+  const weapons = new Set((stage.weaponTypes ?? []).map((w) => w.value));
+  if (weapons.size > 0 && !weapons.has('rifle')) {
+    return {
+      drill: null,
+      extraDrills: [],
+      skipped: [
+        {
+          file,
+          id: `import-shootie-${slugify(title)}`,
+          reason: `оружие ${[...weapons].sort().join('/')} — вне MVP (карабин)`,
+        },
+      ],
+    };
+  }
+
+  const description = htmlToText(stage.descriptionHtml ?? '');
+  const sectionTexts = (stage.sections ?? [])
+    .map((s) => htmlToText(s.descriptionHtml ?? ''))
+    .filter(Boolean);
+  const steps = sectionTexts.length ? sectionTexts : description ? [description] : [title];
+
+  const v = typeof stage.params?.distance === 'number' ? stage.params.distance : 0;
+  const difficulty = DIFFICULTY[stage.params?.difficulty ?? ''] ?? 3;
+
+  const drill: Drill = {
+    schemaVersion: 1,
+    id: `import-shootie-${slugify(title)}`,
+    name: { ru: title },
+    discipline: ['carbine'],
+    source: {
+      origin: stage.author?.name ? `shootie.pro · ${stage.author.name}` : 'shootie.pro',
+      kind: 'forum',
+      url: `https://shootie.pro/stages/${stage.id}`,
+    },
+    tags: [], // расставляются вручную при вычитке (Task 17 Step 6)
+    difficulty,
+    fireMode: ['live'],
+    rounds: typeof stage.params?.shotsCount === 'number' ? stage.params.shotsCount : 0,
+    distance: { min: v, max: v, unit: 'm' },
+    // структурированных мишеней в источнике нет — плейсхолдер до вычитки
+    targets: [{ type: 'ipsc-metric', count: 1 }],
+    scoring: { type: 'none' }, // тип скоринга в источнике не указан
+    goal: { ru: title }, // фоллбек до вычитки
+    steps: { ru: steps },
+    equipment: [],
+    needsReview: true,
+  };
+
+  return { drill, extraDrills: [], skipped: [] };
 }
 
 // --- CLI: npm run scrape:shootie -- <dumps-dir> ---------------------------
 
 function main(): void {
+  const here = dirname(fileURLToPath(import.meta.url)); // ESM: __dirname нет
   const dumpsDir = process.argv[2];
   if (!dumpsDir) {
     console.error('Использование: npm run scrape:shootie -- <dumps-dir>');
@@ -185,8 +194,8 @@ function main(): void {
     process.exit(1);
   }
 
-  const drillsDir = join(__dirname, '../../data/drills');
-  const skippedDir = join(__dirname, 'skipped');
+  const drillsDir = join(here, '../../data/drills');
+  const skippedDir = join(here, 'skipped');
   mkdirSync(drillsDir, { recursive: true });
   mkdirSync(skippedDir, { recursive: true });
 
@@ -195,10 +204,9 @@ function main(): void {
   let imported = 0;
   for (const f of files) {
     const res = parseShootieHtml(f, readFileSync(join(dumpsDir, f), 'utf-8'));
-    const valid = [res.drill, ...res.extraDrills];
-    for (const d of valid) {
-      if (!d) continue;
-      // id = имя файла (валидатор); коллизия между страницами → суффикс
+    const d = res.drill;
+    if (d) {
+      // id = имя файла (валидатор); коллизия названий → суффикс
       d.id = uniqueImportId(d.name.ru, usedDrillIds);
       writeFileSync(join(drillsDir, `${d.id}.json`), JSON.stringify(d, null, 2) + '\n');
       imported++;
@@ -209,10 +217,9 @@ function main(): void {
       usedSkippedNames.add(name);
       writeFileSync(join(skippedDir, `${name}.md`), `# ${s.reason}\n\nИсточник: ${s.file}\n`);
     }
-    console.log(`${f}: ${valid.filter(Boolean).length} импортировано, ${res.skipped.length} пропущено`);
   }
 
-  console.log(`\nГотово: ${imported} JSON в data/drills/ (needsReview: true).`);
+  console.log(`\nГотово: ${imported} JSON в data/drills/ (needsReview: true), skipped в tools/scraper/skipped/.`);
   console.log('Дальше: npm run validate:data → вычитка тегов → снять needsReview.');
 }
 

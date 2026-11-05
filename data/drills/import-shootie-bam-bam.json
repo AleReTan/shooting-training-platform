@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-bam-bam",
+  "name": {
+    "ru": "Бам-Бам"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · TNR",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/405"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 8,
+  "distance": {
+    "min": 0,
+    "max": 0,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Бам-Бам"
+  },
+  "steps": {
+    "ru": [
+      "По сигналу таймера стрелок поражает группу мишеней и тарелки. Тарелка слева поражается с неудобного плеча."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

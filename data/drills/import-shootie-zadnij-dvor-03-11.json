@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-zadnij-dvor-03-11",
+  "name": {
+    "ru": "Задний двор 03.11"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/258"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 14,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Задний двор 03.11"
+  },
+  "steps": {
+    "ru": [
+      "7 дальних мишеней. Стартовое положение второе (магазин пристёгнут, патронник пустой). Позиция стрелка – на усмотрение самого стреляющего."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

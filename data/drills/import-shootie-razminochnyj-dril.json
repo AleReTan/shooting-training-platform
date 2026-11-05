@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-razminochnyj-dril",
+  "name": {
+    "ru": "Разминочный ДРИЛ"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · TNR",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/406"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Разминочный ДРИЛ"
+  },
+  "steps": {
+    "ru": [
+      "По сигналу таймера стрелок поражает мишени от центра к краям"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

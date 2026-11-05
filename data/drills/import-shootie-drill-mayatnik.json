@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-drill-mayatnik",
+  "name": {
+    "ru": "Дрилл-маятник"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/277"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 20,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Дрилл-маятник"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение — №1. Дострел разрешен. Задача: поразить все мишени по 5 выстрелов в каждую из удобного положения, не поразив штрафные мишени.\n\nДострелы разрешены."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

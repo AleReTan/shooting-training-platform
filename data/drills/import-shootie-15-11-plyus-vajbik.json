@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-15-11-plyus-vajbik",
+  "name": {
+    "ru": "15.11 Плюс вайбик"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/295"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "15.11 Плюс вайбик"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение: второе.\r\nПозиция стрелка: на усмотрение стреляющего.\r\nМишени: 3 мини-картонные мишени, 6 стандартных картонных мишеней, 2 бабки.\r\n\r\nПо сигналу таймера стрелок поражает все картонные мишени двумя выстрелами в каждую, а железные – до падения. Перемещаться можно только внутри ограничительных линий (белая полоска)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

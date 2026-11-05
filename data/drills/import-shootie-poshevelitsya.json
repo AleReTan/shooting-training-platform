@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-poshevelitsya",
+  "name": {
+    "ru": "Пошевелиться"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/320"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 37,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Пошевелиться"
+  },
+  "steps": {
+    "ru": [
+      "Положение №2. Поразить все мишени, не причинив вреда штрафным. Все мишени поражаются с использованием укрытия, по мере их открытия."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

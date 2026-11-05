@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-metkost-skorost",
+  "name": {
+    "ru": "Меткость+скорость"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Давид",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/216"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Меткость+скорость"
+  },
+  "steps": {
+    "ru": [
+      "Скорость работы + точность, 10 выстрелов, 10 метров. Мишень IPSC."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

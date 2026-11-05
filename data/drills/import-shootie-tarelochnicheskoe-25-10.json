@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-tarelochnicheskoe-25-10",
+  "name": {
+    "ru": "Тарелочническое 25.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/248"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 16,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Тарелочническое 25.10"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружия – второе\r\nСтартовая позиция – на усмотрение стрелка\r\nМишени – пять картонных мишеней, шесть железных тарелок. Свингер – лево-право (активируется от тарелки)\r\nПо сигналу таймера поразить все мишени: картон – два выстрела, железо – пока не упадёт"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

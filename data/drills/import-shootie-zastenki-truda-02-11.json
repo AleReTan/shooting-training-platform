@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-zastenki-truda-02-11",
+  "name": {
+    "ru": "Застенки Труда 02.11"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/266"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 14,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Застенки Труда 02.11"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружия – второе. Позиция стрелка – за стеной от мишеней. Кол-во мишеней – 7."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

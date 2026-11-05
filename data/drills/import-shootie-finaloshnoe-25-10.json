@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-finaloshnoe-25-10",
+  "name": {
+    "ru": "Финалошное 25.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/250"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 31,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Финалошное 25.10"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружие – третье (оружие и магазины лежат на столе)\r\nСтартовая позиция – стрелок сидит расслабленно за столом, пятки касаются ножек стула\r\nМишени – одиннадцать картонных мишеней и девять железных\r\nПо сигналу таймера – поразить все мишени двумя выстрелами"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

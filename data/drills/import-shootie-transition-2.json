@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-transition-2",
+  "name": {
+    "ru": "Transition #2"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Виктор (Valhalla)",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/424"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 6,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Transition #2"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение лоуреди\nЦентральная мишень (Т1) 2 выстрела \nПереход на вторичку и поразить две боковые мишени (Т2 и Т3) по 2 выстрела\nТ1 - зачетная альфа и голова"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

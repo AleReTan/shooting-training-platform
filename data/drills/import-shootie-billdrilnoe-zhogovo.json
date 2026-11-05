@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-billdrilnoe-zhogovo",
+  "name": {
+    "ru": "БиллДрильное жогово"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/83"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 24,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "БиллДрильное жогово"
+  },
+  "steps": {
+    "ru": [
+      "На дальней стороне стрельбища распологаются 4 картонные мишени парами на примерном удалении друг от друга в 5 метров. Стрелковые позиции распологаются в 10 и 5 метрах от пар мишеней.",
+      "По сигналу таймера стрелок должен добежать до позиции напротив мишеней №1 и №2 и поразить каждую шестью выстрелами. Затем переместиться до позиции напротив мишеней №3 и №4 и поразить каждую шестью выстрелами."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

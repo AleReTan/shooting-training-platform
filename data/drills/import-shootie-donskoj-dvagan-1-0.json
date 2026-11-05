@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-donskoj-dvagan-1-0",
+  "name": {
+    "ru": "Донской дваган 1.0"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · TNR",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/429"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 0,
+    "max": 0,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Донской дваган 1.0"
+  },
+  "steps": {
+    "ru": [
+      "По сигналу таймера стрелок поражает тарелки перед собой. Затем переходит на пистолет и поражает мишени от ближней к дальней. Перезаряжается и на отходе поражает мишени от дальней к ближней. \n\nВсе мишени поражаются в движении (вбок/ вперед/назад). В ружье не более двух патронов."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

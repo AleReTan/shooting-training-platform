@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-finaloshnoe-18-10",
+  "name": {
+    "ru": "Финалошное 18.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/234"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 30,
+  "distance": {
+    "min": 3,
+    "max": 3,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Финалошное 18.10"
+  },
+  "steps": {
+    "ru": [
+      "11 картонных мишеней, 3 штрафные мишени, 8 металлических мишеней (4 поппера и 4 тарелки)\r\n\r\nСтартовое положение: №1"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

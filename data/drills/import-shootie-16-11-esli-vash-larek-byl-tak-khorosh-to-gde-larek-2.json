@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-16-11-esli-vash-larek-byl-tak-khorosh-to-gde-larek-2",
+  "name": {
+    "ru": "16.11 Если ваш ларёк был так хорош, то где ларёк 2?"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/289"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 22,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "16.11 Если ваш ларёк был так хорош, то где ларёк 2?"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение: третье, всё лежит на столе. Ёмкость магазинов ограничена 10 патронами.\r\nПозиция стрелка: стрелок сидит на стуле, пятки плотно прижаты к ножкам стула, а руки находятся на коленях.\r\nМишени: 8 мини-картонных мишеней, 2 стандартные картонные мишени, 5 бабок, две тарелки (розовые для травматов, серые для карабинов)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

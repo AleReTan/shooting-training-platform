@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-bar-v-selyatino",
+  "name": {
+    "ru": "Бар в Селятино"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/85"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Бар в Селятино"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени (одна большая и две маленькие) распологаются за стенкой с окном, перед окном стоит стол и стул. Две мишени – стоят слева и справа от стенки так, чтобы стрелок мог поразить их сидя. Остальные мишени расположены так, чтобы стрелок мог поразить максимум две из них с одной стороны",
+      "По сигналу таймера стрелок должен каждую мишень двумя выстрелами, не выходя за пределы белой линии"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

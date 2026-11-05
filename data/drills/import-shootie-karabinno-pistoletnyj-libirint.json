@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-karabinno-pistoletnyj-libirint",
+  "name": {
+    "ru": "Карабинно-пистолетный либиринт"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/279"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 30,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Карабинно-пистолетный либиринт"
+  },
+  "steps": {
+    "ru": [
+      "Положение — №1. Положение стрелка — любая из шести представленных бочек. Задача: поразить все мишени (в том числе 2 тарелки или 2 поппера) из удобного для стрелка положения, не причинив вреда штрафным мишеням.\n\nДострелы разрешены."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

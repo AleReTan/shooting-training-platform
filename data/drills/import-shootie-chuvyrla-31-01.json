@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-chuvyrla-31-01",
+  "name": {
+    "ru": "Чувырла 31.01"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/344"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 42,
+  "distance": {
+    "min": 1,
+    "max": 1,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Чувырла 31.01"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия: №1. Стартовая позиция стрелка: на усмотрение стреляющего.\r\n\r\nОбщее количество мишеней: 15 картонных ипсц мишени, 10 непоражаемые мишени, 6 металлических тарелок, 6 попперов.\r\n\r\nПо сигналу таймера: поразить все мишени двумя выстрелами в каждую, тарелки считаются поражёнными после падения."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

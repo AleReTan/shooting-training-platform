@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-ekskommyunikado-3-5",
+  "name": {
+    "ru": "Экскоммьюникадо 3/5"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · hrust1911 [ТК04]",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/146"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 32,
+  "distance": {
+    "min": 2,
+    "max": 2,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Экскоммьюникадо 3/5"
+  },
+  "steps": {
+    "ru": [
+      "Стол. На столе лежит разряженный карабин и снаряженные магазины к нему, кол-во патрон в магазинах не ограничено. Стрелок по сигналу таймера берет карабин, магазины и бежит к двери. Открывает дверь и сразу поражает 2 мишени, затем заходит в помещение и на ходу поражает остальные 6 мишеней. \n\nМишень считает пораженной если есть 2 попадания в голову и 2 в корпус."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

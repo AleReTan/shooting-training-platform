@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-obshchee-11-10",
+  "name": {
+    "ru": "Общее 11.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/227"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 33,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Общее 11.10"
+  },
+  "steps": {
+    "ru": [
+      "Количество мишеней: 13 картонных мишеней, 3 сталльных поппера, 4 стальные тарелки, 4 штрафные мишени. Картонные мишени поражаются двумя выстрелами в каждую, попперы – до падения. Свингер активируется открытием двери. Стартовое положение – второе. Стрелок начинает в любой точке галлереи."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

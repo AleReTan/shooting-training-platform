@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-5-tselej-i-zalozhnik",
+  "name": {
+    "ru": "5 целей и заложник"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/197"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 13,
+  "distance": {
+    "min": 8,
+    "max": 8,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "5 целей и заложник"
+  },
+  "steps": {
+    "ru": [
+      "4 картонные мишени и тарелка / поппер для травмата и карабина соответственно. Положение №1 — патрон в патроннике. Карабин — лоу рэди, пистолет в кобуре.\r\n\r\nПо сигналу таймера стрелку необходимо поразить сначала все картонные мишени Мозамбик (2 в грудь и 1 в голову), а затем положить тарелку для травматов и поппер для карабинов."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

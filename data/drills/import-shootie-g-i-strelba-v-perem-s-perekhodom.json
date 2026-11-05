@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-g-i-strelba-v-perem-s-perekhodom",
+  "name": {
+    "ru": "«Г» и стрельба в перем. с переходом"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/102"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 32,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "«Г» и стрельба в перем. с переходом"
+  },
+  "steps": {
+    "ru": [
+      "Мишенная обстановка"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-begit-nalevo-ili-napravo",
+  "name": {
+    "ru": "Бегит налево или направо?"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/336"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 15,
+  "distance": {
+    "min": 8,
+    "max": 8,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Бегит налево или направо?"
+  },
+  "steps": {
+    "ru": [
+      "Мишени — пробивные. Классические IPSC поражаются двумя выстрелами, метрические — мозимбик — 2 в грудь и 1 в голову. Положение оружия — №1. Стартовую позицию стрелок выбирает самостоятельно. По сигналу таймера поразить все мишени, не причин вреда штрафным. Дострел разрешен."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

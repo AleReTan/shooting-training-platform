@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-razogrevoshnoe-06-07",
+  "name": {
+    "ru": "Разогревошное 06.07"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/159"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Разогревошное 06.07"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок стоит у рандомной тройки мишеней (большая + 2 маленькие). Стартовое положение: оружие заряжено не более, чем 8 патронами. Заряжено, патрон в патроннике. Пистолет у груди, карабин в лоуреди. По сигналу таймера – стрелок биллдрилится в большую мишень, а затем поражает две маленькие. Всего 10 выстрелов."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

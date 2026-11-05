@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-begit-nazad",
+  "name": {
+    "ru": "Бегит назад"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/299"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 19,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Бегит назад"
+  },
+  "steps": {
+    "ru": [
+      "Поразить все мишени двумя выстрелами в каждую, не причинив вреда штрафным мишеням. Железную тарелку / поппер поразить из положения между покрышек в порте №2."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

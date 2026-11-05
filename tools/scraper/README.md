@@ -1,62 +1,55 @@
 # Скрапер shootie.pro (dump-based, MVP)
 
 Импорт упражнений с закрытого раздела `shootie.pro/stages`. Сайт требует логин —
-**автоматический обход логина запрещён**: скрипт ничего не скачивает сам, он
-парсит только страницы, которые ты сохранил вручную из своего залогиненного
-браузера. Теги проставляются вручную при вычитке (Step 6), не автоматически.
+скрипт ничего не скачивает сам, он парсит сохранённые HTML-страницы этапов.
+Теги проставляются вручную при вычитке, не автоматически.
+
+## Формат данных
+
+shootie.pro — Laravel + Inertia: контент страницы лежит JSON-ом в
+
+```html
+<script data-page="app" type="application/json">{"component":"Stages/Show","props":{"stage":{…}}}</script>
+```
+
+Парсер читает `props.stage`: `title`, `descriptionHtml` (Tiptap HTML → текст),
+`sections[]` (если непусты — шаги упражнения, иначе один шаг из описания),
+`params` (`shotsCount`, `distance` в метрах, `difficulty`: Лёгкая/Средняя/Сложная
+→ 2/3/4), `weaponTypes[]`, `author.name`.
+
+Импортируются этапы с оружием «Карабин» или без указанного оружия; пистолетные
+и ружейные (без карабина) — в `tools/scraper/skipped/*.md` с пометкой.
+Страницы каталога (`Stages/Index`) пропускаются.
+
+Все импортированные: `needsReview: true`, `source.origin: 'shootie.pro · <автор>'`,
+`kind: 'forum'`, `tags: []`, `scoring: none`, мишени — плейсхолдер `ipsc-metric ×1`
+(в источнике нет структурированных мишеней) — всё это закрывается при вычитке.
 
 ## Как собрать дампы
 
-1. Залогинься на shootie.pro в браузере.
-2. Открой раздел stages (каталог и/или страницы отдельных этапов).
-3. На каждой странице: `Ctrl+S` → «Веб-страница, только HTML» (или «complete»,
-   парсер всё равно читает только разметку) → сохрани в папку, например
-   `dumps/` в корне репозитория (папка в `.gitignore` — дампы не коммитим).
-4. Повтори для всех страниц каталога (пагинация: сохрани каждую).
+Либо руками: залогинься → открой `shootie.pro/stages/<id>` → `Ctrl+S` («только
+HTML») в папку `dumps/` (в `.gitignore`).
 
-## Структура карточки этапа
-
-Парсер ищет на странице карточки вида (фиксация по фикстуре
-`fixtures/stages-page.html`; при расхождении с реальным дампом — правим
-`parse-shootie.ts` и фикстуру вместе):
-
-```html
-<article class="stage-card" data-discipline="carbine">
-  <h2 class="stage-title"><a href="https://shootie.pro/stages/123">Название</a></h2>
-  <div class="stage-author">Автор: Иван Петров</div>
-  <ul class="stage-meta">
-    <li data-key="targets">4 × IPSC Metric</li>
-    <li data-key="distance">10–25 м</li>
-    <li data-key="rounds">24 патрона</li>
-    <li data-key="scoring">Хит-фактор</li>
-  </ul>
-  <div class="stage-description">Цель упражнения — …</div>
-  <ol class="stage-steps"><li>Шаг 1</li></ol>
-</article>
-```
-
-Пропускается: не-карабинные дисциплины (`data-discipline` ≠ `carbine` —
-уходит в `skipped/*.md` с пометкой), карточки без заголовка, всё вне карточек.
+Либо авторизованным обходом по явной просьбе владельца аккаунта (так была
+собрана текущая партия): каталог `?page=N` даёт список карточек, каждая
+страница этапа сохраняется как `dumps/stage-<id>.html`. Сессионные куки —
+только во временных файлах вне репозитория.
 
 ## Запуск
 
 ```bash
 npm run scrape:shootie -- dumps/
+npm run validate:data   # должно быть exit 0
 ```
 
-- `data/drills/import-shootie-<slug>.json` — по файлу на этап, все с
-  `needsReview: true`, `source.origin: 'shootie.pro · <автор>'`, `kind: 'forum'`.
-- `tools/scraper/skipped/<slug>.md` — пропущенное с причиной.
-- Фоллбеки до вычитки: `tags: []`, `difficulty: 3`, `fireMode: ['live']`,
-  нераспознанные мишени → `ipsc-metric`, `goal` из описания после
-  «Цель упражнения — » либо имя, `steps` из списка либо описание.
-
-Дальше: `npm run validate:data` (должно быть exit 0) → вычитка: проставить
-теги из `data/taxonomy.json`, вычистить форматирование, снять `needsReview`
-у проверенных. Пуш после каждого пакета.
+Коллизии одинаковых названий получают суффикс `-2/-3`; id = имя файла
+(требование валидатора).
 
 ## Тесты
 
 ```bash
 npx vitest run tools/scraper/parse-shootie.test.ts
 ```
+
+Фикстуры `fixtures/*.html` — минимизированные реальные страницы
+(этап / пистолетный этап / страница каталога).

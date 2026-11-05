@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-15-11-zastenki",
+  "name": {
+    "ru": "15.11 Застенки"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/294"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "15.11 Застенки"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение: первое.\r\nПозиция стрелка: на усмотрение стреляющего.\r\nМишени: 3 мини-картонные мишени, 2 стандартные картонные мишени, 6 железных тарелок, 1 свингер, 1 бабка.\r\n\r\nПо сигналу таймера стрелок поражает все картонные мишени двумя выстрелами в каждую, а железные – до падения. Перемещаться можно только внутри ограничительных линий (белая полоска)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

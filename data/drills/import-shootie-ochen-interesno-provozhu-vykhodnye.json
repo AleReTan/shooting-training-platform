@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-ochen-interesno-provozhu-vykhodnye",
+  "name": {
+    "ru": "Очень интересно провожу выходные"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Контрольный Смыв",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/413"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 15,
+  "distance": {
+    "min": 0,
+    "max": 0,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Очень интересно провожу выходные"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия – 3. Стрелок сидит спиной к рубежу. Оружие и магазин на скамейке сбоку от стрелка. 5 картонных мишеней. Каждая мишень поражается 3 выстрелами – 2 тело, 1 голова."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

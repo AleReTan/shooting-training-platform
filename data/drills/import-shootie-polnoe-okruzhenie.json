@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-polnoe-okruzhenie",
+  "name": {
+    "ru": "Полное окружение"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/384"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 33,
+  "distance": {
+    "min": 15,
+    "max": 15,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Полное окружение"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружия №2. Поразить все открытые мишени, не покидая укрытия. Подниматься запрещено. Дострел разрешен."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-t-rex-1-1-2-2-4",
+  "name": {
+    "ru": "T-Rex 1-1-2-2-4"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · hrust1911 [ТК04]",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/103"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 30,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "T-Rex 1-1-2-2-4"
+  },
+  "steps": {
+    "ru": [
+      "Поразить все круги 10 выстрелами с 5 метров. Цифра в круге соответствует количеству выстрелов в этот круг.",
+      "Поразить все круги 10 выстрелами с 10 метров. Цифра в круге соответствует количеству выстрелов в этот круг.",
+      "Поразить все круги 10 выстрелами с 15 метров. Цифра в круге соответствует количеству выстрелов в этот круг."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

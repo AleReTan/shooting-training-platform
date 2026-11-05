@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-posikunchiki-31-01",
+  "name": {
+    "ru": "Посикунчики 31.01"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/340"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 11,
+  "distance": {
+    "min": 1,
+    "max": 1,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Посикунчики 31.01"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия: №2. Стартовая позиция стрелка: стрелок стоит напротив мишеней.\r\n\r\nОбщее количество мишеней: 4 картонные ипсц мишени, 3 непоражаемые мишени, 3 металлические тарелки.\r\n\r\nПо сигналу таймера: поразить все мишени двумя выстрелами в каждую, тарелки считаются поражёнными после падения.\r\n\r\nМинимальное кол-во выстрелов: 11"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

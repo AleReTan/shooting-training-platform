@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-15-11-ni-slova-po-kartonnomu",
+  "name": {
+    "ru": "15.11 Ни слова по-картонному"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/297"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 45,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "15.11 Ни слова по-картонному"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение: первое.\r\nПозиция стрелка: на усмотрение стреляющего.\r\nМишени: 6 мини-картонные мишени, 11 стандартных картонных мишеней, 6 железных тарелок, 3 поппера, 1 свингер, 8 бабок.\r\n\r\nПо сигналу таймера стрелок поражает все картонные мишени двумя выстрелами в каждую, а железные – до падения. Перемещаться можно только внутри ограничительных линий (белая полоска)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

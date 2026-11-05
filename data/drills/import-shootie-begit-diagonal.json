@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-begit-diagonal",
+  "name": {
+    "ru": "Бегит диагональ"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/300"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 28,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Бегит диагональ"
+  },
+  "steps": {
+    "ru": [
+      "Старт из порта №2. Поразить все мишени, не причинив вреда штрафным. Переместиться в порт №1 и поразить оставшиеся мишени напротив. Железная тарелка / поппер поражаются произвольно. Мишени с головами поражаются Мозамбик."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-10-05-2026-uprazhnenie-2",
+  "name": {
+    "ru": "10.05.2026 - Упражнение 2"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Контрольный Смыв",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/388"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 21,
+  "distance": {
+    "min": 0,
+    "max": 0,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "10.05.2026 - Упражнение 2"
+  },
+  "steps": {
+    "ru": [
+      "7 картонных мишеней.\nВсе мишени поражаются 3 зачетными выстрелами - мозамбик.\nСтартовая позиция стрелка - сидя на стуле. \nСтартовое положение оружия - 3. Оружие на столе, магазины на бочке."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

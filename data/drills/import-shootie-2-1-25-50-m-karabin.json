@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-2-1-25-50-m-karabin",
+  "name": {
+    "ru": "“2-1” (25-50 м) Карабин"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · TNR",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/128"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 15,
+  "distance": {
+    "min": 25,
+    "max": 25,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "“2-1” (25-50 м) Карабин"
+  },
+  "steps": {
+    "ru": [
+      "По сигналу таймера поражается бумажная мишень (25м) двумя выстрелами, затем один выстрелом поражается гон 50м\r\nОружие: патруль\r\nПатрон: в патроннике\r\nПредохранитель: вкл"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

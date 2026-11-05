@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-drillbillovoe-26-10",
+  "name": {
+    "ru": "Дриллбилловое 26.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/252"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Дриллбилловое 26.10"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружия – первое;\r\nСтартовая позиция – на усмотрение стрелка;\r\nМишени – три обычные и две штрафные;\r\nПо сигналу таймера стрелок поражает мишени шестью выстрелами в каждую"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

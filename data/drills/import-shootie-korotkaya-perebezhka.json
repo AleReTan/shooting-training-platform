@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-korotkaya-perebezhka",
+  "name": {
+    "ru": "Короткая перебежка"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/385"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 40,
+  "distance": {
+    "min": 35,
+    "max": 35,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Короткая перебежка"
+  },
+  "steps": {
+    "ru": [
+      "Упражнение в два этапа: поразить все мишени из стартовой позиции и одну стальную тарелку, затем — переместиться и, используя укрытие, из-за бочки поразить оставшиеся мишени (см. этап №2).\n\nПоложение оружия №1 — патрон в патроннике, дострел разрешен."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

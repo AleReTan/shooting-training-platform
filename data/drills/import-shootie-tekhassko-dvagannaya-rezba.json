@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-tekhassko-dvagannaya-rezba",
+  "name": {
+    "ru": "Техасско-дваганная резьба"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/276"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 23,
+  "distance": {
+    "min": 8,
+    "max": 8,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Техасско-дваганная резьба"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение всего оружия — №1. Дострел разрешен. Стартовое оружие — на усмотрение стрелка.\n\nЗадача: поразить картонные мишени по два выстрела в каждую из карабина или травмата, а тарелки и техасскую звезду — ружьем.\n\nДострелы разрешены."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

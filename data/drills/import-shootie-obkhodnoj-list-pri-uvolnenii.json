@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-obkhodnoj-list-pri-uvolnenii",
+  "name": {
+    "ru": "Обходной лист при увольнении"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Контрольный Смыв",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/415"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 33,
+  "distance": {
+    "min": 0,
+    "max": 0,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Обходной лист при увольнении"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия – 2. 11 картонных мишеней. Каждая мишень поражается 3 выстрелами – 2 тело, 1 голова."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

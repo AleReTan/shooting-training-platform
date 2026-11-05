@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-2-bor-nya-17-08-el-dogovornyachok",
+  "name": {
+    "ru": "№2. Борóня 17.08 – Эль Договорнячок."
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/179"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 9,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "№2. Борóня 17.08 – Эль Договорнячок."
+  },
+  "steps": {
+    "ru": [
+      "Три мишени на дистанции 10 метров за стенкой от стрелка.\r\nЁмкость магазина не ограничена. Оружие в положении №3.\r\nСтрелок стоит спиной к мишеням, руки сложены в замок за головой. Оружие лежит на столе за ним. По сигналу таймера стрелок поражает все мишени двумя выстрелами в каждую, затем снова поражает их ещё одним выстрелом в голову."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

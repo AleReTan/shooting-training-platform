@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-distantsionnyj-prezidente",
+  "name": {
+    "ru": "Дистанционный Президенте"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/357"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 23,
+  "distance": {
+    "min": 30,
+    "max": 30,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Дистанционный Президенте"
+  },
+  "steps": {
+    "ru": [
+      "Положение оружия №3 (полностью разряжено) — лежит на столе, магазины допускается располагать на себе.\n\nПо сигналу таймера поразить все мишени, указанные на схеме. Порядок поражения мишеней: сначала поражаются туловища мишеней, затем головы, а в конце — железные мишени.\n\nДострел допускается."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

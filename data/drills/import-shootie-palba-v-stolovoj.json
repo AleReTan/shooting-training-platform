@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-palba-v-stolovoj",
+  "name": {
+    "ru": "Пальба в столовой"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/141"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Пальба в столовой"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок сидит за столом, оружие лежит перед ним, полностью разряженное. По сигналу таймера стрелок заряжается и делает по два выстрела в три мишени х3 = 18 выстрелов (если ружье, то по железкам)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-15-11-dve-bildrilly",
+  "name": {
+    "ru": "15.11 Две билдриллы"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/292"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "15.11 Две билдриллы"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение: второе.\nПозиция стрелка на усмотрение стреляющего.\nМишени: две стандартные картонные мишени, одна бабка\n\nПо сигналу таймера стрелок поражает две мишени шестью выстрелами в каждую."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

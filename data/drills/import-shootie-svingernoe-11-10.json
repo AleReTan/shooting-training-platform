@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-svingernoe-11-10",
+  "name": {
+    "ru": "Свингерное 11.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/224"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 17,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Свингерное 11.10"
+  },
+  "steps": {
+    "ru": [
+      "Количество мишеней: 5 картонных мишеней, 4 стальные тарелки, 3 стальных поппера, 3 штрафные мишени. Картонные мишени поражаются двумя выстрелами, стальные – до падения. Свингер активируется вместе с открытием двери. Стартовое положение – третье."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

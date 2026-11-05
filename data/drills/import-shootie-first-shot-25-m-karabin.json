@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-first-shot-25-m-karabin",
+  "name": {
+    "ru": "“first shot” (25 м) Карабин"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · TNR",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/126"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 5,
+  "distance": {
+    "min": 25,
+    "max": 25,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "“first shot” (25 м) Карабин"
+  },
+  "steps": {
+    "ru": [
+      "По сигналу таймера поражается гонг на дистанции 25 метров.\nОружие: патруль\nПатрон: в патроннике\nПредохранитель: вкл"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

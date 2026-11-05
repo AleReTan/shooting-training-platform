@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-el-prezidente",
+  "name": {
+    "ru": "Эль Президенте"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Давид",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/217"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 9,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Эль Президенте"
+  },
+  "steps": {
+    "ru": [
+      "Эль президенте + билл дрилл (работа на скорость с разворотом), 3 мишени IPSC. 9 выстрелов, 10 метров."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-16-11-roj-bidril",
+  "name": {
+    "ru": "16.11 Рой Бидрил"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/283"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 7,
+    "max": 7,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "16.11 Рой Бидрил"
+  },
+  "steps": {
+    "ru": [
+      "Две картонки от стрелка на расстоянии 7 метров. По сигналу таймера сделать в каждую по 6 выстрелов. Стартовое положение: лоу реди или у груди для пистолета, первое, ёмкость стартового магазина ограничена 10 патронами."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

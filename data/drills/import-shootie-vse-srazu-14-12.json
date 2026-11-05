@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-vse-srazu-14-12",
+  "name": {
+    "ru": "Все сразу 14.12"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/321"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 65,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Все сразу 14.12"
+  },
+  "steps": {
+    "ru": [
+      "Положение №1. Поразить все мишени, не причинив вреда штрафным. Мишени справа (дрилловые) поражаются либо от стола, либо от стенки на дистанции 7-10 метров. Все IPSC мишени поражаются по 2 выстрела."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

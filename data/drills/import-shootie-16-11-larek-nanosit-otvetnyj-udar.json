@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-16-11-larek-nanosit-otvetnyj-udar",
+  "name": {
+    "ru": "16.11 Ларёк наносит ответный удар"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/288"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 24,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "16.11 Ларёк наносит ответный удар"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение: второе. Ёмкость магазинов ограничена 10 патронами.\r\nПозиция стрелка: стрелок стоит перед дверью на расстоянии вытянутых рук от неё.\r\nМишени: 4 мини-картонные мишени, 7 стандартных картонных мишени, 6 бабок, две тарелки (розовые для травматов, серые для карабинов)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

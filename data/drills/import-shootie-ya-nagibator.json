@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-ya-nagibator",
+  "name": {
+    "ru": "Я - нагибатор"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Контрольный Смыв",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/412"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 30,
+  "distance": {
+    "min": 0,
+    "max": 0,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Я - нагибатор"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия – 1. 10 картонных мишеней. Каждая мишень поражается 3 выстрелами – 2 тело, 1 голова."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

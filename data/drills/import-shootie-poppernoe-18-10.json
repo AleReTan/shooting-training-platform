@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-poppernoe-18-10",
+  "name": {
+    "ru": "Попперное 18.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/230"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 8,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Попперное 18.10"
+  },
+  "steps": {
+    "ru": [
+      "2 картонные мишени (одна ближняя, вторая на свингере), 1 штрафная мишень, 4 стальных поппера (один служит активатором)\r\n\r\nСтартовое положение: №2"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

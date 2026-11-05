@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-mini-el-prezidente",
+  "name": {
+    "ru": "Мини-Эль Президенте"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/142"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Мини-Эль Президенте"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок стоит спиной к мишеням. Оружие в положении №2 удерживается слабой рукой. По сигналу таймера стрелок разворачивается, заряжает оружие и делает по два выстрела в три мишень х3 = 18 выстрелов (если пистолет, то из кобуры, если ружье, то по железкам)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

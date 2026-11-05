@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-zhelezoshnoe-18-10",
+  "name": {
+    "ru": "Железошное 18.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/233"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 20,
+  "distance": {
+    "min": 3,
+    "max": 3,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Железошное 18.10"
+  },
+  "steps": {
+    "ru": [
+      "6 картонных мишеней, 8 стальных мишеней (4 поппера и 4 тарелки), две штрафные мишени.\r\n\r\nСтартовое положение: №2"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

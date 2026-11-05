@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-sluchaj-v-larke",
+  "name": {
+    "ru": "Случай в ларьке"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/84"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 16,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Случай в ларьке"
+  },
+  "steps": {
+    "ru": [
+      "4 маленьких мишеней распологаются за укрытием с окошком на дистанции +-5 метров от стрелка, а две пары полноразмерных мишеней распологаются за бочками",
+      "По сигналу таймера стрелок должен каждую мишень двумя выстрелами, не выходя за пределы белой линии"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

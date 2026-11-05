@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-ugolnoe-18-10",
+  "name": {
+    "ru": "Угольное 18.10"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/232"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 16,
+  "distance": {
+    "min": 3,
+    "max": 3,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Угольное 18.10"
+  },
+  "steps": {
+    "ru": [
+      "6 картонных мишеней, 4 стальных поппера\r\n\r\nСтартовое положение: №1"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-3-bor-nya-17-08-khuelochka",
+  "name": {
+    "ru": "№3. Борóня 17.08 – хуёлочка"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/180"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 9,
+    "max": 9,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "№3. Борóня 17.08 – хуёлочка"
+  },
+  "steps": {
+    "ru": [
+      "Пять мишеней за стенкой поставленной буквой «Т» на дистанции до 9 метров от стрелка.\r\nЁмкость магазина не ограничена. Оружие заряжено, патрон в патроннике.\r\n\r\nПо сигналу таймера стрелок поражает мишени двумя выстрелами в каждую в любом порядке, но с одним условием: мишени справа поражаются правой рукой/с правого плеча, а мишени слева поражаются левой рукой/с левого плеча"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

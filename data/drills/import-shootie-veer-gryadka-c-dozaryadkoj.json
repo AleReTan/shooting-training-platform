@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-veer-gryadka-c-dozaryadkoj",
+  "name": {
+    "ru": "Веер / грядка c дозарядкой"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Дедушка Илья",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/63"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 6,
+  "distance": {
+    "min": 12,
+    "max": 12,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Веер / грядка c дозарядкой"
+  },
+  "steps": {
+    "ru": [
+      "Перед стрелком 6 стандартных стальных тарелок. Расстояние между ними 60 см. Стрелок стоит расслабленно, положение оружия любое безопасное. В оружии 5 патронов. \r\nЗадача: Последовательно поразить мишени с максимальной скоростью,Дозарядка не раньше первого выстрела\r\n. Упавшая тарелка - А, промах - M"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

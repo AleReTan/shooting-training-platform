@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-16-11-larechnye-vojny",
+  "name": {
+    "ru": "16.11 Ларёчные войны"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/286"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "16.11 Ларёчные войны"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение: третье, всё лежит на столе. Ёмкость магазинов ограничена 10 патронами.\r\nПозиция стрелка: стрелок сидит на стуле, пятки плотно прижаты к ножкам стула, а руки находятся на коленях.\r\nМишени: 4 мини-картонные мишени, 2 стандартные картонные мишени, 3 бабки"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-bazirovannoe-louredi",
+  "name": {
+    "ru": "Базированное лоуреди"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/136"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Базированное лоуреди"
+  },
+  "steps": {
+    "ru": [
+      "вскинуться и произвести два выстрела в мишень х5 = 10 выстрелов (если пистолет, то от груди, если ружье, то по железным тарелкам)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

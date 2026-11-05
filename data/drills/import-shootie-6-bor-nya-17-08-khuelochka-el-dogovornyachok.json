@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-6-bor-nya-17-08-khuelochka-el-dogovornyachok",
+  "name": {
+    "ru": "№6. Борóня 17.08 – Хуёлочка+Эль Договорнячок"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/183"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 24,
+  "distance": {
+    "min": 9,
+    "max": 9,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "№6. Борóня 17.08 – Хуёлочка+Эль Договорнячок"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок начинает напротив группы мишеней «хуёлочка».\r\nСтартовое положение: №1, емкость не ограничена. По сигналу таймера стрелок должен поразить все мишени тремя выстрелами: 2 в корпус, 1 в голову."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

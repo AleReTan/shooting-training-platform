@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-drill-stikh",
+  "name": {
+    "ru": "Дрилл-стих"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/164"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Дрилл-стих"
+  },
+  "steps": {
+    "ru": [
+      "Перед стрелком на расстоянии 5 метров находится 3 мишени IDPA/IPSC, между мишенями расстояние 1 метр.\r\n\r\nПоложение 1, патрон в патроннике, предохранитель включён, для карабина стойка хай реди, пистолет от груди.\r\n\r\nПо сигналу таймера необходимо поразить мишени по одному выстрелу в следующем порядке:\r\n\r\nЛево центр право\r\nПраво центр лево\r\nЦентр лево право\r\nЦентр право лево\r\nЛево право центр\r\nПраво лево центр\r\n\r\nАвтор брифинга https://t.me/eshe_pohodit, ссылка на оригинальный текст https://t.me/eshe_pohodit/443."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

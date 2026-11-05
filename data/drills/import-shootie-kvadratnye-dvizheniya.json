@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-kvadratnye-dvizheniya",
+  "name": {
+    "ru": "Квадратные движения"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/335"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 26,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Квадратные движения"
+  },
+  "steps": {
+    "ru": [
+      "Мишени — пробивные. Классические IPSC поражаются двумя выстрелами, метрические — мозимбик — 2 в грудь и 1 в голову. По сигналу таймера поразить центральную группу, не поразив штрафные. Затем, на усмотрение стрелка, слева или справа поражаются остальные группы мишеней. Дострел разрешен. Как минимум одна перезарядка."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

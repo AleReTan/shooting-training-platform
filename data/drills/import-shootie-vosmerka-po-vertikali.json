@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-vosmerka-po-vertikali",
+  "name": {
+    "ru": "Восьмёрка по вертикали"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/153"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 8,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Восьмёрка по вертикали"
+  },
+  "steps": {
+    "ru": [
+      "По сигналу таймера стрелок должен поразить все мишени в движении восьмёркой между бочками."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

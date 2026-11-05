@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-metkost",
+  "name": {
+    "ru": "Меткость"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Давид",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/215"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 20,
+    "max": 20,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Меткость"
+  },
+  "steps": {
+    "ru": [
+      "Стрельба на точность, 10 выстрелов, 20 метров. Мишень грудная #4. Время не ограничено."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-5-bor-nya-17-08-melnitsa-khuelochka",
+  "name": {
+    "ru": "№5. Борóня 17.08 – Мельница+Хуёлочка"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/182"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 27,
+  "distance": {
+    "min": 7,
+    "max": 7,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "№5. Борóня 17.08 – Мельница+Хуёлочка"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок начинает напротив группы мишеней «хуёлочка».\nСтартовое положение: №1, емкость не ограничена. По сигналу таймера стрелок должен поразить все мишени тремя выстрелами: 2 в корпус, 1 в голову."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

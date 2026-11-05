@@ -1,48 +1,59 @@
 import { test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { parseShootieHtml, uniqueImportId, skippedFileName } from './parse-shootie';
 
+test('CLI доходит до main(): без аргументов печатает usage и выходит не 0', () => {
+  // ловит падения бутстрапа модуля (например __dirname в ESM)
+  const r = spawnSync('npx tsx tools/scraper/parse-shootie.ts', {
+    shell: true,
+    encoding: 'utf-8',
+    timeout: 60_000,
+  });
+  const out = `${r.stdout ?? ''}${r.stderr ?? ''}`;
+  expect(r.status).not.toBe(0);
+  expect(out).toContain('Использование');
+}, 90_000);
+
 const FIXTURES = join(__dirname, 'fixtures');
-const FIXTURE_HTML = readFileSync(join(FIXTURES, 'stages-page.html'), 'utf-8');
+const read = (name: string) => readFileSync(join(FIXTURES, name), 'utf-8');
 
-test('парсит карабинный этап в объект схемы с needsReview', () => {
-  const res = parseShootieHtml('stages-page.html', FIXTURE_HTML);
-
-  expect(res.drill).toBeTruthy();
+test('страница этапа (Inertia JSON) → Drill с needsReview', () => {
+  const res = parseShootieHtml('stage-show.html', read('stage-show.html'));
   const d = res.drill!;
-  expect(d.id).toBe('import-shootie-testovyj-etap-perenos-ognya');
-  expect(d.name.ru).toBe('Тестовый этап: перенос огня');
+  expect(d.id).toBe('import-shootie-v-drill');
+  expect(d.name.ru).toBe('V-Drill');
   expect(d.needsReview).toBe(true);
   expect(d.source).toEqual({
-    origin: 'shootie.pro · Иван Петров',
+    origin: 'shootie.pro · Камешек',
     kind: 'forum',
-    url: 'https://shootie.pro/stages/123',
+    url: 'https://shootie.pro/stages/60',
   });
   expect(d.discipline).toEqual(['carbine']);
-  expect(d.scoring).toEqual({ type: 'hit-factor', points: 5 });
-  expect(d.distance).toEqual({ min: 10, max: 25, unit: 'm' });
-  expect(d.rounds).toBe(24);
-  expect(d.targets).toEqual([{ type: 'ipsc-metric', count: 4 }]);
-  expect(d.steps.ru).toHaveLength(3);
-  // goal = предложение после маркера «Цель упражнения — » в описании
-  expect(d.goal.ru).toBe('быстрые переносы между четырьмя мишенями без потери зоны.');
+  expect(d.rounds).toBe(18);
+  expect(d.distance).toEqual({ min: 6, max: 6, unit: 'm' });
+  expect(d.difficulty).toBe(4); // «Сложная» → 4
+  expect(d.scoring).toEqual({ type: 'none' });
+  expect(d.steps.ru[0]).toContain('Мишени расставляются клином');
+  expect(d.goal.ru).toBe('V-Drill'); // фоллбек до вычитки
 });
 
-test('не-карабинные и безымянные блоки попадают в skipped с причиной', () => {
-  const res = parseShootieHtml('stages-page.html', FIXTURE_HTML);
+test('пистолетный этап → skipped с причиной', () => {
+  const res = parseShootieHtml('stage-pistol.html', read('stage-pistol.html'));
+  expect(res.drill).toBeNull();
+  expect(res.skipped).toHaveLength(1);
+  expect(res.skipped[0]?.reason).toBe('оружие pistol — вне MVP (карабин)');
+});
 
-  expect(res.drill).toBeTruthy();
-  expect(res.extraDrills).toHaveLength(0);
-  expect(res.skipped.length).toBe(2);
-  expect(res.skipped.map((s) => s.reason).sort()).toEqual([
-    'блок без заголовка — мусор',
-    'дисциплина pistol — вне MVP (карабин)',
-  ]);
+test('страница каталога (Stages/Index) → skipped, не карточка этапа', () => {
+  const res = parseShootieHtml('catalog-index.html', read('catalog-index.html'));
+  expect(res.drill).toBeNull();
+  expect(res.skipped).toHaveLength(1);
+  expect(res.skipped[0]?.reason).toBe('страница каталога — не карточка этапа');
 });
 
 test('uniqueImportId: коллизия одинаковых названий получает суффикс -2/-3', () => {
-  // один этап на двух страницах пагинации не должен молча перезаписать JSON
   const used = new Set<string>();
   expect(uniqueImportId('Тестовый этап', used)).toBe('import-shootie-testovyj-etap');
   expect(uniqueImportId('Тестовый этап', used)).toBe('import-shootie-testovyj-etap-2');

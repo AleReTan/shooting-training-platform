@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-vkhod-v-pozitsiyu-sleva",
+  "name": {
+    "ru": "Вход в позицию слева"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/139"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Вход в позицию слева"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок стоит в правом порту лицом к мишеням. По сигналу вбегает в левый порт и делает по два выстрела в три мишени напротив х3 = 18 выстрелов (если пистолет, то из кобуры, если ружье, то по железкам)"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

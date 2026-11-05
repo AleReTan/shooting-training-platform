@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-znakomstvo-s-dvizhkoj-galej",
+  "name": {
+    "ru": "Знакомство с движкой Галей"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/374"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 15,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Знакомство с движкой Галей"
+  },
+  "steps": {
+    "ru": [
+      "Поразить все 5 мишеней мозамбик — 2 в грудь и 1 в голову, не причин вреда штрафной.\nПервая группа поражается из порта, указанного организатором, движка — стоя после активации.\nДострел разрешен. Положение оружия №1 — патрон в патроннике."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

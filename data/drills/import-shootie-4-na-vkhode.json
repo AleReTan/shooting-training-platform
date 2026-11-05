@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-4-na-vkhode",
+  "name": {
+    "ru": "4 на входе"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Дедушка Илья",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/116"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 6,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "4 на входе"
+  },
+  "steps": {
+    "ru": [
+      "На старте в оружии 3 патрона ( 2 для двустволок). На рубеже 6 тарелок, две напротив стартового положения, 4 напротив позиции. По сигналу таймера сделать два выстрела, и и максимально резким рывком занять позицию 2, после чего зарядить 4 патрона и  поразить 4 оставшихся тарелки"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

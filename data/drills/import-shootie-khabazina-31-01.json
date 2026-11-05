@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-khabazina-31-01",
+  "name": {
+    "ru": "Хабазина 31.01"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/343"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 22,
+  "distance": {
+    "min": 1,
+    "max": 1,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Хабазина 31.01"
+  },
+  "steps": {
+    "ru": [
+      "Стартовое положение оружия: №2. Стартовая позиция стрелка: стрелок стоит напротив окна, руками касаясь стены.\r\n\r\nОбщее количество мишеней: 7 картонные ипсц мишени, 10 непоражаемые мишени, 3 металлические тарелки, 5 попперов.\r\n\r\nПо сигналу таймера: поразить все мишени двумя выстрелами в каждую, тарелки считаются поражёнными после падения."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

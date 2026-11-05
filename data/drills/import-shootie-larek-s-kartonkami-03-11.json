@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-larek-s-kartonkami-03-11",
+  "name": {
+    "ru": "Ларёк с картонками 03.11"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/261"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Ларёк с картонками 03.11"
+  },
+  "steps": {
+    "ru": [
+      "3 большие мишени, 2 детские мишени, 2 бабки. Стартовое положение второе. Позиция стрелка – на усмотрение самого стреляющего."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

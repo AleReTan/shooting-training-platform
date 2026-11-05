@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-moi-granitsy",
+  "name": {
+    "ru": "Мои границы"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/189"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Мои границы"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок начинает внутри стенок по центру с карабином/пистолетом. Ружье в бочке внутри стенок.\r\n\r\nПо сигналу таймера стрелок должен поразить шесть картонных мишеней, не выходя за пределы стенок двумя выстрелами в каждую. Затем поразить техасскую звезду из ружья. \r\n\r\nВсего выстрелов: 12 из карабина/пистолета и N — из ружья"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

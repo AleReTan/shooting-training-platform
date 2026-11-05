@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-legkaya-probezhka",
+  "name": {
+    "ru": "Лёгкая пробежка"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Камешек",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/165"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 30,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Лёгкая пробежка"
+  },
+  "steps": {
+    "ru": [
+      "Положение 1, патрон в патроннике. Карабин в положении патруль, пистолет в кобуре. \r\nПо сигналу таймера необходимо поразить все мишени не выходя за штрафную линию и вернуться в точку старта. \r\nЗачетных выстрелов 26, 4 дострел.\r\nКартонные мишени поражаются 3 выстрелами. Попперы поражаются одним выстрелом.\r\n4 штрафных мишени"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

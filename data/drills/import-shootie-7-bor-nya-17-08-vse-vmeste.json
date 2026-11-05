@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-7-bor-nya-17-08-vse-vmeste",
+  "name": {
+    "ru": "№7. Борóня 17.08 – Всё вместе"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/184"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 36,
+  "distance": {
+    "min": 7,
+    "max": 7,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "№7. Борóня 17.08 – Всё вместе"
+  },
+  "steps": {
+    "ru": [
+      "Стрелок начинает напротив группы мишеней «хуёлочка».\r\nСтартовое положение: №1, емкость не ограничена. По сигналу таймера стрелок должен поразить все мишени тремя выстрелами: 2 в корпус, 1 в голову."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

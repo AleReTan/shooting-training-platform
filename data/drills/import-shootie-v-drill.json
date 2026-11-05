@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-v-drill",
+  "name": {
+    "ru": "V-Drill"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Камешек",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/60"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 18,
+  "distance": {
+    "min": 6,
+    "max": 6,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "V-Drill"
+  },
+  "steps": {
+    "ru": [
+      "Мишени расставляются клином, как буква «V», от стрелка до ближайшей мишени 5-6 ярдов (4.57 — 5.48 метра). Стрелок стреляет по мишеням сплитами (по 2 выстрела) в следующем поядке:\r\n\r\n2 в центральную мишень\r\n2 в среднюю справа\r\n2 в центральную мишень\r\n2 в среднюю слева\r\n2 в центральную мишень\r\n2 в крайнюю справа\r\n2 в центральную мишень\r\n2 в крайнюю слева\r\n2 в центральную мишень"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

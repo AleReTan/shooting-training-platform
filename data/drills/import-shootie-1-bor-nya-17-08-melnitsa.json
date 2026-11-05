@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-1-bor-nya-17-08-melnitsa",
+  "name": {
+    "ru": "№1. Борóня 17.08 – мельница"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/178"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 16,
+  "distance": {
+    "min": 7,
+    "max": 7,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "№1. Борóня 17.08 – мельница"
+  },
+  "steps": {
+    "ru": [
+      "Четыре мишени и одна бабка на дистанции 7 метров от стрелка. Зоны А закрыты наполовину.\r\nЁмкость магазина ограничена 9 патронами. Оружие заряжено, патрон в патроннике.\r\nПо сигналу таймера стрелок поражает все мишени двумя выстрелами в каждую, затем снова поражает их ещё двумя выстрелами в каждую."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

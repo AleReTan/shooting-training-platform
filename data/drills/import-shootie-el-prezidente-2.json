@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-el-prezidente-2",
+  "name": {
+    "ru": "Эль Президенте!"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/8"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Эль Президенте!"
+  },
+  "steps": {
+    "ru": [
+      "Стоя спиной к мишеням, оружие заряжено и в кобуре, руки подняты вверх. По сигналу развернуться и поразить 3 мишени по 2 выстрела в грудь, сменить магазин и снова поразить 3 мишени по 2 выстрела в грудь. Зачетное время 8 секунд.",
+      "Упражнение можно усложнить, выстрелив после перезарядки 3 головы по выстрелу в каждую"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

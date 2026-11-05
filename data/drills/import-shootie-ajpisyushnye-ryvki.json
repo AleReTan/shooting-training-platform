@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-ajpisyushnye-ryvki",
+  "name": {
+    "ru": "Айписюшные рывки"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/399"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 40,
+  "distance": {
+    "min": 12,
+    "max": 12,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Айписюшные рывки"
+  },
+  "steps": {
+    "ru": [
+      "Айписюшные рывки"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

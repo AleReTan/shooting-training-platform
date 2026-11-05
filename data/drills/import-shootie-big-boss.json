@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-big-boss",
+  "name": {
+    "ru": "Биг босс"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/382"
+  },
+  "tags": [],
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 71,
+  "distance": {
+    "min": 35,
+    "max": 35,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Биг босс"
+  },
+  "steps": {
+    "ru": [
+      "Поразить все мишени из 4-х позиций согласно брифингу. Положение оружия №1 — патрон в патроннике. Дострел разрешен."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

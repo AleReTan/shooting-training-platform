@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-kurs-karabin-pistolet-ot-t-rex",
+  "name": {
+    "ru": "Курс карабин / пистолет от T-rex"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · Травма",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/256"
+  },
+  "tags": [],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 50,
+  "distance": {
+    "min": 10,
+    "max": 10,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Курс карабин / пистолет от T-rex"
+  },
+  "steps": {
+    "ru": [
+      "Курс огневой подготовки для пистолета",
+      "Курс огневой подготовки для карабина"
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}

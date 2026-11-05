@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "import-shootie-zmejka",
+  "name": {
+    "ru": "Змейка"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "shootie.pro · muehehehehe.gif",
+    "kind": "forum",
+    "url": "https://shootie.pro/stages/87"
+  },
+  "tags": [],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 20,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Змейка"
+  },
+  "steps": {
+    "ru": [
+      "Я не знаю, как это описать словами, но это поле – обязательно",
+      "По сигналу таймера стрелок должен каждую мишень в указанной последовательности двумя выстрелами. Движение между бочкой должно быть в форме цифры 8."
+    ]
+  },
+  "equipment": [],
+  "needsReview": true
+}
