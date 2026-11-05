@@ -30,7 +30,7 @@ test('поиск фильтрует карточки', () => {
 
 test('фильтр «тип тренировки»: варианты «огневые» и «холостые»', () => {
   render(<CatalogPage data={data} />);
-  const group = screen.getByRole('group', { name: 'тип тренировки' });
+  const group = screen.getByRole('radiogroup', { name: 'тип тренировки' });
   expect(group.textContent).toContain('огневые');
   expect(group.textContent).toContain('холостые');
   expect(group.textContent).not.toContain('сухие');
@@ -39,7 +39,7 @@ test('фильтр «тип тренировки»: варианты «огне�
 
 test('фильтр fireMode «холостые» оставляет только dry', () => {
   render(<CatalogPage data={data} />);
-  fireEvent.click(screen.getByRole('button', { name: 'холостые' }));
+  fireEvent.click(screen.getByRole('radio', { name: 'холостые' }));
   expect(screen.getByText('Стена (холостая)')).toBeTruthy();
   expect(screen.queryByText('От 1 до 5')).toBeNull();
 });
@@ -53,7 +53,7 @@ test('фильтр «Оружие: пистолет» оставляет пис�
 
 test('сложность «3+» прячет упражнения легче третьей', () => {
   render(<CatalogPage data={data} />);
-  fireEvent.click(screen.getByRole('button', { name: '3+' }));
+  fireEvent.click(screen.getByRole('radio', { name: '3+' }));
   expect(screen.getByText('От 1 до 5')).toBeTruthy(); // сложность 3
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull(); // сложность 2
 });
@@ -63,6 +63,19 @@ test('сложность «до 2» прячет упражнения треть
   fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy(); // сложность 2
   expect(screen.queryByText('От 1 до 5')).toBeNull(); // сложность 3
+});
+
+test('сложность «до 1» оставляет только самые простые', () => {
+  render(<CatalogPage data={data} />);
+  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '1' } });
+  expect(screen.getByText('Стена (холостая)')).toBeTruthy(); // сложность 1
+  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull(); // сложность 2
+});
+
+test('ряды тегов подписаны как группы (навыки, условия)', () => {
+  render(<CatalogPage data={data} />);
+  expect(screen.getByRole('group', { name: 'навыки' })).toBeTruthy();
+  expect(screen.getByRole('group', { name: 'условия' })).toBeTruthy();
 });
 
 test('чип тега «Первый выстрел» оставляет одно упражнение', () => {
@@ -94,7 +107,7 @@ test('счётчик показывает «N из M» и сбрасывает �
   const total = data.drills.length;
   expect(screen.getByText(`Найдено ${total} из ${total}`)).toBeTruthy();
 
-  fireEvent.click(screen.getByRole('button', { name: '3+' }));
+  fireEvent.click(screen.getByRole('radio', { name: '3+' }));
   expect(screen.queryByText(`Найдено ${total} из ${total}`)).toBeNull();
 
   fireEvent.click(screen.getByText('сбросить фильтры'));
@@ -119,6 +132,17 @@ test('избранное: звезда сохраняет в localStorage, чи�
   fireEvent.click(screen.getByRole('button', { name: 'избранное' }));
   expect(screen.getByText('От 1 до 5')).toBeTruthy();
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
+});
+
+test('избранное из соседней вкладки не затирается при клике', () => {
+  render(<CatalogPage data={data} />);
+  // пока каталог открыт, другая вкладка добавила своё избранное
+  window.localStorage.setItem('shooting-favorites-v1', JSON.stringify(['bill-drill-carbine']));
+  const card = screen.getByText('От 1 до 5').closest('.drill-card') as HTMLElement;
+  fireEvent.click(card.querySelector('.drill-card__star') as HTMLElement);
+  const stored = JSON.parse(window.localStorage.getItem('shooting-favorites-v1') ?? '[]');
+  expect(stored).toContain('one-to-five');
+  expect(stored).toContain('bill-drill-carbine'); // не затёрт
 });
 
 test('пустой результат: «Ничего не найдено» + кнопка «Сбросить» возвращает список', () => {

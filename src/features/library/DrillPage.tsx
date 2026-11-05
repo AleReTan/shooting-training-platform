@@ -33,12 +33,20 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const courses = coursesByDrillId.get(drill.id) ?? [];
 
   const isFav = favorites.includes(drill.id);
-  const toggleFav = () =>
-    setFavorites((f) => {
-      const next = toggleFavorite(f, drill.id);
-      saveFavorites(next);
-      return next;
-    });
+  const toggleFav = () => {
+    // перечитываем хранилище: соседняя вкладка могла изменить список
+    const next = toggleFavorite(loadFavorites(), drill.id);
+    saveFavorites(next);
+    setFavorites(next);
+  };
+
+  // у холостых патронов нет — тип тренировки уже говорит «холостая»
+  const metaParts = [
+    distanceText(drill.distance),
+    drill.rounds > 0 ? `${drill.rounds} патр.` : '',
+    `сложность ${drill.difficulty}/5`,
+    drill.fireMode.map((m) => FIRE_LABELS[m] ?? m).join(' + '),
+  ].filter(Boolean);
 
   return (
     <section>
@@ -61,10 +69,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
         <p class="drill-page__alt">{drill.name.en}</p>
       ) : null}
 
-      <p class="drill-card__meta">
-        {distanceText(drill.distance)} · {drill.rounds} патр. · сложность {drill.difficulty}/5 ·{' '}
-        {drill.fireMode.map((m) => FIRE_LABELS[m] ?? m).join(' + ')}
-      </p>
+      <p class="drill-card__meta">{metaParts.join(' · ')}</p>
 
       {drill.needsReview ? (
         <p class="drill-page__review">

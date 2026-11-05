@@ -1,6 +1,8 @@
-// Сигналы таймера: <audio> с wav-ассетами (спека §8 п.4).
+// Сигналы таймера: <audio> с wav-ассетами.
 // Web Audio на iPhone глушится переключателем «без звука», медиа-канал
-// audio-элемента — нет. Плеи вне жеста требует разблокировки (unlockAudio).
+// audio-элемента — нет. Плэй вне жеста требует разблокировки (unlockAudio),
+// поэтому элементы живут в документе и переиспользуются: разблокированная
+// тройка не должна пересоздаваться перед сигналом.
 
 import startUrl from './beep-start.wav';
 import parUrl from './beep-par.wav';
@@ -16,6 +18,9 @@ function mk(src: string): HTMLAudioElement {
   const a = document.createElement('audio');
   a.src = src;
   a.preload = 'auto';
+  // В документе — иначе isConnected всегда false и кэш пересоздаётся,
+  // теряя разблокировку жеста.
+  document.body.appendChild(a);
   return a;
 }
 

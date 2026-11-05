@@ -195,7 +195,9 @@ body {
 /* Избранное: звезда поверх растянутой ссылки карточки и в шапке упражнения */
 .drill-card__star {
   position: relative; z-index: 1; /* выше растянутой ссылки карточки */
-  border: 0; background: none; padding: 0.05rem 0.05rem 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 24px; min-height: 24px; /* пальцевая зона, мимо — откроется карточка */
+  border: 0; background: none; padding: 0;
   color: var(--muted); font-size: 1.15rem; line-height: 1;
   cursor: pointer; flex-shrink: 0;
 }

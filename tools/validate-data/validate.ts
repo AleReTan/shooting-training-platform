@@ -77,6 +77,10 @@ function validateLayout(file: string, layout: Layout, errors: string[]): void {
     errors.push(`${file}: layout с мишенями требует хотя бы одну позицию (positions)`);
   }
 
+  if (layout.realDepth != null && (typeof layout.realDepth !== 'number' || layout.realDepth <= 0)) {
+    errors.push(`${file}: layout.realDepth должен быть положительным числом`);
+  }
+
   const posIds = new Set(layout.positions.map((p) => p.id));
   const tgtIds = new Set(layout.targets.map((t) => t.id));
   const inBounds = (x: number, y: number) =>

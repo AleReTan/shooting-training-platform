@@ -30,5 +30,6 @@ export function requiredTime(points: number, targetHf: number): number {
 
 /** Очки, которые за это время дадут целевой HF (вверх — гарантия ≥ цели). */
 export function requiredPoints(timeSec: number, targetHf: number): number {
-  return Math.ceil(timeSec * targetHf);
+  // ε против ошибки представления: 16.6×15 = 249.00000000000003 → 249, не 250
+  return Math.ceil(timeSec * targetHf - 1e-9);
 }

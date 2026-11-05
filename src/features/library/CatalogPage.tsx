@@ -28,12 +28,12 @@ export default function CatalogPage({ data }: { data: AppData }) {
   const [favOnly, setFavOnly] = useState(false);
   const [favorites, setFavorites] = useState<string[]>(() => loadFavorites());
 
-  const toggleFav = (id: string) =>
-    setFavorites((f) => {
-      const next = toggleFavorite(f, id);
-      saveFavorites(next);
-      return next;
-    });
+  const toggleFav = (id: string) => {
+    // перечитываем хранилище: соседняя вкладка могла изменить список
+    const next = toggleFavorite(loadFavorites(), id);
+    saveFavorites(next);
+    setFavorites(next);
+  };
 
   const tagLabels = useMemo(
     () => new Map(taxonomy.tags.map((t) => [t.id, localized(t.label)])),
@@ -118,7 +118,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
   };
 
   const tagRow = (group: 'skill' | 'condition', label: string) => (
-    <div class="filters__tags">
+    <div class="filters__tags" role="group" aria-label={label}>
       <span class="filters__tags-label">{label}</span>
       {taxonomy.tags
         .filter((t) => t.group === group)
@@ -208,7 +208,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
               value={difficultyMax}
               onChange={(e) => setDifficultyMax(Number((e.target as HTMLSelectElement).value))}
             >
-              {[2, 3, 4, 5].map((n) => (
+              {[1, 2, 3, 4, 5].map((n) => (
                 <option value={n} selected={n === difficultyMax}>
                   {n}
                 </option>

@@ -81,6 +81,7 @@ export interface Layout {
   unit: 'm';
   width: number;
   depth: number;
+  realDepth?: number; // реальная глубина рубежа, если ось глубины сжата; подпись дальнего края
   positions: LayoutPosition[];
   targets: LayoutTargetRef[];
   barriers?: LayoutBarrier[];

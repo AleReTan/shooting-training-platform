@@ -56,7 +56,7 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
         class="diagram-field"
       />
       <text x={M / 2 + 8} y={M / 2 + 16} class="diagram-caption">
-        дальняя граница {layout.depth} м
+        дальняя граница {layout.realDepth ?? layout.depth} м
       </text>
 
       {/* Линии движения: сжатые переходы (спринт/марш) подписаны

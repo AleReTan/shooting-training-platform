@@ -1,8 +1,9 @@
 // «Тренировка дня»: детерминированный по дате выбор упражнения.
 
-/** Ключ дня вида YYYY-MM-DD. */
+/** Ключ дня вида YYYY-MM-DD — по локальной дате, день листается в полночь. */
 export function todayKey(d = new Date()): string {
-  return d.toISOString().slice(0, 10);
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 /** Выбор дня: стабильный хеш даты → индекс списка. Пустой список — null. */

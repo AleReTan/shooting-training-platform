@@ -34,3 +34,16 @@ test('unlockAudio по жесту готовит все три сигнала (p
   unlockAudio();
   expect(played.length).toBe(3);
 });
+
+test('элементы живут в документе — кэш не плодит новые audio', () => {
+  beep('start');
+  beep('par');
+  expect(document.querySelectorAll('audio').length).toBe(3);
+});
+
+test('unlock и сигнал играют одни и те же элементы (разблокировка не выбрасывается)', () => {
+  unlockAudio();
+  const unlocked = [...played];
+  beep('start');
+  expect(played[3]).toBe(unlocked[0]);
+});

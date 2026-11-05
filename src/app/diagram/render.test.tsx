@@ -53,6 +53,19 @@ test('придвинутая дальняя мишень подписана ре
   expect(container.textContent).toContain('T1 · 200 м');
 });
 
+test('сжатая схема подписывает дальнюю границу реальной глубиной', () => {
+  const far: Layout = {
+    unit: 'm',
+    width: 8,
+    depth: 24,
+    realDepth: 202,
+    positions: [{ id: 'P1', x: 4, y: 1 }],
+    targets: [{ id: 'T1', x: 4, y: 21, type: 'ipsc-classic', distance: 200 }],
+  };
+  const { container } = render(<LayoutDiagram layout={far} />);
+  expect(container.textContent).toContain('дальняя граница 202 м');
+});
+
 test('playback подсвечивает активную мишень и счёт выстрелов', () => {
   const { container } = render(
     <LayoutDiagram

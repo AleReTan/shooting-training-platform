@@ -70,6 +70,7 @@
     "unit": "m",
     "width": 10,
     "depth": 24,
+    "realDepth": 55,
     "positions": [
       {
         "id": "RUN",

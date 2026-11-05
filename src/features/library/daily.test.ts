@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { dailyDrillId } from './daily';
+import { dailyDrillId, todayKey } from './daily';
 
 const ids = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
@@ -10,6 +10,11 @@ test('детерминирован по дате и всегда из списк
 
 test('пустой список — null', () => {
   expect(dailyDrillId([], '2026-11-05')).toBeNull();
+});
+
+test('ключ дня — локальная дата: полночь уже новый день, а не 03:00', () => {
+  expect(todayKey(new Date(2026, 10, 7, 0, 30))).toBe('2026-11-07');
+  expect(todayKey(new Date(2026, 10, 6, 23, 30))).toBe('2026-11-06');
 });
 
 test('разные даты дают разный выбор', () => {

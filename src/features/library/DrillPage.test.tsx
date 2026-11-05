@@ -45,6 +45,7 @@ test('карточка Стены: тип «холостая», не «суха�
   const meta = document.querySelector('.drill-card__meta')?.textContent ?? '';
   expect(meta).toContain('холостая');
   expect(meta).not.toContain('сухая');
+  expect(meta).not.toContain('0 патр.'); // без патронов — без пустого счётчика
 });
 
 test('needsReview: на карточке видна пометка «на проверке»', () => {

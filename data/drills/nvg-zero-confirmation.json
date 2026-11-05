@@ -68,6 +68,7 @@
     "unit": "m",
     "width": 8,
     "depth": 24,
+    "realDepth": 53,
     "positions": [
       {
         "id": "P25",
@@ -92,14 +93,15 @@
         "x": 4,
         "y": 21,
         "type": "a4-paper",
-        "distance": 50
+        "distance": 25
       }
     ],
     "movement": [
       {
         "from": "P25",
         "to": "P50",
-        "style": "retreat"
+        "style": "retreat",
+        "distance": 25
       }
     ],
     "sequence": [

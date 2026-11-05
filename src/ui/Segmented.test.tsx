@@ -4,25 +4,40 @@ import { Segmented } from './Segmented';
 
 afterEach(cleanup);
 
-test('сегменты: активный помечен aria-pressed, клик отдаёт значение', () => {
-  const onChange = vi.fn();
-  render(
-    <Segmented
-      ariaLabel="тип тренировки"
-      value="live"
-      options={[
-        { value: '', label: 'все' },
-        { value: 'live', label: 'огневые' },
-        { value: 'dry', label: 'холостые' },
-      ]}
-      onChange={onChange}
-    />,
-  );
-  const group = screen.getByRole('group', { name: 'тип тренировки' });
-  expect(group).toBeTruthy();
-  expect(screen.getByRole('button', { name: 'огневые' }).getAttribute('aria-pressed')).toBe('true');
-  expect(screen.getByRole('button', { name: 'все' }).getAttribute('aria-pressed')).toBe('false');
+const opts = [
+  { value: '' as const, label: 'все' },
+  { value: 'live' as const, label: 'огневые' },
+  { value: 'dry' as const, label: 'холостые' },
+];
 
-  fireEvent.click(screen.getByRole('button', { name: 'все' }));
+test('радиогруппа: активный radio отмечен aria-checked и держит единственный таб-стоп', () => {
+  const onChange = vi.fn();
+  render(<Segmented ariaLabel="тип тренировки" value="live" options={opts} onChange={onChange} />);
+
+  expect(screen.getByRole('radiogroup', { name: 'тип тренировки' })).toBeTruthy();
+  const active = screen.getByRole('radio', { name: 'огневые' });
+  expect(active.getAttribute('aria-checked')).toBe('true');
+  expect(active.getAttribute('tabindex')).toBe('0');
+  expect(screen.getByRole('radio', { name: 'все' }).getAttribute('tabindex')).toBe('-1');
+  expect(screen.getByRole('radio', { name: 'холостые' }).getAttribute('aria-checked')).toBe('false');
+
+  fireEvent.click(screen.getByRole('radio', { name: 'все' }));
   expect(onChange).toHaveBeenCalledWith('');
+});
+
+test('стрелки переключают вариант по кругу и переносят фокус', () => {
+  const onChange = vi.fn();
+  render(<Segmented ariaLabel="тип тренировки" value="live" options={opts} onChange={onChange} />);
+
+  fireEvent.keyDown(screen.getByRole('radio', { name: 'огневые' }), { key: 'ArrowRight' });
+  expect(onChange).toHaveBeenLastCalledWith('dry');
+  expect(document.activeElement?.textContent).toBe('холостые');
+
+  fireEvent.keyDown(screen.getByRole('radio', { name: 'огневые' }), { key: 'ArrowDown' });
+  expect(onChange).toHaveBeenLastCalledWith('dry');
+
+  fireEvent.keyDown(screen.getByRole('radio', { name: 'огневые' }), { key: 'ArrowLeft' });
+  expect(onChange).toHaveBeenLastCalledWith('');
+  fireEvent.keyDown(screen.getByRole('radio', { name: 'огневые' }), { key: 'ArrowUp' });
+  expect(onChange).toHaveBeenLastCalledWith('');
 });

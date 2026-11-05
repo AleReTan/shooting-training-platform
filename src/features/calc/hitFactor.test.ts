@@ -20,3 +20,9 @@ test('обратный расчёт: время для целевого HF и о
   expect(requiredTime(92, 10)).toBeCloseTo(9.2, 5);
   expect(requiredPoints(9.4, 10)).toBe(94); // округление вверх: 94 очка гарантируют HF ≥ 10
 });
+
+test('requiredPoints не завышает из-за ошибки представления float', () => {
+  expect(requiredPoints(16.6, 15)).toBe(249); // 16.6×15 = 249.00000000000003
+  expect(requiredPoints(2.2, 25)).toBe(55);
+  expect(requiredPoints(1.1, 50)).toBe(55);
+});

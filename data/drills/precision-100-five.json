@@ -70,6 +70,7 @@
     "unit": "m",
     "width": 8,
     "depth": 24,
+    "realDepth": 102,
     "positions": [
       {
         "id": "P1",

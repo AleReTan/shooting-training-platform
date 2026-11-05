@@ -1,6 +1,7 @@
 // Калькулятор хит-фактора: зоны → очки → HF; обратный расчёт от цели.
 
 import { useState } from 'preact/hooks';
+import { plural } from '../../app/i18n';
 import { Segmented } from '../../ui/Segmented';
 import { zonesToPoints, hitFactor, requiredTime, requiredPoints, type Power, type Zone, type ZoneCounts } from './hitFactor';
 
@@ -12,7 +13,8 @@ const ZONE_LABELS: Record<Zone, string> = {
 };
 
 function ZoneRow(props: { label: string; value: number; onChange: (v: number) => void }) {
-  const set = (v: number) => props.onChange(Math.max(0, v));
+  // попадания — целые: дробное «2.5» читаем как 2, отрицательное — 0
+  const set = (v: number) => props.onChange(Math.max(0, Math.floor(v)));
   return (
     <div class="hf-zone">
       <span class="hf-zone__label">{props.label}</span>
@@ -44,8 +46,9 @@ export function HitFactorPage() {
 
   const points = zonesToPoints(counts, power);
   const hf = time !== '' && time > 0 ? hitFactor(points, time) : null;
-  const needPoints = target && time !== '' && time > 0 ? requiredPoints(time, target) : null;
-  const needTime = target && points > 0 ? requiredTime(points, target) : null;
+  const targetHf = target !== '' && target > 0 ? target : null;
+  const needPoints = targetHf != null && time !== '' && time > 0 ? requiredPoints(time, targetHf) : null;
+  const needTime = targetHf != null && points > 0 ? requiredTime(points, targetHf) : null;
 
   return (
     <section class="hf">
@@ -118,7 +121,9 @@ export function HitFactorPage() {
 
         {(needPoints != null || needTime != null) && (
           <p class="hf__target">
-            {needPoints != null && <>нужно {needPoints} очков за это время</>}
+            {needPoints != null && (
+              <>нужно {needPoints} {plural(needPoints, 'очко', 'очка', 'очков')} за это время</>
+            )}
             {needPoints != null && needTime != null && <> · или </>}
             {needTime != null && <>уложиться за {needTime.toFixed(2)} с</>}
           </p>
