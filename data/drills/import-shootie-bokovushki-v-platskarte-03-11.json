@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/257"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Боковушки в плацкарте 03.11"
+    "ru": "Два билл-дрилла по мишеням с бабками"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

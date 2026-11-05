@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/344"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Чувырла 31.01"
+    "ru": "37 мишеней (15 IPSC, 10 непоражаемых, тарелки и попперы) парами выстрелов; железо до падения"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

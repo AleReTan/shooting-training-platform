@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/95"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"

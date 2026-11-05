@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/59"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "АК 2"
+    "ru": "Контрольный выстрел на 25 м с поворотами к мишеням левым/правым плечом и спиной"
   },
   "steps": {
     "ru": [
@@ -53,5 +57,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

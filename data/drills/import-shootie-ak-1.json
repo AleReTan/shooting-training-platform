@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/58"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "АК 1"
+    "ru": "Отработка вскидки, взведения и контрольного выстрела из положения «патруль» сериями повторений"
   },
   "steps": {
     "ru": [
@@ -46,5 +50,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

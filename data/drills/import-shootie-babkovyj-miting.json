@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/393"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Бабковый митинг"
+    "ru": "Поразить все мишени мозамбиком, не задев штрафные; дострел разрешён"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

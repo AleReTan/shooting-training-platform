@@ -14,7 +14,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/77"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "movement-lateral",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -35,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "50 оттенков коричневого"
+    "ru": "Галерея из трёх позиций: картон пистолетом/карабином и по 5 тарелок ружьём на каждой, с перемещениями между ними"
   },
   "steps": {
     "ru": [
@@ -43,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

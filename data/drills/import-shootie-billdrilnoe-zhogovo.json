@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/83"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "movement",
+    "movement-forward"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "БиллДрильное жогово"
+    "ru": "Спринт между стрелковыми позициями с билл-дриллами по 6 выстрелов на каждой паре мишеней"
   },
   "steps": {
     "ru": [
@@ -43,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

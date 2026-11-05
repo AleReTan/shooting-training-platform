@@ -14,7 +14,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/143"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "transitions",
+    "positions",
+    "movement"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -35,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Анекдот из Десперадо"
+    "ru": "Серии по группам мишеней с обязательной перезарядкой после каждой и финальным перемещением в позицию №2"
   },
   "steps": {
     "ru": [
@@ -43,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

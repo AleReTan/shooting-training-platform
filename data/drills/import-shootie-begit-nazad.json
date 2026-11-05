@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/299"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "movement-retreat",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Бегит назад"
+    "ru": "Поражение мишеней парами с отходом; железо — из положения между покрышек в порту №2"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

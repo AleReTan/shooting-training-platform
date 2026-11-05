@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/229"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "reload"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Биллдрилловое 18.10"
+    "ru": "Билл-дрилл на 2 мишени с ёмкостью магазина 10 и штрафной мишенью между ними"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/399"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"

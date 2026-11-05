@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/85"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions",
+    "barricade",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Бар в Селятино"
+    "ru": "Работа через окно стенки и сидя со стула: каждая мишень двумя выстрелами, не выходя за белую линию"
   },
   "steps": {
     "ru": [
@@ -43,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

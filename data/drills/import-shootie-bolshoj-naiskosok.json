@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/381"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Большой наискосок"
+    "ru": "Поразить всё железо и картон (54 выстрела) с дострелом"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

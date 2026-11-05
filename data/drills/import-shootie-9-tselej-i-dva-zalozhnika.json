@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/198"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "movement",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "9 целей и два заложника"
+    "ru": "8 мишеней мозамбиком и железо, затем зона №2 без вреда заложникам; минимум одна перезарядка"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

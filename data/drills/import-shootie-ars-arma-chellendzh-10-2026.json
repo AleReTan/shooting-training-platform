@@ -12,7 +12,14 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/420"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "reload",
+    "accuracy",
+    "armor",
+    "helmet",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Ars Arma челлендж 10.2026"
+    "ru": "Разворот из положения SUL в шлеме и бронежилете: 2 в корпус по 3 мишеням, полный цикл перезарядки, затем 2+1 в голову"
   },
   "steps": {
     "ru": [
@@ -41,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

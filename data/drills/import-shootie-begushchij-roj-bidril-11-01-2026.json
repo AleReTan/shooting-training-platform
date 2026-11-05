@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/330"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "movement",
+    "movement-lateral"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Бегущий рой бидрил 11.01.2026"
+    "ru": "Бегущий билл-дрилл: 6 выстрелов из одного порта, перемещение, 6 выстрелов из другого"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

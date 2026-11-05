@@ -14,7 +14,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/136"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -35,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Базированное лоуреди"
+    "ru": "Базовая вскидка из лоу-реди и пара выстрелов, 5 повторений (пистолет — от груди, ружьё — по железу)"
   },
   "steps": {
     "ru": [
@@ -43,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

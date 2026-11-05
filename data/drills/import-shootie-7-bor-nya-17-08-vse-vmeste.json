@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/184"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "№7. Борóня 17.08 – Всё вместе"
+    "ru": "Мозамбик по объединённой группе «всё вместе» на 36 выстрелов"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

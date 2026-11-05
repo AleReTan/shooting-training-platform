@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/183"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "№6. Борóня 17.08 – Хуёлочка+Эль Договорнячок"
+    "ru": "Мозамбик по расширенной группе «хуёлочка» на 24 выстрела"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }
