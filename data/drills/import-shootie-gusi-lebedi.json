@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/403"
   },
-  "tags": [],
+  "tags": [
+    "bilateral",
+    "reload",
+    "movement",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Гуси лебеди"
+    "ru": "Ближняя группа мишеней и тарелки (левая — с неудобного плеча), обязательная смена магазина, перемещение и 4 дальние мишени в движении"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

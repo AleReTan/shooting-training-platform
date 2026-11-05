@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/145"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "bilateral",
+    "barricade",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Экскоммьюникадо 2/5"
+    "ru": "Снарядить патронташ и ружьё у окна: тарелки и поппер с правого плеча, затем с левого; в окне не зависать дольше 3 секунд"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

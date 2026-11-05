@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/144"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Экскоммьюникадо 1/5"
+    "ru": "Сборка пистолета из разряженного (магазин 9 патронов) и по одному точному выстрелу в каждую из 9 мишеней секторами: центр, лево, право"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

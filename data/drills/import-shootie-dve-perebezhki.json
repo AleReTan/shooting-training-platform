@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/199"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Две перебежки"
+    "ru": "Три зоны с перебежками: 12 мишеней мозамбиком и железо по типу оружия, без вреда заложнику"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

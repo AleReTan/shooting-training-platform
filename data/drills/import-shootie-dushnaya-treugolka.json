@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/163"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "movement-lateral",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Душная треуголка"
+    "ru": "Треугольник из трёх портов: мишени парами, дальний поппер, серия из трёх по центру и попперы слева/справа"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

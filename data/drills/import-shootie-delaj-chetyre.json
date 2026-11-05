@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/305"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "reload-tactical"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Делай четыре"
+    "ru": "4 картонные мишени парами и 6 попперов до падения среди 9 штрафных; сброс заряженного магазина — процедурный штраф"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

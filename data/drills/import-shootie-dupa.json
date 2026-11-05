@@ -13,7 +13,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/407"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "movement",
+    "cover",
+    "bilateral",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "ДУПа"
+    "ru": "Два этапа вдоль стенок: группы мишеней из-за укрытия со сменой плеч и перезарядками; допускается зеркальное выполнение"
   },
   "steps": {
     "ru": [
@@ -42,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

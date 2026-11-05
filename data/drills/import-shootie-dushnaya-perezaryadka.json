@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/166"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "movement",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Душная перезарядка"
+    "ru": "Перезарядка на каждом из двух перемещений между тремя позициями с поражением мишеней и попперов"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

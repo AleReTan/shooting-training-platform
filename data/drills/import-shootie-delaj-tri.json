@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/304"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "reload-tactical"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Делай три"
+    "ru": "Картонная мишень, вертикальный свингер и 3 поппера среди 5 штрафных; сброс заряженного магазина — штраф"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

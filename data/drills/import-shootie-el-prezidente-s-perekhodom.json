@@ -14,7 +14,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/99"
   },
-  "tags": [],
+  "tags": [
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"

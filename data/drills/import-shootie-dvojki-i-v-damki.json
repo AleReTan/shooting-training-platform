@@ -14,7 +14,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/188"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "movement",
+    "movement-lateral"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -35,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Двойки и в дамки"
+    "ru": "Картон из левого порта, перемещение вправо, смена на ружьё (из бочки) и тарелки напротив, затем у левого порта"
   },
   "steps": {
     "ru": [
@@ -43,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

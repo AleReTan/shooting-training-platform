@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/303"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "reload-tactical"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Делай два"
+    "ru": "3 картонки парами, свингер и 8 тарелок до падения, не задев 3 штрафные; магазин с патронами не сбрасывать"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

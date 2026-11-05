@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/146"
   },
-  "tags": [],
+  "tags": [
+    "speed",
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Экскоммьюникадо 3/5"
+    "ru": "Сбор карабина со стола, бросок к двери и зачистка 8 мишеней на ходу; зачёт — 2 попадания в голову + 2 в корпус"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

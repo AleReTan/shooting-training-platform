@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/252"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Дриллбилловое 26.10"
+    "ru": "По 6 выстрелов в каждую из 3 мишеней, обходя 2 штрафные"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

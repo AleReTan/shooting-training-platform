@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/429"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "reload",
+    "movement",
+    "movement-retreat"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Донской дваган 1.0"
+    "ru": "Тарелки из ружья (не более 2 патронов), переход на вторую систему: мишени от ближней к дальней, перезарядка и отход с поражением от дальней к ближней"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

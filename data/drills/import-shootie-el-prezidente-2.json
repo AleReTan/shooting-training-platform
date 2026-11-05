@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/8"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "reload",
+    "speed",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Эль Президенте!"
+    "ru": "Разворот на 180° с поднятыми руками: 3 мишени по 2 выстрела, смена магазина, повтор; норматив 8 секунд, усложнение — 3 головы"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

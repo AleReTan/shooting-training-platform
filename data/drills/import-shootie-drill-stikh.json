@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/164"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "speed"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Дрилл-стих"
+    "ru": "Шесть комбинаций одиночных выстрелов по 3 мишеням в заданном порядке (Л-К-П, П-К-Л, Ц-Л-П, Ц-П-Л, Л-П-Ц, П-Л-Ц) — память и переносы"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

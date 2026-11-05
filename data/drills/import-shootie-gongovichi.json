@@ -12,7 +12,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/94"
   },
-  "tags": [],
+  "tags": [
+    "precision-long"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"

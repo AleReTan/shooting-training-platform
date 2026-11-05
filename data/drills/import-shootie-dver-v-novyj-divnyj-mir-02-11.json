@@ -12,7 +12,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/268"
   },
-  "tags": [],
+  "tags": [
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +35,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Дверь в новый дивный мир 02.11"
+    "ru": "Поразить 8 картонных мишеней, 3 поппера и 5 бабок"
   },
   "steps": {
     "ru": [
@@ -41,5 +43,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

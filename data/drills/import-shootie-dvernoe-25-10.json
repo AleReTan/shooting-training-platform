@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/249"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Дверное 25.10"
+    "ru": "5 картонных мишеней, 9 железных и свингер, не задев 4 штрафные"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

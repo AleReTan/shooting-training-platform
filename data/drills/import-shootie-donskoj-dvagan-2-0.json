@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/430"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Донской дваган 2.0"
+    "ru": "Бумажные мишени, затем тарелки в коридоре; старт из любой позиции, в оружии не более 2 патронов"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

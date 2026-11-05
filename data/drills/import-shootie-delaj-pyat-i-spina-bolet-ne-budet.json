@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/306"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Делай пять — и спина болеть не будет"
+    "ru": "Большой набор: 7 картонок, 2 свингера, 6 попперов и 8 тарелок среди 12 штрафных мишеней"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

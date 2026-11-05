@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/357"
   },
-  "tags": [],
+  "tags": [
+    "precision-long",
+    "accuracy",
+    "transitions",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Дистанционный Президенте"
+    "ru": "30 м: оружие разряжено на столе; поразить мишени в порядке — туловища, затем головы, затем железо"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

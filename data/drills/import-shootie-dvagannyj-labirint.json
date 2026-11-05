@@ -14,7 +14,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/280"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "movement",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -35,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Дваганный лабиринт"
+    "ru": "Лабиринт: картон — из пистолета/карабина, тарелки и техасская звезда — из ружья; единовременно в руках только одно оружие"
   },
   "steps": {
     "ru": [
@@ -43,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

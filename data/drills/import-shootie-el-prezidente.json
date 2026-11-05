@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/217"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "speed",
+    "transitions",
+    "recoil-control"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Эль Президенте"
+    "ru": "El Presidente + билл-дрилл: 9 выстрелов по 3 IPSC-мишеням на 10 м на скорость с разворотом"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

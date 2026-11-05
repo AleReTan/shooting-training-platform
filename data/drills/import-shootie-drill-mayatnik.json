@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/277"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Дрилл-маятник"
+    "ru": "По 5 выстрелов в каждую мишень из удобного положения, не задев штрафные; дострелы разрешены"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

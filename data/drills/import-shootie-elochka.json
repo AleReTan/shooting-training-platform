@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/129"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "movement",
+    "movement-lateral"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Елочка"
+    "ru": "Ёлочка: серия 3-2-1 по трём мишеням, смена порта и обратный порядок 1-2-3; усложнение — перезарядка в движении или зеркальный старт"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/130"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "movement-lateral",
+    "transitions",
+    "positions",
+    "speed"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "H07 3-3-3 Drill"
+    "ru": "3-3-3: по одному выстрелу в 3 мишени со сменой магазина и смещением ≥1,5 м, повтор с понижением уровня, финальная серия с центра"
   },
   "steps": {
     "ru": [
@@ -42,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

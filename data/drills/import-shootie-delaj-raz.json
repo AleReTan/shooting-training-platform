@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/302"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Делай раз"
+    "ru": "Со старта с расслабленными руками на платформе: 3 картонки парами и 3 поппера, не задев 6 штрафных"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }
