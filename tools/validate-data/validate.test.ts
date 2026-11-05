@@ -1,0 +1,156 @@
+import { test, expect } from 'vitest';
+import { validateAll, type FileEntry } from './validate';
+import taxonomyJson from '../../data/taxonomy.json';
+import seed1to5 from '../../data/drills/seed-1-to-5.json';
+import seedBill from '../../data/drills/seed-bill-drill-carbine.json';
+import seedCourse from '../../data/courses/seed-trex-intro.json';
+import type { Course, Drill, Taxonomy } from '../../src/data/types';
+
+const taxonomy = taxonomyJson as Taxonomy;
+
+// Валидная заготовка упражнения (на основе seed «От 1 до 5»)
+const drill = (o: Record<string, unknown> = {}): Drill =>
+  JSON.parse(JSON.stringify({ ...seed1to5, id: 'x-drill', ...o }));
+
+// Валидная заготовка курса
+const course = (o: Record<string, unknown> = {}): Course =>
+  JSON.parse(
+    JSON.stringify({ ...seedCourse, id: 'x-course', items: [{ drillId: 'x-drill', order: 1 }], ...o }),
+  );
+
+const entry = (file: string, data: unknown): FileEntry => ({ file, data });
+
+const run = (drills: FileEntry[], courses: FileEntry[] = []) =>
+  validateAll({ drills, courses }, taxonomy);
+
+test('валидные данные проходят', () => {
+  const res = run(
+    [
+      entry('x-drill.json', drill()),
+      entry('seed-1-to-5.json', seed1to5),
+      entry('seed-bill-drill-carbine.json', seedBill),
+    ],
+    [entry('x-course.json', course())],
+  );
+  expect(res.errors).toEqual([]);
+  expect(res.ok).toBe(true);
+});
+
+test('дублирующийся id отклоняется', () => {
+  const res = run([entry('x-drill.json', drill()), entry('x-drill-2.json', drill())]);
+  expect(res.errors.join('\n')).toContain('дублирующийся id');
+  expect(res.ok).toBe(false);
+});
+
+test('имя файла должно совпадать с id', () => {
+  const res = run([entry('wrong-name.json', drill())]);
+  expect(res.errors.join('\n')).toContain('имя файла');
+});
+
+test('тег вне таксономии отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ tags: ['first-shot', 'lasers'] }))]);
+  expect(res.errors.join('\n')).toContain('тег "lasers"');
+});
+
+test('пустое name.ru отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ name: { en: 'X' } }))]);
+  expect(res.errors.join('\n')).toContain('name.ru');
+});
+
+test('пустые steps.ru отклоняются', () => {
+  const res = run([entry('x-drill.json', drill({ steps: { ru: [] } }))]);
+  expect(res.errors.join('\n')).toContain('steps.ru');
+});
+
+test('пустой goal.ru отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ goal: { en: 'X' } }))]);
+  expect(res.errors.join('\n')).toContain('goal.ru');
+});
+
+test('пустой source.origin отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ source: { origin: '', kind: 'classic' } }))]);
+  expect(res.errors.join('\n')).toContain('source.origin');
+});
+
+test('related на несуществующий id отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ related: ['ghost-drill'] }))]);
+  expect(res.errors.join('\n')).toContain('related "ghost-drill"');
+});
+
+test('unit не m отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ distance: { min: 1, max: 2, unit: 'yd' } }))]);
+  expect(res.errors.join('\n')).toContain('unit');
+});
+
+test('hit-factor без points отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ scoring: { type: 'hit-factor' } }))]);
+  expect(res.errors.join('\n')).toContain('points');
+});
+
+test('discipline не [carbine] отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ discipline: ['shotgun'] }))]);
+  expect(res.errors.join('\n')).toContain('carbine');
+});
+
+test('difficulty вне 1–5 отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ difficulty: 7 }))]);
+  expect(res.errors.join('\n')).toContain('difficulty');
+});
+
+test('курс: drillId на несуществующее упражнение отклоняется', () => {
+  const res = run([entry('x-drill.json', drill())], [entry('x-course.json', course({ items: [{ drillId: 'ghost', order: 1 }] }))]);
+  expect(res.errors.join('\n')).toContain('ghost');
+});
+
+test('курс: пустые items отклоняются', () => {
+  const res = run([entry('x-drill.json', drill())], [entry('x-course.json', course({ items: [] }))]);
+  expect(res.errors.join('\n')).toContain('items');
+});
+
+test('курс: дублирующийся order отклоняется', () => {
+  const res = run(
+    [entry('x-drill.json', drill())],
+    [entry('x-course.json', course({ items: [{ drillId: 'x-drill', order: 1 }, { drillId: 'x-drill', order: 1 }] }))],
+  );
+  expect(res.errors.join('\n')).toContain('order');
+});
+
+test('sequence: ссылка на несуществующую мишень отклоняется', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric' }],
+    sequence: [{ action: 'engage', target: 'T9', shots: 2 }],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('T9');
+});
+
+test('sequence: ссылка на несуществующую позицию отклоняется', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric' }],
+    sequence: [{ action: 'move', from: 'P1', to: 'P9' }],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('P9');
+});
+
+test('координаты вне width/depth отклоняются', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [{ id: 'T1', x: 15, y: 18, type: 'ipsc-metric' }],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('вне габаритов');
+});
+
+test('distance.min > distance.max отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ distance: { min: 30, max: 10, unit: 'm' } }))]);
+  expect(res.errors.join('\n')).toContain('distance.min');
+});
