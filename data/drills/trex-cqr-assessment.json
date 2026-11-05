@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-cqr-assessment",
+  "name": {
+    "ru": "T-Rex: близкий бой, карабин",
+    "en": "T-Rex: Close Quarters Rifle Assessment"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/close-quarters-rifle-assessment-294"
+  },
+  "tags": [
+    "speed",
+    "accuracy",
+    "transitions",
+    "positions",
+    "first-shot"
+  ],
+  "needsReview": true,
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 60,
+  "distance": {
+    "min": 3,
+    "max": 45,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 4
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Квалификация T-Rex для CQB: 60 патронов, 4 USPSA-мишени, рубеж 45×10 м — навыки ближнего боя под хит-фактор",
+    "en": "T-Rex qualification for CQB: 60 rounds, 4 USPSA targets, 45×10 m bay — close-quarters skills under hit-factor scoring"
+  },
+  "steps": {
+    "ru": [
+      "Рубеж 45×10 м; 4 USPSA-мишени; 60 патронов карабинных",
+      "Официальный PDF и видео T-Rex (ссылка в источнике) дают полную раскладку квалификации",
+      "Проверяются типовые CQB-навыки: близкие цели, частично закрытые, смена высот и позиций",
+      "Хит-фактор; цель аттестации — подтвердить уровень, а не только тренироваться",
+      "Повторяй раз в месяц и веди историю результатов"
+    ]
+  },
+  "safety": {
+    "ru": "Близкие цели (3–5 м) — следи за наводкой на всех переходах, штрафные зоны стоят дорого"
+  },
+  "equipment": [
+    "карабин",
+    "5–6 магазинов (60 патронов)",
+    "рубеж 45×10 м",
+    "PDF T-Rex"
+  ],
+  "variants": {
+    "ru": [
+      "В полном сете (броня + шлем)",
+      "Половина аттестации для лимита патронов"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 47,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 5,
+        "y": 1,
+        "label": {
+          "ru": "старт"
+        }
+      },
+      {
+        "id": "P2",
+        "x": 5,
+        "y": 12,
+        "label": {
+          "ru": "позиция 2"
+        }
+      },
+      {
+        "id": "P3",
+        "x": 5,
+        "y": 24,
+        "label": {
+          "ru": "позиция 3"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 2,
+        "y": 5,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 8,
+        "y": 10,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 3,
+        "y": 30,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T4",
+        "x": 7,
+        "y": 45,
+        "type": "ipsc-metric"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P1",
+        "to": "P2",
+        "style": "advance"
+      },
+      {
+        "from": "P2",
+        "to": "P3",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "move",
+        "from": "P1",
+        "to": "P2"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 8
+      },
+      {
+        "action": "move",
+        "from": "P2",
+        "to": "P3"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T4",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T4",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 8
+      }
+    ]
+  },
+  "related": [
+    "trex-intermediate-carbine",
+    "box-drill",
+    "trex-50-round-cof"
+  ]
+}

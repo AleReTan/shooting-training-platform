@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "armor-position-flow",
+  "name": { "ru": "Броня: смена позиций", "en": "Armor: Position Flow" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["armor", "positions", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 15, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Стоя → с колена → лёжа в бронежилете: вес выкладки ломает технику — rebuild позиций с пластинами",
+    "en": "Standing → kneeling → prone in armor: the load breaks technique — rebuild positions around the plates"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 25 м; старт стоя, 2 выстрела",
+      "Опуск в колено (без опоры): 2 выстрела",
+      "Опуск лёжа: 2 выстрела",
+      "Подъём обратно: колено → стоя, прицел не покидает мишень дольше 2 с на каждой смене",
+      "3 цикла; в броне и без — сравни чистоту переходов"
+    ]
+  },
+  "safety": { "ru": "Опуск лёжа в броне: контролируй затыльник и магазины — удары по пластине сбивают дыхание, наращивай плавно" },
+  "equipment": ["карабин", "бронежилет с выкладкой", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Только с колена на дальнюю 50 м", "Смена по команде партнёра"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 27,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиция" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 25, "type": "ipsc-metric" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["position-flow", "armor-baseline-standard", "position-standard-kneeling"]
+}

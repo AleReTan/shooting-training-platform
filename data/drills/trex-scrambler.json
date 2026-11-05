@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-scrambler",
+  "name": {
+    "ru": "T-Rex: Скрэмблер",
+    "en": "T-Rex: Scrambler Assessment"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/scrambler-assessment-60"
+  },
+  "tags": [
+    "movement",
+    "movement-forward",
+    "speed",
+    "accuracy",
+    "first-shot"
+  ],
+  "needsReview": true,
+  "difficulty": 4,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 28,
+  "distance": {
+    "min": 5,
+    "max": 20,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 3
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "28 патронов, 3 USPSA-мишени, 20×10 м: стрельба в движении и управление «газом» — контроль темпа между целями",
+    "en": "28 rounds, 3 USPSA targets, 20×10 m: shooting on the move and throttle control between targets"
+  },
+  "steps": {
+    "ru": [
+      "Рубеж 20×10 м; 3 USPSA-мишени; 28 патронов (формат T-Rex, есть официальный PDF — ссылка в источнике)",
+      "Прогон включает стрельбу в движении и смены темпа: близкая цель — полный газ, дальняя — сброс",
+      "Хит-фактор; следи за механикой корпуса и коллингом выстрелов",
+      "2 прогона; между прогонами разбор: где потерял очки, где потерял время",
+      "Подходит при лимите патронов: малый счёт при высокой плотности навыков"
+    ]
+  },
+  "safety": {
+    "ru": "Движение через рубеж: маршрут не должен пересекать соседние сектора"
+  },
+  "equipment": [
+    "карабин",
+    "3–4 магазина (28 патронов)",
+    "рубеж 20×10 м"
+  ],
+  "variants": {
+    "ru": [
+      "Сокращённый вариант 14 патронов",
+      "Прогон с колена в середине"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 22,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 5,
+        "y": 1,
+        "label": {
+          "ru": "старт"
+        }
+      },
+      {
+        "id": "P2",
+        "x": 5,
+        "y": 10,
+        "label": {
+          "ru": "средняя точка"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 2,
+        "y": 8,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 5,
+        "y": 15,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 8,
+        "y": 20,
+        "type": "ipsc-metric"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P1",
+        "to": "P2",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 4
+      },
+      {
+        "action": "move",
+        "from": "P1",
+        "to": "P2"
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 12
+      }
+    ]
+  },
+  "related": [
+    "trex-50-round-cof",
+    "move-forward-multiple",
+    "trex-two-position"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "white-light-engagement",
+  "name": { "ru": "Белый свет: поиск и выстрел", "en": "White Light: Search and Engage" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["first-shot", "accuracy", "nvg"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 7, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Работа с фонарём: свет включается на цель, а не «прожектором» вперёд; выстрел в свете, отключение после подтверждения",
+    "en": "Weapon light discipline: light on the target, not a floodlight ahead; shoot in the light, off after confirmation"
+  },
+  "steps": {
+    "ru": [
+      "Сумерки/темнота; 3 мишени 7–15 м; фонарь на карабине",
+      "По сигналу — спичкой/голосом: свет ВКЛ (пятно на первую цель) — идентификация — 2 выстрела",
+      "Свет ВЫКЛ, смещение, поиск второй: ВКЛ — 2 выстрела; так же третья",
+      "Каждое включение ≤2 с; напарник штрафует за свет без цели",
+      "4–5 циклов; цели перемещаются между циклами"
+    ]
+  },
+  "safety": { "ru": "Свет в глаза напарнику запрещён; перед подходом договоритесь о секторах" },
+  "equipment": ["карабин", "тактический фонарь", "тёмный рубеж", "напарник"],
+  "variants": { "ru": ["Сухая версия (свет + перенос)", "Фонарь в слабой руке отдельно от карабина"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 17,
+    "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 14, "type": "ipsc-metric" },
+      { "id": "T3", "x": 11, "y": 10, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["nvg-light-discipline", "nvg-ready-up", "target-discrimination"]
+}

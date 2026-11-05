@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "nvg-transitions",
+  "name": { "ru": "ПНВ: перенос по трём целям", "en": "NVG: Three-Target Transitions" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["nvg", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 9.0 },
+    { "level": "advanced", "time": 7.0 },
+    { "level": "master", "time": 5.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Переносы под ПНВ: узкое поле зрения требует вести цель головой, а не только глазами",
+    "en": "Transitions under NVG: the narrow tube forces head-driven transitions, not eye-driven"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10–20 м по фронту с ИК-маркерами",
+      "По сигналу — по 2 выстрела в каждую, слева направо",
+      "Голова поворачивается на цель первой, за ней карабин; «рысканье» трубки = потеря цели",
+      "Все попадания в зачётных зонах; пар на серию",
+      "3–4 подхода; сравни с дневным паром той же серии"
+    ]
+  },
+  "safety": { "ru": "ИК-маркеры размещай так, чтобы соседние цели были различимы — избегай «слипания» точек" },
+  "equipment": ["карабин", "ПНВ", "ИК-маркеры/фонарь", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Сухая отработка переносов под ПНВ", "Цели на разных дистанциях (10/15/20 м)"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 22,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 15, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 20, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["nvg-ready-up", "transition-three-sweep", "nvg-movement"]
+}

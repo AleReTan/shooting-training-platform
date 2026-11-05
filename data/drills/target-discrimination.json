@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "target-discrimination",
+  "name": { "ru": "Различение целей", "en": "Target Discrimination" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["accuracy", "first-shot", "speed", "stress"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Стреляй только по угрозам: часть мишеней — «мирные» (без оружия/штрафные). Решение до выстрела",
+    "en": "Engage threats only: some targets are no-shoots. The decision precedes the shot"
+  },
+  "steps": {
+    "ru": [
+      "3 мишени 10–20 м; на «угрозах» маркер (полоса/трафарет оружия), на «мирных» — нет",
+      "По сигналу — идентификация: 2 выстрела в каждую угрозу, мирных не трогать",
+      "Выстрел по мирной = подход провален; пропуск угрозы = провален",
+      "Партнёр меняет раскладку между подходами (стрелок не видит)",
+      "5 подходов; прогресс — скорость идентификации без ошибок"
+    ]
+  },
+  "safety": { "ru": "Правило переносов: ствол проходит над мирными мишенями только в секторе пулеуловителя" },
+  "equipment": ["карабин", "3 мишени", "маркеры угрозы", "партнёр"],
+  "variants": { "ru": ["На пульсе (спринт перед подходом)", "Команда партнёра меняет приоритет в середине серии"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 22,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 15, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 20, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["stress-partner-callout", "multiple-threat-priority", "partial-targets"]
+}

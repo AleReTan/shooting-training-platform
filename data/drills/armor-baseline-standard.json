@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "armor-baseline-standard",
+  "name": { "ru": "Броня: базовый стандарт", "en": "Armor: Baseline Standard" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["armor", "first-shot", "reload-tactical", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "distance": { "min": 10, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 14.0 },
+    { "level": "advanced", "time": 11.0 },
+    { "level": "master", "time": 9.0 }
+  ],
+  "goal": {
+    "ru": "Замер цены брони: тот же стандарт с бронежилетом и без — разница времён и есть цена снаряжения",
+    "en": "Measure the cost of armor: the same standard with and without the plate carrier — the time delta is what gear costs"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10/15/25 м; вскидка, 2+2+2, тактическая перезарядка, ещё 2+2+2",
+      "Прогон 1 — без брони (контрольный), фиксируй время",
+      "Прогон 2 — в штатном бронежилете с полной выкладкой (магазины, ИФАК)",
+      "Сравни пары и попадания; разница >20% — работай над посадкой карабина в броне",
+      "3 пары прогонов"
+    ]
+  },
+  "safety": { "ru": "Пристреливай вскидку в броне отдельно: удар прикладом по бронепластине сбивает прицел" },
+  "equipment": ["карабин", "бронежилет с полной выкладкой", "3 магазина по 6 патронов"],
+  "variants": { "ru": ["В броне + рюкзак лёгкий", "Стандарт с колена на дальней цели"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 27,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 15, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 25, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["armor-shoulder-switch", "full-kit-stress-standard", "ready-up-standards"]
+}

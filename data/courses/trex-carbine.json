@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-carbine",
+  "name": { "ru": "T-Rex Arms: карабинный путь", "en": "T-Rex Arms: Carbine Path" },
+  "source": { "origin": "T-Rex Arms", "kind": "course", "url": "https://www.trex-arms.com/training-95" },
+  "description": {
+    "ru": "Программа по официальным материалам T-Rex Arms (Drills + Assessments): от базовой механики выстрела до квалификаций. Все упражнения с хит-фактором — баланс скорости и точности в каждой фазе. Ссылки на первоисточники — в каждом упражнении",
+    "en": "A program built on T-Rex Arms' official Drills + Assessments: from shot mechanics basics to qualifications. Every drill is hit-factor scored — speed-accuracy balance throughout. Source links inside each drill"
+  },
+  "structure": [
+    { "label": { "ru": "Фаза 1: база — хват, зрение, темп" } },
+    { "label": { "ru": "Фаза 2: переносы и массивы" } },
+    { "label": { "ru": "Фаза 3: движение" } },
+    { "label": { "ru": "Фаза 4: квалификации" } }
+  ],
+  "items": [
+    { "drillId": "bill-drill-carbine", "order": 1, "structureIndex": 0, "note": { "ru": "Классика Билла Уилсона в изложении T-Rex: 6 патронов, темп без потери зоны" } },
+    { "drillId": "trex-vice-pres", "order": 2, "structureIndex": 0, "note": { "ru": "Упрощённый El Presidente: разворот, перенос глазами, перезарядка" } },
+    { "drillId": "trex-mxad", "order": 3, "structureIndex": 1, "note": { "ru": "8 патронов, 2 цели, 12 ярдов: расслабленность при агрессии" } },
+    { "drillId": "trex-accelerator", "order": 4, "structureIndex": 1, "note": { "ru": "12 патронов, 3 цели, 25 ярдов: уровни подтверждения прицела" } },
+    { "drillId": "trex-designated-target", "order": 5, "structureIndex": 1, "note": { "ru": "Собери свой массив: презентации целей — твои" } },
+    { "drillId": "trex-two-position", "order": 6, "structureIndex": 2, "note": { "ru": "Вход и выход из позиций: выстрел-движение и движение-выстрел" } },
+    { "drillId": "trex-scrambler", "order": 7, "structureIndex": 2, "note": { "ru": "28 патронов, стрельба в движении и контроль «газа»" } },
+    { "drillId": "trex-50-round-cof", "order": 8, "structureIndex": 3, "note": { "ru": "Полный курс 50 патронов — еженедельный замер прогресса" } },
+    { "drillId": "trex-cqr-assessment", "order": 9, "structureIndex": 3, "note": { "ru": "Квалификация ближнего боя: 60 патронов, раз в месяц" } },
+    { "drillId": "trex-intermediate-carbine", "order": 10, "structureIndex": 3, "note": { "ru": "Аттестация среднего уровня: до 275 м, для оптического карабина" } }
+  ]
+}

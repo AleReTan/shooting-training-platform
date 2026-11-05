@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-50-round-cof",
+  "name": {
+    "ru": "T-Rex: 50 патронов, карабин",
+    "en": "T-Rex: 50 Round Carbine Course of Fire"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/50-round-carbine-course-of-fire-63"
+  },
+  "tags": [
+    "speed",
+    "accuracy",
+    "transitions",
+    "movement",
+    "recoil-control"
+  ],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 50,
+  "distance": {
+    "min": 5,
+    "max": 25,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 3
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Полный курс T-Rex: 50 патронов, 3 USPSA-мишени, рубеж 25×10 м — база плюс движение и переносы, баланс скорости и точности",
+    "en": "Full T-Rex course: 50 rounds, 3 USPSA targets, 25×10 m bay — fundamentals plus movement and transitions, speed-accuracy balance"
+  },
+  "steps": {
+    "ru": [
+      "Рубеж 25×10 м; 3 USPSA-мишени; 50 патронов",
+      "Официальный PDF T-Rex (ссылка в источнике) содержит полную раскладку, бланк попаданий и времени — распечатай его",
+      "Курс связывает базовые навыки с движением и переносами через серию заданий",
+      "Хит-фактор по каждому заданию и суммарно",
+      "Замер недели: суммарный хит-фактор курса — лучшая метрика прогресса карабинщика"
+    ]
+  },
+  "safety": {
+    "ru": "Смешанные задания (движение + переносы): размечай рубеж и проверяй сектора до начала"
+  },
+  "equipment": [
+    "карабин",
+    "4–5 магазинов (50 патронов)",
+    "рубеж 25×10 м",
+    "бланк PDF T-Rex"
+  ],
+  "variants": {
+    "ru": [
+      "Половина курса (25 патронов)",
+      "Прогон в бронежилете для реалистичности"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 27,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 5,
+        "y": 1,
+        "label": {
+          "ru": "старт"
+        }
+      },
+      {
+        "id": "P2",
+        "x": 5,
+        "y": 8,
+        "label": {
+          "ru": "позиция 2"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 2,
+        "y": 12,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 5,
+        "y": 20,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 8,
+        "y": 25,
+        "type": "ipsc-metric"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P1",
+        "to": "P2",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 6
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 6
+      },
+      {
+        "action": "move",
+        "from": "P1",
+        "to": "P2"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 8
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 8
+      }
+    ]
+  },
+  "related": [
+    "trex-scrambler",
+    "trex-cqr-assessment",
+    "move-box-to-box"
+  ]
+}

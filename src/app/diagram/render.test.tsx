@@ -1,10 +1,10 @@
 import { test, expect } from 'vitest';
 import { render } from '@testing-library/preact';
-import seedBill from '../../../data/drills/seed-bill-drill-carbine.json';
+import billDrill from '../../../data/drills/bill-drill-carbine.json';
 import type { Layout } from '../../data/types';
 import { LayoutDiagram } from './render';
 
-const layout = (seedBill as { layout: Layout }).layout;
+const layout = (billDrill as { layout: Layout }).layout;
 
 test('схема содержит svg, позиции и мишени', () => {
   const { container } = render(<LayoutDiagram layout={layout} />);

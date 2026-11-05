@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "armor-shoulder-switch",
+  "name": { "ru": "Броня: смена плеча", "en": "Armor: Shoulder Switch" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["armor", "bilateral", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 8,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 9.5 },
+    { "level": "advanced", "time": 7.5 },
+    { "level": "master", "time": 6.0 }
+  ],
+  "goal": {
+    "ru": "Смена плеча в бронежилете: пластины мешают прикладу — выработать свою траекторию перехода без «затыкания»",
+    "en": "Shoulder switch in armor: plates fight the stock — build a transfer path with no snag"
+  },
+  "steps": {
+    "ru": [
+      "Две мишени по краям баррикады: левая видна только с правого плеча, правая — с левого",
+      "По сигналу — 2 выстрела из-за левого края, смена плеча, 2 из-за правого",
+      "Смена: карабин не опускается ниже линии, приклад проходит над плечом/под рукой — единый маршрут",
+      "Вторая пара — реверс",
+      "Пар на серию 8; сравни с тем же без брони"
+    ]
+  },
+  "safety": { "ru": "Смена плеча у баррикады: ствол не пересекает простенок" },
+  "equipment": ["карабин", "бронежилет", "баррикада", "1 магазин на 8 патронов"],
+  "variants": { "ru": ["Сухая отработка смены в броне", "Три смены подряд по команде"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 17,
+    "positions": [{ "id": "P1", "x": 7, "y": 2, "label": { "ru": "позиция" } }],
+    "targets": [
+      { "id": "T1", "x": 2, "y": 14, "type": "ipsc-metric" },
+      { "id": "T2", "x": 12, "y": 14, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 7, "y": 4, "kind": "wall" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["armor-baseline-standard", "bilateral-barrier-switch", "weak-side-barrier"]
+}

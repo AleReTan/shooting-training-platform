@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "pair-bounding",
+  "name": { "ru": "Пара: перемещение перекатыванием", "en": "Pair: Bounding Overwatch" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-forward", "cover", "stress"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "distance": { "min": 10, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Работа в паре: один прикрывает, второй перемещается — поочерёдные перебежки между укрытиями",
+    "en": "Pair tactics: one covers while the other moves — alternate bounds between cover"
+  },
+  "steps": {
+    "ru": [
+      "Два укрытия на линии 10 м друг от друга; 4 мишени 10–25 м",
+      "Стрелок A на укрытии 1, стрелок B за его спиной; оба готовы",
+      "По сигналу A подавляет (2 выстрела), B перемещается к укрытию 2",
+      "B занимает, докладывает «на позиции» — теперь A перемещается под прикрытием B",
+      "Всего 3 перебежки на каждого; каждый — по 6 выстрелов подавления",
+      "Обязательна голосовая связь: «двигаюсь», «на позиции», «стоп»"
+    ]
+  },
+  "safety": { "ru": "Перебежки строго за спиной прикрывающего; сектора договорены до подхода, команда «стоп» — немедленная остановка" },
+  "equipment": ["2 карабина", "2 стрелка", "2 укрытия", "по 1 магазину на 6+"],
+  "variants": { "ru": ["Отход в паре (движение назад)", "Одна цель «мирная» — различение"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 27,
+    "positions": [
+      { "id": "C1", "x": 4, "y": 3, "label": { "ru": "укрытие 1" } },
+      { "id": "C2", "x": 8, "y": 8, "label": { "ru": "укрытие 2" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 20, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 24, "type": "ipsc-metric" },
+      { "id": "T3", "x": 11, "y": 22, "type": "ipsc-metric" },
+      { "id": "T4", "x": 13, "y": 26, "type": "ipsc-metric" }
+    ],
+    "barriers": [
+      { "x": 4, "y": 4, "kind": "wall" },
+      { "x": 8, "y": 9, "kind": "wall" }
+    ],
+    "movement": [{ "from": "C1", "to": "C2", "style": "advance" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "C1", "to": "C2" },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "engage", "target": "T4", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["move-retreat-cover-break", "move-box-to-box", "stress-partner-callout"]
+}

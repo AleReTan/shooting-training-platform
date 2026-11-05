@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-intermediate-carbine",
+  "name": {
+    "ru": "T-Rex: средний уровень, карабин",
+    "en": "T-Rex: Intermediate Carbine Assessment"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/intermediate-carbine-assessment-290"
+  },
+  "tags": [
+    "precision-long",
+    "accuracy",
+    "speed",
+    "positions"
+  ],
+  "needsReview": true,
+  "difficulty": 5,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 40,
+  "distance": {
+    "min": 50,
+    "max": 275,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-classic",
+      "count": 4
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Аттестация T-Rex для оптического карабина: 40 патронов, 4 USPSA-мишени, рубеж 275×20 м — реалистичные дистанции без потери базы",
+    "en": "T-Rex assessment for scoped carbines: 40 rounds, 4 USPSA targets, 275×20 m bay — realistic distances without losing fundamentals"
+  },
+  "steps": {
+    "ru": [
+      "Рубеж 275×20 м; 4 USPSA-мишени на дистанциях до 275 м; 40 патронов",
+      "Официальный PDF и видео T-Rex (ссылка в источнике) дают полную раскладку",
+      "Проверяется удержание точных попаданий в темпе: ветер, чтение дистанции, позиции",
+      "Хит-фактор на дальней дистанции — дисциплина одного выстрела",
+      "Аттестация для подтверждения среднего/продвинутого уровня оптического карабина"
+    ]
+  },
+  "safety": {
+    "ru": "Дистанции до 275 м: фон, пулеуловители и границы стрельбища должны быть проверены на всю дальность"
+  },
+  "equipment": [
+    "карабин с оптикой",
+    "4 магазина (40 патронов)",
+    "рубеж 275×20 м",
+    "PDF T-Rex"
+  ],
+  "variants": {
+    "ru": [
+      "Сокращённый вариант до 100 м",
+      "С упора и без упора — сравнение"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 70,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 10,
+        "y": 1,
+        "label": {
+          "ru": "линия 50 м"
+        }
+      },
+      {
+        "id": "P2",
+        "x": 10,
+        "y": 25,
+        "label": {
+          "ru": "промежуточная"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 4,
+        "y": 50,
+        "type": "ipsc-classic"
+      },
+      {
+        "id": "T2",
+        "x": 10,
+        "y": 55,
+        "type": "ipsc-classic"
+      },
+      {
+        "id": "T3",
+        "x": 16,
+        "y": 60,
+        "type": "ipsc-classic"
+      },
+      {
+        "id": "T4",
+        "x": 10,
+        "y": 68,
+        "type": "ipsc-classic"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P1",
+        "to": "P2",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 10
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 10
+      },
+      {
+        "action": "move",
+        "from": "P1",
+        "to": "P2"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 10
+      },
+      {
+        "action": "engage",
+        "target": "T4",
+        "shots": 10
+      }
+    ]
+  },
+  "related": [
+    "precision-prone-100",
+    "cold-bore-first-shot",
+    "trex-cqr-assessment"
+  ]
+}

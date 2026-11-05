@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "nvg-ready-up",
+  "name": { "ru": "ПНВ: вскидка и первый выстрел", "en": "NVG: Ready-Up and First Shot" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["nvg", "first-shot", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 5,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 3.0 },
+    { "level": "intermediate", "time": 2.4 },
+    { "level": "advanced", "time": 1.9 },
+    { "level": "master", "time": 1.6 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Вскидка под ПНВ: найти цель в трубке, вынести ИК-точку, чистый первый выстрел",
+    "en": "Ready-up under NVG: find the target in the tube, drive the IR dot, clean first shot"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 15 м с подсветкой ИК-фонарём или ИК-химлайтом; карабин в низком готовности",
+      "По сигналу таймера (слышимому) — вскидка, 1 выстрел в зачётную зону",
+      "5 заходов, засчитывается лучшее время",
+      "Контроль: голова не «ныряет» за прицел — глаза находят цель первыми",
+      "Сравнивай пар с дневным ready-up: разница — цена ПНВ"
+    ]
+  },
+  "safety": { "ru": "Под ПНВ глубина восприятия искажена: перед серией осмотри рубеж, убери препятствия по линии вскидки" },
+  "equipment": ["карабин", "ПНВ", "ИК-маркер на мишень", "таймер с громким сигналом"],
+  "variants": { "ru": ["С двух рук и с упора", "Мишень вне центра поля — поиск в трубке"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 17,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 15, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 1 }]
+  },
+  "related": ["nvg-zero-confirmation", "ready-up-standards", "nvg-transitions"]
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "nvg-zero-confirmation",
+  "name": {
+    "ru": "ПНВ: подтверждение нуля",
+    "en": "NVG: Zero Confirmation"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "Общая практика карабинных курсов",
+    "kind": "classic"
+  },
+  "tags": [
+    "nvg",
+    "accuracy",
+    "first-shot"
+  ],
+  "difficulty": 2,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 25,
+    "max": 50,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "a4-paper",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Первое с ПНВ: подтвердить совмещение ночного прицельного комплекса (коллиматор с ночным модулем или ПНВ поверх)",
+    "en": "First with NVG: confirm the night aiming system (IR laser/night optic over the day setup) actually aligns"
+  },
+  "steps": {
+    "ru": [
+      "Лист A4 с перекрестием на 25 м; дневной нуль уже подтверждён",
+      "5 выстрелов под ПНВ: точка падения по ИК-лазеру/ночной оптике",
+      "Сравни с дневной группой: смещение более 5 см — ищи посадку ПНВ или настройку лазера",
+      "Повтори на 50 м (5 выстрелов): подтверждение на рабочей дистанции",
+      "Всегда начинай ночную сессию с этого упражнения"
+    ]
+  },
+  "safety": {
+    "ru": "Под ПНВ поле зрения сужено: перед стрельбой осмотр рубежа белым светом/с напарником"
+  },
+  "equipment": [
+    "карабин",
+    "ПНВ на шлеме",
+    "ИК-лазер или ночная оптика",
+    "ИК-фонарь (опционально)"
+  ],
+  "variants": {
+    "ru": [
+      "Только ИК-лазер без оптики",
+      "С 50 м сразу (экономия патронов)"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 52,
+    "positions": [
+      {
+        "id": "P25",
+        "x": 4,
+        "y": 27,
+        "label": {
+          "ru": "25 м"
+        }
+      },
+      {
+        "id": "P50",
+        "x": 4,
+        "y": 2,
+        "label": {
+          "ru": "50 м"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 4,
+        "y": 50,
+        "type": "a4-paper"
+      }
+    ],
+    "movement": [
+      {
+        "from": "P25",
+        "to": "P50",
+        "style": "retreat"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 5
+      },
+      {
+        "action": "move",
+        "from": "P25",
+        "to": "P50"
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 5
+      }
+    ]
+  },
+  "related": [
+    "nvg-ready-up",
+    "nvg-transitions",
+    "cold-bore-first-shot"
+  ]
+}

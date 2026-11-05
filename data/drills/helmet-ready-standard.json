@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "helmet-ready-standard",
+  "name": { "ru": "Шлем: вскидки", "en": "Helmet: Ready-Ups" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["helmet", "first-shot", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 2.6 },
+    { "level": "intermediate", "time": 2.1 },
+    { "level": "advanced", "time": 1.7 },
+    { "level": "master", "time": 1.4 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Вскидка в шлеме: вес на голове меняет геометрию шеи — компенсируй posture, а не силой",
+    "en": "Ready-ups in a helmet: head weight changes neck geometry — compensate with posture, not force"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 10–15 м; шлем в штатной конфигурации (с накомплектником, без ПНВ)",
+      "По сигналу — вскидка + 1 выстрел в «А»; 6 заходов",
+      "Шея прямая, подбородок подобран: шлем не «кивает» при вскидке",
+      "Пар на каждый заход, лучший в зачёт",
+      "Сравни серию без шлема: разница >0,3 с — проверь посадку и баланс шлема"
+    ]
+  },
+  "safety": { "ru": "Проверь крепления шлема до подхода: слетевший на вскидке накомплектник — стоп-сигнал" },
+  "equipment": ["карабин", "шлем с накомплектником", "таймер"],
+  "variants": { "ru": ["Сухая серия вскидок", "Шлем + наушники активные"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 17,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 13, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 1 }]
+  },
+  "related": ["ready-up-standards", "helmet-transitions-par", "armor-baseline-standard"]
+}

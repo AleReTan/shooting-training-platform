@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "helmet-transitions-par",
+  "name": { "ru": "Шлем: переносы на пар", "en": "Helmet: Transitions on Par" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["helmet", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 9.5 },
+    { "level": "intermediate", "time": 7.0 },
+    { "level": "advanced", "time": 5.5 },
+    { "level": "master", "time": 4.3 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Переносы в шлеме: инерция головы тянет «недоворот» — доводи голову до цели раньше карабина",
+    "en": "Transitions in a helmet: head inertia causes under-rotation — drive the head to the target ahead of the gun"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10–15 м по фронту; шлем в штатной конфигурации",
+      "По сигналу — 2+2+2 с переносами, слева направо",
+      "Голова приходит на цель полностью: «короткий» поворот = карабин дотягивается глазами (медленно)",
+      "Все в зачётных зонах; пар на серию",
+      "3 подхода; сравни с серией без шлема"
+    ]
+  },
+  "safety": { "ru": "Шлем с приборами смещает центр тяжести головы: избегай резких «хлестких» переносов" },
+  "equipment": ["карабин", "шлем", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Сухая отработка", "Шлем + ПНВ (выключен) для веса"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 16,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 13, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 12, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["helmet-ready-standard", "transition-three-sweep", "nvg-transitions"]
+}

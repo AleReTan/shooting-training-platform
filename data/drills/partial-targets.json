@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "partial-targets",
+  "name": { "ru": "Частично закрытые цели", "en": "Partial Targets" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["accuracy", "cover", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "50% закрытия: попадание в видимую зону при узком окне — точность важнее темпа",
+    "en": "50% coverage: hits in the visible zone through narrow windows — accuracy over pace"
+  },
+  "steps": {
+    "ru": [
+      "4 мишени 10–20 м, закрыты на 40–60% (жесткие экраны/баррикады)",
+      "По сигналу — по 2 выстрела в видимую зону каждой",
+      "Попадание в экран = промах; зона видимости меньше «А» — работай по краю",
+      "Темп вторичен: сначала 100% видимых зон, потом скорость",
+      "3 подхода с изменением закрытий"
+    ]
+  },
+  "safety": { "ru": "Экраны должны держать пулю (фанера 15+ мм или сталь с наклоном) — согласуй с клубом" },
+  "equipment": ["карабин", "4 мишени", "экраны/укрытия"],
+  "variants": { "ru": ["Одна цель открыта на 80% — приоритет по скорости", "С колена у ближней баррикады"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 22,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 15, "type": "ipsc-metric" },
+      { "id": "T3", "x": 10, "y": 18, "type": "ipsc-metric" },
+      { "id": "T4", "x": 13, "y": 20, "type": "ipsc-metric" }
+    ],
+    "barriers": [
+      { "x": 3, "y": 13.5, "kind": "wall" },
+      { "x": 7, "y": 16.5, "kind": "wall" },
+      { "x": 10, "y": 19.5, "kind": "wall" },
+      { "x": 13, "y": 21.5, "kind": "wall" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "engage", "target": "T4", "shots": 2 }
+    ]
+  },
+  "related": ["offset-behind-barricade", "trex-designated-target", "target-discrimination"]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "slice-the-pie",
+  "name": { "ru": "Срезание угла", "en": "Slice the Pie" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["cover", "accuracy", "first-shot", "movement"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 3,
+  "distance": { "min": 5, "max": 12, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Классика углов: постепенное открытие сектора из-за укрытия дугой — цель обнаруживается, а не открывается",
+    "en": "Corner classic: gradually opening the sector in an arc from cover — you discover the target, not expose to it"
+  },
+  "steps": {
+    "ru": [
+      "Укрытие (стена/баррикада) и цель за углом на 5–12 м; стрелок не знает точное место цели",
+      "По сигналу — дуга приставными шагами: сектор открывается по 10–15° за шаг",
+      "Прицел на уровне глаз ведёт угол: сначала появляется край цели",
+      "Обнаружение — стоп, 1 выстрел в зону",
+      "5–6 циклов, цель смещается; сухая версия обязательна для чистоты механики"
+    ]
+  },
+  "safety": { "ru": "Ствол не выходит за угол до открытия сектора глазами; за укрытием должен быть пулеуловитель" },
+  "equipment": ["карабин", "укрытие с углом", "1 мишень", "партнёр для смещения цели"],
+  "variants": { "ru": ["Сухая отработка дуги", "Две цели за углом на разных дистанциях"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 14,
+    "positions": [
+      { "id": "START", "x": 2, "y": 2, "label": { "ru": "за укрытием" } },
+      { "id": "ARC", "x": 5, "y": 4, "label": { "ru": "дуга открытия" } }
+    ],
+    "targets": [{ "id": "T1", "x": 10, "y": 9, "type": "ipsc-metric" }],
+    "barriers": [{ "x": 3, "y": 6, "kind": "wall" }],
+    "movement": [{ "from": "START", "to": "ARC", "style": "lateral" }],
+    "sequence": [
+      { "action": "move", "from": "START", "to": "ARC" },
+      { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "related": ["offset-behind-barricade", "weak-side-barrier", "transition-window-window"]
+}

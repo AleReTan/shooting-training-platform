@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "precision-100-five",
+  "name": { "ru": "Группа на 100 м", "en": "100 m Group of Five" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["precision-long", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 5,
+  "distance": { "min": 100, "max": 100, "unit": "m" },
+  "targets": [{ "type": "a4-paper", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Контрольная группа лёжа с упора: потенциал комплекса «карабин + патрон + стрелок» на 100 м",
+    "en": "Control group prone with support: the potential of the rifle+ammo+shooter system at 100 m"
+  },
+  "steps": {
+    "ru": [
+      "Лист A4 с размеченными квадрантами на 100 м",
+      "5 выстрелов лёжа с упора (мешки/рюкзак), одна точка прицеливания",
+      "Замер размаха группы в сантиметрах; фиксируй в журнале (дата, патрон, погода)",
+      "Холодный ствол: первый выстрел отдельно отмечай — сравнивай с холодным нулём",
+      "3 группы за сессию; лучший и средний размах — твои метрики"
+    ]
+  },
+  "safety": { "ru": "100 м: убедись в достаточном пулеуловителе и чистом фоне на всей дистанции" },
+  "equipment": ["карабин", "оптика", "5 патронов", "упор", "лист A4 с сеткой", "журнал"],
+  "variants": { "ru": ["С колена с упора (разница групп)", "Полузаряженный магазин — холодный выстрел каждые 5 минут"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 102,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "лёжа" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 100, "type": "a4-paper" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+  },
+  "related": ["precision-prone-100", "precision-150-supported", "cold-bore-first-shot"]
+}

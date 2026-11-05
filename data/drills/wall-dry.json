@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "wall-dry",
+  "name": {
+    "ru": "Стена (сухая)",
+    "en": "Wall Drill (dry)"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "карабинная адаптация",
+    "kind": "adaptation"
+  },
+  "tags": [
+    "accuracy",
+    "standing"
+  ],
+  "difficulty": 1,
+  "fireMode": [
+    "dry"
+  ],
+  "rounds": 0,
+  "distance": {
+    "min": 5,
+    "max": 5,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "a4-paper",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "none"
+  },
+  "goal": {
+    "ru": "Стабильная картинка прицеливания в момент спуска",
+    "en": "Stable sight picture at the moment of trigger break"
+  },
+  "steps": {
+    "ru": [
+      "Пустой карабин, лист А4 на стене на высоте груди",
+      "Прицелиться в центр листа и плавно нажать спуск",
+      "Мушка должна остаться на листе в момент щелчка",
+      "10–20 повторений"
+    ]
+  },
+  "safety": {
+    "ru": "Оружие обязательно проверить на отсутствие патронов в патроннике и магазинах"
+  },
+  "equipment": [
+    "карабин (разряженный)",
+    "лист А4"
+  ],
+  "variants": {
+    "ru": [
+      "С закрытыми глазами: прицелиться, закрыть глаза, спуск, открыть — проверить сдвиг"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 14,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 4,
+        "y": 1,
+        "label": {
+          "ru": "старт"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 4,
+        "y": 7,
+        "type": "ipsc-metric"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 1
+      }
+    ]
+  }
+}

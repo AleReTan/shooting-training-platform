@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "precision-200-prone",
+  "name": { "ru": "200 м лёжа", "en": "200 m Prone" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["precision-long", "accuracy", "positions"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 200, "max": 200, "unit": "m" },
+  "targets": [{ "type": "ipsc-classic", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Предел типового карабина: 200 м лёжа — здесь видны ошибки нуля, ветра и спуска",
+    "en": "The limit of a typical carbine: 200 m prone — zero, wind, and trigger errors all show here"
+  },
+  "steps": {
+    "ru": [
+      "IPSC Classic (или стальной гонг 30 см) на 200 м; лёжа с упора",
+      "6 одиночных: 2 нулевые, затем 4 зачётных",
+      "Ветер на 200 м — главный фактор: наблюдай флажки на середине дистанции",
+      "Зачёт: 4 из 4 в зону; смещение фиксируй в журнале",
+      "Замер раз в месяц — трек деградации/прогресса"
+    ]
+  },
+  "safety": { "ru": "200 м: габарит мишени мал — не стреляй без уверенной идентификации цели и фона" },
+  "equipment": ["карабин с оптикой", "6 патронов", "упор", "флажки", "журнал"],
+  "variants": { "ru": ["Гонг 30 см со звуковой индикацией", "Слабое плечо 3 выстрела"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 202,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "лёжа" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 200, "type": "ipsc-classic" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 6 }]
+  },
+  "related": ["precision-150-supported", "precision-100-five", "cold-bore-first-shot"]
+}

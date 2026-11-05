@@ -4,18 +4,18 @@ import { CoursePage } from './CoursePage';
 
 afterEach(cleanup);
 
-test('страница seed-курса: фаза, элементы по order со ссылками и заметкой', () => {
-  render(<CoursePage id="seed-trex-intro" />);
+test('страница курса: фаза, элементы по order со ссылками и заметкой', () => {
+  render(<CoursePage id="trex-carbine" />);
 
-  expect(screen.getByText('Вводная программа (заготовка)')).toBeTruthy();
-  expect(screen.getByText('Фаза 1: база')).toBeTruthy();
-  expect(screen.getByText('Разминка дома')).toBeTruthy();
+  expect(screen.getByText('T-Rex Arms: карабинный путь')).toBeTruthy();
+  expect(screen.getByText('Фаза 1: база — хват, зрение, темп')).toBeTruthy();
+  expect(screen.getByText(/Классика Билла Уилсона/)).toBeTruthy();
 
   const links = Array.from(document.querySelectorAll('a[href^="#/drill/"]')) as HTMLAnchorElement[];
-  expect(links.length).toBe(2);
-  expect(links[0]?.getAttribute('href')).toBe('#/drill/seed-wall-dry');
-  expect(links[0]?.textContent).toContain('Стена (сухая)');
-  expect(links[1]?.getAttribute('href')).toBe('#/drill/seed-bill-drill-carbine');
+  expect(links.length).toBe(10);
+  expect(links[0]?.getAttribute('href')).toBe('#/drill/bill-drill-carbine');
+  expect(links[0]?.textContent).toContain('Билл');
+  expect(links[1]?.getAttribute('href')).toBe('#/drill/trex-vice-pres');
 });
 
 test('несуществующий id → «Курс не найден»', () => {

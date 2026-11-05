@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "weak-side-barrier",
+  "name": { "ru": "Слабая сторона баррикады", "en": "Weak Side of the Barricade" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["bilateral", "cover", "accuracy", "positions"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 15, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Цели только со слабой стороны укрытия: стрелок обязан стрелять с «неудобного» края без потери качества",
+    "en": "Targets only from the weak side of cover: you must shoot from the awkward edge without losing quality"
+  },
+  "steps": {
+    "ru": [
+      "Баррикада; обе мишени (15 и 25 м) смещены влево — правшу вынуждают на левый край",
+      "По сигналу — из-за левого края: 4 выстрела в ближнюю",
+      "Опуск на колено (тот же край): 4 в дальнюю",
+      "Смена края не разрешена — работа только со слабой стороны",
+      "Затем зеркальный подход для левшей/левого плеча"
+    ]
+  },
+  "safety": { "ru": "Высовывай минимум: глаз-прицел-точка на краю, корпус за укрытием" },
+  "equipment": ["карабин", "баррикада", "1 магазин на 8 патронов"],
+  "variants": { "ru": ["Всё со слабого плеча", "Дальняя цель только «А»"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 27,
+    "positions": [{ "id": "P1", "x": 3, "y": 3, "label": { "ru": "слабый край" } }],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 17, "type": "ipsc-metric" },
+      { "id": "T2", "x": 5, "y": 25, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 7, "y": 4, "kind": "wall" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 4 },
+      { "action": "engage", "target": "T2", "shots": 4 }
+    ]
+  },
+  "related": ["offset-behind-barricade", "bilateral-barrier-switch", "transition-window-window"]
+}

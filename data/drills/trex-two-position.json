@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-two-position",
+  "name": {
+    "ru": "T-Rex: Две позиции",
+    "en": "T-Rex: Two Position Drill"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/two-position-drill-393"
+  },
+  "tags": [
+    "movement",
+    "movement-forward",
+    "positions",
+    "speed"
+  ],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 10,
+    "max": 25,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 3
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Главное — движение: выстрелы-потом-движение, движение-потом-выстрелы, стрельба в движении. Вход в позицию и выход из неё",
+    "en": "Movement first: shoot-then-move, move-then-shoot, shooting on the move. Entering and exiting positions effectively"
+  },
+  "steps": {
+    "ru": [
+      "Две позиции (боксы/укрытия) в 5–8 м друг от друга; 3 мишени 10–25 м",
+      "Вариант A: выстрелы из позиции 1 — движение — выстрелы из позиции 2",
+      "Вариант B: движение первым, стрельба только после входа в позицию",
+      "Вариант C: часть выстрелов в движении между позициями",
+      "12 патронов на прогон; хит-фактор",
+      "Ключ от T-Rex: эффективность входа/выхода — позиция начинается до прихода ног, прицел ведёт корпус"
+    ]
+  },
+  "safety": {
+    "ru": "Движение между позициями: палец вне спуска, ствол в секторе"
+  },
+  "equipment": [
+    "карабин",
+    "2 магазина",
+    "2 марки позиций"
+  ],
+  "variants": {
+    "ru": [
+      "Вторая позиция с колена",
+      "Выход из позиции спиной (отход)"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 26,
+    "positions": [
+      {
+        "id": "POS1",
+        "x": 4,
+        "y": 2,
+        "label": {
+          "ru": "позиция 1"
+        }
+      },
+      {
+        "id": "POS2",
+        "x": 10,
+        "y": 7,
+        "label": {
+          "ru": "позиция 2"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 3,
+        "y": 20,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 7,
+        "y": 24,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 11,
+        "y": 22,
+        "type": "ipsc-metric"
+      }
+    ],
+    "movement": [
+      {
+        "from": "POS1",
+        "to": "POS2",
+        "style": "advance"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "POS1",
+        "to": "POS2"
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      }
+    ]
+  },
+  "related": [
+    "move-box-to-box",
+    "trex-scrambler",
+    "position-flow"
+  ]
+}

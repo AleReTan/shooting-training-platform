@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "precision-position-ladder",
+  "name": { "ru": "100 м: лесенка позиций", "en": "100 m Position Ladder" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["precision-long", "positions", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 9,
+  "distance": { "min": 100, "max": 100, "unit": "m" },
+  "targets": [{ "type": "ipsc-classic", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Одна цель на 100 м из трёх позиций: лёжа, с колена, стоя — видна цена каждой позиции в метрах попадания",
+    "en": "One target at 100 m from three positions: prone, kneeling, standing — each position's cost in hits is visible"
+  },
+  "steps": {
+    "ru": [
+      "IPSC Classic на 100 м; 3 позиции: лёжа с упора, колено, стоя",
+      "Лёжа: 3 выстрела, все в «А» — база",
+      "Колено: 3 выстрела, цель — та же зона",
+      "Стоя: 3 выстрела (можно с ремня)",
+      "Сравни размах и смещение: колено и стоя должны попадать в зону, разница — во времени прицеливания",
+      "2 цикла"
+    ]
+  },
+  "safety": { "ru": "Стоя на 100 м — соблазн «дожать»: каждый выстрел с подтверждённой картинкой" },
+  "equipment": ["карабин с оптикой", "9 патронов", "упор", "ремень"],
+  "variants": { "ru": ["Только колено+стоя (лёжа исключена)", "На время: 3 позиции за 60 с"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 102,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиции" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 100, "type": "ipsc-classic" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T1", "shots": 3 }
+    ]
+  },
+  "related": ["precision-100-five", "position-flow", "precision-150-supported"]
+}

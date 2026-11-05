@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "nvg-movement",
+  "name": { "ru": "ПНВ: движение и стрельба", "en": "NVG: Movement with Fire" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["nvg", "movement", "movement-forward", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 8, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Движение под ПНВ: сканирование местности трубкой при шаге, стрельба с остановкой и в движении",
+    "en": "Moving under NVG: scanning with the tube while walking, firing from the halt and on the move"
+  },
+  "steps": {
+    "ru": [
+      "Коридор 10 м с двумя мишенями (8 и 15 м), ИК-маркеры; препятствия по маршруту (мягкие!)",
+      "По сигналу — движение по коридору, трубкой сканируешь сектор, голову не «закрываешь» на шаге",
+      "Ближняя цель — 3 выстрела с короткой остановки",
+      "Дальняя — 3 выстрела в движении",
+      "3–4 прохода; сначала медленно, скорость растёт только при чистых попаданиях"
+    ]
+  },
+  "safety": { "ru": "Глубина под ПНВ искажена: маршрут размечай маркерами, препятствия только мягкие, напарник с белым светом страхует" },
+  "equipment": ["карабин", "ПНВ", "ИК-маркеры", "мягкие препятствия", "напарник"],
+  "variants": { "ru": ["Проход с обходом препятствия", "Финиш с колена за укрытием"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 17,
+    "positions": [
+      { "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } },
+      { "id": "P2", "x": 5, "y": 8, "label": { "ru": "финиш" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 14, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 15, "type": "ipsc-metric" }
+    ],
+    "movement": [{ "from": "P1", "to": "P2", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T2", "shots": 3 }
+    ]
+  },
+  "related": ["nvg-transitions", "move-forward-single", "nvg-light-discipline"]
+}

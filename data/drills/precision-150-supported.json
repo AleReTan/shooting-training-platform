@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "precision-150-supported",
+  "name": { "ru": "150 м с упора", "en": "150 m Supported" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["precision-long", "accuracy", "positions"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 150, "max": 150, "unit": "m" },
+  "targets": [{ "type": "ipsc-classic", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Рабочая дальность тактического карабина: 150 м с упора — стабильные попадания в зону «А»",
+    "en": "Working range of a tactical carbine: 150 m supported — consistent A-zone hits"
+  },
+  "steps": {
+    "ru": [
+      "IPSC Classic на 150 м; позиция с упора (мешок/баррикада)",
+      "8 одиночных выстрелов, каждый с чтением ветра (флажки/трава на дистанции)",
+      "Зачёт: попадания в «А»; фиксируй смещение группы от центра",
+      "Поправки вноси по горизонтальным смещениям за 2 выстрела (не гоняйся за каждым промахом)",
+      "2 подхода"
+    ]
+  },
+  "safety": { "ru": "150 м: маркируй рубеж, фон за мишенью должен останавливать пулю" },
+  "equipment": ["карабин с оптикой", "8 патронов", "упор", "флажки ветра"],
+  "variants": { "ru": ["С колена с упора", "Серия из 3 на время (точность в темпе)"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 152,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "с упора" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 150, "type": "ipsc-classic" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 8 }]
+  },
+  "related": ["precision-100-five", "precision-200-prone", "a-zone-25"]
+}

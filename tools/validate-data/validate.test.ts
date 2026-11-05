@@ -1,21 +1,21 @@
 import { test, expect } from 'vitest';
 import { validateAll, type FileEntry } from './validate';
 import taxonomyJson from '../../data/taxonomy.json';
-import seed1to5 from '../../data/drills/seed-1-to-5.json';
-import seedBill from '../../data/drills/seed-bill-drill-carbine.json';
-import seedCourse from '../../data/courses/seed-trex-intro.json';
+import oneTo5 from '../../data/drills/one-to-five.json';
+import billDrill from '../../data/drills/bill-drill-carbine.json';
+import trexCourse from '../../data/courses/trex-carbine.json';
 import type { Course, Drill, Taxonomy } from '../../src/data/types';
 
 const taxonomy = taxonomyJson as Taxonomy;
 
-// Валидная заготовка упражнения (на основе seed «От 1 до 5»)
+// Валидная заготовка упражнения (на основе «От 1 до 5»)
 const drill = (o: Record<string, unknown> = {}): Drill =>
-  JSON.parse(JSON.stringify({ ...seed1to5, id: 'x-drill', ...o }));
+  JSON.parse(JSON.stringify({ ...oneTo5, id: 'x-drill', ...o }));
 
 // Валидная заготовка курса
 const course = (o: Record<string, unknown> = {}): Course =>
   JSON.parse(
-    JSON.stringify({ ...seedCourse, id: 'x-course', items: [{ drillId: 'x-drill', order: 1 }], ...o }),
+    JSON.stringify({ ...trexCourse, id: 'x-course', items: [{ drillId: 'x-drill', order: 1 }], ...o }),
   );
 
 const entry = (file: string, data: unknown): FileEntry => ({ file, data });
@@ -27,8 +27,8 @@ test('валидные данные проходят', () => {
   const res = run(
     [
       entry('x-drill.json', drill()),
-      entry('seed-1-to-5.json', seed1to5),
-      entry('seed-bill-drill-carbine.json', seedBill),
+      entry('one-to-five.json', oneTo5),
+      entry('bill-drill-carbine.json', billDrill),
     ],
     [entry('x-course.json', course())],
   );

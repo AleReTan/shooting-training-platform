@@ -4,7 +4,7 @@ import CatalogPage from './CatalogPage';
 
 afterEach(cleanup);
 
-test('каталог показывает seed-упражнения', () => {
+test('каталог показывает упражнения', () => {
   render(<CatalogPage />);
   expect(screen.getByText('От 1 до 5')).toBeTruthy();
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-mxad",
+  "name": {
+    "ru": "T-Rex: MXAD",
+    "en": "T-Rex: MXAD Drill"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/mxad-drill-392"
+  },
+  "tags": [
+    "transitions",
+    "speed",
+    "accuracy",
+    "recoil-control"
+  ],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 8,
+  "distance": {
+    "min": 11,
+    "max": 11,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 2
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "8 патронов, 2 мишени, 11 м (12 ярдов): награда за расслабленность при агрессивной стрельбе и быстрые чистые переносы",
+    "en": "8 rounds, 2 targets, 11 m (12 yd): rewards staying relaxed while shooting aggressively with fast, precise transitions"
+  },
+  "steps": {
+    "ru": [
+      "Две USPSA-мишени на 11 м; 8 патронов",
+      "По сигналу — серия с переносами между двумя целями (расклад и порядок — по PDF T-Rex, ссылка в источнике)",
+      "Хит-фактор: очки делим на время; промах стоит дорого",
+      "Ключ от T-Rex: агрессивный темп при расслабленном корпусе — «зажатый» стрелок теряет и время, и очки",
+      "3–4 подхода, следи за динамикой хит-фактора"
+    ]
+  },
+  "safety": {
+    "ru": "Агрессивный темп — держи подтверждение прицела перед каждым выстрелом"
+  },
+  "equipment": [
+    "карабин",
+    "1 магазин на 8 патронов"
+  ],
+  "variants": {
+    "ru": [
+      "Сухая отработка переносов",
+      "Слабое плечо на подходе"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 13,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 5,
+        "y": 1,
+        "label": {
+          "ru": "бокс"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 3,
+        "y": 11,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 7,
+        "y": 11,
+        "type": "ipsc-metric"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      }
+    ]
+  },
+  "related": [
+    "trex-accelerator",
+    "transition-2-1",
+    "bill-drill-carbine"
+  ]
+}

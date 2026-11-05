@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "nvg-light-discipline",
+  "name": { "ru": "ПНВ: дисциплина света", "en": "NVG: Light Discipline" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["nvg", "first-shot", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 4,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Световая гигиена под ПНВ: ИК-фонарь только на поиск, выстрел — без засветки, белый свет — по команде",
+    "en": "Light hygiene under NVG: IR illuminator only for searching, the shot without washout, white light on command"
+  },
+  "steps": {
+    "ru": [
+      "Две мишени 10 и 15 м; напарник сбоку наблюдает за твоими засветками",
+      "По сигналу — короткое включение ИК-фонаря (≤1 с): найти цель",
+      "Выключение — перенос, второе короткое включение на вторую цель",
+      "По 2 выстрела в каждую, засветка в момент выстрела = «обнаружен» (подход не засчитан)",
+      "Финал: по команде «белый!» — переход на белый фонарь и контрольные 2 выстрела",
+      "4–5 циклов; напарник фиксирует каждую лишнюю засветку"
+    ]
+  },
+  "safety": { "ru": "Никаких белых засветок в сторону напарника: ПНВ соседа ослепляется полностью" },
+  "equipment": ["карабин", "ПНВ", "ИК-фонарь", "белый фонарь", "напарник-наблюдатель"],
+  "variants": { "ru": ["Сухая версия (только свет и перенос)", "Засветка-ловушка: напарник штрафует за >1 с"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 17,
+    "positions": [{ "id": "P1", "x": 6, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 9, "y": 15, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["nvg-movement", "nvg-ready-up", "stress-partner-callout"]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "armor-march-shoot",
+  "name": { "ru": "Броня: марш и серия", "en": "Armor: March Then Shoot" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["armor", "stress", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 15, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Работа в полном весе: марш в броне с выкладкой — и сразу серия; тело должно уметь стрелять уставшим",
+    "en": "Full-weight work: loaded march in armor, then an immediate string — the body must shoot tired"
+  },
+  "steps": {
+    "ru": [
+      "Две мишени 15 и 25 м; маршрут марша 300–400 м в темпе",
+      "Марш в бронежилете с полной выкладкой (магазины, вода, ИФАК)",
+      "Финиш — сразу на позицию: 4+4 выстрелов в мишени",
+      "Все попадания в зачётных зонах; время серии отдельно",
+      "2 цикла; сравни с серией без марша в броне"
+    ]
+  },
+  "safety": { "ru": "Тепловой режим: пей воду на маршруте; при головокружении — подход стоп" },
+  "equipment": ["карабин", "бронежилет полной выкладкой", "2 магазина по 4+ патрона", "маршрут 300–400 м"],
+  "variants": { "ru": ["Марш + 10 бёрпи на финише", "Серия с колена после марша"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 27,
+    "positions": [
+      { "id": "RUN", "x": 5, "y": 1, "label": { "ru": "старт/финиш марша" } },
+      { "id": "FIRE", "x": 5, "y": 3, "label": { "ru": "огневая позиция" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 15, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 25, "type": "ipsc-metric" }
+    ],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "RUN", "to": "FIRE" },
+      { "action": "engage", "target": "T1", "shots": 4 },
+      { "action": "engage", "target": "T2", "shots": 4 }
+    ]
+  },
+  "related": ["stress-run-400", "full-kit-stress-standard", "armor-baseline-standard"]
+}

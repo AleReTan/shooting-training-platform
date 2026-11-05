@@ -4,8 +4,8 @@ import { DrillPage } from './DrillPage';
 
 afterEach(cleanup);
 
-test('карточка seed Bill Drill: имя, шаги, пар-таймы, курс, схема', () => {
-  render(<DrillPage id="seed-bill-drill-carbine" />);
+test('карточка Bill Drill: имя, шаги, пар-таймы, курс, схема', () => {
+  render(<DrillPage id="bill-drill-carbine" />);
 
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
   expect(screen.getByText(/Bill Wilson/)).toBeTruthy();
@@ -25,7 +25,7 @@ test('карточка seed Bill Drill: имя, шаги, пар-таймы, к�
 
   // курс, куда входит упражнение
   expect(screen.getByText('Входит в курсы')).toBeTruthy();
-  expect(screen.getByText('Вводная программа (заготовка)')).toBeTruthy();
+  expect(screen.getByText('T-Rex Arms: карабинный путь')).toBeTruthy();
 });
 
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {

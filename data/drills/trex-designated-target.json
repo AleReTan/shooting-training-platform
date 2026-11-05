@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-designated-target",
+  "name": {
+    "ru": "T-Rex: Назначенная цель",
+    "en": "T-Rex: Designated Target Drill"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/designated-target-drill-395"
+  },
+  "tags": [
+    "transitions",
+    "speed",
+    "accuracy"
+  ],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 10,
+    "max": 23,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 3
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "Чистые точные переносы в сложных массивах: количество целей, дистанции и презентации выбираешь ты",
+    "en": "Crisp, precise transitions in complex arrays: you pick target count, distances, and presentations"
+  },
+  "steps": {
+    "ru": [
+      "Собери массив из 3–4 мишеней с разными презентациями: открытая, частично закрытая, узкая, дальняя",
+      "Партнёр назначает порядок огня по массиву (или задай порядок заранее)",
+      "По сигналу — серия по назначенным целям; 12 патронов на подход",
+      "Хит-фактор: поощряет точность на скорости (формат T-Rex)",
+      "3–5 подходов, меняй массив между подходами"
+    ]
+  },
+  "safety": {
+    "ru": "Сложные массивы = узкие сектора: проверь фон за каждой мишенью"
+  },
+  "equipment": [
+    "карабин",
+    "2 магазина",
+    "3–4 мишени",
+    "партнёр (опционально)"
+  ],
+  "variants": {
+    "ru": [
+      "Частично закрытые мишени 50%",
+      "Назначение порядка партнёром на пульсе (стресс-вариант)"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 25,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 8,
+        "y": 1,
+        "label": {
+          "ru": "бокс"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 3,
+        "y": 12,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 8,
+        "y": 23,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 13,
+        "y": 14,
+        "type": "ipsc-metric"
+      }
+    ],
+    "barriers": [
+      {
+        "x": 10,
+        "y": 20,
+        "kind": "wall"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 4
+      }
+    ]
+  },
+  "related": [
+    "partial-targets",
+    "multiple-threat-priority",
+    "trex-accelerator"
+  ]
+}

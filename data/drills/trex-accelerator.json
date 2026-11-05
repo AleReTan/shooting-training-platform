@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "trex-accelerator",
+  "name": {
+    "ru": "T-Rex: Акселератор",
+    "en": "T-Rex: Accelerator Drill"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "T-Rex Arms",
+    "kind": "course",
+    "url": "https://www.trex-arms.com/training/drills-assessments/accelerator-drill-394"
+  },
+  "tags": [
+    "transitions",
+    "speed",
+    "accuracy"
+  ],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 12,
+  "distance": {
+    "min": 23,
+    "max": 23,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 3
+    }
+  ],
+  "scoring": {
+    "type": "hit-factor",
+    "points": 5
+  },
+  "goal": {
+    "ru": "12 патронов, 3 USPSA-мишени, 23 м (25 ярдов): разные уровни подтверждения прицела и работа оружием на скорости",
+    "en": "12 rounds, 3 USPSA targets, 23 m (25 yd): different levels of sight confirmation and gun handling at speed"
+  },
+  "steps": {
+    "ru": [
+      "Три USPSA-мишени на 23 м; 12 патронов",
+      "По сигналу — серия по трём целям (расклад — по PDF T-Rex, ссылка в источнике)",
+      "Хит-фактор: дальняя дистанция требует видеть прицел, темп требует не залипать",
+      "Главная идея T-Rex: на каждой цели — свой уровень подтверждения прицела",
+      "3–4 подхода"
+    ]
+  },
+  "safety": {
+    "ru": "23 м + скорость: штрафные зоны «дороже», чем на близкой дистанции — не срезай"
+  },
+  "equipment": [
+    "карабин",
+    "1 магазин на 12 патронов"
+  ],
+  "variants": {
+    "ru": [
+      "Дистанция 10 м для входа",
+      "Смешанные зоны: по одной цели только «А»"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 25,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 7,
+        "y": 1,
+        "label": {
+          "ru": "бокс"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 3,
+        "y": 23,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T2",
+        "x": 7,
+        "y": 23,
+        "type": "ipsc-metric"
+      },
+      {
+        "id": "T3",
+        "x": 11,
+        "y": 23,
+        "type": "ipsc-metric"
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 4
+      }
+    ]
+  },
+  "related": [
+    "trex-mxad",
+    "transition-three-sweep",
+    "sc-accelerator"
+  ]
+}
