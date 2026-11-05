@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'preact/hooks';
-import { localized, FIRE_LABELS_PLURAL } from '../../app/i18n';
+import { localized, FIRE_LABELS_PLURAL, SOURCE_KIND_LABELS } from '../../app/i18n';
 import { filterDrills, type CatalogFilters } from './filters';
 import { DrillCard } from './DrillCard';
+import { CourseCard } from './CourseCard';
 import { TagChip } from '../../ui/TagChip';
 import { Segmented } from '../../ui/Segmented';
 import type { AppData } from '../../data/load';
-import type { Discipline, FireMode } from '../../data/types';
+import type { Discipline, Drill, FireMode } from '../../data/types';
 
 /** Каталог упражнений: поиск, фильтры, список (спека §8 п.1). */
 export default function CatalogPage({ data }: { data: AppData }) {
@@ -20,11 +21,30 @@ export default function CatalogPage({ data }: { data: AppData }) {
   const [maxRounds, setMaxRounds] = useState<number | ''>('');
   const [distanceMax, setDistanceMax] = useState<number | ''>('');
   const [review, setReview] = useState<'' | 'yes' | 'no'>('');
+  const [source, setSource] = useState('');
 
   const tagLabels = useMemo(
     () => new Map(taxonomy.tags.map((t) => [t.id, localized(t.label)])),
     [taxonomy],
   );
+  const drillById = useMemo(() => new Map(drills.map((d) => [d.id, d])), [drills]);
+
+  // Источники для фильтра: тип источника → origin'ы по убыванию количества.
+  const sourceGroups = useMemo(() => {
+    const byKind = new Map<string, Map<string, number>>();
+    for (const d of drills) {
+      const origins = byKind.get(d.source.kind) ?? new Map();
+      origins.set(d.source.origin, (origins.get(d.source.origin) ?? 0) + 1);
+      byKind.set(d.source.kind, origins);
+    }
+    return [...byKind.entries()]
+      .map(([kind, origins]) => ({
+        kind,
+        origins: [...origins.entries()].sort((a, b) => b[1] - a[1]).map(([o]) => o),
+        size: [...origins.values()].reduce((s, n) => s + n, 0),
+      }))
+      .sort((a, b) => b.size - a.size);
+  }, [drills]);
 
   const filters: CatalogFilters = {
     query,
@@ -36,11 +56,12 @@ export default function CatalogPage({ data }: { data: AppData }) {
     maxRounds: maxRounds === '' ? undefined : maxRounds,
     distanceMax: distanceMax === '' ? undefined : distanceMax,
     needsReview: review === '' ? undefined : review === 'yes',
+    source: source || undefined,
   };
 
   const visible = useMemo(
     () => filterDrills(drills, filters),
-    [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax, review],
+    [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax, review, source],
   );
 
   const hasActive =
@@ -52,7 +73,8 @@ export default function CatalogPage({ data }: { data: AppData }) {
     difficultyMax !== 5 ||
     maxRounds !== '' ||
     distanceMax !== '' ||
-    review !== '';
+    review !== '' ||
+    source !== '';
 
   const toggleTag = (id: string) =>
     setTags((t) => (t.includes(id) ? t.filter((x) => x !== id) : [...t, id]));
@@ -67,6 +89,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
     setMaxRounds('');
     setDistanceMax('');
     setReview('');
+    setSource('');
   };
 
   const tagRow = (group: 'skill' | 'condition', label: string) => (
@@ -120,6 +143,23 @@ export default function CatalogPage({ data }: { data: AppData }) {
             <option value="carbine">карабин</option>
             <option value="pistol-traumatic">пистолет / травмат</option>
             <option value="shotgun">ружьё</option>
+          </select>
+
+          <select
+            aria-label="Источник"
+            value={source}
+            onChange={(e) => setSource((e.target as HTMLSelectElement).value)}
+          >
+            <option value="">любой источник</option>
+            {sourceGroups.map((g) => (
+              <optgroup key={g.kind} label={SOURCE_KIND_LABELS[g.kind as keyof typeof SOURCE_KIND_LABELS] ?? g.kind}>
+                {g.origins.map((o) => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
           </select>
 
           <Segmented
@@ -209,13 +249,11 @@ export default function CatalogPage({ data }: { data: AppData }) {
       {courses.length ? (
         <section class="courses">
           <h3>Курсы</h3>
-          <ul>
+          <div class="drill-list">
             {courses.map((c) => (
-              <li key={c.id}>
-                <a href={`#/course/${c.id}`}>{localized(c.name)}</a> — {c.items.length} упражн.
-              </li>
+              <CourseCard key={c.id} course={c} drillById={drillById} />
             ))}
-          </ul>
+          </div>
         </section>
       ) : null}
 

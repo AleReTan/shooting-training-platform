@@ -81,3 +81,8 @@ test('needsReview: true → только на проверке; false → тол
   expect(by(true)).toEqual(['x-review']);
   expect(by(false).sort()).toEqual(['bill-drill-carbine', 'one-to-five', 'wall-dry']);
 });
+
+test('source: точное совпадение origin', () => {
+  const res = run({ query: '', tags: [], source: 'Kyle Lamb' });
+  expect(res.map((d) => d.id)).toEqual(['one-to-five']);
+});

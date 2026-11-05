@@ -14,6 +14,7 @@ export interface CatalogFilters {
   maxRounds?: number;
   distanceMax?: number;
   needsReview?: boolean;
+  source?: string;
 }
 
 function matchesQuery(drill: Drill, query: string): boolean {
@@ -42,6 +43,7 @@ export function filterDrills(drills: Drill[], f: CatalogFilters): Drill[] {
     if (f.maxRounds != null && d.rounds > f.maxRounds) return false;
     if (f.distanceMax != null && d.distance.min > f.distanceMax) return false;
     if (f.needsReview != null && !!d.needsReview !== f.needsReview) return false;
+    if (f.source != null && d.source.origin !== f.source) return false;
     return matchesQuery(d, f.query);
   });
 }

@@ -68,6 +68,23 @@ test('чип тега «Первый выстрел» оставляет одн�
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
 });
 
+test('фильтр «Источник»: варианты сгруппированы по типу, выбор сужает список', () => {
+  render(<CatalogPage data={data} />);
+  const select = screen.getByLabelText('Источник') as HTMLSelectElement;
+  expect(select.textContent).toContain('Общая практика карабинных курсов');
+  expect(select.textContent).toContain('shootie.pro · Травма');
+
+  fireEvent.change(select, { target: { value: 'Steel Challenge' } });
+  expect(screen.queryByText('От 1 до 5')).toBeNull(); // Kyle Lamb, классика
+  expect(document.querySelectorAll('.drill-card').length).toBeGreaterThan(0);
+});
+
+test('курсы показаны карточками с агрегатами', () => {
+  render(<CatalogPage data={data} />);
+  expect(screen.getByText('10 упражнений')).toBeTruthy();
+  expect(screen.getByRole('link', { name: /карабинный путь/ })).toBeTruthy();
+});
+
 test('счётчик показывает «N из M» и сбрасывает фильтры', () => {
   render(<CatalogPage data={data} />);
   const total = data.drills.length;
