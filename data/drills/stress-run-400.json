@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-run-400",
+  "name": { "ru": "Бег 400 м и серия", "en": "400 m Run Then String" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "speed", "accuracy", "first-shot"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Формат «run and gun» тактических гонок: полная аэробная нагрузка — и чистая серия из 10",
+    "en": "Run-and-gun format of tactical matches: full aerobic load, then a clean 10-round string"
+  },
+  "steps": {
+    "ru": [
+      "Две мишени 15 и 20 м; маршрут 400 м (петля или отрезок 2×200 м)",
+      "Бег с карабином на ремне; темп соревновательный",
+      "Финиш бега — сразу на позицию: 10 выстрелов, по 5 в каждую мишень",
+      "Засчитываются только зачётные зоны; фиксируй общее время (бег + серия)",
+      "2 подхода с полным отдыхом между ними; цель — не потерять точность против спокойной серии"
+    ]
+  },
+  "safety": { "ru": "Маршрут бега не должен пересекать линии огня других стрелков; карабин на ремне, патрон не в патроннике" },
+  "equipment": ["карабин", "ремень", "2 магазина по 5 патронов", "маршрут 400 м"],
+  "variants": { "ru": ["200 м для входа в формат", "После серии — ещё 200 м (финиш на ногах)"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 16,
+    "positions": [
+      { "id": "RUN", "x": 6, "y": 1, "label": { "ru": "старт/финиш бега" } },
+      { "id": "FIRE", "x": 6, "y": 4, "label": { "ru": "огневая позиция" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 14, "type": "ipsc-metric" },
+      { "id": "T2", "x": 9, "y": 15, "type": "ipsc-metric" }
+    ],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "RUN", "to": "FIRE" },
+      { "action": "engage", "target": "T1", "shots": 5 },
+      { "action": "engage", "target": "T2", "shots": 5 }
+    ]
+  },
+  "related": ["stress-sprint-pairs", "stress-march-then-group", "the-test-10-10-10"]
+}

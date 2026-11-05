@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-sprint-pairs",
+  "name": { "ru": "Спринт и двойки", "en": "Sprint Then Pairs" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "speed", "accuracy", "first-shot"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 11.0 },
+    { "level": "advanced", "time": 9.0 },
+    { "level": "master", "time": 7.5 }
+  ],
+  "goal": {
+    "ru": "Стрельба на пульсе: короткий спринт перед серией — прицел дрожит, дисциплина спуска не должна",
+    "en": "Shooting on an elevated heart rate: sprint before the string — the sight shakes, trigger discipline must not"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10–15 м по фронту; линия спринта в 60 м позади стрелковой позиции",
+      "По сигналу — спринт 60 м к позиции, карабин на ремне в безопасном положении",
+      "Приход на позицию: вскидка — по 2 выстрела в каждую мишень",
+      "Пар считается от пересечения линии позиции до последнего выстрела",
+      "3–4 подхода с отдыхом 2–3 мин между ними",
+      "Прогресс-цель: попадания не теряются относительно спокойной серии"
+    ]
+  },
+  "safety": { "ru": "Приход со спринта опасен «маятником» карабина: ремень натянут, палец вне спуска до вскидки" },
+  "equipment": ["карабин", "ремень", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["Спринт с разворотом (туда-обратно 2×30 м)", "Бег боком/спиной для нагрузки на другие группы"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 16,
+    "positions": [
+      { "id": "RUN", "x": 8, "y": 1, "label": { "ru": "старт спринта" } },
+      { "id": "FIRE", "x": 8, "y": 5, "label": { "ru": "огневая позиция" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 14, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 15, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 14, "type": "ipsc-metric" }
+    ],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "RUN", "to": "FIRE" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["stress-sprint-first-shot", "stress-burpee-standard", "move-forward-then-static"]
+}

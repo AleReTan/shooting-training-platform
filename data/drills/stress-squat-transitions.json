@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-squat-transitions",
+  "name": { "ru": "Приседания и переносы", "en": "Squats Then Transitions" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 9.0 },
+    { "level": "intermediate", "time": 7.0 },
+    { "level": "advanced", "time": 5.5 },
+    { "level": "master", "time": 4.5 }
+  ],
+  "goal": {
+    "ru": "Ноги забиты — переносы остаются горизонтальными: 20 приседаний и тройная цель",
+    "en": "Legs cooked, transitions still level: 20 squats and a three-target array"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10–15 м по фронту",
+      "20 воздушных приседаний в темпе",
+      "Вскидка: по 2 выстрела в каждую цель, слева направо",
+      "Все в зачётных зонах; пар на серию",
+      "3 подхода; следи за «заваливанием» переноса на пульсе"
+    ]
+  },
+  "safety": { "ru": "После приседаний устойчивость снижена: стойка шире, вес на середине стопы" },
+  "equipment": ["карабин", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Выпады вместо приседаний", "Серия с колена в конце"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 16,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "позиция" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 13, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 12, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["stress-burpee-standard", "transition-three-sweep", "stress-sprint-pairs"]
+}

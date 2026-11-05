@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-sprint-reload",
+  "name": { "ru": "Спринт — перезарядка — огонь", "en": "Sprint, Reload, Fire" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "reload-emergency", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 4,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "parTimes": [
+    { "level": "novice", "time": 13.0 },
+    { "level": "intermediate", "time": 10.0 },
+    { "level": "advanced", "time": 8.0 },
+    { "level": "master", "time": 6.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Моторика на пульсе: спринт, магазин пуст на первом выстреле — аварийная перезарядка мокрыми руками",
+    "en": "Motor skills under stress: sprint, empty mag on the first shot, emergency reload with wet hands"
+  },
+  "steps": {
+    "ru": [
+      "Две мишени 15 и 20 м; стартовый магазин имитирует «сюрприз» — 0 патронов (или холостой щелчок)",
+      "По сигналу — спринт 40 м к позиции",
+      "Вскидка, нажатие — «щелчок»: мгновенная аварийная перезарядка (магазин с 4 патронами)",
+      "По 2 выстрела в каждую мишень",
+      "Пар от позиции до последнего выстрела; 4–5 подходов"
+    ]
+  },
+  "safety": { "ru": "Работа с магазинами на пульсе: контролируй направление ствола при устранении «щелчка»" },
+  "equipment": ["карабин", "пустой магазин + боевой магазин"],
+  "variants": { "ru": ["Пустой магазин на второй мишени", "Пульс выше: два спринта подряд"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 16,
+    "positions": [
+      { "id": "RUN", "x": 6, "y": 1, "label": { "ru": "старт спринта" } },
+      { "id": "FIRE", "x": 6, "y": 4, "label": { "ru": "огневая позиция" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 14, "type": "ipsc-metric" },
+      { "id": "T2", "x": 9, "y": 15, "type": "ipsc-metric" }
+    ],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "RUN", "to": "FIRE" },
+      { "action": "reload" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["reload-emergency-par", "stress-sprint-pairs", "malfunction-clearance-dry"]
+}

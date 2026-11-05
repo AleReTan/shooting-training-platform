@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-sprint-first-shot",
+  "name": { "ru": "Спринт и первый выстрел", "en": "Sprint Then First Shot" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "first-shot", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 5,
+  "distance": { "min": 15, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 4.5 },
+    { "level": "intermediate", "time": 3.5 },
+    { "level": "advanced", "time": 2.7 },
+    { "level": "master", "time": 2.1 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Чистый первый выстрел на пульсе: 50 м спринта — один точный в «А», без «дострела» вторым",
+    "en": "A clean first shot on a raced heart: 50 m sprint, one precise A-hit, no makeup shot"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 25 м; линия спринта в 50 м от позиции; в «А» заклеен круг 20 см",
+      "По сигналу — спринт 50 м, приход на позицию, один выстрел в круг",
+      "Пар — от пересечения позиции до выстрела; попадание вне круга = подход не засчитан",
+      "5 подходов, отдых 2 мин",
+      "Следи за главным: на пульсе тянет «дёрнуть» спуск — приход с уже построенной картинкой"
+    ]
+  },
+  "safety": { "ru": "Карабин во время бега — на ремне, ствол в безопасном направлении по маршруту" },
+  "equipment": ["карабин", "ремень", "1 магазин на 5 патронов"],
+  "variants": { "ru": ["Старт карабина: с ремня, с низкого готовности — чередуй", "Два выстрела вместо одного (пара на пульсе)"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 16,
+    "positions": [
+      { "id": "RUN", "x": 5, "y": 1, "label": { "ru": "старт спринта" } },
+      { "id": "FIRE", "x": 5, "y": 5, "label": { "ru": "огневая позиция" } }
+    ],
+    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "RUN", "to": "FIRE" },
+      { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "related": ["stress-sprint-pairs", "cold-bore-first-shot", "ready-up-standards"]
+}

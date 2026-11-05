@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-pushup-a-zone",
+  "name": { "ru": "Отжимания и точность", "en": "Push-ups Then Precision" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 5,
+  "distance": { "min": 25, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Нагрузка на плечевой пояс — и сразу точная работа: руки трясутся, спуск должен быть чистым",
+    "en": "Load the shoulders, then shoot precisely: arms shaking, trigger press still clean"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 25 м, зона «А» проклеена до 15 см",
+      "15 отжиманий в темпе",
+      "Подъём, вскидка: 5 одиночных выстрелов, каждый — с полной перефокусировкой",
+      "Засчитываются только попадания в проклеенную зону",
+      "3 подхода; сравни группу с группой без нагрузки"
+    ]
+  },
+  "safety": { "ru": "Трясающиеся руки — соблазн «дожать» спуск: каждый выстрел осознанный" },
+  "equipment": ["карабин", "1 магазин на 5 патронов"],
+  "variants": { "ru": ["Планка 60 с вместо отжиманий", "Выстрелы с колена"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 27,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиция" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 25, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+  },
+  "related": ["stress-burpee-standard", "a-zone-25", "stress-breath-control"]
+}

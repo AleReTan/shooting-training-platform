@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-breath-control",
+  "name": { "ru": "Сброс пульса перед выстрелом", "en": "Heart-Rate Reset Before the Shot" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "accuracy", "precision-long"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 3,
+  "distance": { "min": 50, "max": 50, "unit": "m" },
+  "targets": [{ "type": "a4-paper", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Навык «остывания»: после нагрузки — 2–3 цикла дыхания — и точный выстрел в момент затишья",
+    "en": "The cool-down skill: after exertion, two or three breath cycles, then the shot in the still window"
+  },
+  "steps": {
+    "ru": [
+      "Лист A4 на 50 м; линия нагрузки (60 м спринт или 15 бёрпи)",
+      "Нагрузка — на позицию: НЕ стрелять сразу",
+      "Коробочное дыхание: вдох 4 с — задержка 4 с — выдох 4 с — задержка 4 с, 2–3 цикла",
+      "Выстрел на выдохе в конце последнего цикла; 3 цикла по 1 выстрелу",
+      "Зачёт — попадание в лист; замеряй время «остывания» от прихода до выстрела"
+    ]
+  },
+  "safety": { "ru": "Не задерживай дыхание дольше комфортного: гипервентиляция перед стрельбой недопустима" },
+  "equipment": ["карабин", "3 патрона", "лист A4"],
+  "variants": { "ru": ["Тот же протокол на 25 м с колена", "Сухая версия: только дыхание и вскидка"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 52,
+    "positions": [
+      { "id": "RUN", "x": 4, "y": 1, "label": { "ru": "линия нагрузки" } },
+      { "id": "FIRE", "x": 4, "y": 3, "label": { "ru": "огневая позиция" } }
+    ],
+    "targets": [{ "id": "T1", "x": 4, "y": 50, "type": "a4-paper" }],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "RUN", "to": "FIRE" },
+      { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "related": ["stress-march-then-group", "stress-pushup-a-zone", "cold-bore-first-shot"]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-partner-callout",
+  "name": { "ru": "Команда партнёра на пульсе", "en": "Partner Callout Under Stress" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "transitions", "first-shot", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 4,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Принятие решений на пульсе: партнёр называет цель после нагрузки — обрабатывать приказ, а не искать знакомый порядок",
+    "en": "Decision-making on a raced heart: partner calls the target after exertion — process the call, not a rehearsed order"
+  },
+  "steps": {
+    "ru": [
+      "Четыре мишени 10–20 м, пронумерованы (или разного цвета)",
+      "30 с бёрпи/спринт-челнок (партнёр держит пульс высоким)",
+      "Партнёр командует: «Два — три!» — по 2 выстрела в названные, в названном порядке",
+      "Неправильная цель или порядок — подход не засчитан",
+      "5 циклов; усложняй: команды из трёх целей, «левая от красной» и т.п."
+    ]
+  },
+  "safety": { "ru": "Стрелок на пульсе слышит хуже: команды громко и однозначно, отмена — слово «стоп»" },
+  "equipment": ["карабин", "1 магазин на 6+ патронов", "партнёр", "номера/цвета на мишенях"],
+  "variants": { "ru": ["Сухая версия (обработка команд)", "Одна мишень — «своей» не стрелять"] },
+  "layout": {
+    "unit": "m",
+    "width": 18,
+    "depth": 22,
+    "positions": [{ "id": "P1", "x": 9, "y": 1, "label": { "ru": "позиция" } }],
+    "targets": [
+      { "id": "T1", "x": 2, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 14, "type": "ipsc-metric" },
+      { "id": "T3", "x": 11, "y": 18, "type": "ipsc-metric" },
+      { "id": "T4", "x": 16, "y": 20, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["stress-sprint-pairs", "multiple-threat-priority", "stress-squat-transitions"]
+}

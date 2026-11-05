@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "stress-burpee-standard",
+  "name": { "ru": "Бёрпи и стандарт", "en": "Burpees Then Standard" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["stress", "accuracy", "speed", "recoil-control"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 8.0 },
+    { "level": "intermediate", "time": 6.0 },
+    { "level": "advanced", "time": 4.8 },
+    { "level": "master", "time": 4.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Простейший стресс-протокол: 10 бёрпи — и сразу серия на 10 м. Учись «гасить» пульс за прицелом",
+    "en": "The simplest stress protocol: 10 burpees, then an immediate 10 m string. Learn to settle the pulse behind the sight"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 10 м; карабин на столе/на ремне рядом с позицией",
+      "10 бёрпи в темпе без остановки",
+      "Последнее бёрпи — подъём, вскидка: 6 выстрелов в «А» одним темпом",
+      "Промах = +2 с к пару",
+      "3–4 подхода, отдых 2–3 мин; цель — пар и кучность как без нагрузки"
+    ]
+  },
+  "safety": { "ru": "После бёрпи голова «плывёт»: вскидка только с найденной глазами мишенью" },
+  "equipment": ["карабин", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["15 бёрпи вместо 10", "Серия с колена"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 12,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиция" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T1", "shots": 3 }
+    ]
+  },
+  "related": ["stress-sprint-pairs", "stress-pushup-a-zone", "rapid-string-five"]
+}
