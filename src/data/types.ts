@@ -66,6 +66,9 @@ export interface LayoutMovement {
   from: string;
   to: string;
   style: MovementStyle;
+  /** Реальная дистанция перехода в метрах, если он сжат на схеме
+   *  (например, спринт 50 м между соседними позициями). */
+  distance?: number;
 }
 
 export type SequenceStep =

@@ -36,7 +36,7 @@
       { "id": "FIRE", "x": 4, "y": 3, "label": { "ru": "огневая позиция" } }
     ],
     "targets": [{ "id": "T1", "x": 4, "y": 53, "type": "a4-paper" }],
-    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance", "distance": 60 }],
     "sequence": [
       { "action": "move", "from": "RUN", "to": "FIRE" },
       { "action": "engage", "target": "T1", "shots": 1 },

@@ -45,7 +45,7 @@
       { "id": "T1", "x": 3, "y": 19, "type": "ipsc-metric" },
       { "id": "T2", "x": 9, "y": 24, "type": "ipsc-metric" }
     ],
-    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance", "distance": 40 }],
     "sequence": [
       { "action": "move", "from": "RUN", "to": "FIRE" },
       { "action": "reload" },

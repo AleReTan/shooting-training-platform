@@ -36,18 +36,18 @@
   "variants": { "ru": ["В шлеме с ПНВ (ночная версия)", "Финал с колена на дальней цели"] },
   "layout": {
     "unit": "m",
-    "width": 16,
+    "width": 12,
     "depth": 31,
     "positions": [
       { "id": "RUN", "x": 8, "y": 1, "label": { "ru": "старт спринта" } },
       { "id": "FIRE", "x": 8, "y": 4, "label": { "ru": "огневая позиция" } }
     ],
     "targets": [
-      { "id": "T1", "x": 4, "y": 13, "type": "ipsc-metric" },
+      { "id": "T1", "x": 7, "y": 14, "type": "ipsc-metric" },
       { "id": "T2", "x": 8, "y": 19, "type": "ipsc-metric" },
-      { "id": "T3", "x": 12, "y": 29, "type": "ipsc-metric" }
+      { "id": "T3", "x": 9, "y": 29, "type": "ipsc-metric" }
     ],
-    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance", "distance": 50 }],
     "sequence": [
       { "action": "move", "from": "RUN", "to": "FIRE" },
       { "action": "engage", "target": "T1", "shots": 4 },

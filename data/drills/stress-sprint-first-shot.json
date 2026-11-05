@@ -42,7 +42,7 @@
       { "id": "FIRE", "x": 5, "y": 5, "label": { "ru": "огневая позиция" } }
     ],
     "targets": [{ "id": "T1", "x": 5, "y": 30, "type": "ipsc-metric" }],
-    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
+    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance", "distance": 50 }],
     "sequence": [
       { "action": "move", "from": "RUN", "to": "FIRE" },
       { "action": "engage", "target": "T1", "shots": 1 }

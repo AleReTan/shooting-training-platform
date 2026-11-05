@@ -55,15 +55,19 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
         rx="8"
         class="diagram-field"
       />
-      <text x={M} y={M - 8} class="diagram-caption">
+      <text x={M / 2 + 8} y={M / 2 + 16} class="diagram-caption">
         дальняя граница {layout.depth} м
       </text>
 
-      {/* Линии движения */}
+      {/* Линии движения: сжатые переходы (спринт/марш) подписаны
+          реальной дистанцией из m.distance */}
       {(layout.movement ?? []).map((m, i) => {
         const from = posById.get(m.from);
         const to = posById.get(m.to);
         if (!from || !to) return null;
+        const meters = m.distance ?? Math.round(dist(from, to));
+        const midX = (px(from.x) + px(to.x)) / 2;
+        const midY = (py(from.y) + py(to.y)) / 2;
         return (
           <g key={`mv-${i}`}>
             <title>{`Движение ${m.from}→${m.to} (${m.style})`}</title>
@@ -75,6 +79,9 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
               class="diagram-movement"
             />
             <circle cx={px(to.x)} cy={py(to.y)} r="3" class="diagram-movement-arrow" />
+            <text x={midX} y={midY - 6} class="diagram-movement-label">
+              {meters} м
+            </text>
           </g>
         );
       })}
@@ -97,15 +104,16 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
         </g>
       ))}
 
-      {/* Мишени */}
+      {/* Мишени: подпись с округлёнными метрами, у краёв — прижата внутрь */}
       {layout.targets.map((t) => {
         const near = nearestPos(t);
-        const d = dist(t, near);
+        const d = Math.round(dist(t, near));
         const shots = playback?.shotsDone?.[t.id] ?? 0;
         const active = playback?.activeTarget === t.id;
         const isSteel = t.type.includes('steel');
         const cls =
           'diagram-target' + (active ? ' diagram-target--active' : '');
+        const labelX = Math.min(Math.max(px(t.x), 30), W - 30);
         return (
           <g key={t.id} data-target={t.id} class={cls}>
             {isSteel ? (
@@ -120,8 +128,8 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
                 class="diagram-target-shape"
               />
             )}
-            <text x={px(t.x)} y={py(t.y) - 14} class="diagram-target-label">
-              {t.id} · {d.toFixed(1)} м{shots > 0 ? ` · ×${shots}` : ''}
+            <text x={labelX} y={py(t.y) - 14} class="diagram-target-label">
+              {t.id} · {d} м{shots > 0 ? ` · ×${shots}` : ''}
             </text>
           </g>
         );

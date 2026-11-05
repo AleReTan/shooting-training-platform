@@ -92,6 +92,9 @@ function validateLayout(file: string, layout: Layout, errors: string[]): void {
     if (!posIds.has(m.from) || !posIds.has(m.to)) {
       errors.push(`${file}: movement ссылается на несуществующую позицию ${m.from}→${m.to}`);
     }
+    if (m.distance != null && (typeof m.distance !== 'number' || m.distance <= 0)) {
+      errors.push(`${file}: movement.distance ${m.from}→${m.to} должен быть положительным числом`);
+    }
   }
   for (const s of layout.sequence ?? []) {
     if (s.action === 'engage' && !tgtIds.has(s.target)) {
