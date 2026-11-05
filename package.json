@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "validate:data": "tsx tools/validate-data/cli.ts"
+    "validate:data": "tsx tools/validate-data/cli.ts",
+    "scrape:shootie": "tsx tools/scraper/parse-shootie.ts"
   },
   "dependencies": {
     "preact": "^10.19.0"
