@@ -92,8 +92,8 @@ export default function CatalogPage({ data }: { data: AppData }) {
             onChange={(e) => setFireMode((e.target as HTMLSelectElement).value as '' | FireMode)}
           >
             <option value="">любой</option>
-            <option value="live">боевые</option>
-            <option value="dry">сухие</option>
+            <option value="live">огневые</option>
+            <option value="dry">холостые</option>
           </select>
         </label>
 

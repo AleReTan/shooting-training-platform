@@ -14,8 +14,8 @@ const PAR_LABELS: Record<string, string> = {
 };
 
 const FIRE_LABELS: Record<string, string> = {
-  live: 'боевая',
-  dry: 'сухая',
+  live: 'огневая',
+  dry: 'холостая',
 };
 
 const distanceText = (d: Drill['distance']) =>

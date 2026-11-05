@@ -14,7 +14,7 @@ test('каталог показывает упражнения', () => {
   render(<CatalogPage data={data} />);
   expect(screen.getByText('От 1 до 5')).toBeTruthy();
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
-  expect(screen.getByText('Стена (сухая)')).toBeTruthy();
+  expect(screen.getByText('Стена (холостая)')).toBeTruthy();
 });
 
 test('поиск фильтрует карточки', () => {
@@ -24,10 +24,19 @@ test('поиск фильтрует карточки', () => {
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
 });
 
-test('фильтр fireMode «сухие» оставляет только dry', () => {
+test('фильтр «Тип тренировки»: варианты «огневые» и «холостые»', () => {
+  render(<CatalogPage data={data} />);
+  const select = screen.getByLabelText('Тип тренировки');
+  expect(select.textContent).toContain('огневые');
+  expect(select.textContent).toContain('холостые');
+  expect(select.textContent).not.toContain('сухие');
+  expect(select.textContent).not.toContain('боевые');
+});
+
+test('фильтр fireMode «холостые» оставляет только dry', () => {
   render(<CatalogPage data={data} />);
   fireEvent.change(screen.getByLabelText('Тип тренировки'), { target: { value: 'dry' } });
-  expect(screen.getByText('Стена (сухая)')).toBeTruthy();
+  expect(screen.getByText('Стена (холостая)')).toBeTruthy();
   expect(screen.queryByText('От 1 до 5')).toBeNull();
 });
 

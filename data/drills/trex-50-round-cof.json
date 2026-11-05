@@ -14,13 +14,14 @@
     "url": "https://www.trex-arms.com/training/drills-assessments/50-round-carbine-course-of-fire-63"
   },
   "tags": [
+    "first-shot",
     "speed",
     "accuracy",
     "transitions",
-    "movement",
-    "recoil-control"
+    "reload",
+    "movement"
   ],
-  "needsReview": true,
+  "needsReview": false,
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -42,71 +43,103 @@
     "points": 5
   },
   "goal": {
-    "ru": "Полный курс T-Rex: 50 патронов, 3 USPSA-мишени, рубеж 25×10 м — база плюс движение и переносы, баланс скорости и точности",
-    "en": "Full T-Rex course: 50 rounds, 3 USPSA targets, 25×10 m bay — fundamentals plus movement and transitions, speed-accuracy balance"
+    "ru": "Ассесмент T-Rex на 50 выстрелов: 3 USPSA-мишени вряд — центральная на 10 м, фланговые на 25 м от боковых маркеров. Семь серий: одиночные в голову из низкой и высокой готовности, «лесенка» 1-2-3-4, разворот на 180° с перезарядкой, головы с уходом на 25 м, работа с двух фланговых позиций и финал по 4 выстрела на мишень в движении к 5 м. Счёт — хит-фактор: очки ÷ время, максимум 250 очков",
+    "en": "T-Rex 50-round assessment: 3 USPSA targets in a row — center at 10 m, flanks 25 m from the side markers. Seven strings: single head shots from low/high ready, a 1-2-3-4 ladder, 180° turn with bolt-lock reload, heads on the move to 25 m, both flank positions, and 4 rounds per target moving back to the 5 m line. Hit factor: points ÷ time, 250 max"
   },
   "steps": {
     "ru": [
-      "Рубеж 25×10 м; 3 USPSA-мишени; 50 патронов",
-      "Официальный PDF T-Rex (ссылка в источнике) содержит полную раскладку, бланк попаданий и времени — распечатай его",
-      "Курс связывает базовые навыки с движением и переносами через серию заданий",
-      "Хит-фактор по каждому заданию и суммарно",
-      "Замер недели: суммарный хит-фактор курса — лучшая метрика прогресса карабинщика"
+      "Серия 1 · 5 м, центральная мишень: из низкой готовности — 1 выстрел в голову",
+      "Серия 2 · 5 м: из высокой готовности — 1 выстрел в голову центральной",
+      "Серия 3 · 10 м, стоя напротив центральной: 1 — центральная, 2 — левая, 3 — правая, 4 — центральная (по корпусу)",
+      "Серия 4 · 10 м, спиной к мишеням: разворот на 180° — 5 в левую, перезарядка с задержки затвора, 5 в правую",
+      "Серия 5 · 10→25 м: с рубежа 10 м — 2 в голову левой; смещение на 25-метровую позицию — 2 в голову правой",
+      "Серия 6 · 25↔25 м: с левой позиции — по 2 в каждую мишень; смена на правую позицию — снова по 2 в каждую",
+      "Серия 7 · 25→5 м: двигаясь к линии 5 м — по 4 выстрела в каждую мишень в любом порядке",
+      "Счёт: A=5, C=3, D=1, промах −10; максимум 250 очков, дострелы запрещены; хит-фактор = очки ÷ время. Итог по мишеням: левая 2 в голову + 15 в корпус, центральная 2 + 13, правая 2 + 16"
+    ],
+    "en": [
+      "String 1 · 5 m, center target: from low ready — 1 round to the head",
+      "String 2 · 5 m: from high ready — 1 round to the center target's head",
+      "String 3 · 10 m, in front of center: 1 — center, 2 — left, 3 — right, 4 — center (body)",
+      "String 4 · 10 m, back to targets: 180° turn — 5 on the left, bolt-lock reload, 5 on the right",
+      "String 5 · 10→25 m: from the 10 m line — 2 to the left target's head; move to the 25 m position — 2 to the right target's head",
+      "String 6 · 25↔25 m: from the left position — 2 rounds on each target; move to the right position — 2 on each again",
+      "String 7 · 25→5 m: moving toward the 5 m line — 4 rounds on each target, any order",
+      "Scoring: A=5, C=3, D=1, Mike −10; 250 points max, no make-ups; hit factor = points ÷ time. Per target: left 2 head + 15 body, center 2 + 13, right 2 + 16"
     ]
   },
   "safety": {
-    "ru": "Смешанные задания (движение + переносы): размечай рубеж и проверяй сектора до начала"
+    "ru": "Разворот на 180° и стрельба в движении: до старта разметь границы рубежа 25×10 м и проверь зоны обстрела; на всех перемещениях ствол остаётся в секторе мишеней"
   },
   "equipment": [
     "карабин",
-    "4–5 магазинов (50 патронов)",
-    "рубеж 25×10 м",
-    "бланк PDF T-Rex"
+    "магазины на 50 патронов суммарно (в серии 4 — перезарядка с задержки затвора)",
+    "таймер",
+    "3 мишени USPSA + стойки",
+    "разметка рубежа 25×10 м (маркеры-«палки» по краям линии 10 м)",
+    "бланк курса T-Rex (PDF на странице источника)"
   ],
   "variants": {
     "ru": [
-      "Половина курса (25 патронов)",
-      "Прогон в бронежилете для реалистичности"
+      "Пистолетная версия — «T-Rex: 50 патронов, пистолет»",
+      "Прогон в бронежилете и с подсумками",
+      "Замер недели: суммарный хит-фактор курса как метрика прогресса"
     ]
   },
   "layout": {
     "unit": "m",
     "width": 10,
-    "depth": 27,
+    "depth": 25,
     "positions": [
       {
         "id": "P1",
         "x": 5,
-        "y": 1,
+        "y": 5,
         "label": {
-          "ru": "старт"
+          "ru": "старт · 5 м"
         }
       },
       {
         "id": "P2",
         "x": 5,
-        "y": 8,
+        "y": 10,
         "label": {
-          "ru": "позиция 2"
+          "ru": "рубеж 10 м"
+        }
+      },
+      {
+        "id": "P3",
+        "x": 1.2,
+        "y": 24,
+        "label": {
+          "ru": "левая позиция · 25 м"
+        }
+      },
+      {
+        "id": "P4",
+        "x": 8.8,
+        "y": 24,
+        "label": {
+          "ru": "правая позиция · 25 м"
         }
       }
     ],
     "targets": [
       {
         "id": "T1",
-        "x": 2,
-        "y": 12,
+        "x": 1.2,
+        "y": 25,
         "type": "ipsc-metric"
       },
       {
         "id": "T2",
         "x": 5,
-        "y": 20,
+        "y": 10,
         "type": "ipsc-metric"
       },
       {
         "id": "T3",
-        "x": 8,
+        "x": 8.8,
         "y": 25,
         "type": "ipsc-metric"
       }
@@ -116,23 +149,33 @@
         "from": "P1",
         "to": "P2",
         "style": "advance"
+      },
+      {
+        "from": "P2",
+        "to": "P3",
+        "style": "advance"
+      },
+      {
+        "from": "P3",
+        "to": "P4",
+        "style": "lateral"
+      },
+      {
+        "from": "P4",
+        "to": "P1",
+        "style": "retreat"
       }
     ],
     "sequence": [
       {
         "action": "engage",
-        "target": "T1",
-        "shots": 6
+        "target": "T2",
+        "shots": 1
       },
       {
         "action": "engage",
         "target": "T2",
-        "shots": 6
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 6
+        "shots": 1
       },
       {
         "action": "move",
@@ -141,29 +184,120 @@
       },
       {
         "action": "engage",
+        "target": "T2",
+        "shots": 1
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
         "target": "T3",
-        "shots": 8
+        "shots": 3
       },
       {
         "action": "engage",
         "target": "T2",
-        "shots": 8
+        "shots": 4
       },
       {
         "action": "engage",
         "target": "T1",
-        "shots": 8
+        "shots": 5
+      },
+      {
+        "action": "reload"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 5
       },
       {
         "action": "engage",
         "target": "T1",
-        "shots": 8
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "P2",
+        "to": "P3"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "P3",
+        "to": "P4"
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "P4",
+        "to": "P1"
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 4
+      }
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://img.trex-arms.com/wp/uploads/2025/12/50-rd-Carbine-COF.jpg",
+        "credit": "T.REX ARMS"
       }
     ]
   },
   "related": [
+    "trex-50-round-pistol",
     "trex-scrambler",
-    "trex-cqr-assessment",
-    "move-box-to-box"
+    "trex-cqr-assessment"
   ]
 }

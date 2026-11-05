@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "wall-dry",
   "name": {
-    "ru": "Стена (сухая)",
+    "ru": "Стена (холостая)",
     "en": "Wall Drill (dry)"
   },
   "discipline": [

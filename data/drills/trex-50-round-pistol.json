@@ -14,13 +14,14 @@
     "url": "https://www.trex-arms.com/training/drills-assessments/50-round-pistol-course-of-fire-57"
   },
   "tags": [
+    "first-shot",
     "speed",
     "accuracy",
     "transitions",
-    "movement",
-    "recoil-control"
+    "reload",
+    "movement"
   ],
-  "needsReview": true,
+  "needsReview": false,
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -42,128 +43,307 @@
     "points": 5
   },
   "goal": {
-    "ru": "Полный пистолетный курс T-Rex: 50 патронов, 3 USPSA-мишени, рубеж 20×20 м — баланс скорости и меткости с движением и переносами",
-    "en": "Full T-Rex pistol course: 50 rounds, 3 USPSA targets, 20×20 m bay — speed-accuracy balance with movement and transitions"
+    "ru": "Пистолетный ассесмент T-Rex на 50 выстрелов: 3 USPSA-мишени вряд на 20 м, у каждой — своя позиция на 5 м. Восемь серий: выходы из кобуры в голову с 5 м (включая одной рукой), «лесенка» 1-2-3-4 с 10 м, разворот на 180° с перезарядкой, головы с уходом на 20 м, работа с двух фланговых позиций с перезарядкой в движении и финал по 4 выстрела на мишень в движении к 5 м. Счёт — хит-фактор: очки ÷ время, максимум 250 очков",
+    "en": "T-Rex 50-round pistol assessment: 3 USPSA targets in a row at 20 m, each with its own 5 m position. Eight strings: head shots from the holster at 5 m (one string one-handed), a 1-2-3-4 ladder at 10 m, a 180° turn with slide-lock reload, heads on the move to 20 m, both flank positions with a reload on the move, and 4 rounds per target moving back to the 5 m line. Hit factor: points ÷ time, 250 max"
   },
   "steps": {
     "ru": [
-      "Рубеж 20×20 м; 3 USPSA-мишени; 50 патронов",
-      "Официальный PDF T-Rex (ссылка в источнике) содержит полную раскладку, бланк попаданий и времени — распечатай его",
-      "Курс связывает базовые навыки пистолета с движением и переносами через серию заданий",
-      "Хит-фактор по каждому заданию и суммарно",
-      "Замер недели: суммарный хит-фактор курса — метрика прогресса стрелка с пистолетом"
+      "Серия 1 · 5 м, напротив левой: из сжатой готовности — 2 выстрела в голову",
+      "Серия 2 · 5 м, напротив центральной: из кобуры — 2 в голову",
+      "Серия 3 · 5 м, напротив правой: из кобуры — 2 в голову, одной рукой",
+      "Серия 4 · 10 м: 1 — центральная, 2 — левая, 3 — правая, 4 — центральная (по корпусу)",
+      "Серия 5 · 10 м, спиной к мишеням: разворот на 180° — 3 в левую, перезарядка с задержки затвора, 3 в правую",
+      "Серия 6 · 10→20 м: с рубежа 10 м — 2 в левую; смещение на 20-метровую позицию — 2 в правую",
+      "Серия 7 · 20↔20 м: с левой позиции — по 2 в каждую мишень; смена на правую с перезарядкой в движении — снова по 2 в каждую",
+      "Серия 8 · 20→5 м: двигаясь к линии 5 м — по 4 выстрела в каждую мишень в любом порядке",
+      "Счёт: A=5, C=3, D=1, промах −10; максимум 250 очков, дострелы запрещены; хит-фактор = очки ÷ время. Итог по мишеням: левая 2 в голову + 15 в корпус, центральная 2 + 13, правая 2 + 16"
+    ],
+    "en": [
+      "String 1 · 5 m, in front of the left target: from compressed ready — 2 rounds to the head",
+      "String 2 · 5 m, in front of the center: from the holster — 2 to the head",
+      "String 3 · 5 m, in front of the right: from the holster — 2 to the head, one-handed",
+      "String 4 · 10 m: 1 — center, 2 — left, 3 — right, 4 — center (body)",
+      "String 5 · 10 m, back to targets: 180° turn — 3 on the left, slide-lock reload, 3 on the right",
+      "String 6 · 10→20 m: from the 10 m line — 2 on the left; move to the 20 m position — 2 on the right",
+      "String 7 · 20↔20 m: from the left position — 2 rounds on each target; move to the right position while reloading — 2 on each again",
+      "String 8 · 20→5 m: moving toward the 5 m line — 4 rounds on each target, any order",
+      "Scoring: A=5, C=3, D=1, Mike −10; 250 points max, no make-ups; hit factor = points ÷ time. Per target: left 2 head + 15 body, center 2 + 13, right 2 + 16"
     ]
   },
   "safety": {
-    "ru": "Смешанные задания (движение + переносы): размечай рубеж и проверяй сектора до начала"
+    "ru": "Стрельба из кобуры, разворот на 180° и стрельба в движении: до старта разметь границы 20×20 м и проверь зоны обстрела; кобура должна закрывать спусковую скобу; на всех перемещениях ствол остаётся в секторе мишеней"
   },
   "equipment": [
     "пистолет",
-    "4–5 магазинов (50 патронов)",
-    "кобура",
-    "рубеж 20×20 м",
-    "бланк PDF T-Rex"
+    "кобура, закрывающая спусковую скобу",
+    "магазины на 50 патронов суммарно (в сериях 5 и 7 — перезарядки с задержки затвора)",
+    "таймер",
+    "3 мишени USPSA + стойки",
+    "разметка рубежа 20×20 м (позиции 5 м у каждой мишени, рубеж 10 м, фланговые позиции 20 м)",
+    "бланк курса T-Rex (PDF на странице источника)"
   ],
   "variants": {
     "ru": [
-      "Половина курса (25 патронов)",
-      "Прогон из-под одежды (скрытое ношение) для реалистичности"
+      "Карабинная версия — «T-Rex: 50 патронов, карабин»",
+      "Серия 3 слабой рукой — для двуручного баланса",
+      "Замер недели: суммарный хит-фактор курса как метрика прогресса"
     ]
   },
   "layout": {
     "unit": "m",
-    "width": 20,
-    "depth": 22,
+    "width": 12,
+    "depth": 20,
     "positions": [
       {
-        "id": "P1",
-        "x": 10,
-        "y": 1,
+        "id": "PL",
+        "x": 3,
+        "y": 5,
         "label": {
-          "ru": "старт"
+          "ru": "левая · 5 м"
         }
       },
       {
-        "id": "P2",
-        "x": 10,
+        "id": "PC",
+        "x": 6,
+        "y": 5,
+        "label": {
+          "ru": "центр · 5 м"
+        }
+      },
+      {
+        "id": "PR",
+        "x": 9,
+        "y": 5,
+        "label": {
+          "ru": "правая · 5 м"
+        }
+      },
+      {
+        "id": "P10",
+        "x": 6,
         "y": 10,
         "label": {
-          "ru": "позиция 2"
+          "ru": "рубеж 10 м"
+        }
+      },
+      {
+        "id": "P20L",
+        "x": 2,
+        "y": 19,
+        "label": {
+          "ru": "левая · 20 м"
+        }
+      },
+      {
+        "id": "P20R",
+        "x": 10,
+        "y": 19,
+        "label": {
+          "ru": "правая · 20 м"
         }
       }
     ],
     "targets": [
       {
         "id": "T1",
-        "x": 4,
-        "y": 12,
+        "x": 3,
+        "y": 20,
         "type": "ipsc-metric"
       },
       {
         "id": "T2",
-        "x": 10,
-        "y": 17,
+        "x": 6,
+        "y": 20,
         "type": "ipsc-metric"
       },
       {
         "id": "T3",
-        "x": 16,
+        "x": 9,
         "y": 20,
         "type": "ipsc-metric"
       }
     ],
     "movement": [
       {
-        "from": "P1",
-        "to": "P2",
+        "from": "PL",
+        "to": "PC",
+        "style": "lateral"
+      },
+      {
+        "from": "PC",
+        "to": "PR",
+        "style": "lateral"
+      },
+      {
+        "from": "PR",
+        "to": "P10",
         "style": "advance"
+      },
+      {
+        "from": "P10",
+        "to": "P20L",
+        "style": "advance"
+      },
+      {
+        "from": "P20L",
+        "to": "P20R",
+        "style": "lateral"
+      },
+      {
+        "from": "P20R",
+        "to": "PC",
+        "style": "retreat"
       }
     ],
     "sequence": [
       {
         "action": "engage",
         "target": "T1",
-        "shots": 6
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 6
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 6
+        "shots": 2
       },
       {
         "action": "move",
-        "from": "P1",
-        "to": "P2"
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 8
+        "from": "PL",
+        "to": "PC"
       },
       {
         "action": "engage",
         "target": "T2",
-        "shots": 8
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "PC",
+        "to": "PR"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "PR",
+        "to": "P10"
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 1
       },
       {
         "action": "engage",
         "target": "T1",
-        "shots": 8
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 3
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 4
       },
       {
         "action": "engage",
         "target": "T1",
-        "shots": 8
+        "shots": 3
+      },
+      {
+        "action": "reload"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 3
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "P10",
+        "to": "P20L"
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "P20L",
+        "to": "P20R"
+      },
+      {
+        "action": "reload"
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 2
+      },
+      {
+        "action": "move",
+        "from": "P20R",
+        "to": "PC"
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T2",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T3",
+        "shots": 4
+      }
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://img.trex-arms.com/wp/uploads/2025/12/50rd-Pistol.jpg",
+        "credit": "T.REX ARMS"
       }
     ]
   },
   "related": [
     "trex-50-round-cof",
-    "trex-carry-pistol"
+    "trex-scrambler"
   ]
 }

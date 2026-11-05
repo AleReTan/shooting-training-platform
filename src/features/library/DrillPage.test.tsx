@@ -32,6 +32,19 @@ test('карточка Bill Drill: имя, шаги, пар-таймы, курс
   // курс, куда входит упражнение
   expect(screen.getByText('Входит в курсы')).toBeTruthy();
   expect(screen.getByText('T-Rex Arms: карабинный путь')).toBeTruthy();
+
+  // тип тренировки — «огневая», не «боевая»
+  const meta = document.querySelector('.drill-card__meta')?.textContent ?? '';
+  expect(meta).toContain('огневая');
+  expect(meta).not.toContain('боевая');
+});
+
+test('карточка Стены: тип «холостая», не «сухая»', () => {
+  render(<DrillPage id="wall-dry" data={data} />);
+  expect(screen.getByText('Стена (холостая)')).toBeTruthy();
+  const meta = document.querySelector('.drill-card__meta')?.textContent ?? '';
+  expect(meta).toContain('холостая');
+  expect(meta).not.toContain('сухая');
 });
 
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {
