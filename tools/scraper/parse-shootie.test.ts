@@ -1,7 +1,7 @@
 import { test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { parseShootieHtml } from './parse-shootie';
+import { parseShootieHtml, uniqueImportId, skippedFileName } from './parse-shootie';
 
 const FIXTURES = join(__dirname, 'fixtures');
 const FIXTURE_HTML = readFileSync(join(FIXTURES, 'stages-page.html'), 'utf-8');
@@ -39,4 +39,18 @@ test('не-карабинные и безымянные блоки попада�
     'блок без заголовка — мусор',
     'дисциплина pistol — вне MVP (карабин)',
   ]);
+});
+
+test('uniqueImportId: коллизия одинаковых названий получает суффикс -2/-3', () => {
+  // один этап на двух страницах пагинации не должен молча перезаписать JSON
+  const used = new Set<string>();
+  expect(uniqueImportId('Тестовый этап', used)).toBe('import-shootie-testovyj-etap');
+  expect(uniqueImportId('Тестовый этап', used)).toBe('import-shootie-testovyj-etap-2');
+  expect(uniqueImportId('Тестовый этап', used)).toBe('import-shootie-testovyj-etap-3');
+  expect(uniqueImportId('Другой этап', used)).toBe('import-shootie-drugoj-etap');
+});
+
+test('skippedFileName: имя дампа без регексп-суффикса (Node basename требует string)', () => {
+  expect(skippedFileName('stages-2.html')).toBe('stages-2-untitled');
+  expect(skippedFileName('stages-3.htm')).toBe('stages-3-untitled');
 });

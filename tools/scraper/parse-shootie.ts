@@ -6,7 +6,7 @@
 // пользователем из залогиненного браузера.
 
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { basename, join } from 'node:path';
+import { join } from 'node:path';
 import type { Drill, Scoring, TargetSpec } from '../../src/data/types';
 
 export interface SkipRecord {
@@ -40,6 +40,21 @@ export function slugify(ru: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+/** id для записи; один и тот же этап на двух страницах пагинации получает -2/-3. */
+export function uniqueImportId(title: string, used: Set<string>): string {
+  const base = `import-shootie-${slugify(title)}`;
+  let id = base;
+  for (let n = 2; used.has(id); n++) id = `${base}-${n}`;
+  used.add(id);
+  return id;
+}
+
+/** Имя skipped-файла для безымянного блока: расширение срезаем регекспом
+ *  (path.basename принимает только string-суффикс). */
+export function skippedFileName(file: string): string {
+  return `${file.replace(/\.html?$/i, '')}-untitled`;
+}
+
 // --- разбор полей карточки ------------------------------------------------
 
 const TARGET_MAP: [RegExp, string][] = [
@@ -55,7 +70,7 @@ function parseTargets(raw: string): TargetSpec[] {
   const m = raw.match(/(\d+)\s*[×xX]\s*(.+)/);
   if (!m) return [{ type: 'ipsc-metric', count: 1 }];
   const count = Number(m[1]) || 1;
-  const name = m[2].trim();
+  const name = (m[2] ?? '').trim();
   const type = TARGET_MAP.find(([re]) => re.test(name))?.[1] ?? 'ipsc-metric';
   return [{ type, count }];
 }
@@ -91,15 +106,17 @@ export function parseShootieHtml(file: string, html: string): ScrapeResult {
   let drill: Drill | null = null;
 
   for (const m of html.matchAll(CARD_RE)) {
-    const [, discipline, body = ''] = m;
+    const discipline = m[1] ?? '';
+    const body = m[2] ?? '';
 
     const titleM = body.match(/<h2 class="stage-title"[^>]*>(?:\s*<a[^>]*href="([^"]*)"[^>]*>)?([^<]*)/);
-    if (!titleM || !titleM[2].trim()) {
+    const title = (titleM?.[2] ?? '').trim();
+    const url = titleM?.[1] || undefined;
+
+    if (!title) {
       skipped.push({ file, reason: 'блок без заголовка — мусор' });
       continue;
     }
-    const title = titleM[2].trim();
-    const url = titleM[1] || undefined;
 
     if (discipline !== 'carbine') {
       skipped.push({
@@ -113,15 +130,15 @@ export function parseShootieHtml(file: string, html: string): ScrapeResult {
     const author = body.match(/class="stage-author"[^>]*>\s*Автор:\s*([^<]+)/i)?.[1]?.trim();
     const meta = new Map<string, string>();
     for (const li of body.matchAll(/<li data-key="(\w+)">([^<]*)<\/li>/g)) {
-      meta.set(li[1], li[2].trim());
+      meta.set(li[1] ?? '', (li[2] ?? '').trim());
     }
     const description =
       body.match(/class="stage-description"[^>]*>([^<]*)/)?.[1]?.trim() ?? '';
 
-    const stepsOl = body.match(/class="stage-steps"[^>]*>([\s\S]*?)<\/ol>/);
-    const steps = stepsOl
-      ? [...stepsOl[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((s) => s[1].trim())
-      : [];
+    const stepsHtml = body.match(/class="stage-steps"[^>]*>([\s\S]*?)<\/ol>/)?.[1] ?? '';
+    const steps = [...stepsHtml.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((s) =>
+      (s[1] ?? '').trim(),
+    );
 
     const d: Drill = {
       schemaVersion: 1,
@@ -173,24 +190,26 @@ function main(): void {
   mkdirSync(drillsDir, { recursive: true });
   mkdirSync(skippedDir, { recursive: true });
 
+  const usedDrillIds = new Set<string>();
+  const usedSkippedNames = new Set<string>();
   let imported = 0;
   for (const f of files) {
     const res = parseShootieHtml(f, readFileSync(join(dumpsDir, f), 'utf-8'));
-    for (const d of [res.drill, ...res.extraDrills]) {
+    const valid = [res.drill, ...res.extraDrills];
+    for (const d of valid) {
       if (!d) continue;
+      // id = имя файла (валидатор); коллизия между страницами → суффикс
+      d.id = uniqueImportId(d.name.ru, usedDrillIds);
       writeFileSync(join(drillsDir, `${d.id}.json`), JSON.stringify(d, null, 2) + '\n');
       imported++;
     }
     for (const s of res.skipped) {
-      const name = s.id ?? basename(f, /\.html?$/i) + '-untitled';
-      writeFileSync(
-        join(skippedDir, `${name}.md`),
-        `# ${s.reason}\n\nИсточник: ${s.file}\n`,
-      );
+      let name = s.id ?? skippedFileName(f);
+      while (usedSkippedNames.has(name)) name += '-2';
+      usedSkippedNames.add(name);
+      writeFileSync(join(skippedDir, `${name}.md`), `# ${s.reason}\n\nИсточник: ${s.file}\n`);
     }
-    console.log(`${f}: ${res.drill || res.extraDrills.length ? '+' : ''}${
-      [res.drill, ...res.extraDrills].filter(Boolean).length
-    } импортировано, ${res.skipped.length} пропущено`);
+    console.log(`${f}: ${valid.filter(Boolean).length} импортировано, ${res.skipped.length} пропущено`);
   }
 
   console.log(`\nГотово: ${imported} JSON в data/drills/ (needsReview: true).`);
