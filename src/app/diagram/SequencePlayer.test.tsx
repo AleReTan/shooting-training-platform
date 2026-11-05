@@ -18,10 +18,10 @@ test('пошаговый режим: «Шаг вперёд» подсвечив�
   expect(document.body.textContent).toContain('×2');
 });
 
-test('при reducedMotion кнопки автопроигрывания скрыты', () => {
+test('при reducedMotion «Проиграть» доступна: стрелок скачет, а не скользит', () => {
   render(<SequencePlayer layout={layout} reducedMotion />);
-  expect(screen.queryByText('Проиграть')).toBeNull();
-  expect(screen.getByText('Шаг вперёд')).toBeTruthy();
+  fireEvent.click(screen.getByText('Проиграть'));
+  expect(screen.getByText('Стоп')).toBeTruthy();
 });
 
 test('игра: Стоп возвращает в начало', async () => {

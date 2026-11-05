@@ -3,7 +3,6 @@ import {
   computeTimeline,
   stateAt,
   stepStates,
-  allowsAutoplay,
   STEP_DURATIONS,
 } from './sequence';
 import type { SequenceStep } from '../../data/types';
@@ -100,7 +99,10 @@ test('stepStates: по состоянию на шаг, канонические 
   expect(states[3]?.shotsDone).toEqual({ T1: 2, T2: 5 });
 });
 
-test('allowsAutoplay: false при prefers-reduced-motion', () => {
-  expect(allowsAutoplay({ matches: true })).toBe(false);
-  expect(allowsAutoplay({ matches: false })).toBe(true);
+test('stateAt со snapMoves: прогресс перемещения только 0 или 1', () => {
+  const tl = computeTimeline(sequence);
+  const first = stateAt(tl, 2000 + 100, { snapMoves: true }); // начало move
+  expect(first.activeMove?.progress).toBe(0);
+  const mid = stateAt(tl, 2000 + 900, { snapMoves: true }); // после середины move
+  expect(mid.activeMove?.progress).toBe(1);
 });

@@ -1,10 +1,12 @@
-// Проигрывание упражнения поверх схемы: Play/Стоп/Шаг, reduced-motion → только шаги.
+// Проигрывание упражнения поверх схемы: Play/Стоп/Шаг.
+// prefers-reduced-motion не прячет «Проиграть» (анимация инициирована
+// пользователем и несёт информацию) — стрелок просто скачет, а не скользит.
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Layout } from '../../data/types';
 import type { PlaybackState } from './types';
 import { LayoutDiagram } from './render';
-import { computeTimeline, stateAt, stepStates, allowsAutoplay } from './sequence';
+import { computeTimeline, stateAt, stepStates } from './sequence';
 
 // Планировщик кадра: rAF, а в средах без него (jsdom) — setTimeout.
 const nextFrame = (cb: FrameRequestCallback): number =>
@@ -26,7 +28,6 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
     props.reducedMotion ??
     (typeof window.matchMedia === 'function' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  const autoplayAllowed = allowsAutoplay({ matches: prefersReduced });
 
   const [playing, setPlaying] = useState(false);
   const [t, setT] = useState(0);
@@ -64,7 +65,7 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
   };
 
   const playback: PlaybackState | undefined = playing
-    ? stateAt(timeline, t)
+    ? stateAt(timeline, t, { snapMoves: prefersReduced })
     : stepIndex >= 0 && stepIndex < states.length
       ? states[stepIndex]
       : undefined;
@@ -73,11 +74,9 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
     <div class="sequence-player">
       <LayoutDiagram layout={layout} playback={playback} />
       <div class="sequence-player__controls">
-        {autoplayAllowed && (
-          <button type="button" class="btn btn--primary" onClick={playing ? stop : play}>
-            {playing ? 'Стоп' : 'Проиграть'}
-          </button>
-        )}
+        <button type="button" class="btn btn--primary" onClick={playing ? stop : play}>
+          {playing ? 'Стоп' : 'Проиграть'}
+        </button>
         <button
           type="button"
           class="btn"

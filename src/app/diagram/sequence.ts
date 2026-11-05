@@ -51,8 +51,14 @@ export function computeTimeline(sequence: SequenceStep[]): Timeline {
   return { steps, total: t };
 }
 
+/** Опции состояния на момент t. */
+export interface StateAtOpts {
+  /** Перемещение стрелка скачком (0/1), без интерполяции — для reduced-motion. */
+  snapMoves?: boolean;
+}
+
 /** Состояние проигрывания на момент t (мс). shotsDone — завершённые выстрелы. */
-export function stateAt(timeline: Timeline, t: number): PlaybackState {
+export function stateAt(timeline: Timeline, t: number, opts: StateAtOpts = {}): PlaybackState {
   if (t < 0) return idleState();
 
   const state = idleState();
@@ -69,11 +75,12 @@ export function stateAt(timeline: Timeline, t: number): PlaybackState {
       }
     } else if (step.action === 'move') {
       if (t >= start && t < start + duration) {
+        const raw = duration === 0 ? 1 : done / duration;
         state.phase = 'playing';
         state.activeMove = {
           from: step.from,
           to: step.to,
-          progress: duration === 0 ? 1 : done / duration,
+          progress: opts.snapMoves ? (raw >= 0.5 ? 1 : 0) : raw,
         };
       }
     } else if (step.action === 'reload') {
@@ -117,9 +124,4 @@ export function stepStates(timeline: Timeline): PlaybackState[] {
   }
 
   return out;
-}
-
-/** Разрешено ли автопроигрывание (prefers-reduced-motion — только шаги). */
-export function allowsAutoplay(prefersReducedMotion: { matches: boolean }): boolean {
-  return !prefersReducedMotion.matches;
 }
