@@ -1,11 +1,13 @@
 // Валидация данных упражнений и курсов — правила из спеки §4, §4.1, §5, §7.
 // Чистая функция без побочных эффектов; используется тестами и CLI (CI).
 
-import type { Course, Discipline, Drill, Layout, Taxonomy } from '../../src/data/types';
+import type { Course, Discipline, Drill, FireMode, Layout, Taxonomy } from '../../src/data/types';
 
 // Доступные дисциплины (спека §8: MVP был только карабин; расширение —
 // решение владельца, shotgun/pistol-traumatic разрешены с 2026-11-05)
 const DISCIPLINES = new Set<Discipline>(['carbine', 'shotgun', 'pistol-traumatic']);
+
+const FIRE_MODES = new Set<FireMode>(['live', 'dry']);
 
 export interface FileEntry<T = unknown> {
   file: string; // имя файла, напр. "x-drill.json"
@@ -45,6 +47,13 @@ function validateDrill(entry: FileEntry, tagIds: Set<string>, errors: string[]):
       }
     }
   }
+  if (!Array.isArray(d.fireMode) || d.fireMode.length === 0) {
+    errors.push(`${file}: fireMode — непустой список (live/dry)`);
+  } else {
+    for (const m of d.fireMode) {
+      if (!FIRE_MODES.has(m)) errors.push(`${file}: неизвестный fireMode "${m}"`);
+    }
+  }
   if (!Number.isInteger(d.difficulty) || d.difficulty < 1 || d.difficulty > 5) {
     errors.push(`${file}: difficulty должен быть целым 1–5`);
   }
@@ -62,6 +71,12 @@ function validateDrill(entry: FileEntry, tagIds: Set<string>, errors: string[]):
 }
 
 function validateLayout(file: string, layout: Layout, errors: string[]): void {
+  // Схема с мишенями обязана иметь позиции: render.tsx ищет ближайшую
+  // позицию к мишени и падает на пустом списке.
+  if (layout.targets.length > 0 && layout.positions.length === 0) {
+    errors.push(`${file}: layout с мишенями требует хотя бы одну позицию (positions)`);
+  }
+
   const posIds = new Set(layout.positions.map((p) => p.id));
   const tgtIds = new Set(layout.targets.map((t) => t.id));
   const inBounds = (x: number, y: number) =>

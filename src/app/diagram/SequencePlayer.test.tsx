@@ -1,5 +1,5 @@
 import { test, expect, afterEach } from 'vitest';
-import { render, screen, fireEvent, cleanup } from '@testing-library/preact';
+import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/preact';
 import billDrill from '../../../data/drills/bill-drill-carbine.json';
 import type { Layout } from '../../data/types';
 import { SequencePlayer } from './SequencePlayer';
@@ -22,14 +22,44 @@ test('пошаговый режим: «Шаг вперёд» подсвечив�
 
 test('при reducedMotion кнопки автопроигрывания скрыты', () => {
   render(<SequencePlayer layout={layout} reducedMotion />);
-  expect(screen.queryByText('Играть')).toBeNull();
+  expect(screen.queryByText('Проиграть')).toBeNull();
   expect(screen.getByText('Шаг вперёд')).toBeTruthy();
 });
 
 test('игра: Стоп возвращает в начало', async () => {
   render(<SequencePlayer layout={layout} />);
-  fireEvent.click(screen.getByText('Играть'));
+  fireEvent.click(screen.getByText('Проиграть'));
   await new Promise((r) => setTimeout(r, 80));
   fireEvent.click(screen.getByText('Стоп'));
-  expect(screen.getByText('Играть')).toBeTruthy();
+  expect(screen.getByText('Проиграть')).toBeTruthy();
+});
+
+// Минимальная схема: одна мишень, один выстрел — 1600 мс проигрывания.
+const tinyLayout: Layout = {
+  unit: 'm',
+  width: 8,
+  depth: 10,
+  positions: [{ id: 'P1', x: 4, y: 1 }],
+  targets: [{ id: 'T1', x: 4, y: 9, type: 'ipsc-metric' }],
+  sequence: [{ action: 'engage', target: 'T1', shots: 1 }],
+};
+
+test('после конца проигрывания «Проиграть» запускает заново', async () => {
+  render(<SequencePlayer layout={tinyLayout} />);
+  fireEvent.click(screen.getByText('Проиграть'));
+
+  // Дожидаемся естественного конца: кнопка снова станет «Проиграть»
+  // (в jsdom кадры редкие — ждём событие, а не фиксированные мс).
+  await screen.findByText('Проиграть', undefined, { timeout: 5000 });
+  expect(
+    document.querySelector('[data-target="T1"]')?.getAttribute('class'),
+  ).not.toContain('diagram-target--active');
+
+  // Повторный запуск должен начаться с нуля, а не мгновенно закончиться.
+  fireEvent.click(screen.getByText('Проиграть'));
+  await waitFor(() =>
+    expect(
+      document.querySelector('[data-target="T1"]')?.getAttribute('class'),
+    ).toContain('diagram-target--active'),
+  );
 });

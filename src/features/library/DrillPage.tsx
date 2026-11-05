@@ -1,22 +1,10 @@
 // Карточка упражнения: все разделы схемы Drill (спека §8 п.2).
 
-import { localized, localizedList } from '../../app/i18n';
+import { localized, localizedList, PAR_LABELS, FIRE_LABELS } from '../../app/i18n';
 import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { TimerPanel } from '../../features/timer/TimerPanel';
 import type { AppData } from '../../data/load';
 import type { Drill } from '../../data/types';
-
-const PAR_LABELS: Record<string, string> = {
-  novice: 'новичок',
-  intermediate: 'продолжающий',
-  advanced: 'продвинутый',
-  master: 'мастер',
-};
-
-const FIRE_LABELS: Record<string, string> = {
-  live: 'огневая',
-  dry: 'холостая',
-};
 
 const distanceText = (d: Drill['distance']) =>
   d.min === d.max ? `${d.min} м` : `${d.min}–${d.max} м`;

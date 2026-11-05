@@ -159,6 +159,27 @@ test('координаты вне width/depth отклоняются', () => {
   expect(res.errors.join('\n')).toContain('вне габаритов');
 });
 
+test('layout: мишени без единой позиции отклоняются (рендер падает на пустом positions)', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric' }],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('positions');
+});
+
+test('fireMode: неизвестное значение отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ fireMode: ['liv'] }))]);
+  expect(res.errors.join('\n')).toContain('fireMode');
+});
+
+test('fireMode: пустой список отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ fireMode: [] }))]);
+  expect(res.errors.join('\n')).toContain('fireMode');
+});
+
 test('distance.min > distance.max отклоняется', () => {
   const res = run([entry('x-drill.json', drill({ distance: { min: 30, max: 10, unit: 'm' } }))]);
   expect(res.errors.join('\n')).toContain('distance.min');

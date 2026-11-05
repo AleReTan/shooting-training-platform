@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'preact/hooks';
-import { localized } from '../../app/i18n';
+import { localized, FIRE_LABELS_PLURAL } from '../../app/i18n';
 import { filterDrills, type CatalogFilters } from './filters';
 import { DrillCard } from './DrillCard';
 import { TagChip } from '../../ui/TagChip';
@@ -92,8 +92,8 @@ export default function CatalogPage({ data }: { data: AppData }) {
             onChange={(e) => setFireMode((e.target as HTMLSelectElement).value as '' | FireMode)}
           >
             <option value="">любой</option>
-            <option value="live">огневые</option>
-            <option value="dry">холостые</option>
+            <option value="live">{FIRE_LABELS_PLURAL.live}</option>
+            <option value="dry">{FIRE_LABELS_PLURAL.dry}</option>
           </select>
         </label>
 

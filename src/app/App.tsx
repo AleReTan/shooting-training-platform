@@ -10,17 +10,45 @@ import { loadData, type AppData } from '../data/load';
 export default function App() {
   const { path, segments } = useRoute();
 
-  // Данные приезжают асинхронным чанком — оболочка красится сразу
+  // Данные приезжают асинхронным чанком — оболочка красится сразу.
+  // loadKey: кнопка «Повторить» после сбоя перезапускает загрузку.
   const [data, setData] = useState<AppData | null>(null);
+  const [error, setError] = useState(false);
+  const [loadKey, setLoadKey] = useState(0);
   useEffect(() => {
     let on = true;
-    void loadData().then((d) => {
-      if (on) setData(d);
-    });
+    void loadData()
+      .then((d) => {
+        if (on) setData(d);
+      })
+      .catch(() => {
+        if (on) setError(true);
+      });
     return () => {
       on = false;
     };
-  }, []);
+  }, [loadKey]);
+
+  if (error) {
+    return (
+      <Shell>
+        <section>
+          <h2>Не удалось загрузить данные</h2>
+          <p>Проверь соединение и попробуй ещё раз.</p>
+          <button
+            type="button"
+            class="btn btn--primary"
+            onClick={() => {
+              setError(false);
+              setLoadKey((k) => k + 1);
+            }}
+          >
+            Повторить
+          </button>
+        </section>
+      </Shell>
+    );
+  }
 
   if (!data) {
     return (

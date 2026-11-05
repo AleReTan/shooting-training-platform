@@ -44,9 +44,12 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
   };
 
   const play = () => {
+    // Паузы нет: каждый запуск — с нуля (иначе после естественного конца
+    // первый же кадр считался бы «уже закончилось»).
     setStepIndex(-1);
+    setT(0);
     setPlaying(true);
-    startRef.current = performance.now() - t;
+    startRef.current = performance.now();
     const loop = (now: number) => {
       const elapsed = now - startRef.current;
       if (elapsed >= timeline.total) {
@@ -72,7 +75,7 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
       <div class="sequence-player__controls">
         {autoplayAllowed && (
           <button type="button" class="btn btn--primary" onClick={playing ? stop : play}>
-            {playing ? 'Стоп' : 'Играть'}
+            {playing ? 'Стоп' : 'Проиграть'}
           </button>
         )}
         <button

@@ -1,7 +1,6 @@
 import { defineConfig, configDefaults } from 'vitest/config';
 import preact from '@preact/preset-vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
   plugins: [
@@ -40,11 +39,6 @@ export default defineConfig({
     }),
   ],
   base: './',
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
   test: {
     environment: 'jsdom',
     // не гонять тесты из соседних worktree-копий проекта (.worktrees/**)

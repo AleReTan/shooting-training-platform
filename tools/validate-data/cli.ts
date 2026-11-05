@@ -11,6 +11,7 @@ const taxonomy = readJson('data/taxonomy.json') as Taxonomy;
 const readDir = (dir: string): FileEntry[] =>
   readdirSync(dir)
     .filter((f) => f.endsWith('.json'))
+    .sort() // стабильный порядок ошибок между запусками
     .map((file) => ({ file, data: readJson(`${dir}/${file}`) }));
 
 const drills = readDir('data/drills');

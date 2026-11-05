@@ -42,10 +42,17 @@ let pending: Promise<AppData> | null = null;
 export function loadData(): Promise<AppData> {
   if (cache) return Promise.resolve(cache);
   if (!pending) {
-    pending = import('./content').then((c) => {
-      cache = buildIndexes(c.rawDrills, c.rawCourses, c.rawTaxonomy);
-      return cache;
-    });
+    pending = import('./content')
+      .then((c) => {
+        cache = buildIndexes(c.rawDrills, c.rawCourses, c.rawTaxonomy);
+        return cache;
+      })
+      .catch((e) => {
+        // Любой сбой (чанк или индексация) не кешируется: кнопка
+        // «Повторить» в App вызывает loadData заново.
+        pending = null;
+        throw e;
+      });
   }
   return pending;
 }

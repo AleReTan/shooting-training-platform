@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { ParTime } from '../../data/types';
+import { PAR_LABELS } from '../../app/i18n';
 import { beep } from './beep';
 import { initialTimerState, timerReducer, type TimerPhase } from './timerEngine';
 
@@ -31,6 +32,14 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
   const [parSec, setParSec] = useState<number | ''>(parTimes?.[0]?.time ?? '');
   const wakeRef = useRef<WakeLockSentinel | null>(null);
   const prevPhase = useRef<TimerPhase>('idle');
+
+  // Уход со страницы во время работы таймера тоже отпускает лок:
+  // иначе экран телефона не гаснет до перезагрузки страницы.
+  useEffect(() => {
+    return () => {
+      wakeRef.current?.release().catch(() => {});
+    };
+  }, []);
 
   // Тиканье: только активные фазы; elapsed считается из now − startedAt (движок).
   useEffect(() => {
@@ -67,11 +76,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
     beep('stop');
     setState((s) => timerReducer(s, { type: 'stop', now: performance.now() }));
     prevPhase.current = 'stopped';
-    try {
-      void wakeRef.current?.release();
-    } catch {
-      // не везде доступен
-    }
+    wakeRef.current?.release().catch(() => {});
     wakeRef.current = null;
   };
 
@@ -104,7 +109,13 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
           disabled={running}
           onInput={(e) => {
             const v = (e.target as HTMLInputElement).value;
-            setParSec(v === '' ? '' : Number(v));
+            if (v === '') {
+              setParSec('');
+              return;
+            }
+            // min="0" действует не везде — зажимаем вручную.
+            const n = Number(v);
+            setParSec(Number.isNaN(n) ? '' : Math.max(0, n));
           }}
         />
       </label>
@@ -113,7 +124,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
         <div class="timer__pars">
           {parTimes.map((p) => (
             <button key={p.level} type="button" class="tag-chip" disabled={running} onClick={() => setParSec(p.time)}>
-              {p.level}: {p.time} с
+              {PAR_LABELS[p.level] ?? p.level}: {p.time} с
             </button>
           ))}
         </div>
