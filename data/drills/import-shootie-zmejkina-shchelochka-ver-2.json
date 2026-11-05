@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/364"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Змейкина щёлочка вер.2"
+    "ru": "Змейкина щёлочка: движки, коридор, стена и финал через щёлочку декорации — все мишени мозамбиком; минимум две перезарядки"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

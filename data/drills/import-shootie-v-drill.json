@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/60"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "recoil-control",
+    "speed"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "V-Drill"
+    "ru": "V-Drill: мишени клином, 9 пар выстрелов — центр и средняя/крайняя попеременно"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

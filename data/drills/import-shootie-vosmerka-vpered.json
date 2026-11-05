@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/221"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "movement-forward",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Восьмерка вперед"
+    "ru": "Восьмёрка вперёд: 6 картонок в движении между бочками, возврат в первый или третий порт и железо по классу оружия"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

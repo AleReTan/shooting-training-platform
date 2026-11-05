@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/87"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Змейка"
+    "ru": "Каждая мишень двумя выстрелами в заданной последовательности, движение между бочками восьмёркой"
   },
   "steps": {
     "ru": [
@@ -43,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

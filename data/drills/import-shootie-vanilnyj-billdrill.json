@@ -14,7 +14,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/138"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -35,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Ванильный биллдрилл"
+    "ru": "Ванильный билл-дрилл: по 6 выстрелов в каждую из 3 мишеней (пистолет — из кобуры, ружьё — по железкам)"
   },
   "steps": {
     "ru": [
@@ -43,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

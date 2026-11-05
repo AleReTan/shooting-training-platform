@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/267"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "first-shot",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Застолье у бассейна 02.11"
+    "ru": "Сидя на стуле (оружие и магазины на столе): поразить 7 картонных мишеней, 6 тарелок и 3 бабки"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

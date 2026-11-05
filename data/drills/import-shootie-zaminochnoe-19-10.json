@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/240"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Заминочное 19.10"
+    "ru": "Три билл-дрилла подряд"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

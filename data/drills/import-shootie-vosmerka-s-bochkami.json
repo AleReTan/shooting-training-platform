@@ -14,7 +14,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/121"
   },
-  "tags": [],
+  "tags": [
+    "movement"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"

@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/372"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Знакомство с движкой Леной"
+    "ru": "5 мишеней мозамбиком: первая группа снизу под декорацией, движка — стоя после активации"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

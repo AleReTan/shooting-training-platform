@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/411"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Улетаю вдаль"
+    "ru": "6 мишеней по 2 в корпус + 1 в голову; стартовое положение №3 — оружие и магазин на бочке"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

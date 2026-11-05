@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/169"
   },
-  "tags": [],
+  "tags": [
+    "movement-retreat",
+    "reload",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Устранение VIP"
+    "ru": "Центральная мишень тройкой с одновременным отходом, верхние боковые тройками, перезарядка и нижние — по одному в голову"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

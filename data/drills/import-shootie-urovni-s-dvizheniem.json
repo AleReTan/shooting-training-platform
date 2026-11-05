@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/191"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Уровни с движением"
+    "ru": "Уровни с движением: попперы карабином, тарелки пистолетом, группы на 5 и 10 м и мишень за бочкой в конце"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

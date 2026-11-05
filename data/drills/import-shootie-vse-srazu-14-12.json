@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/321"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Все сразу 14.12"
+    "ru": "Всё сразу на 65 выстрелов: IPSC-мишени парами, дрилловые справа — от стола или стенки на 7–10 м, без вреда штрафным"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

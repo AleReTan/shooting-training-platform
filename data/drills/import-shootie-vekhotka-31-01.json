@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/342"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Вехотка 31.01"
+    "ru": "Оружие со стола (№3): 9 IPSC-мишеней парами, тарелки и попперы до падения среди 5 непоражаемых"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

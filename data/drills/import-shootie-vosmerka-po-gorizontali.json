@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/152"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Восьмёрка по горизонтали"
+    "ru": "Поражение всех мишеней в движении восьмёркой между бочками (горизонтальная схема)"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -14,7 +14,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/139"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "movement-lateral",
+    "transitions",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -35,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Вход в позицию слева"
+    "ru": "Вход в позицию: старт в правом порту, вбег в левый — по 2 выстрела в 3 мишени (пистолет — из кобуры, ружьё — по железкам)"
   },
   "steps": {
     "ru": [
@@ -43,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

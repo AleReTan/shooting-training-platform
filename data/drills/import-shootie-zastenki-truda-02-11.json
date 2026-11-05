@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/266"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Застенки Труда 02.11"
+    "ru": "Из-за стены от мишеней: поразить 7 мишеней; стартовое положение №2"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

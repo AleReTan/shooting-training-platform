@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/337"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Змейкой бегит"
+    "ru": "Пробивные мишени: классические IPSC парами, метрические — мозамбиком; правая группа — только из правого порта; минимум одна перезарядка"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

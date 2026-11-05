@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/63"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "speed",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Веер / грядка c дозарядкой"
+    "ru": "Веер из 6 тарелок: последовательное поражение на максимальной скорости, дозарядка не раньше первого выстрела"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

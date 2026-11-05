@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/194"
   },
-  "tags": [],
+  "tags": [
+    "movement-forward",
+    "transitions",
+    "accuracy",
+    "stress"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Узкая дорожка"
+    "ru": "12 мишеней мозамбиком в движении вперёд в строгих границах; свой-чужой: красные — заложники, коричневые — цели"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/155"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "cover",
+    "reload",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Восмерочный проход, ну или почти"
+    "ru": "Восьмёрочный проход: группы мишеней по диагонали с укрытиями, перезарядка за укрытием; зачёт — минимум 2 попадания в ACD"
   },
   "steps": {
     "ru": [
@@ -42,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

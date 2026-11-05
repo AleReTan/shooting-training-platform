@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/412"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Я - нагибатор"
+    "ru": "10 мишеней по 2 в корпус + 1 в голову; стартовое положение №1"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

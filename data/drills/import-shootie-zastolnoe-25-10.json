@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/247"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Застольное 25.10"
+    "ru": "Сидя за столом: 6 мишеней парами и свингер Up&Down, активируемый руками со стола, среди 3 штрафных"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }
