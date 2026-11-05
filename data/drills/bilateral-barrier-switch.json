@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "bilateral-barrier-switch",
+  "name": { "ru": "Обход баррикады со сменой плеча", "en": "Barricade Switch" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["bilateral", "cover", "barricade"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 4,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 9.0 },
+    { "level": "advanced", "time": 7.0 },
+    { "level": "master", "time": 5.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стрельба по краям укрытия с разных плеч — без перекрестного положения тела",
+    "en": "Shooting around both sides of cover from matching shoulders"
+  },
+  "steps": {
+    "ru": [
+      "10 м, две мишени (слева и справа от баррикады)",
+      "По сигналу — выйти справа от укрытия, 2 выстрела с сильного плеча",
+      "Уйти за укрытие, сменить плечо",
+      "Выйти слева, 2 выстрела со слабого плеча",
+      "Пар на весь подход"
+    ]
+  },
+  "safety": { "ru": "Ствол не «заметает» укрытие при переходах; палец вне спуска за блоком" },
+  "equipment": ["карабин", "1 магазин на 4+ патрона", "баррикада/щит"],
+  "variants": { "ru": ["Сухая отработка переходов", "Начинать со слабой стороны"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 16,
+    "positions": [
+      { "id": "P1", "x": 6, "y": 3, "label": { "ru": "правый край" } },
+      { "id": "P2", "x": 10, "y": 3, "label": { "ru": "левый край" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 13, "y": 10, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 8, "y": 5, "kind": "wall" }],
+    "movement": [{ "from": "P1", "to": "P2", "style": "lateral" }],
+    "sequence": [
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["bilateral-switch-par", "barricade-kneeling"]
+}

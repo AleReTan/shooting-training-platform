@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "cold-bore-first-shot",
+  "name": { "ru": "Холодный выстрел", "en": "Cold Bore Shot" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["first-shot", "accuracy", "precision-long"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 3,
+  "distance": { "min": 100, "max": 100, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Первый выстрел дня «на холодную» — попадание без пристрелочной серии",
+    "en": "First shot of the day, cold: a hit without sighters"
+  },
+  "steps": {
+    "ru": [
+      "100 м, одна мишень, карабин не пристрелян в эту сессию",
+      "Первый выстрел дня — прицельно, без прогрева",
+      "Отметь пробоину относительно точки прицеливания",
+      "Затем 2 контрольных выстрела «на горячую» и сравни смещение"
+    ]
+  },
+  "safety": { "ru": "Обязательно знание фона на 100 м" },
+  "equipment": ["карабин", "1 магазин на 3 патрона", "коврик"],
+  "variants": { "ru": ["Лёжа с упора / стоя", "50 м для базовых карабинов"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 105,
+    "positions": [{ "id": "P1", "x": 6, "y": 1, "label": { "ru": "огневой рубеж" } }],
+    "targets": [{ "id": "T1", "x": 6, "y": 100, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 3 }]
+  },
+  "related": ["precision-prone-100", "ready-up-standards"]
+}

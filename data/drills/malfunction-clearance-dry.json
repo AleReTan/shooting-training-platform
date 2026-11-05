@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "malfunction-clearance-dry",
+  "name": { "ru": "Устранение задержек (сухая)", "en": "Malfunction Clearance (Dry)" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["first-shot", "speed"],
+  "difficulty": 2,
+  "fireMode": ["dry"],
+  "rounds": 2,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Автоматизм устранения базовых задержек: «tap-rack» и смена магазина на живую",
+    "en": "Automatic clearance of basic stoppages: tap-rack and live mag swap"
+  },
+  "steps": {
+    "ru": [
+      "10 м, одна мишень, сухая тренировка с учебными патронами",
+      "Партнёр незаметно готовит карабин: невыстрел или пустой магазин",
+      "По сигналу — вскидка, «выстрел», при задержке: удар по магазину, передёрнуть затвор",
+      "Если не помогло — аварийная перезарядка",
+      "Закончить «выстрелом» в зону «А»; повторить 5–10 циклов"
+    ]
+  },
+  "safety": { "ru": "Учебные патроны только ярко-окрашенные; перед началом — контроль отсутствия боевых" },
+  "equipment": ["карабин", "учебные патроны", "партнёр для установки задержек"],
+  "variants": { "ru": ["С таймером на цикл", "С завязанными глазами — только механика"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 14,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "related": ["reload-emergency-par", "ready-carries-dry"]
+}

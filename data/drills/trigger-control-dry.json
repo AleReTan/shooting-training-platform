@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "trigger-control-dry",
+  "name": { "ru": "Контроль спуска (сухая)", "en": "Trigger Control (Dry)" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["accuracy"],
+  "difficulty": 1,
+  "fireMode": ["dry"],
+  "rounds": 5,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "a4-paper", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Спуск без дёргания: точка прицеливания не смещается в момент щелчка",
+    "en": "Press without jerk: aim point unmoved at the break"
+  },
+  "steps": {
+    "ru": [
+      "10 м, маленькая точка на листе, карабин без патронов",
+      "Принять устойчивое положение, выйти прицельными в точку",
+      "Плавный спуск: цель — щелчок без смещения прицельных",
+      "5 «выстрелов» с самоконтролем или по команде партнёра"
+    ]
+  },
+  "safety": { "ru": "Раздельная проверка отсутствия патронов перед каждой сухой серией" },
+  "equipment": ["карабин", "мишень-точка", "партнёр (опционально)"],
+  "variants": { "ru": ["С лазерным патроном — по смещению пятна", "С монетой на стволе"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 14,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "a4-paper" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+  },
+  "related": ["dot-torture-carbine", "one-hole-dry"]
+}

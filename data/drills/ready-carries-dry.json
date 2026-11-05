@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "ready-carries-dry",
+  "name": { "ru": "Переносы готовности (сухая)", "en": "Ready Carries (Dry)" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["first-shot", "accuracy"],
+  "difficulty": 1,
+  "fireMode": ["dry"],
+  "rounds": 5,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Отработка переносов: низкое готовность, высокое готовность, «на ремне» — и выход в цель",
+    "en": "Carry positions: low ready, high ready, sling — and presentation"
+  },
+  "steps": {
+    "ru": [
+      "10 м, одна мишень, карабин без патронов",
+      "По команде партнёра — перенос из случайного положения готовности",
+      "Вскидка в зону «А», «выстрел» щелчком",
+      "Контроль: прицельные вышли в зону до щелчка",
+      "5 циклов с разных исходных положений"
+    ]
+  },
+  "safety": { "ru": "Перед сухой работой — раздельная проверка отсутствия патронов" },
+  "equipment": ["карабин", "партнёр для команд"],
+  "variants": { "ru": ["С закрытыми глазами до команды «цель»", "С движением между циклами"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 14,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 1 }]
+  },
+  "related": ["ready-up-standards", "trigger-control-dry"]
+}

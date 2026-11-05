@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "multiple-threat-priority",
+  "name": { "ru": "Три угрозы: приоритет целей", "en": "Three Threats: Priority" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "accuracy", "first-shot"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 9.0 },
+    { "level": "intermediate", "time": 7.0 },
+    { "level": "advanced", "time": 5.5 },
+    { "level": "master", "time": 4.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Быстрая обработка трёх целей: правильный порядок — от ближней к дальней",
+    "en": "Processing three targets: near-to-far priority order"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени: 10, 15 и 20 м, смещены по фронту",
+      "По сигналу — по 2 выстрела в каждую, начиная с ближайшей",
+      "Нарушение порядка — штраф; все попадания в зачётной зоне",
+      "Пар на серию"
+    ]
+  },
+  "safety": { "ru": "Проверь сектора между мишенями — не выводи ствол за габарит при переносе" },
+  "equipment": ["карабин", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["Порядок по команде партнёра (цвет/номер)", "Одна мишень частично закрыта другой"] },
+  "layout": {
+    "unit": "m",
+    "width": 18,
+    "depth": 22,
+    "positions": [{ "id": "P1", "x": 9, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 9, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 13, "y": 15, "type": "ipsc-metric" },
+      { "id": "T3", "x": 5, "y": 20, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["two-target-transitions", "transition-ladder"]
+}

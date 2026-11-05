@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "rapid-string-five",
+  "name": { "ru": "Быстрая пятёрка", "en": "Rapid Five" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["recoil-control", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 5,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 4.0 },
+    { "level": "intermediate", "time": 3.2 },
+    { "level": "advanced", "time": 2.6 },
+    { "level": "master", "time": 2.2 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Пять выстрелов максимальным темпом без потери зоны — краш-тест отдачи",
+    "en": "Five shots at maximum tempo inside the zone — recoil crash test"
+  },
+  "steps": {
+    "ru": [
+      "10 м, одна мишень, 5 патронов в магазине",
+      "По сигналу — 5 выстрелов так быстро, как позволяет контроль отдачи",
+      "Все пробоины в зоне «А»"
+    ]
+  },
+  "safety": { "ru": "Жёсткий темп: следи, чтобы ствол не задирало за габарит мишени" },
+  "equipment": ["карабин", "1 магазин на 5+ патронов"],
+  "variants": { "ru": ["С 25 м", "Только головная зона"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 14,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+  },
+  "related": ["controlled-pairs", "the-test-10-10-10"]
+}
