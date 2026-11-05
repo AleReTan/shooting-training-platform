@@ -105,3 +105,11 @@ body {
 .diagram-shooter { fill: #fff; }
 .diagram-reload { fill: var(--accent); font-size: 13px; text-anchor: end; font-weight: 700; }
 
+
+/* Тост обновления PWA */
+.update-toast {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: 1rem;
+  background: var(--panel); border: 1px solid var(--accent); border-radius: 10px;
+  padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.6rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
