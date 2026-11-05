@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/159"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Разогревошное 06.07"
+    "ru": "Разогрев: билл-дрилл в большую мишень, затем две маленькие; заряд не более 8 патронов"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

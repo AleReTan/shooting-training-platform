@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/425"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Transition #2.1"
+    "ru": "Transition 2-1: Т1 до линии, Т2 и Т3 после — в движении, по 2 выстрела в каждую"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

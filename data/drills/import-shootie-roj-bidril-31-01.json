@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/339"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "barricade"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Рой Бидрил 31.01"
+    "ru": "Рой билл-дриллов из окна: 4 IPSC-мишени по 6 выстрелов, мишень на пулеулавливателе — 2"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

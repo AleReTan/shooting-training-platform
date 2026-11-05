@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/231"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Тарелочное 18.10"
+    "ru": "4 картонные и 4 стальные мишени; стартовое положение №3 (оружие на столе)"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

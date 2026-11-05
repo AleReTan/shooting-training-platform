@@ -13,7 +13,14 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/369"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "movement",
+    "movement-retreat",
+    "transitions",
+    "accuracy",
+    "positions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +41,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Просто «П»"
+    "ru": "Большой маршрут: порт стенки с движкой, отход по линиям, левая декорация, нижний порт и финал у клина декораций"
   },
   "steps": {
     "ru": [
@@ -42,5 +49,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

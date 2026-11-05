@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/73"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Разминочное"
+    "ru": "Разминка для любой системы: 5 выстрелов в основную мишень, перезарядка и по одному в крайние"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

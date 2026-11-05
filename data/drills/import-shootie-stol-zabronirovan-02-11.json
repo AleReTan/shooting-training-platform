@@ -13,7 +13,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/270"
   },
-  "tags": [],
+  "tags": [
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Стол забронирован 02.11"
+    "ru": "Поразить 10 картонных мишеней, 3 поппера, 6 тарелок и 6 бабок"
   },
   "steps": {
     "ru": [
@@ -42,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

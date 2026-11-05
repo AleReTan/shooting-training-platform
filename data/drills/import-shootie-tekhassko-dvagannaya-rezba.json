@@ -14,7 +14,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/276"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -35,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Техасско-дваганная резьба"
+    "ru": "Картон из карабина/травмата по 2 выстрела, тарелки и техасская звезда — ружьём"
   },
   "steps": {
     "ru": [
@@ -43,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/84"
   },
-  "tags": [],
+  "tags": [
+    "barricade",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Случай в ларьке"
+    "ru": "4 маленькие мишени через окошко укрытия и пары полноразмерных за бочками — парами выстрелов, не выходя за линию"
   },
   "steps": {
     "ru": [
@@ -43,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

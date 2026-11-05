@@ -13,7 +13,15 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/134"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "positions",
+    "kneeling",
+    "prone",
+    "bilateral",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +42,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Разборки в стиле Мозамбик"
+    "ru": "Маршрут в стиле мозамбик: от двери, стрельба в движении, постронно с колена, из-под стенки и два гонга из положения лёжа"
   },
   "steps": {
     "ru": [
@@ -42,5 +50,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/103"
   },
-  "tags": [],
+  "tags": [
+    "accuracy",
+    "precision-long"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "T-Rex 1-1-2-2-4"
+    "ru": "Круги с числами: по 10 выстрелов с 5, 10 и 15 м, количество выстрелов в круг — по цифре в нём"
   },
   "steps": {
     "ru": [
@@ -44,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

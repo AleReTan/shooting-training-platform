@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/132"
   },
-  "tags": [],
+  "tags": [
+    "bilateral",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Сильная-слабая рука"
+    "ru": "Сильной рукой две мишени справа, безопасное перекладывание и слабой — две слева; норматив 16 секунд, карабин — со сменой плеча"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

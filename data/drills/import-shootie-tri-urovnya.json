@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/213"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions",
+    "accuracy",
+    "movement"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Три уровня"
+    "ru": "Три уровня: из покрышки стоя, в полуприседе и сидя — все мишени мозамбиком, без вреда заложнику"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -14,7 +14,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/185"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "transitions",
+    "movement"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -35,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Ружье в бочке"
+    "ru": "Центральная мишень шестью выстрелами, краевые — двумя; затем ружьё из бочки у левого порта и 5 тарелок"
   },
   "steps": {
     "ru": [
@@ -43,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

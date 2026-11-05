@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/55"
   },
-  "tags": [],
+  "tags": [
+    "accuracy",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Точный выстрел"
+    "ru": "Точный выстрел: каждая мишень (2 в грудь + 1 в голову) последовательно на дистанциях 5, 10 и 15 м"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

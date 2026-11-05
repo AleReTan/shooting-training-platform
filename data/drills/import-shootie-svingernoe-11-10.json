@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/224"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Свингерное 11.10"
+    "ru": "5 картонных мишеней парами и железо до падения; свингер активируется открытием двери"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

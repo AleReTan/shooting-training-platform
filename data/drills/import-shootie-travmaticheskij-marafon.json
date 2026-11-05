@@ -12,7 +12,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/395"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy",
+    "reload",
+    "stress"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -33,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Травматический марафон"
+    "ru": "Марафон на 60 выстрелов: проход сектора от начала до конца с обязательным подбором двух магазинов со столов, все мишени мозамбиком"
   },
   "steps": {
     "ru": [
@@ -41,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

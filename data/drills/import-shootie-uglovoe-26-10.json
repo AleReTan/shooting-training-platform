@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/253"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Угловое 26.10"
+    "ru": "Четыре мишени парами выстрелов, не задев две штрафные"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/156"
   },
-  "tags": [],
+  "tags": [
+    "accuracy",
+    "reload",
+    "movement",
+    "cover",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Съебастьян"
+    "ru": "Себастьян: перцовым баллоном в голову двух мишеней, затем по схеме 2+1, с перезарядкой на перемещении и работой из-за бочек"
   },
   "steps": {
     "ru": [
@@ -42,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

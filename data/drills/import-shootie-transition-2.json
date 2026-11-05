@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/424"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Transition #2"
+    "ru": "Transition 2: центральная мишень двумя, переход на вторичку, боковые по 2; зачёт — альфа и голова"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

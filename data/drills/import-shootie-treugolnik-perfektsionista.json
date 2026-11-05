@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/401"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Треугольник перфекциониста"
+    "ru": "Треугольник: группа «I» и поппер по диагонали, затем позиции «б/н» с гонгом и группой «III» в движении"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

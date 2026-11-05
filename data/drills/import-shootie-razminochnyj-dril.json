@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/406"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "speed"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Разминочный ДРИЛ"
+    "ru": "Разминка: поражение мишеней от центра к краям"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

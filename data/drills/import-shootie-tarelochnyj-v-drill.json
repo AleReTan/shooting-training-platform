@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/370"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "speed"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Тарелочный V-Drill"
+    "ru": "V-Drill по стальным тарелкам"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

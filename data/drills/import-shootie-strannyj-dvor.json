@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/86"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Странный двор"
+    "ru": "Две стойки по 3 мишени и пары за бочками; каждая мишень двумя выстрелами, не выходя за белую линию"
   },
   "steps": {
     "ru": [
@@ -43,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

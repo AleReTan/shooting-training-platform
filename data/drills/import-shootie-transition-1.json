@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/423"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Transition#1"
+    "ru": "Transition 1: центральная мишень двумя, переход на второе оружие и боковые по 2 выстрела"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

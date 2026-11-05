@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/154"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -31,10 +36,11 @@
     }
   ],
   "scoring": {
-    "type": "none"
+    "type": "points",
+    "points": 5
   },
   "goal": {
-    "ru": "Самооборона, ну почти"
+    "ru": "Самооборона: первый выстрел с одной руки от живота на 3 м, затем поражение мишеней на ходу; зачёт — 2 попадания в ACD (A=5, C=3, D=1)"
   },
   "steps": {
     "ru": [
@@ -42,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/111"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "cover",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Серия 2+2 с перезарядкой"
+    "ru": "Из-за укрытия: пара мишеней с одной стороны, перезарядка и пара с другой; контроль вкладки и скорость перезарядки"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }
