@@ -64,3 +64,20 @@ body {
   border: 1px solid var(--accent); background: transparent; color: var(--accent);
   font-size: 1rem; cursor: pointer;
 }
+
+/* Схема мишенной обстановки */
+.diagram { width: 100%; height: auto; background: #181b20; border-radius: 10px; }
+.diagram-field { fill: none; stroke: #2a2e35; stroke-width: 2; }
+.diagram-caption, .diagram-target-label, .diagram-position-label, .diagram-barrier-label {
+  fill: var(--muted); font-size: 11px; text-anchor: middle;
+}
+.diagram-movement { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 4; opacity: 0.8; }
+.diagram-movement-arrow { fill: var(--accent); }
+.diagram-barrier { fill: #3a4048; }
+.diagram-target-shape { fill: #f5f2ec; stroke: #9aa0a8; }
+.diagram-target--active .diagram-target-shape { fill: var(--accent); stroke: #fff; }
+.diagram-target--active .diagram-target-label { fill: var(--text); font-weight: 700; }
+.diagram-position { fill: #4a90d9; }
+.diagram-shooter { fill: #fff; }
+.diagram-reload { fill: var(--accent); font-size: 13px; text-anchor: end; font-weight: 700; }
+
