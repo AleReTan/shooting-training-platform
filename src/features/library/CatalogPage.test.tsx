@@ -8,7 +8,11 @@ beforeAll(async () => {
   data = await loadData();
 });
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  window.location.hash = '';
+  window.localStorage.clear();
+});
 
 test('каталог показывает упражнения', () => {
   render(<CatalogPage data={data} />);
@@ -96,6 +100,25 @@ test('счётчик показывает «N из M» и сбрасывает �
   fireEvent.click(screen.getByText('сбросить фильтры'));
   expect(screen.getByText(`Найдено ${total} из ${total}`)).toBeTruthy();
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
+});
+
+test('тренировка дня: кнопка ведёт на страницу упражнения', () => {
+  render(<CatalogPage data={data} />);
+  fireEvent.click(screen.getByText('тренировка дня'));
+  expect(window.location.hash).toMatch(/^#\/drill\//);
+});
+
+test('избранное: звезда сохраняет в localStorage, чип сужает список', () => {
+  render(<CatalogPage data={data} />);
+  const card = screen.getByText('От 1 до 5').closest('.drill-card') as HTMLElement;
+  fireEvent.click(card.querySelector('.drill-card__star') as HTMLElement);
+  expect(JSON.parse(window.localStorage.getItem('shooting-favorites-v1') ?? '[]')).toContain(
+    'one-to-five',
+  );
+
+  fireEvent.click(screen.getByRole('button', { name: 'избранное' }));
+  expect(screen.getByText('От 1 до 5')).toBeTruthy();
+  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
 });
 
 test('пустой результат: «Ничего не найдено» + кнопка «Сбросить» возвращает список', () => {

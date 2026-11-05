@@ -192,6 +192,20 @@ body {
 .hf__result strong { font-size: 2rem; color: var(--accent); font-variant-numeric: tabular-nums; }
 .hf__target { margin: 0; color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 
+/* Избранное: звезда поверх растянутой ссылки карточки и в шапке упражнения */
+.drill-card__star {
+  position: relative; z-index: 1; /* выше растянутой ссылки карточки */
+  border: 0; background: none; padding: 0.05rem 0.05rem 0;
+  color: var(--muted); font-size: 1.15rem; line-height: 1;
+  cursor: pointer; flex-shrink: 0;
+}
+.drill-card__star:hover { color: var(--text); }
+.drill-card__star--on { color: var(--accent); }
+.drill-card__star:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.drill-page__head { display: flex; align-items: center; gap: 0.6rem; }
+.drill-page__head h2 { flex: 1; margin-top: 0; }
+.drill-page__head .drill-card__star { font-size: 1.4rem; }
+
 .empty { text-align: center; padding: 2rem 0; color: var(--muted); }
 .empty button {
   margin-top: 0.5rem; padding: 0.45rem 1rem; border-radius: 8px;

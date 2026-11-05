@@ -86,3 +86,8 @@ test('source: точное совпадение origin', () => {
   const res = run({ query: '', tags: [], source: 'Kyle Lamb' });
   expect(res.map((d) => d.id)).toEqual(['one-to-five']);
 });
+
+test('favoritesOnly: только отмеченные упражнения', () => {
+  const res = run({ query: '', tags: [], favoritesOnly: true, favorites: ['one-to-five'] });
+  expect(res.map((d) => d.id)).toEqual(['one-to-five']);
+});

@@ -13,7 +13,12 @@ function DifficultyTicks({ level }: { level: number }) {
 }
 
 /** Карточка упражнения в списке каталога; вся площадь — ссылка (CSS-растяжка). */
-export function DrillCard(props: { drill: Drill; tagLabels: Map<string, string> }) {
+export function DrillCard(props: {
+  drill: Drill;
+  tagLabels: Map<string, string>;
+  favorite?: boolean;
+  onToggleFavorite?: () => void;
+}) {
   const { drill } = props;
   const dist =
     drill.distance.min === drill.distance.max
@@ -26,6 +31,17 @@ export function DrillCard(props: { drill: Drill; tagLabels: Map<string, string> 
           <a href={`#/drill/${drill.id}`}>{localized(drill.name)}</a>
         </h3>
         <DifficultyTicks level={drill.difficulty} />
+        {props.onToggleFavorite ? (
+          <button
+            type="button"
+            class={'drill-card__star' + (props.favorite ? ' drill-card__star--on' : '')}
+            aria-pressed={!!props.favorite}
+            aria-label={props.favorite ? 'убрать из избранного' : 'в избранное'}
+            onClick={props.onToggleFavorite}
+          >
+            ★
+          </button>
+        ) : null}
       </div>
       <p class="drill-card__meta">
         <span>{dist}</span>

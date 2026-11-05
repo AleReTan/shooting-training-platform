@@ -1,8 +1,10 @@
 // Карточка упражнения: все разделы схемы Drill (спека §8 п.2).
 
+import { useState } from 'preact/hooks';
 import { localized, localizedList, PAR_LABELS, FIRE_LABELS } from '../../app/i18n';
 import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { TimerPanel } from '../../features/timer/TimerPanel';
+import { loadFavorites, saveFavorites, toggleFavorite } from './favorites';
 import type { AppData } from '../../data/load';
 import type { Drill } from '../../data/types';
 
@@ -11,6 +13,8 @@ const distanceText = (d: Drill['distance']) =>
 
 export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const { drillById, coursesByDrillId, taxonomy } = data;
+  // Хуки до раннего return: drill может быть не найден.
+  const [favorites, setFavorites] = useState<string[]>(() => loadFavorites());
   const drill = drillById.get(id);
 
   if (!drill) {
@@ -28,12 +32,31 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const targetLabels = new Map(taxonomy.targetTypes.map((t) => [t.id, localized(t.label)]));
   const courses = coursesByDrillId.get(drill.id) ?? [];
 
+  const isFav = favorites.includes(drill.id);
+  const toggleFav = () =>
+    setFavorites((f) => {
+      const next = toggleFavorite(f, drill.id);
+      saveFavorites(next);
+      return next;
+    });
+
   return (
     <section>
       <p>
         <a href="#/">← В каталог</a>
       </p>
-      <h2>{localized(drill.name)}</h2>
+      <div class="drill-page__head">
+        <h2>{localized(drill.name)}</h2>
+        <button
+          type="button"
+          class={'drill-card__star' + (isFav ? ' drill-card__star--on' : '')}
+          aria-pressed={isFav}
+          aria-label={isFav ? 'убрать из избранного' : 'в избранное'}
+          onClick={toggleFav}
+        >
+          ★
+        </button>
+      </div>
       {drill.name.en && drill.name.en !== drill.name.ru ? (
         <p class="drill-page__alt">{drill.name.en}</p>
       ) : null}

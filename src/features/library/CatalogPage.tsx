@@ -5,6 +5,9 @@ import { DrillCard } from './DrillCard';
 import { CourseCard } from './CourseCard';
 import { TagChip } from '../../ui/TagChip';
 import { Segmented } from '../../ui/Segmented';
+import { navigate } from '../../app/router';
+import { loadFavorites, saveFavorites, toggleFavorite } from './favorites';
+import { dailyDrillId, todayKey } from './daily';
 import type { AppData } from '../../data/load';
 import type { Discipline, Drill, FireMode } from '../../data/types';
 
@@ -22,6 +25,15 @@ export default function CatalogPage({ data }: { data: AppData }) {
   const [distanceMax, setDistanceMax] = useState<number | ''>('');
   const [review, setReview] = useState<'' | 'yes' | 'no'>('');
   const [source, setSource] = useState('');
+  const [favOnly, setFavOnly] = useState(false);
+  const [favorites, setFavorites] = useState<string[]>(() => loadFavorites());
+
+  const toggleFav = (id: string) =>
+    setFavorites((f) => {
+      const next = toggleFavorite(f, id);
+      saveFavorites(next);
+      return next;
+    });
 
   const tagLabels = useMemo(
     () => new Map(taxonomy.tags.map((t) => [t.id, localized(t.label)])),
@@ -57,11 +69,13 @@ export default function CatalogPage({ data }: { data: AppData }) {
     distanceMax: distanceMax === '' ? undefined : distanceMax,
     needsReview: review === '' ? undefined : review === 'yes',
     source: source || undefined,
+    favoritesOnly: favOnly || undefined,
+    favorites,
   };
 
   const visible = useMemo(
     () => filterDrills(drills, filters),
-    [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax, review, source],
+    [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax, review, source, favorites, favOnly],
   );
 
   const hasActive =
@@ -74,7 +88,8 @@ export default function CatalogPage({ data }: { data: AppData }) {
     maxRounds !== '' ||
     distanceMax !== '' ||
     review !== '' ||
-    source !== '';
+    source !== '' ||
+    favOnly;
 
   const toggleTag = (id: string) =>
     setTags((t) => (t.includes(id) ? t.filter((x) => x !== id) : [...t, id]));
@@ -90,6 +105,16 @@ export default function CatalogPage({ data }: { data: AppData }) {
     setDistanceMax('');
     setReview('');
     setSource('');
+    setFavOnly(false);
+  };
+
+  // Тренировка дня: стабильный выбор по дате из всех упражнений.
+  const pickDaily = () => {
+    const id = dailyDrillId(
+      drills.map((d) => d.id),
+      todayKey(),
+    );
+    if (id) navigate(`/drill/${id}`);
   };
 
   const tagRow = (group: 'skill' | 'condition', label: string) => (
@@ -123,6 +148,8 @@ export default function CatalogPage({ data }: { data: AppData }) {
         />
 
         <div class="filters__row">
+          <TagChip label="избранное" active={favOnly} onClick={() => setFavOnly((v) => !v)} />
+
           <Segmented
             ariaLabel="тип тренировки"
             value={fireMode}
@@ -232,19 +259,21 @@ export default function CatalogPage({ data }: { data: AppData }) {
         {tagRow('condition', 'условия')}
       </div>
 
-      {visible.length > 0 ? (
-        <p class="catalog-count">
-          Найдено {visible.length} из {drills.length}
-          {hasActive ? (
-            <>
-              {' · '}
-              <button type="button" class="link-btn" onClick={reset}>
-                сбросить фильтры
-              </button>
-            </>
-          ) : null}
-        </p>
-      ) : null}
+      <p class="catalog-count">
+        <span>Найдено {visible.length} из {drills.length}</span>
+        {' · '}
+        <button type="button" class="link-btn" onClick={pickDaily}>
+          тренировка дня
+        </button>
+        {hasActive ? (
+          <>
+            {' · '}
+            <button type="button" class="link-btn" onClick={reset}>
+              сбросить фильтры
+            </button>
+          </>
+        ) : null}
+      </p>
 
       {courses.length ? (
         <section class="courses">
@@ -267,7 +296,13 @@ export default function CatalogPage({ data }: { data: AppData }) {
       ) : (
         <div class="drill-list">
           {visible.map((d) => (
-            <DrillCard key={d.id} drill={d} tagLabels={tagLabels} />
+            <DrillCard
+              key={d.id}
+              drill={d}
+              tagLabels={tagLabels}
+              favorite={favorites.includes(d.id)}
+              onToggleFavorite={() => toggleFav(d.id)}
+            />
           ))}
         </div>
       )}

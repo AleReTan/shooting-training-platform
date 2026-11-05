@@ -1,5 +1,5 @@
-import { test, expect, afterEach } from 'vitest';
-import { render, cleanup } from '@testing-library/preact';
+import { test, expect, afterEach, vi } from 'vitest';
+import { render, cleanup, fireEvent } from '@testing-library/preact';
 import billDrill from '../../../data/drills/bill-drill-carbine.json';
 import { DrillCard } from './DrillCard';
 import type { Drill } from '../../data/types';
@@ -35,4 +35,25 @@ test('холостая без патронов: в мета-строке «хо�
   const { container } = render(<DrillCard drill={drill} tagLabels={tagLabels} />);
   expect(container.textContent).toContain('холостая');
   expect(container.textContent).not.toContain('0 патр.');
+});
+
+test('звезда избранного: клик переключает, состояние видно', () => {
+  const onToggle = vi.fn();
+  const off = render(
+    <DrillCard drill={billDrill as Drill} tagLabels={tagLabels} favorite={false} onToggleFavorite={onToggle} />,
+  );
+  const star = off.container.querySelector('.drill-card__star') as HTMLElement;
+  expect(star.getAttribute('aria-pressed')).toBe('false');
+  fireEvent.click(star);
+  expect(onToggle).toHaveBeenCalledTimes(1);
+
+  const on = render(
+    <DrillCard drill={billDrill as Drill} tagLabels={tagLabels} favorite onToggleFavorite={onToggle} />,
+  );
+  expect((on.container.querySelector('.drill-card__star') as HTMLElement).getAttribute('aria-pressed')).toBe('true');
+});
+
+test('без обработчика звезды нет', () => {
+  const { container } = render(<DrillCard drill={billDrill as Drill} tagLabels={tagLabels} />);
+  expect(container.querySelector('.drill-card__star')).toBeNull();
 });
