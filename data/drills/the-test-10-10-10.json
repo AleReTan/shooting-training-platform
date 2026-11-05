@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "the-test-10-10-10",
+  "name": { "ru": "Тест 10-10-10 (карабин)", "en": "The Test 10-10-10 (carbine)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "Gabe White",
+    "kind": "adaptation",
+    "url": "https://pistol-training.com/drills/the-test"
+  },
+  "tags": ["accuracy", "speed", "recoil-control", "first-shot"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 10.0 },
+    { "level": "intermediate", "time": 7.5 },
+    { "level": "advanced", "time": 6.0 },
+    { "level": "master", "time": 5.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Десять выстрелов в зону «А» за жёсткий пар: точность на потоке",
+    "en": "Ten rounds into the A-zone under a hard par"
+  },
+  "steps": {
+    "ru": [
+      "10 м, одна мишень, 10 патронов в магазине",
+      "По сигналу — 10 выстрелов, все в зону «А»",
+      "Условие выполнения: укладываться в пар без единого промаха"
+    ]
+  },
+  "safety": { "ru": "Убедись в надёжном пулеулавливателе: серия плотная и быстрая" },
+  "equipment": ["карабин", "1 магазин на 10+ патронов"],
+  "variants": { "ru": ["Только головная зона (жёсткая версия)", "С 15 м", "Оригинал — пистолет из кобуры, пар 10 с"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 15,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 10 }]
+  },
+  "related": ["a-zone-25", "rapid-string-five"]
+}

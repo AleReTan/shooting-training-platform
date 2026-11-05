@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "failure-2-plus-1",
+  "name": { "ru": "«Недобой»: 2+1", "en": "Failure Drill / Mozambique 2+1" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Jeff Cooper", "kind": "adaptation" },
+  "tags": ["first-shot", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 3,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 3.5 },
+    { "level": "intermediate", "time": 2.8 },
+    { "level": "advanced", "time": 2.3 },
+    { "level": "master", "time": 1.9 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Два в корпус и контрольный в голову — смена зоны прицеливания под пар",
+    "en": "Two to the body, one to the head — zone change under par"
+  },
+  "steps": {
+    "ru": [
+      "10 м, одна мишень, карабин в готовности",
+      "По сигналу — 2 выстрела в зону «А» корпуса",
+      "Сразу 1 выстрел в головную зону",
+      "Повторить несколько подходов"
+    ]
+  },
+  "safety": { "ru": "Головная зона мала — не гонись за временем ценой выноса ствола за пределы мишени" },
+  "equipment": ["карабин", "1 магазин на 3+ патрона"],
+  "variants": { "ru": ["1 в корпус + 1 в голову (упрощение)", "С 15 м для продвинутых"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 15,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 3 }]
+  },
+  "related": ["head-shots-only", "el-presidente-uspsa"]
+}

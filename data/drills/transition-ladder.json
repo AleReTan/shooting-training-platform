@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-ladder",
+  "name": { "ru": "Лестница переносов", "en": "Transition Ladder" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 30, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 7.0 },
+    { "level": "intermediate", "time": 5.5 },
+    { "level": "advanced", "time": 4.5 },
+    { "level": "master", "time": 3.6 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Перенос огня между целями на разной дистанции без потери точки прицеливания",
+    "en": "Transitions between targets at different distances"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени: ближняя 10 м, средняя 20 м, дальняя 30 м, в линию с уступом",
+      "По сигналу — по 1 выстрелу в каждую от ближней к дальней",
+      "Затем по 1 выстрелу в обратном порядке: от дальней к ближней",
+      "Все попадания — в зачётной зоне"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["Сухая отработка переносов", "По 2 выстрела на мишень"] },
+  "layout": {
+    "unit": "m",
+    "width": 18,
+    "depth": 32,
+    "positions": [{ "id": "P1", "x": 9, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 9, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 13, "y": 20, "type": "ipsc-metric" },
+      { "id": "T3", "x": 5, "y": 30, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "related": ["two-target-transitions", "transition-2-1"]
+}

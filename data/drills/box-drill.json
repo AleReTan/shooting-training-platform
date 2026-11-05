@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "box-drill",
+  "name": { "ru": "Бокс-дрилл: квадрат", "en": "Box Drill" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-lateral", "transitions", "reload", "reload-tactical"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 16,
+  "distance": { "min": 7, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 40.0 },
+    { "level": "intermediate", "time": 32.0 },
+    { "level": "advanced", "time": 25.0 },
+    { "level": "master", "time": 20.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стрельба в движении по квадрату с переносом огня на четыре цели",
+    "en": "Shooting on the move around a box, engaging four targets"
+  },
+  "steps": {
+    "ru": [
+      "Четыре мишени по фронту (7–15 м), четыре позиции по углам квадрата 5×5 м",
+      "Старт в первом углу, карабин в готовности",
+      "По сигналу — с текущей позиции по 1 выстрелу в каждую мишень (4 выстрела)",
+      "Переход бегом к следующему углу, снова по 1 выстрелу в каждую мишень",
+      "Между позициями — тактическая перезарядка при необходимости",
+      "Итого 4 позиции × 4 выстрела = 16"
+    ]
+  },
+  "safety": { "ru": "Ствол в безопасном направлении при перемещении; палец вне спуска в движении" },
+  "equipment": ["карабин", "2–3 магазина", "4 конуса/маркера для углов"],
+  "variants": { "ru": ["По 2 выстрела на мишень с позиции (32 патрона)", "С колена на дальней позиции"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 20,
+    "positions": [
+      { "id": "P1", "x": 3, "y": 3, "label": { "ru": "угол 1" } },
+      { "id": "P2", "x": 13, "y": 3, "label": { "ru": "угол 2" } },
+      { "id": "P3", "x": 13, "y": 9, "label": { "ru": "угол 3" } },
+      { "id": "P4", "x": 3, "y": 9, "label": { "ru": "угол 4" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 17, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 18, "type": "ipsc-metric" },
+      { "id": "T3", "x": 13, "y": 17, "type": "ipsc-metric" },
+      { "id": "T4", "x": 17, "y": 14, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 8, "y": 12, "kind": "barrel" }],
+    "movement": [
+      { "from": "P1", "to": "P2", "style": "lateral" },
+      { "from": "P2", "to": "P3", "style": "advance" },
+      { "from": "P3", "to": "P4", "style": "lateral" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 },
+      { "action": "engage", "target": "T4", "shots": 1 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 },
+      { "action": "engage", "target": "T4", "shots": 1 },
+      { "action": "move", "from": "P2", "to": "P3" },
+      { "action": "reload" },
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 },
+      { "action": "engage", "target": "T4", "shots": 1 },
+      { "action": "move", "from": "P3", "to": "P4" },
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 },
+      { "action": "engage", "target": "T4", "shots": 1 }
+    ]
+  },
+  "related": ["two-target-transitions", "multiple-threat-priority"]
+}

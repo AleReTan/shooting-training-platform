@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "ready-up-standards",
+  "name": { "ru": "Ready-Up: выход в цель", "en": "Ready-Up Standards" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["first-shot", "speed", "standing", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 4.0 },
+    { "level": "intermediate", "time": 3.2 },
+    { "level": "advanced", "time": 2.6 },
+    { "level": "master", "time": 2.2 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Быстрый выход карабина из готовности в цель и первый точный выстрел",
+    "en": "Fast presentation from ready into a precise first shot"
+  },
+  "steps": {
+    "ru": [
+      "15 м, одна мишень, карабин в низком готовности",
+      "По сигналу — вскидка и 2 выстрела в зону «А»",
+      "После проверки — снова готовность, повторить (3 подхода)"
+    ]
+  },
+  "safety": { "ru": "Палец на спуске только после выхода прицельных в цель" },
+  "equipment": ["карабин", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["С переносом из положения «на ремне»", "Со слабого плеча", "Сухая отработка без патронов"] },
+  "layout": {
+    "unit": "m",
+    "width": 15,
+    "depth": 20,
+    "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 7, "y": 15, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 2 }]
+  },
+  "related": ["cold-bore-first-shot", "steel-single-par"]
+}

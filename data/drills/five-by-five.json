@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "five-by-five",
+  "name": { "ru": "Пять-на-пять", "en": "5x5" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["accuracy", "speed", "first-shot", "standing"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 5,
+  "distance": { "min": 5, "max": 5, "unit": "m" },
+  "targets": [{ "type": "a4-paper", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 6.0 },
+    { "level": "intermediate", "time": 5.0 },
+    { "level": "advanced", "time": 4.2 },
+    { "level": "master", "time": 3.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Пять точных выстрелов в лист А4 на близкой дистанции под пар",
+    "en": "Five accurate hits on A4 paper at close range under par"
+  },
+  "steps": {
+    "ru": [
+      "5 м, лист А4 (или круг 10 см), карабин в готовности",
+      "По сигналу — 5 выстрелов, все пробоины в лист",
+      "Пар-время на серию"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин на 5+ патронов", "лист А4"],
+  "variants": { "ru": ["С вскидкой из положения «на ремне»", "Слабое плечо"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 5, "type": "a4-paper" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+  },
+  "related": ["dot-torture-carbine", "one-hole-dry"]
+}

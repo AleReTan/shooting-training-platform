@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "five-50-five",
+  "name": { "ru": "5-50-5", "en": "5-50-5" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["precision-long", "accuracy", "reload", "reload-tactical"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 15,
+  "distance": { "min": 5, "max": 50, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "parTimes": [
+    { "level": "novice", "time": 35.0 },
+    { "level": "intermediate", "time": 28.0 },
+    { "level": "advanced", "time": 22.0 },
+    { "level": "master", "time": 18.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Смена дальности: близкая серия, дальняя точность, снова близкая — с перезарядкой",
+    "en": "Distance transitions: close string, long precision, close again"
+  },
+  "steps": {
+    "ru": [
+      "Ближняя мишень 5 м, дальняя 50 м, магазины заряжены",
+      "По сигналу — 5 выстрелов в ближнюю (зона «А»)",
+      "Тактическая перезарядка, перенос на дальнюю",
+      "5 прицельных выстрелов в дальнюю (зона «А»)",
+      "Возврат на ближнюю — 5 выстрелов",
+      "Пар на весь проход"
+    ]
+  },
+  "safety": { "ru": "Проверь безопасный фон на 50 м до начала упражнения" },
+  "equipment": ["карабин", "2 магазина на 5+ патронов"],
+  "variants": { "ru": ["Дальняя — с колена", "Заменить ближнюю на сталь"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 55,
+    "positions": [{ "id": "P1", "x": 6, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 6, "y": 5, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 50, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 5 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T2", "shots": 5 },
+      { "action": "engage", "target": "T1", "shots": 5 }
+    ]
+  },
+  "related": ["precision-prone-100", "position-standard-standing"]
+}

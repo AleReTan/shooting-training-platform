@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "dot-torture-carbine",
+  "name": { "ru": "Пытка точками (карабин)", "en": "Dot Torture (carbine)" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Пистолетная классика", "kind": "adaptation" },
+  "tags": ["accuracy"],
+  "difficulty": 1,
+  "fireMode": ["dry", "live"],
+  "rounds": 20,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "a4-paper", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Чистая работа спуска и прицеливания: по 2 выстрела в каждую из 10 точек",
+    "en": "Pure trigger and sight discipline: 2 shots into each of 10 dots"
+  },
+  "steps": {
+    "ru": [
+      "10 м, мишень с 10 кружками ~5 см (лист с сеткой точек)",
+      "Медленно, без времени — по 2 прицельных выстрела в каждую точку",
+      "Засчитываются только попадания внутрь кружка",
+      "Идеал — 20 из 20; веди счёт по точкам"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин", "мишень с 10 точками"],
+  "variants": { "ru": ["Сухая версия с лазерным патроном или на щелчки", "Добавить пар на точку для продвинутых"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 14,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "a4-paper" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 20 }]
+  },
+  "related": ["trigger-control-dry", "one-hole-dry"]
+}

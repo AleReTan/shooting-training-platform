@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "reload-tactical-par",
+  "name": { "ru": "Тактическая перезарядка на пар", "en": "Tactical Reload on Par" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["reload", "reload-tactical", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 4,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 10.0 },
+    { "level": "intermediate", "time": 8.0 },
+    { "level": "advanced", "time": 6.5 },
+    { "level": "master", "time": 5.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Тактическая перезарядка с сохранением магазина: смена магазина в паузе",
+    "en": "Tactical reload retaining the partial magazine"
+  },
+  "steps": {
+    "ru": [
+      "10 м, одна мишень, в карабине 2 патрона, полный магазин в подсумке",
+      "По сигналу — 2 выстрела в зону «А»",
+      "Тактическая перезарядка: полный магазин в карабин, частичный — в подсумок или руку",
+      "2 выстрела в зону «А»",
+      "Пар на весь подход"
+    ]
+  },
+  "safety": { "ru": "Контроль частичного магазина: не бросать на землю без дамп-подсумка" },
+  "equipment": ["карабин", "2 магазина (1 частичный, 1 полный)", "подсумок"],
+  "variants": { "ru": ["Стоя / с колена", "С уходом с линии после перезарядки"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 14,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["reload-emergency-par", "five-50-five"]
+}
