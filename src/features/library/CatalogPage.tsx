@@ -8,7 +8,7 @@ import type { FireMode } from '../../data/types';
 
 /** Каталог упражнений: поиск, фильтры, список (спека §8 п.1). */
 export default function CatalogPage() {
-  const { drills, taxonomy } = loadData();
+  const { drills, courses, taxonomy } = loadData();
 
   const [query, setQuery] = useState('');
   const [tags, setTags] = useState<string[]>([]);
@@ -147,6 +147,19 @@ export default function CatalogPage() {
         {renderTagGroup('skill', 'Навыки')}
         {renderTagGroup('condition', 'Условия')}
       </div>
+
+      {courses.length ? (
+        <section class="courses">
+          <h3>Курсы</h3>
+          <ul>
+            {courses.map((c) => (
+              <li key={c.id}>
+                <a href={`#/course/${c.id}`}>{localized(c.name)}</a> — {c.items.length} упражн.
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       {visible.length === 0 ? (
         <div class="empty">
