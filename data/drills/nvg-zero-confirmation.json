@@ -67,12 +67,12 @@
   "layout": {
     "unit": "m",
     "width": 8,
-    "depth": 53,
+    "depth": 24,
     "positions": [
       {
         "id": "P25",
         "x": 4,
-        "y": 26,
+        "y": 16,
         "label": {
           "ru": "25 м"
         }
@@ -90,8 +90,9 @@
       {
         "id": "T1",
         "x": 4,
-        "y": 51,
-        "type": "a4-paper"
+        "y": 21,
+        "type": "a4-paper",
+        "distance": 50
       }
     ],
     "movement": [

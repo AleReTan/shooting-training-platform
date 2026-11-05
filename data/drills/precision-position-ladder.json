@@ -1,16 +1,44 @@
 {
   "schemaVersion": 1,
   "id": "precision-position-ladder",
-  "name": { "ru": "100 м: лесенка позиций", "en": "100 m Position Ladder" },
-  "discipline": ["carbine"],
-  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["precision-long", "positions", "accuracy", "prone", "kneeling", "standing"],
+  "name": {
+    "ru": "100 м: лесенка позиций",
+    "en": "100 m Position Ladder"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "Общая практика карабинных курсов",
+    "kind": "classic"
+  },
+  "tags": [
+    "precision-long",
+    "positions",
+    "accuracy",
+    "prone",
+    "kneeling",
+    "standing"
+  ],
   "difficulty": 4,
-  "fireMode": ["live"],
+  "fireMode": [
+    "live"
+  ],
   "rounds": 9,
-  "distance": { "min": 100, "max": 100, "unit": "m" },
-  "targets": [{ "type": "ipsc-classic", "count": 1 }],
-  "scoring": { "type": "points" },
+  "distance": {
+    "min": 100,
+    "max": 100,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-classic",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "points"
+  },
   "goal": {
     "ru": "Одна цель на 100 м из трёх позиций: лёжа, с колена, стоя — видна цена каждой позиции в метрах попадания",
     "en": "One target at 100 m from three positions: prone, kneeling, standing — each position's cost in hits is visible"
@@ -25,20 +53,65 @@
       "2 цикла"
     ]
   },
-  "safety": { "ru": "Стоя на 100 м — соблазн «дожать»: каждый выстрел с подтверждённой картинкой" },
-  "equipment": ["карабин с оптикой", "9 патронов", "упор", "ремень"],
-  "variants": { "ru": ["Только колено+стоя (лёжа исключена)", "На время: 3 позиции за 60 с"] },
+  "safety": {
+    "ru": "Стоя на 100 м — соблазн «дожать»: каждый выстрел с подтверждённой картинкой"
+  },
+  "equipment": [
+    "карабин с оптикой",
+    "9 патронов",
+    "упор",
+    "ремень"
+  ],
+  "variants": {
+    "ru": [
+      "Только колено+стоя (лёжа исключена)",
+      "На время: 3 позиции за 60 с"
+    ]
+  },
   "layout": {
     "unit": "m",
     "width": 8,
-    "depth": 102,
-    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиции" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 101, "type": "ipsc-classic" }],
+    "depth": 24,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 4,
+        "y": 1,
+        "label": {
+          "ru": "позиции"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 4,
+        "y": 21,
+        "type": "ipsc-classic",
+        "distance": 100
+      }
+    ],
     "sequence": [
-      { "action": "engage", "target": "T1", "shots": 3 },
-      { "action": "engage", "target": "T1", "shots": 3 },
-      { "action": "engage", "target": "T1", "shots": 3 }
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 3
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 3
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 3
+      }
     ]
   },
-  "related": ["precision-100-five", "position-flow", "precision-150-supported"]
+  "related": [
+    "precision-100-five",
+    "position-flow",
+    "precision-150-supported"
+  ]
 }

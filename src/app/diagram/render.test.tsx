@@ -1,6 +1,7 @@
 import { test, expect } from 'vitest';
 import { render } from '@testing-library/preact';
 import { multiTargetLayout as layout } from './testFixtures';
+import type { Layout } from '../../data/types';
 import { LayoutDiagram } from './render';
 
 test('схема содержит svg, позиции и мишени', () => {
@@ -37,6 +38,19 @@ test('переход без distance подписан округлённой д�
   const { container } = render(<LayoutDiagram layout={noDistance} />);
   // P1(4,1)→P2(6,3): hypot(2,2) ≈ 2.8 → «3 м»
   expect(container.textContent).toContain('3 м');
+});
+
+test('придвинутая дальняя мишень подписана реальной дистанцией', () => {
+  // ось сжата: мишень нарисована в 20 м, реально — 200 м
+  const far: Layout = {
+    unit: 'm',
+    width: 8,
+    depth: 24,
+    positions: [{ id: 'P1', x: 4, y: 1 }],
+    targets: [{ id: 'T1', x: 4, y: 21, type: 'ipsc-classic', distance: 200 }],
+  };
+  const { container } = render(<LayoutDiagram layout={far} />);
+  expect(container.textContent).toContain('T1 · 200 м');
 });
 
 test('playback подсвечивает активную мишень и счёт выстрелов', () => {

@@ -87,6 +87,9 @@ function validateLayout(file: string, layout: Layout, errors: string[]): void {
   }
   for (const t of layout.targets) {
     if (!inBounds(t.x, t.y)) errors.push(`${file}: мишень ${t.id} вне габаритов width/depth`);
+    if (t.distance != null && (typeof t.distance !== 'number' || t.distance <= 0)) {
+      errors.push(`${file}: target.distance мишени ${t.id} должен быть положительным числом`);
+    }
   }
   for (const m of layout.movement ?? []) {
     if (!posIds.has(m.from) || !posIds.has(m.to)) {

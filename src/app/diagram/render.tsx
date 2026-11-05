@@ -104,10 +104,11 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
         </g>
       ))}
 
-      {/* Мишени: подпись с округлёнными метрами, у краёв — прижата внутрь */}
+      {/* Мишени: подпись с округлёнными метрами, у краёв — прижата внутрь.
+          Придвинутые дальние мишени подписаны реальной дистанцией из t.distance */}
       {layout.targets.map((t) => {
         const near = nearestPos(t);
-        const d = Math.round(dist(t, near));
+        const d = t.distance ?? Math.round(dist(t, near));
         const shots = playback?.shotsDone?.[t.id] ?? 0;
         const active = playback?.activeTarget === t.id;
         const isSteel = t.type.includes('steel');

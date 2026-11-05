@@ -1,22 +1,60 @@
 {
   "schemaVersion": 1,
   "id": "precision-prone-100",
-  "name": { "ru": "Точная группа лёжа, 100 м", "en": "Prone Precision Group, 100 m" },
-  "discipline": ["carbine"],
-  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["positions", "prone", "precision-long", "accuracy"],
-  "difficulty": 3,
-  "fireMode": ["live"],
-  "rounds": 10,
-  "distance": { "min": 100, "max": 100, "unit": "m" },
-  "targets": [{ "type": "ipsc-metric", "count": 1 }],
-  "parTimes": [
-    { "level": "novice", "time": 90.0 },
-    { "level": "intermediate", "time": 70.0 },
-    { "level": "advanced", "time": 55.0 },
-    { "level": "master", "time": 45.0 }
+  "name": {
+    "ru": "Точная группа лёжа, 100 м",
+    "en": "Prone Precision Group, 100 m"
+  },
+  "discipline": [
+    "carbine"
   ],
-  "scoring": { "type": "par-time" },
+  "source": {
+    "origin": "Общая практика карабинных курсов",
+    "kind": "classic"
+  },
+  "tags": [
+    "positions",
+    "prone",
+    "precision-long",
+    "accuracy"
+  ],
+  "difficulty": 3,
+  "fireMode": [
+    "live"
+  ],
+  "rounds": 10,
+  "distance": {
+    "min": 100,
+    "max": 100,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "ipsc-metric",
+      "count": 1
+    }
+  ],
+  "parTimes": [
+    {
+      "level": "novice",
+      "time": 90
+    },
+    {
+      "level": "intermediate",
+      "time": 70
+    },
+    {
+      "level": "advanced",
+      "time": 55
+    },
+    {
+      "level": "master",
+      "time": 45
+    }
+  ],
+  "scoring": {
+    "type": "par-time"
+  },
   "goal": {
     "ru": "Две группы по 5 лёжа на 100 м: чистая техника дальнего выстрела",
     "en": "Two 5-shot prone groups at 100 m: clean long-range fundamentals"
@@ -29,16 +67,54 @@
       "Оценивается размер групп и совпадение центров"
     ]
   },
-  "safety": { "ru": "Обязательно знание допустимого фона на 100 м" },
-  "equipment": ["карабин", "2 магазина по 5", "коврик", "бинокль/монокуляр"],
-  "variants": { "ru": ["С упора (мешок) и без", "С 200 м для точных карабинов"] },
+  "safety": {
+    "ru": "Обязательно знание допустимого фона на 100 м"
+  },
+  "equipment": [
+    "карабин",
+    "2 магазина по 5",
+    "коврик",
+    "бинокль/монокуляр"
+  ],
+  "variants": {
+    "ru": [
+      "С упора (мешок) и без",
+      "С 200 м для точных карабинов"
+    ]
+  },
   "layout": {
     "unit": "m",
     "width": 12,
-    "depth": 105,
-    "positions": [{ "id": "P1", "x": 6, "y": 1, "label": { "ru": "огневой рубеж" } }],
-    "targets": [{ "id": "T1", "x": 6, "y": 101, "type": "ipsc-metric" }],
-    "sequence": [{ "action": "engage", "target": "T1", "shots": 10 }]
+    "depth": 24,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 6,
+        "y": 1,
+        "label": {
+          "ru": "огневой рубеж"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 6,
+        "y": 21,
+        "type": "ipsc-metric",
+        "distance": 100
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 10
+      }
+    ]
   },
-  "related": ["five-50-five", "cold-bore-first-shot"]
+  "related": [
+    "five-50-five",
+    "cold-bore-first-shot"
+  ]
 }

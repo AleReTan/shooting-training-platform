@@ -52,6 +52,7 @@ export interface LayoutTargetRef {
   x: number;
   y: number;
   type: string;
+  distance?: number; // реальная дистанция до ближайшей позиции, если мишень придвинута на схеме
 }
 
 export interface LayoutBarrier {

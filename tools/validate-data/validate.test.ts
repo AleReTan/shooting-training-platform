@@ -182,6 +182,17 @@ test('movement.distance: положительное число или отсут
   expect(res.errors.join('\n')).toContain('movement.distance');
 });
 
+test('target.distance: положительное число или отсутствие', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric', distance: -5 }],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('target.distance');
+});
+
 test('fireMode: неизвестное значение отклоняется', () => {
   const res = run([entry('x-drill.json', drill({ fireMode: ['liv'] }))]);
   expect(res.errors.join('\n')).toContain('fireMode');

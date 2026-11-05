@@ -1,16 +1,42 @@
 {
   "schemaVersion": 1,
   "id": "stress-breath-control",
-  "name": { "ru": "Сброс пульса перед выстрелом", "en": "Heart-Rate Reset Before the Shot" },
-  "discipline": ["carbine"],
-  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["stress", "accuracy", "precision-long"],
+  "name": {
+    "ru": "Сброс пульса перед выстрелом",
+    "en": "Heart-Rate Reset Before the Shot"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "Общая практика карабинных курсов",
+    "kind": "classic"
+  },
+  "tags": [
+    "stress",
+    "accuracy",
+    "precision-long"
+  ],
   "difficulty": 2,
-  "fireMode": ["live", "dry"],
+  "fireMode": [
+    "live",
+    "dry"
+  ],
   "rounds": 3,
-  "distance": { "min": 50, "max": 50, "unit": "m" },
-  "targets": [{ "type": "a4-paper", "count": 1 }],
-  "scoring": { "type": "points" },
+  "distance": {
+    "min": 50,
+    "max": 50,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "a4-paper",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "points"
+  },
   "goal": {
     "ru": "Навык «остывания»: после нагрузки — 2–3 цикла дыхания — и точный выстрел в момент затишья",
     "en": "The cool-down skill: after exertion, two or three breath cycles, then the shot in the still window"
@@ -24,25 +50,85 @@
       "Зачёт — попадание в лист; замеряй время «остывания» от прихода до выстрела"
     ]
   },
-  "safety": { "ru": "Не задерживай дыхание дольше комфортного: гипервентиляция перед стрельбой недопустима" },
-  "equipment": ["карабин", "3 патрона", "лист A4"],
-  "variants": { "ru": ["Тот же протокол на 25 м с колена", "Холостая версия: только дыхание и вскидка"] },
+  "safety": {
+    "ru": "Не задерживай дыхание дольше комфортного: гипервентиляция перед стрельбой недопустима"
+  },
+  "equipment": [
+    "карабин",
+    "3 патрона",
+    "лист A4"
+  ],
+  "variants": {
+    "ru": [
+      "Тот же протокол на 25 м с колена",
+      "Холостая версия: только дыхание и вскидка"
+    ]
+  },
   "layout": {
     "unit": "m",
     "width": 8,
-    "depth": 55,
+    "depth": 24,
     "positions": [
-      { "id": "RUN", "x": 4, "y": 1, "label": { "ru": "линия нагрузки" } },
-      { "id": "FIRE", "x": 4, "y": 3, "label": { "ru": "огневая позиция" } }
+      {
+        "id": "RUN",
+        "x": 4,
+        "y": 1,
+        "label": {
+          "ru": "линия нагрузки"
+        }
+      },
+      {
+        "id": "FIRE",
+        "x": 4,
+        "y": 3,
+        "label": {
+          "ru": "огневая позиция"
+        }
+      }
     ],
-    "targets": [{ "id": "T1", "x": 4, "y": 53, "type": "a4-paper" }],
-    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance", "distance": 60 }],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 4,
+        "y": 21,
+        "type": "a4-paper",
+        "distance": 50
+      }
+    ],
+    "movement": [
+      {
+        "from": "RUN",
+        "to": "FIRE",
+        "style": "advance",
+        "distance": 60
+      }
+    ],
     "sequence": [
-      { "action": "move", "from": "RUN", "to": "FIRE" },
-      { "action": "engage", "target": "T1", "shots": 1 },
-      { "action": "engage", "target": "T1", "shots": 1 },
-      { "action": "engage", "target": "T1", "shots": 1 }
+      {
+        "action": "move",
+        "from": "RUN",
+        "to": "FIRE"
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 1
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 1
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 1
+      }
     ]
   },
-  "related": ["stress-march-then-group", "stress-pushup-a-zone", "cold-bore-first-shot"]
+  "related": [
+    "stress-march-then-group",
+    "stress-pushup-a-zone",
+    "cold-bore-first-shot"
+  ]
 }

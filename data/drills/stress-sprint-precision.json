@@ -1,16 +1,42 @@
 {
   "schemaVersion": 1,
   "id": "stress-sprint-precision",
-  "name": { "ru": "Спринт и точность на 50", "en": "Sprint Then 50 m Precision" },
-  "discipline": ["carbine"],
-  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["stress", "accuracy", "precision-long", "first-shot"],
+  "name": {
+    "ru": "Спринт и точность на 50",
+    "en": "Sprint Then 50 m Precision"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "Общая практика карабинных курсов",
+    "kind": "classic"
+  },
+  "tags": [
+    "stress",
+    "accuracy",
+    "precision-long",
+    "first-shot"
+  ],
   "difficulty": 4,
-  "fireMode": ["live"],
+  "fireMode": [
+    "live"
+  ],
   "rounds": 3,
-  "distance": { "min": 50, "max": 50, "unit": "m" },
-  "targets": [{ "type": "a4-paper", "count": 1 }],
-  "scoring": { "type": "points" },
+  "distance": {
+    "min": 50,
+    "max": 50,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "a4-paper",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "points"
+  },
   "goal": {
     "ru": "Жёсткая версия стресс-точности: два спринта с разворотом — и три прицельных на 50 м",
     "en": "The hard version of stress precision: two shuttle sprints, then three aimed shots at 50 m"
@@ -24,25 +50,87 @@
       "3–4 подхода; сравни с контрольной тройкой без нагрузки"
     ]
   },
-  "safety": { "ru": "Разворот на челноке — момент потери равновесия: карабин в безопасном положении, палец вне спуска" },
-  "equipment": ["карабин", "ремень", "3 патрона", "лист A4", "2 марки коридора"],
-  "variants": { "ru": ["С колена после челнока", "Челнок 2×50 м для продвинутых"] },
+  "safety": {
+    "ru": "Разворот на челноке — момент потери равновесия: карабин в безопасном положении, палец вне спуска"
+  },
+  "equipment": [
+    "карабин",
+    "ремень",
+    "3 патрона",
+    "лист A4",
+    "2 марки коридора"
+  ],
+  "variants": {
+    "ru": [
+      "С колена после челнока",
+      "Челнок 2×50 м для продвинутых"
+    ]
+  },
   "layout": {
     "unit": "m",
     "width": 10,
-    "depth": 55,
+    "depth": 24,
     "positions": [
-      { "id": "RUN", "x": 5, "y": 1, "label": { "ru": "коридор челнока" } },
-      { "id": "FIRE", "x": 5, "y": 3, "label": { "ru": "огневая позиция" } }
+      {
+        "id": "RUN",
+        "x": 5,
+        "y": 1,
+        "label": {
+          "ru": "коридор челнока"
+        }
+      },
+      {
+        "id": "FIRE",
+        "x": 5,
+        "y": 3,
+        "label": {
+          "ru": "огневая позиция"
+        }
+      }
     ],
-    "targets": [{ "id": "T1", "x": 5, "y": 53, "type": "a4-paper" }],
-    "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance", "distance": 50 }],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 5,
+        "y": 21,
+        "type": "a4-paper",
+        "distance": 50
+      }
+    ],
+    "movement": [
+      {
+        "from": "RUN",
+        "to": "FIRE",
+        "style": "advance",
+        "distance": 50
+      }
+    ],
     "sequence": [
-      { "action": "move", "from": "RUN", "to": "FIRE" },
-      { "action": "engage", "target": "T1", "shots": 1 },
-      { "action": "engage", "target": "T1", "shots": 1 },
-      { "action": "engage", "target": "T1", "shots": 1 }
+      {
+        "action": "move",
+        "from": "RUN",
+        "to": "FIRE"
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 1
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 1
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 1
+      }
     ]
   },
-  "related": ["stress-sprint-first-shot", "stress-march-then-group", "a-zone-25"]
+  "related": [
+    "stress-sprint-first-shot",
+    "stress-march-then-group",
+    "a-zone-25"
+  ]
 }

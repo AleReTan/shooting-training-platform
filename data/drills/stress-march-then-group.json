@@ -1,16 +1,41 @@
 {
   "schemaVersion": 1,
   "id": "stress-march-then-group",
-  "name": { "ru": "Марш и группа на 50", "en": "Ruck March Then 50 m Group" },
-  "discipline": ["carbine"],
-  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["stress", "accuracy", "precision-long"],
+  "name": {
+    "ru": "Марш и группа на 50",
+    "en": "Ruck March Then 50 m Group"
+  },
+  "discipline": [
+    "carbine"
+  ],
+  "source": {
+    "origin": "Общая практика карабинных курсов",
+    "kind": "classic"
+  },
+  "tags": [
+    "stress",
+    "accuracy",
+    "precision-long"
+  ],
   "difficulty": 3,
-  "fireMode": ["live"],
+  "fireMode": [
+    "live"
+  ],
   "rounds": 5,
-  "distance": { "min": 50, "max": 50, "unit": "m" },
-  "targets": [{ "type": "a4-paper", "count": 1 }],
-  "scoring": { "type": "points" },
+  "distance": {
+    "min": 50,
+    "max": 50,
+    "unit": "m"
+  },
+  "targets": [
+    {
+      "type": "a4-paper",
+      "count": 1
+    }
+  ],
+  "scoring": {
+    "type": "points"
+  },
   "goal": {
     "ru": "Армейская связка «устал + точно»: быстрый марш с грузом — и сразу контрольная группа на 50 м",
     "en": "The military 'tired and precise' pairing: fast loaded march, then immediately a 50 m control group"
@@ -24,16 +49,55 @@
       "Сравни с контрольной группой без марша — разница и есть цена усталости"
     ]
   },
-  "safety": { "ru": "После марша дыхание сбито: 2–3 цикла дыхания перед первым выстрелом на выдохе" },
-  "equipment": ["карабин", "5 патронов", "лист A4 с кругом 10 см", "маршрут 500 м"],
-  "variants": { "ru": ["Марш с рюкзаком 10–15 кг", "Группа с колена и стоя — сравни"] },
+  "safety": {
+    "ru": "После марша дыхание сбито: 2–3 цикла дыхания перед первым выстрелом на выдохе"
+  },
+  "equipment": [
+    "карабин",
+    "5 патронов",
+    "лист A4 с кругом 10 см",
+    "маршрут 500 м"
+  ],
+  "variants": {
+    "ru": [
+      "Марш с рюкзаком 10–15 кг",
+      "Группа с колена и стоя — сравни"
+    ]
+  },
   "layout": {
     "unit": "m",
     "width": 8,
-    "depth": 52,
-    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиция" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 50, "type": "a4-paper" }],
-    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+    "depth": 24,
+    "positions": [
+      {
+        "id": "P1",
+        "x": 4,
+        "y": 1,
+        "label": {
+          "ru": "позиция"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "T1",
+        "x": 4,
+        "y": 21,
+        "type": "a4-paper",
+        "distance": 50
+      }
+    ],
+    "sequence": [
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 5
+      }
+    ]
   },
-  "related": ["stress-run-400", "precision-prone-100", "stress-breath-control"]
+  "related": [
+    "stress-run-400",
+    "precision-prone-100",
+    "stress-breath-control"
+  ]
 }
