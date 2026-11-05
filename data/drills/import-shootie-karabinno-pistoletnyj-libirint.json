@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/279"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Карабинно-пистолетный либиринт"
+    "ru": "Шесть бочек-позиций: поразить все мишени и железо из удобных положений, не задев штрафные; дострелы разрешены"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

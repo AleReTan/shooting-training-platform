@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/158"
   },
-  "tags": [],
+  "tags": [
+    "prone",
+    "positions",
+    "reload",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Лежачий полицейский"
+    "ru": "Из положения лёжа: две группы мишеней, не вставая; в ружье не более 2 патронов"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

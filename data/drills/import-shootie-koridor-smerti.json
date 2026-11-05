@@ -14,7 +14,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/133"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "precision-long"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -32,10 +36,11 @@
     }
   ],
   "scoring": {
-    "type": "none"
+    "type": "points",
+    "points": 5
   },
   "goal": {
-    "ru": "Коридор смерти"
+    "ru": "Коридор: гонги на 25 м, затем сплиты по диагональным мишеням на 5 м; максимум 40 очков (гонг — 5)"
   },
   "steps": {
     "ru": [
@@ -43,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/263"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Мир окон 03.11"
+    "ru": "Поразить 2 больших, 4 детские мишени и бабку; стартовое положение №3"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

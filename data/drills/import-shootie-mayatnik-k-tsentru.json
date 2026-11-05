@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/113"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Маятник к центру"
+    "ru": "Маятник к центру: 8 тарелок парами от краёв к центру (1+8, 2+7, 3+6, 4+5)"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

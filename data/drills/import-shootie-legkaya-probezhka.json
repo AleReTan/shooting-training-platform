@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/165"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Лёгкая пробежка"
+    "ru": "Поразить мишени (картон тройками, попперы одиночными), не выходя за штрафную линию, и вернуться в точку старта"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

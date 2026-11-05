@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/367"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Неудобненький клин"
+    "ru": "Клин из декораций: левая группа поражается только справа, правая — только слева, движка — только из порта"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

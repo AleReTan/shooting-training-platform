@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/418"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "лох цветочный"
+    "ru": "Разворот на «цветке»: 6 зачётных мишеней по кругу, не задев центральную непоражаемую бабку"
   },
   "steps": {
     "ru": [
@@ -44,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

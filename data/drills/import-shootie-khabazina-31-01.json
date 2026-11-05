@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/343"
   },
-  "tags": [],
+  "tags": [
+    "barricade",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Хабазина 31.01"
+    "ru": "Из окна (руки на стене): 7 IPSC-мишеней, тарелки и попперы среди 10 непоражаемых, парами выстрелов"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

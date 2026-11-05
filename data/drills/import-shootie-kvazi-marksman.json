@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/404"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Квази марксман"
+    "ru": "Все бумажные мишени, затем железо — строго из-за укрытия"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/168"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Как в Сикарио"
+    "ru": "Фиксированный порядок: центр (1 выстрел) → правая (2) → левая (2) → центр (2)"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

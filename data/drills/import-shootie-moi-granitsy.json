@@ -14,7 +14,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/189"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -35,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Мои границы"
+    "ru": "Не выходя за стенки: 6 картонных мишеней парами, затем техасская звезда из ружья"
   },
   "steps": {
     "ru": [
@@ -43,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

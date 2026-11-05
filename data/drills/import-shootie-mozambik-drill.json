@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/22"
   },
-  "tags": [],
+  "tags": [
+    "accuracy",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Мозамбик Drill"
+    "ru": "Классический мозамбик: двойка в грудь + один в голову — точность и скорость"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

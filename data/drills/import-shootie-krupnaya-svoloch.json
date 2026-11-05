@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/379"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "speed"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Крупная сволочь"
+    "ru": "Уронить всё железо и движки, отстрелять весь картон (включая 2 мини), не задев белые мишени; дострел разрешён"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

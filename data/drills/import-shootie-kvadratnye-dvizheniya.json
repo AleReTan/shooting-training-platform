@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/335"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Квадратные движения"
+    "ru": "Центральная группа, затем на выбор левая или правая; минимум одна перезарядка, дострел разрешён"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

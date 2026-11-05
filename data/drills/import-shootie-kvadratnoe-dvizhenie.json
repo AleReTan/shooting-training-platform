@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/220"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Квадратное движение"
+    "ru": "В отведённых рамках поразить сначала весь картон и только потом — железо, из любой точки квадрата"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

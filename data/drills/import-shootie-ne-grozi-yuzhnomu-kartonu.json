@@ -14,7 +14,14 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/76"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "bilateral",
+    "reload",
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -35,7 +42,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Не грози южному картону"
+    "ru": "Разворот с разряженным оружием в слабой руке: заряжание, большие IDPA (2+1) и мини-IPSC, тарелки ружьём; у второго укрытия — лежачие мишени тройками"
   },
   "steps": {
     "ru": [
@@ -43,5 +50,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

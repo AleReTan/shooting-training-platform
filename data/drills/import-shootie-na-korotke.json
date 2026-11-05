@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/408"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "На коротке"
+    "ru": "Три этапа на коротке: коридор, окно в стенке и движки с активацией попперами; требует угла безопасности ~180°"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

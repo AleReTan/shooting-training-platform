@@ -12,7 +12,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/350"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "precision-long",
+    "barricade",
+    "transitions",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Кальянный"
+    "ru": "Три рубежа: мишени из дверного проёма, гонги на 40–50 м и работа через окно стенки"
   },
   "steps": {
     "ru": [
@@ -41,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

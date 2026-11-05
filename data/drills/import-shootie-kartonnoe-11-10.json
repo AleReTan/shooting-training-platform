@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/225"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Картонное 11.10"
+    "ru": "Восемь картонных мишеней парами выстрелов из любой точки галереи, не задев штрафную"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/216"
   },
-  "tags": [],
+  "tags": [
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Меткость+скорость"
+    "ru": "10 выстрелов по IPSC-мишени на 10 м: скорость работы с контролем точности"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

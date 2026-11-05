@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/61"
   },
-  "tags": [],
+  "tags": [
+    "accuracy",
+    "speed",
+    "reload",
+    "movement"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Карабин 50"
+    "ru": "Комплекс на 50 выстрелов: одиночные в голову из разных положений готовности, серия 1-2-3-4, спиной по 5 в мишень с перезарядкой и перемещение 10→25 м"
   },
   "steps": {
     "ru": [
@@ -47,5 +52,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

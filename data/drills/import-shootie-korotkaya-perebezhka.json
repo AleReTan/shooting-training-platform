@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/385"
   },
-  "tags": [],
+  "tags": [
+    "precision-long",
+    "movement",
+    "cover",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Короткая перебежка"
+    "ru": "35 м: мишени и тарелка со стартовой позиции, затем перебежка и поражение оставшихся из-за бочки"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

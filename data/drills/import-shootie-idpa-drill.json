@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/361"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "IDPA-дрилл"
+    "ru": "Мозамбик маятником: центр → крайние → центр, сужая круг к центру; минимум одна перезарядка, дострелы запрещены"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

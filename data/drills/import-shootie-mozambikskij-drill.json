@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/218"
   },
-  "tags": [],
+  "tags": [
+    "accuracy",
+    "speed",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Мозамбикский дрилл"
+    "ru": "Мозамбик (2+1) по 2 IDPA-мишеням со сменой магазина, 10 м"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

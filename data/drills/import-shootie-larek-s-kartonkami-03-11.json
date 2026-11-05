@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/261"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Ларёк с картонками 03.11"
+    "ru": "Поразить 3 больших, 2 детские мишени и 2 бабки; стартовое положение №2"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

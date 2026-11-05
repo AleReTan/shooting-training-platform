@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/394"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Коридоровое"
+    "ru": "Тарелки из-под декораций и движка, активируемая поппером; рядом с активатором — штрафная мишень"
   },
   "steps": {
     "ru": [
@@ -44,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

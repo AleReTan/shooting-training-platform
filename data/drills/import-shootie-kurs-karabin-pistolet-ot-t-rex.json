@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/256"
   },
-  "tags": [],
+  "tags": [
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"

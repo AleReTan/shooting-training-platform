@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/167"
   },
-  "tags": [],
+  "tags": [
+    "bilateral",
+    "cover",
+    "movement",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Неудобная стрельба"
+    "ru": "Сильной рукой мишень слева, слабой — справа; затем через порт в укрытии и со сменой плеч из-за укрытий"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

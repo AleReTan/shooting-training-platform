@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/237"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Мапутовое 19.10"
+    "ru": "Каждая картонная мишень: 2 выстрела в корпус + 1 в голову"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }
