@@ -36,7 +36,7 @@
     "width": 10,
     "depth": 14,
     "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
-    "targets": [{ "id": "T1", "x": 5, "y": 10, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 5, "y": 11, "type": "ipsc-metric" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
   },
   "related": ["controlled-pairs", "the-test-10-10-10"]

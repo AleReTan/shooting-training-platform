@@ -8,7 +8,7 @@
   "difficulty": 3,
   "fireMode": ["live", "dry"],
   "rounds": 6,
-  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "distance": { "min": 12, "max": 12, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 3 }],
   "parTimes": [
     { "level": "novice", "time": 9.5 },

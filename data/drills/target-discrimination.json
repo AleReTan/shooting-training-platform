@@ -7,8 +7,8 @@
   "tags": ["accuracy", "first-shot", "speed", "stress"],
   "difficulty": 3,
   "fireMode": ["live", "dry"],
-  "rounds": 6,
-  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "rounds": 4,
+  "distance": { "min": 12, "max": 19, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 3 }],
   "scoring": { "type": "none" },
   "goal": {

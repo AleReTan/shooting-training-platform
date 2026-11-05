@@ -36,7 +36,7 @@
     "width": 15,
     "depth": 20,
     "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
-    "targets": [{ "id": "T1", "x": 7, "y": 15, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 7, "y": 16, "type": "ipsc-metric" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 2 }]
   },
   "related": ["cold-bore-first-shot", "steel-single-par"]

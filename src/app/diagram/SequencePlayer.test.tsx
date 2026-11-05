@@ -1,12 +1,10 @@
 import { test, expect, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/preact';
-import billDrill from '../../../data/drills/bill-drill-carbine.json';
+import { multiTargetLayout as layout } from './testFixtures';
 import type { Layout } from '../../data/types';
 import { SequencePlayer } from './SequencePlayer';
 
 afterEach(cleanup);
-
-const layout = (billDrill as { layout: Layout }).layout;
 
 test('пошаговый режим: «Шаг вперёд» подсвечивает мишень T1', () => {
   render(<SequencePlayer layout={layout} reducedMotion />);

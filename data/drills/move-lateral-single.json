@@ -30,12 +30,12 @@
   "layout": {
     "unit": "m",
     "width": 14,
-    "depth": 12,
+    "depth": 13,
     "positions": [
       { "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт слева" } },
       { "id": "P2", "x": 10, "y": 1, "label": { "ru": "финиш справа" } }
     ],
-    "targets": [{ "id": "T1", "x": 7, "y": 10, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 7, "y": 11, "type": "ipsc-metric" }],
     "movement": [
       { "from": "P1", "to": "P2", "style": "lateral" },
       { "from": "P2", "to": "P1", "style": "lateral" }

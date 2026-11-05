@@ -46,9 +46,9 @@
     "sequence": [
       { "action": "engage", "target": "P1", "shots": 1 },
       { "action": "engage", "target": "P2", "shots": 1 },
-      { "action": "engage", "target": "STOP", "shots": 1 },
       { "action": "engage", "target": "P3", "shots": 1 },
-      { "action": "engage", "target": "P4", "shots": 1 }
+      { "action": "engage", "target": "P4", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 }
     ]
   },
   "related": ["sc-outer-limits", "sc-accelerator", "a-zone-25"]

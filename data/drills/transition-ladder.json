@@ -45,6 +45,7 @@
       { "action": "engage", "target": "T1", "shots": 1 },
       { "action": "engage", "target": "T2", "shots": 1 },
       { "action": "engage", "target": "T3", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 },
       { "action": "engage", "target": "T2", "shots": 1 },
       { "action": "engage", "target": "T1", "shots": 1 }
     ]

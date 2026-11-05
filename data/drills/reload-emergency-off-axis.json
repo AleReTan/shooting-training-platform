@@ -39,9 +39,9 @@
     "depth": 14,
     "positions": [
       { "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } },
-      { "id": "P2", "x": 8, "y": 1, "label": { "ru": "после ухода" } }
+      { "id": "P2", "x": 7, "y": 1, "label": { "ru": "после ухода" } }
     ],
-    "targets": [{ "id": "T1", "x": 6, "y": 10, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 6, "y": 11, "type": "ipsc-metric" }],
     "movement": [{ "from": "P1", "to": "P2", "style": "lateral" }],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 2 },

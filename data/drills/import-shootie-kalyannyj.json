@@ -17,7 +17,8 @@
     "precision-long",
     "barricade",
     "transitions",
-    "reload"
+    "reload",
+    "positions"
   ],
   "difficulty": 3,
   "fireMode": [

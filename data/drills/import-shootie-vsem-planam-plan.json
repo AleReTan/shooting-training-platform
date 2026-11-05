@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/397"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "accuracy"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"

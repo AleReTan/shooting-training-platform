@@ -40,8 +40,8 @@
     "depth": 55,
     "positions": [{ "id": "P1", "x": 6, "y": 1, "label": { "ru": "старт" } }],
     "targets": [
-      { "id": "T1", "x": 6, "y": 5, "type": "ipsc-metric" },
-      { "id": "T2", "x": 8, "y": 50, "type": "ipsc-metric" }
+      { "id": "T1", "x": 6, "y": 6, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 51, "type": "ipsc-metric" }
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 5 },

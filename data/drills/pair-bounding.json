@@ -34,7 +34,7 @@
     "depth": 27,
     "positions": [
       { "id": "C1", "x": 4, "y": 3, "label": { "ru": "укрытие 1" } },
-      { "id": "C2", "x": 8, "y": 8, "label": { "ru": "укрытие 2" } }
+      { "id": "C2", "x": 10, "y": 11, "label": { "ru": "укрытие 2" } }
     ],
     "targets": [
       { "id": "T1", "x": 3, "y": 20, "type": "ipsc-metric" },
@@ -44,7 +44,7 @@
     ],
     "barriers": [
       { "x": 4, "y": 4, "kind": "wall" },
-      { "x": 8, "y": 9, "kind": "wall" }
+      { "x": 10, "y": 12, "kind": "wall" }
     ],
     "movement": [{ "from": "C1", "to": "C2", "style": "advance" }],
     "sequence": [
@@ -52,8 +52,7 @@
       { "action": "engage", "target": "T2", "shots": 2 },
       { "action": "move", "from": "C1", "to": "C2" },
       { "action": "engage", "target": "T3", "shots": 2 },
-      { "action": "engage", "target": "T4", "shots": 2 },
-      { "action": "engage", "target": "T2", "shots": 2 }
+      { "action": "engage", "target": "T4", "shots": 2 }
     ]
   },
   "related": ["move-retreat-cover-break", "move-box-to-box", "stress-partner-callout"]

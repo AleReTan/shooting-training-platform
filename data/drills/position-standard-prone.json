@@ -36,7 +36,7 @@
     "width": 10,
     "depth": 55,
     "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт, лёжа" } }],
-    "targets": [{ "id": "T1", "x": 5, "y": 50, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 5, "y": 51, "type": "ipsc-metric" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
   },
   "related": ["position-flow", "precision-prone-100"]

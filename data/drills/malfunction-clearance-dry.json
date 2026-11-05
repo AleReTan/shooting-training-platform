@@ -14,13 +14,14 @@
   },
   "tags": [
     "first-shot",
-    "speed"
+    "speed",
+    "reload-emergency"
   ],
   "difficulty": 2,
   "fireMode": [
     "dry"
   ],
-  "rounds": 2,
+  "rounds": 0,
   "distance": {
     "min": 10,
     "max": 10,
@@ -80,7 +81,7 @@
       {
         "id": "T1",
         "x": 4,
-        "y": 10,
+        "y": 11,
         "type": "ipsc-metric"
       }
     ],

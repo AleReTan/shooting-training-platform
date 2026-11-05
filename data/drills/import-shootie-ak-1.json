@@ -15,7 +15,9 @@
   "tags": [
     "first-shot",
     "speed",
-    "accuracy"
+    "accuracy",
+    "reload",
+    "reload-emergency"
   ],
   "difficulty": 2,
   "fireMode": [

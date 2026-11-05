@@ -4,7 +4,7 @@
   "name": { "ru": "Пять-на-пять", "en": "5x5" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["accuracy", "speed", "first-shot", "standing"],
+  "tags": ["accuracy", "speed", "standing"],
   "difficulty": 2,
   "fireMode": ["live", "dry"],
   "rounds": 5,
@@ -35,7 +35,7 @@
     "width": 8,
     "depth": 10,
     "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 5, "type": "a4-paper" }],
+    "targets": [{ "id": "T1", "x": 4, "y": 6, "type": "a4-paper" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
   },
   "related": ["dot-torture-carbine", "one-hole-dry"]

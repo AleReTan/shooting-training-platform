@@ -4,10 +4,10 @@
   "name": { "ru": "ПНВ: дисциплина света", "en": "NVG: Light Discipline" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["nvg", "first-shot", "accuracy"],
+  "tags": ["nvg", "transitions", "accuracy"],
   "difficulty": 3,
   "fireMode": ["live", "dry"],
-  "rounds": 4,
+  "rounds": 6,
   "distance": { "min": 10, "max": 15, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 2 }],
   "scoring": { "type": "none" },
@@ -39,7 +39,8 @@
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 2 },
-      { "action": "engage", "target": "T2", "shots": 2 }
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
     ]
   },
   "related": ["nvg-movement", "nvg-ready-up", "stress-partner-callout"]

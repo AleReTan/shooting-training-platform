@@ -42,7 +42,9 @@
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 2 },
-      { "action": "engage", "target": "T2", "shots": 1 }
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 1 }
     ]
   },
   "related": ["two-target-transitions", "transition-ladder"]

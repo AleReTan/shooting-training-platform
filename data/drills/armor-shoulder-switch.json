@@ -4,11 +4,11 @@
   "name": { "ru": "Броня: смена плеча", "en": "Armor: Shoulder Switch" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["armor", "bilateral", "accuracy", "speed"],
+  "tags": ["armor", "bilateral", "barricade", "accuracy", "speed"],
   "difficulty": 3,
   "fireMode": ["live", "dry"],
   "rounds": 8,
-  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "distance": { "min": 13, "max": 13, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 2 }],
   "scoring": { "type": "par-time" },
   "parTimes": [

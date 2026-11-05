@@ -39,13 +39,13 @@
   "variants": { "ru": ["Финальная серия — только в головную зону (оригинал Джеффа Купера)", "С 15 м для продвинутых"] },
   "layout": {
     "unit": "m",
-    "width": 12,
+    "width": 10,
     "depth": 15,
     "positions": [{ "id": "P1", "x": 6, "y": 1, "label": { "ru": "старт, спиной к целям" } }],
     "targets": [
-      { "id": "T1", "x": 2, "y": 10, "type": "ipsc-metric" },
+      { "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" },
       { "id": "T2", "x": 6, "y": 10, "type": "ipsc-metric" },
-      { "id": "T3", "x": 10, "y": 10, "type": "ipsc-metric" }
+      { "id": "T3", "x": 8, "y": 10, "type": "ipsc-metric" }
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 2 },

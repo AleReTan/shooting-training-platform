@@ -9,7 +9,7 @@
   "difficulty": 4,
   "fireMode": ["live"],
   "rounds": 20,
-  "distance": { "min": 18, "max": 32, "unit": "m" },
+  "distance": { "min": 19, "max": 34, "unit": "m" },
   "targets": [
     { "type": "steel-circle", "count": 2 },
     { "type": "steel-popper", "count": 3 }
@@ -35,18 +35,18 @@
   "layout": {
     "unit": "m",
     "width": 20,
-    "depth": 34,
+    "depth": 37,
     "positions": [
       { "id": "BOX-L", "x": 3, "y": 1, "label": { "ru": "левый бокс" } },
       { "id": "BOX-C", "x": 10, "y": 1, "label": { "ru": "центральный бокс" } },
       { "id": "BOX-R", "x": 17, "y": 1, "label": { "ru": "правый бокс" } }
     ],
     "targets": [
-      { "id": "LR", "x": 2, "y": 18, "type": "steel-circle" },
-      { "id": "LS", "x": 4, "y": 32, "type": "steel-popper" },
-      { "id": "RR", "x": 16, "y": 18, "type": "steel-circle" },
-      { "id": "RS", "x": 18, "y": 32, "type": "steel-popper" },
-      { "id": "STOP", "x": 12, "y": 30, "type": "steel-popper" }
+      { "id": "LR", "x": 2, "y": 20, "type": "steel-circle" },
+      { "id": "LS", "x": 4, "y": 35, "type": "steel-popper" },
+      { "id": "RR", "x": 16, "y": 20, "type": "steel-circle" },
+      { "id": "RS", "x": 18, "y": 35, "type": "steel-popper" },
+      { "id": "STOP", "x": 12, "y": 35, "type": "steel-popper" }
     ],
     "movement": [{ "from": "BOX-L", "to": "BOX-C", "style": "lateral" }],
     "sequence": [

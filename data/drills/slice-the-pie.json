@@ -7,7 +7,7 @@
   "tags": ["cover", "accuracy", "first-shot", "movement"],
   "difficulty": 3,
   "fireMode": ["live", "dry"],
-  "rounds": 3,
+  "rounds": 5,
   "distance": { "min": 5, "max": 12, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 1 }],
   "scoring": { "type": "none" },
@@ -33,7 +33,7 @@
     "depth": 14,
     "positions": [
       { "id": "START", "x": 2, "y": 2, "label": { "ru": "за укрытием" } },
-      { "id": "ARC", "x": 5, "y": 4, "label": { "ru": "дуга открытия" } }
+      { "id": "ARC", "x": 6, "y": 2, "label": { "ru": "дуга открытия" } }
     ],
     "targets": [{ "id": "T1", "x": 10, "y": 9, "type": "ipsc-metric" }],
     "barriers": [{ "x": 3, "y": 6, "kind": "wall" }],

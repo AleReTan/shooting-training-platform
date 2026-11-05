@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/398"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "reload"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"

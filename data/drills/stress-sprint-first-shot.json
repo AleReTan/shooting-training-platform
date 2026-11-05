@@ -8,7 +8,7 @@
   "difficulty": 3,
   "fireMode": ["live"],
   "rounds": 5,
-  "distance": { "min": 15, "max": 25, "unit": "m" },
+  "distance": { "min": 25, "max": 25, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 1 }],
   "parTimes": [
     { "level": "novice", "time": 4.5 },
@@ -36,12 +36,12 @@
   "layout": {
     "unit": "m",
     "width": 10,
-    "depth": 16,
+    "depth": 32,
     "positions": [
       { "id": "RUN", "x": 5, "y": 1, "label": { "ru": "старт спринта" } },
       { "id": "FIRE", "x": 5, "y": 5, "label": { "ru": "огневая позиция" } }
     ],
-    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 5, "y": 30, "type": "ipsc-metric" }],
     "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
     "sequence": [
       { "action": "move", "from": "RUN", "to": "FIRE" },

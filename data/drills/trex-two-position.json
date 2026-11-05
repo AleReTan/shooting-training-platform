@@ -71,7 +71,7 @@
   "layout": {
     "unit": "m",
     "width": 14,
-    "depth": 26,
+    "depth": 31,
     "positions": [
       {
         "id": "POS1",
@@ -84,7 +84,7 @@
       {
         "id": "POS2",
         "x": 10,
-        "y": 7,
+        "y": 5,
         "label": {
           "ru": "позиция 2"
         }
@@ -94,13 +94,13 @@
       {
         "id": "T1",
         "x": 3,
-        "y": 20,
+        "y": 12,
         "type": "ipsc-metric"
       },
       {
         "id": "T2",
         "x": 7,
-        "y": 24,
+        "y": 29,
         "type": "ipsc-metric"
       },
       {
@@ -146,6 +146,11 @@
       {
         "action": "engage",
         "target": "T1",
+        "shots": 2
+      },
+      {
+        "action": "engage",
+        "target": "T3",
         "shots": 2
       }
     ]

@@ -30,15 +30,17 @@
   "layout": {
     "unit": "m",
     "width": 8,
-    "depth": 52,
+    "depth": 55,
     "positions": [
       { "id": "RUN", "x": 4, "y": 1, "label": { "ru": "линия нагрузки" } },
       { "id": "FIRE", "x": 4, "y": 3, "label": { "ru": "огневая позиция" } }
     ],
-    "targets": [{ "id": "T1", "x": 4, "y": 50, "type": "a4-paper" }],
+    "targets": [{ "id": "T1", "x": 4, "y": 53, "type": "a4-paper" }],
     "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
     "sequence": [
       { "action": "move", "from": "RUN", "to": "FIRE" },
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T1", "shots": 1 },
       { "action": "engage", "target": "T1", "shots": 1 }
     ]
   },

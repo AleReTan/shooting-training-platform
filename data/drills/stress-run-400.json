@@ -8,7 +8,7 @@
   "difficulty": 4,
   "fireMode": ["live"],
   "rounds": 10,
-  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "distance": { "min": 15, "max": 20, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 2 }],
   "scoring": { "type": "none" },
   "goal": {
@@ -30,14 +30,14 @@
   "layout": {
     "unit": "m",
     "width": 12,
-    "depth": 16,
+    "depth": 25,
     "positions": [
       { "id": "RUN", "x": 6, "y": 1, "label": { "ru": "старт/финиш бега" } },
       { "id": "FIRE", "x": 6, "y": 4, "label": { "ru": "огневая позиция" } }
     ],
     "targets": [
-      { "id": "T1", "x": 3, "y": 14, "type": "ipsc-metric" },
-      { "id": "T2", "x": 9, "y": 15, "type": "ipsc-metric" }
+      { "id": "T1", "x": 3, "y": 19, "type": "ipsc-metric" },
+      { "id": "T2", "x": 9, "y": 24, "type": "ipsc-metric" }
     ],
     "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
     "sequence": [

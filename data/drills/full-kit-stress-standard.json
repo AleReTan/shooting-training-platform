@@ -4,7 +4,7 @@
   "name": { "ru": "Полный сет на пульсе", "en": "Full Kit Stress Standard" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["stress", "armor", "helmet", "speed", "accuracy"],
+  "tags": ["stress", "armor", "helmet", "transitions", "speed", "accuracy"],
   "difficulty": 5,
   "fireMode": ["live"],
   "rounds": 12,
@@ -37,15 +37,15 @@
   "layout": {
     "unit": "m",
     "width": 16,
-    "depth": 27,
+    "depth": 31,
     "positions": [
       { "id": "RUN", "x": 8, "y": 1, "label": { "ru": "старт спринта" } },
       { "id": "FIRE", "x": 8, "y": 4, "label": { "ru": "огневая позиция" } }
     ],
     "targets": [
-      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
-      { "id": "T2", "x": 8, "y": 15, "type": "ipsc-metric" },
-      { "id": "T3", "x": 12, "y": 25, "type": "ipsc-metric" }
+      { "id": "T1", "x": 4, "y": 13, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 19, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 29, "type": "ipsc-metric" }
     ],
     "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
     "sequence": [

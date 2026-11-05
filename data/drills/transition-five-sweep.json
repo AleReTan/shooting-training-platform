@@ -39,7 +39,7 @@
     "depth": 22,
     "positions": [{ "id": "P1", "x": 10, "y": 1, "label": { "ru": "старт" } }],
     "targets": [
-      { "id": "T1", "x": 2, "y": 10, "type": "ipsc-metric" },
+      { "id": "T1", "x": 3, "y": 8, "type": "ipsc-metric" },
       { "id": "T2", "x": 6, "y": 13, "type": "ipsc-metric" },
       { "id": "T3", "x": 10, "y": 15, "type": "ipsc-metric" },
       { "id": "T4", "x": 14, "y": 17, "type": "ipsc-metric" },

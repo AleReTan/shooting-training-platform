@@ -35,7 +35,7 @@
   "layout": {
     "unit": "m",
     "width": 20,
-    "depth": 17,
+    "depth": 20,
     "positions": [
       { "id": "BOX-A", "x": 6, "y": 1, "label": { "ru": "бокс A" } },
       { "id": "BOX-B", "x": 14, "y": 1, "label": { "ru": "бокс B" } }
@@ -45,7 +45,7 @@
       { "id": "L2", "x": 4.5, "y": 16, "type": "steel-circle" },
       { "id": "R1", "x": 17, "y": 9, "type": "steel-circle" },
       { "id": "R2", "x": 15.5, "y": 16, "type": "steel-circle" },
-      { "id": "STOP", "x": 10, "y": 14, "type": "steel-popper" }
+      { "id": "STOP", "x": 10, "y": 18, "type": "steel-popper" }
     ],
     "sequence": [
       { "action": "engage", "target": "L1", "shots": 1 },

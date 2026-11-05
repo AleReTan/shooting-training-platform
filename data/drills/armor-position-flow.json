@@ -8,7 +8,7 @@
   "difficulty": 3,
   "fireMode": ["live"],
   "rounds": 6,
-  "distance": { "min": 15, "max": 25, "unit": "m" },
+  "distance": { "min": 25, "max": 25, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 1 }],
   "scoring": { "type": "none" },
   "goal": {
@@ -30,9 +30,9 @@
   "layout": {
     "unit": "m",
     "width": 8,
-    "depth": 27,
+    "depth": 28,
     "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиция" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 25, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 4, "y": 26, "type": "ipsc-metric" }],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 2 },
       { "action": "engage", "target": "T1", "shots": 2 },

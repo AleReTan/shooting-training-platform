@@ -4,7 +4,7 @@
   "name": { "ru": "Белый свет: поиск и выстрел", "en": "White Light: Search and Engage" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["first-shot", "accuracy", "nvg"],
+  "tags": ["first-shot", "accuracy"],
   "difficulty": 3,
   "fireMode": ["live", "dry"],
   "rounds": 6,
@@ -34,8 +34,8 @@
     "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
     "targets": [
       { "id": "T1", "x": 3, "y": 12, "type": "ipsc-metric" },
-      { "id": "T2", "x": 7, "y": 14, "type": "ipsc-metric" },
-      { "id": "T3", "x": 11, "y": 10, "type": "ipsc-metric" }
+      { "id": "T2", "x": 7, "y": 16, "type": "ipsc-metric" },
+      { "id": "T3", "x": 11, "y": 7, "type": "ipsc-metric" }
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 2 },

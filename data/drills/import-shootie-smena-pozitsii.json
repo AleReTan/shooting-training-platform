@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/93"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "movement"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"

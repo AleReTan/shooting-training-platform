@@ -15,7 +15,11 @@
   "tags": [
     "first-shot",
     "speed",
-    "accuracy"
+    "accuracy",
+    "bilateral",
+    "kneeling",
+    "prone",
+    "movement"
   ],
   "difficulty": 3,
   "fireMode": [

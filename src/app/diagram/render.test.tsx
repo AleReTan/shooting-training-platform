@@ -1,10 +1,7 @@
 import { test, expect } from 'vitest';
 import { render } from '@testing-library/preact';
-import billDrill from '../../../data/drills/bill-drill-carbine.json';
-import type { Layout } from '../../data/types';
+import { multiTargetLayout as layout } from './testFixtures';
 import { LayoutDiagram } from './render';
-
-const layout = (billDrill as { layout: Layout }).layout;
 
 test('схема содержит svg, позиции и мишени', () => {
   const { container } = render(<LayoutDiagram layout={layout} />);

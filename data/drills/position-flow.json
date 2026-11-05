@@ -38,7 +38,7 @@
     "width": 10,
     "depth": 28,
     "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
-    "targets": [{ "id": "T1", "x": 5, "y": 25, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 5, "y": 26, "type": "ipsc-metric" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 3 }]
   },
   "related": ["position-standard-standing", "position-standard-kneeling", "position-standard-prone"]

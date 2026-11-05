@@ -7,8 +7,8 @@
   "tags": ["movement", "reload-emergency", "reload-tactical", "cover"],
   "difficulty": 3,
   "fireMode": ["live", "dry"],
-  "rounds": 10,
-  "distance": { "min": 10, "max": 18, "unit": "m" },
+  "rounds": 8,
+  "distance": { "min": 12, "max": 18, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 2 }],
   "scoring": { "type": "par-time" },
   "parTimes": [
@@ -36,13 +36,13 @@
   "layout": {
     "unit": "m",
     "width": 16,
-    "depth": 20,
+    "depth": 22,
     "positions": [
       { "id": "P1", "x": 3, "y": 2, "label": { "ru": "укрытие левое" } },
-      { "id": "P2", "x": 13, "y": 3, "label": { "ru": "укрытие правое" } }
+      { "id": "P2", "x": 13, "y": 2, "label": { "ru": "укрытие правое" } }
     ],
     "targets": [
-      { "id": "T1", "x": 5, "y": 18, "type": "ipsc-metric" },
+      { "id": "T1", "x": 5, "y": 20, "type": "ipsc-metric" },
       { "id": "T2", "x": 11, "y": 14, "type": "ipsc-metric" }
     ],
     "barriers": [

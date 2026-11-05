@@ -32,7 +32,7 @@
     "width": 10,
     "depth": 17,
     "positions": [
-      { "id": "P1", "x": 5, "y": 9, "label": { "ru": "старт 7 м" } },
+      { "id": "P1", "x": 5, "y": 8, "label": { "ru": "старт 7 м" } },
       { "id": "P2", "x": 5, "y": 1, "label": { "ru": "финиш 15 м" } }
     ],
     "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],

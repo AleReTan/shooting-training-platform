@@ -33,7 +33,7 @@
     "depth": 22,
     "positions": [
       { "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт 20 м" } },
-      { "id": "P2", "x": 7, "y": 9, "label": { "ru": "финиш ~12 м" } }
+      { "id": "P2", "x": 7, "y": 13, "label": { "ru": "стоп за последним поппером" } }
     ],
     "targets": [
       { "id": "S1", "x": 4, "y": 20, "type": "steel-popper" },
@@ -44,8 +44,8 @@
     "sequence": [
       { "action": "engage", "target": "S1", "shots": 3 },
       { "action": "engage", "target": "S2", "shots": 3 },
-      { "action": "move", "from": "P1", "to": "P2" },
-      { "action": "engage", "target": "S3", "shots": 3 }
+      { "action": "engage", "target": "S3", "shots": 3 },
+      { "action": "move", "from": "P1", "to": "P2" }
     ]
   },
   "related": ["move-forward-multiple", "sc-outer-limits", "pairs-on-steel"]

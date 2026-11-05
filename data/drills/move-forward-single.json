@@ -30,12 +30,12 @@
   "layout": {
     "unit": "m",
     "width": 10,
-    "depth": 17,
+    "depth": 18,
     "positions": [
       { "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт 15 м" } },
       { "id": "P2", "x": 5, "y": 9, "label": { "ru": "финиш ~7 м" } }
     ],
-    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 5, "y": 16, "type": "ipsc-metric" }],
     "movement": [{ "from": "P1", "to": "P2", "style": "advance" }],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 2 },

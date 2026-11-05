@@ -20,7 +20,7 @@
   "fireMode": [
     "dry"
   ],
-  "rounds": 5,
+  "rounds": 0,
   "distance": {
     "min": 10,
     "max": 10,
@@ -79,7 +79,7 @@
       {
         "id": "T1",
         "x": 4,
-        "y": 10,
+        "y": 11,
         "type": "ipsc-metric"
       }
     ],

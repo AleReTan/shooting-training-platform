@@ -7,8 +7,8 @@
   "tags": ["movement", "movement-lateral", "cover", "reload-emergency", "transitions"],
   "difficulty": 3,
   "fireMode": ["live"],
-  "rounds": 12,
-  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "rounds": 8,
+  "distance": { "min": 13, "max": 18, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 4 }],
   "scoring": { "type": "par-time" },
   "parTimes": [
@@ -39,17 +39,17 @@
     "depth": 22,
     "positions": [
       { "id": "BOX-A", "x": 4, "y": 2, "label": { "ru": "бокс A" } },
-      { "id": "BOX-B", "x": 12, "y": 2, "label": { "ru": "бокс B" } }
+      { "id": "BOX-B", "x": 9, "y": 2, "label": { "ru": "бокс B" } }
     ],
     "targets": [
       { "id": "T1", "x": 2, "y": 16, "type": "ipsc-metric" },
       { "id": "T2", "x": 6, "y": 20, "type": "ipsc-metric" },
       { "id": "T3", "x": 10, "y": 18, "type": "ipsc-metric" },
-      { "id": "T4", "x": 14, "y": 14, "type": "ipsc-metric" }
+      { "id": "T4", "x": 13, "y": 14, "type": "ipsc-metric" }
     ],
     "barriers": [
       { "x": 4, "y": 4, "kind": "wall" },
-      { "x": 12, "y": 4, "kind": "wall" }
+      { "x": 9, "y": 4, "kind": "wall" }
     ],
     "movement": [{ "from": "BOX-A", "to": "BOX-B", "style": "lateral" }],
     "sequence": [

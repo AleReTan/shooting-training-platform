@@ -17,7 +17,8 @@
     "movement",
     "transitions",
     "accuracy",
-    "positions"
+    "positions",
+    "reload"
   ],
   "difficulty": 3,
   "fireMode": [

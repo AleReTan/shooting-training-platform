@@ -39,9 +39,9 @@
     "depth": 16,
     "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
     "targets": [
-      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
-      { "id": "T2", "x": 8, "y": 13, "type": "ipsc-metric" },
-      { "id": "T3", "x": 12, "y": 12, "type": "ipsc-metric" }
+      { "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 15, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 10, "type": "ipsc-metric" }
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 1 },

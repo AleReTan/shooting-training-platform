@@ -4,7 +4,7 @@
   "name": { "ru": "Группа на 100 м", "en": "100 m Group of Five" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["precision-long", "accuracy"],
+  "tags": ["precision-long", "accuracy", "prone"],
   "difficulty": 3,
   "fireMode": ["live"],
   "rounds": 5,
@@ -32,7 +32,7 @@
     "width": 8,
     "depth": 102,
     "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "лёжа" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 100, "type": "a4-paper" }],
+    "targets": [{ "id": "T1", "x": 4, "y": 101, "type": "a4-paper" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
   },
   "related": ["precision-prone-100", "precision-150-supported", "cold-bore-first-shot"]

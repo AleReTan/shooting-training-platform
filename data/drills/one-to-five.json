@@ -91,7 +91,7 @@
       {
         "id": "T1",
         "x": 4,
-        "y": 25,
+        "y": 26,
         "type": "ipsc-metric"
       }
     ],
@@ -110,6 +110,16 @@
         "action": "engage",
         "target": "T1",
         "shots": 3
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 4
+      },
+      {
+        "action": "engage",
+        "target": "T1",
+        "shots": 5
       }
     ]
   }

@@ -30,12 +30,12 @@
   "layout": {
     "unit": "m",
     "width": 10,
-    "depth": 52,
+    "depth": 55,
     "positions": [
       { "id": "RUN", "x": 5, "y": 1, "label": { "ru": "коридор челнока" } },
       { "id": "FIRE", "x": 5, "y": 3, "label": { "ru": "огневая позиция" } }
     ],
-    "targets": [{ "id": "T1", "x": 5, "y": 50, "type": "a4-paper" }],
+    "targets": [{ "id": "T1", "x": 5, "y": 53, "type": "a4-paper" }],
     "movement": [{ "from": "RUN", "to": "FIRE", "style": "advance" }],
     "sequence": [
       { "action": "move", "from": "RUN", "to": "FIRE" },

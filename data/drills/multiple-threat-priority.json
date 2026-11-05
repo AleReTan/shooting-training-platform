@@ -4,7 +4,7 @@
   "name": { "ru": "Три угрозы: приоритет целей", "en": "Three Threats: Priority" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["transitions", "accuracy", "first-shot"],
+  "tags": ["transitions", "accuracy"],
   "difficulty": 3,
   "fireMode": ["live"],
   "rounds": 6,

@@ -16,7 +16,8 @@
   "tags": [
     "positions",
     "transitions",
-    "accuracy"
+    "accuracy",
+    "reload"
   ],
   "difficulty": 3,
   "fireMode": [

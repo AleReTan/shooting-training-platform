@@ -39,8 +39,8 @@
     "depth": 18,
     "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
     "targets": [
-      { "id": "T1", "x": 4, "y": 15, "type": "steel-popper" },
-      { "id": "T2", "x": 10, "y": 15, "type": "steel-popper" }
+      { "id": "T1", "x": 4, "y": 16, "type": "steel-popper" },
+      { "id": "T2", "x": 8, "y": 16, "type": "steel-popper" }
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 6 },

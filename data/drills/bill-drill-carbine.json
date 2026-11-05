@@ -75,69 +75,31 @@
   ],
   "layout": {
     "unit": "m",
-    "width": 15,
-    "depth": 25,
+    "width": 14,
+    "depth": 12,
     "positions": [
       {
         "id": "P1",
-        "x": 2,
+        "x": 7,
         "y": 1,
         "label": {
           "ru": "старт"
         }
-      },
-      {
-        "id": "P2",
-        "x": 3,
-        "y": 10
       }
     ],
     "targets": [
       {
         "id": "T1",
-        "x": 5,
-        "y": 20,
-        "type": "ipsc-metric"
-      },
-      {
-        "id": "T2",
-        "x": 9,
-        "y": 22,
-        "type": "steel-circle"
-      }
-    ],
-    "barriers": [
-      {
         "x": 7,
-        "y": 12,
-        "kind": "barrel"
-      }
-    ],
-    "movement": [
-      {
-        "from": "P1",
-        "to": "P2",
-        "style": "advance"
+        "y": 11,
+        "type": "ipsc-metric"
       }
     ],
     "sequence": [
       {
         "action": "engage",
         "target": "T1",
-        "shots": 2
-      },
-      {
-        "action": "move",
-        "from": "P1",
-        "to": "P2"
-      },
-      {
-        "action": "reload"
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 4
+        "shots": 6
       }
     ]
   },

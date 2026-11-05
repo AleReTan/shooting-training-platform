@@ -7,7 +7,7 @@
   "tags": ["movement", "movement-forward", "transitions", "recoil-control"],
   "difficulty": 3,
   "fireMode": ["live"],
-  "rounds": 9,
+  "rounds": 6,
   "distance": { "min": 8, "max": 18, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 3 }],
   "scoring": { "type": "points" },
@@ -37,7 +37,7 @@
     ],
     "targets": [
       { "id": "T1", "x": 3, "y": 14, "type": "ipsc-metric" },
-      { "id": "T2", "x": 8, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 11, "type": "ipsc-metric" },
       { "id": "T3", "x": 13, "y": 18, "type": "ipsc-metric" }
     ],
     "movement": [{ "from": "P1", "to": "P2", "style": "advance" }],
@@ -45,8 +45,7 @@
       { "action": "engage", "target": "T2", "shots": 2 },
       { "action": "engage", "target": "T1", "shots": 2 },
       { "action": "move", "from": "P1", "to": "P2" },
-      { "action": "engage", "target": "T3", "shots": 2 },
-      { "action": "engage", "target": "T1", "shots": 1 }
+      { "action": "engage", "target": "T3", "shots": 2 }
     ]
   },
   "related": ["move-forward-single", "transition-three-sweep", "box-drill"]

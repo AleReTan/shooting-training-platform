@@ -4,7 +4,7 @@
   "name": { "ru": "«Недобой»: 2+1", "en": "Failure Drill / Mozambique 2+1" },
   "discipline": ["carbine"],
   "source": { "origin": "Jeff Cooper", "kind": "adaptation" },
-  "tags": ["first-shot", "accuracy", "speed"],
+  "tags": ["accuracy", "speed"],
   "difficulty": 2,
   "fireMode": ["live"],
   "rounds": 3,

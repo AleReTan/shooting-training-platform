@@ -4,7 +4,7 @@
   "name": { "ru": "100 м: лесенка позиций", "en": "100 m Position Ladder" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["precision-long", "positions", "accuracy"],
+  "tags": ["precision-long", "positions", "accuracy", "prone", "kneeling", "standing"],
   "difficulty": 4,
   "fireMode": ["live"],
   "rounds": 9,
@@ -33,7 +33,7 @@
     "width": 8,
     "depth": 102,
     "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "позиции" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 100, "type": "ipsc-classic" }],
+    "targets": [{ "id": "T1", "x": 4, "y": 101, "type": "ipsc-classic" }],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 3 },
       { "action": "engage", "target": "T1", "shots": 3 },

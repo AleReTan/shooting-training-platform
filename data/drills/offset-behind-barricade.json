@@ -37,12 +37,12 @@
     "width": 16,
     "depth": 18,
     "positions": [
-      { "id": "P1", "x": 6, "y": 3, "label": { "ru": "правый край" } },
-      { "id": "P2", "x": 10, "y": 3, "label": { "ru": "левый край" } }
+      { "id": "P1", "x": 10, "y": 3, "label": { "ru": "правый край" } },
+      { "id": "P2", "x": 6, "y": 3, "label": { "ru": "левый край" } }
     ],
     "targets": [
-      { "id": "T1", "x": 2, "y": 15, "type": "ipsc-metric" },
-      { "id": "T2", "x": 14, "y": 15, "type": "ipsc-metric" }
+      { "id": "T1", "x": 2, "y": 17, "type": "ipsc-metric" },
+      { "id": "T2", "x": 14, "y": 17, "type": "ipsc-metric" }
     ],
     "barriers": [{ "x": 8, "y": 6, "kind": "wall" }],
     "movement": [{ "from": "P1", "to": "P2", "style": "lateral" }],

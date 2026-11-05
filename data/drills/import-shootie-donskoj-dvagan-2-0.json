@@ -5,7 +5,8 @@
     "ru": "Донской дваган 2.0"
   },
   "discipline": [
-    "carbine"
+    "carbine",
+    "shotgun"
   ],
   "source": {
     "origin": "shootie.pro · TNR",

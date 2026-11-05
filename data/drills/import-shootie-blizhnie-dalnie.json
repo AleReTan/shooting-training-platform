@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/92"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"

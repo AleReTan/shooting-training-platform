@@ -8,7 +8,7 @@
   "difficulty": 3,
   "fireMode": ["live", "dry"],
   "rounds": 6,
-  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "distance": { "min": 12, "max": 12, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 1 }],
   "scoring": { "type": "par-time" },
   "parTimes": [
@@ -42,7 +42,7 @@
       { "id": "M2", "x": 6, "y": 1, "label": { "ru": "марка 2" } },
       { "id": "M3", "x": 9, "y": 1, "label": { "ru": "марка 3" } }
     ],
-    "targets": [{ "id": "T1", "x": 6, "y": 12, "type": "ipsc-metric" }],
+    "targets": [{ "id": "T1", "x": 6, "y": 13, "type": "ipsc-metric" }],
     "movement": [
       { "from": "M1", "to": "M2", "style": "lateral" },
       { "from": "M2", "to": "M3", "style": "lateral" }

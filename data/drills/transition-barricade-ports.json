@@ -4,7 +4,7 @@
   "name": { "ru": "Порты: верх — низ", "en": "Ports: High and Low" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["transitions", "positions", "cover", "accuracy"],
+  "tags": ["transitions", "positions", "kneeling", "cover", "accuracy"],
   "difficulty": 4,
   "fireMode": ["live"],
   "rounds": 8,
@@ -31,7 +31,7 @@
   "layout": {
     "unit": "m",
     "width": 14,
-    "depth": 26,
+    "depth": 30,
     "positions": [
       { "id": "PL-T", "x": 4, "y": 3, "label": { "ru": "левый верхний порт" } },
       { "id": "PR-T", "x": 10, "y": 3, "label": { "ru": "правый верхний порт" } },
@@ -39,15 +39,14 @@
       { "id": "PL-B", "x": 4, "y": 3, "label": { "ru": "левый нижний порт" } }
     ],
     "targets": [
-      { "id": "T1", "x": 2, "y": 24, "type": "ipsc-metric" },
-      { "id": "T2", "x": 12, "y": 22, "type": "ipsc-metric" },
-      { "id": "T3", "x": 10, "y": 15, "type": "ipsc-metric" },
-      { "id": "T4", "x": 4, "y": 16, "type": "ipsc-metric" }
+      { "id": "T1", "x": 2, "y": 28, "type": "ipsc-metric" },
+      { "id": "T2", "x": 12, "y": 28, "type": "ipsc-metric" },
+      { "id": "T3", "x": 10, "y": 18, "type": "ipsc-metric" },
+      { "id": "T4", "x": 4, "y": 18, "type": "ipsc-metric" }
     ],
     "barriers": [{ "x": 7, "y": 4, "kind": "wall" }],
     "movement": [
       { "from": "PL-T", "to": "PR-T", "style": "lateral" },
-      { "from": "PR-T", "to": "PR-B", "style": "lateral" },
       { "from": "PR-B", "to": "PL-B", "style": "lateral" }
     ],
     "sequence": [

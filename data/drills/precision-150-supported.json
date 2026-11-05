@@ -32,7 +32,7 @@
     "width": 8,
     "depth": 152,
     "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "с упора" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 150, "type": "ipsc-classic" }],
+    "targets": [{ "id": "T1", "x": 4, "y": 151, "type": "ipsc-classic" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 8 }]
   },
   "related": ["precision-100-five", "precision-200-prone", "a-zone-25"]

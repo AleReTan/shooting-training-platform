@@ -4,7 +4,7 @@
   "name": { "ru": "200 м лёжа", "en": "200 m Prone" },
   "discipline": ["carbine"],
   "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
-  "tags": ["precision-long", "accuracy", "positions"],
+  "tags": ["precision-long", "accuracy", "positions", "prone"],
   "difficulty": 4,
   "fireMode": ["live"],
   "rounds": 6,
@@ -32,7 +32,7 @@
     "width": 8,
     "depth": 202,
     "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "лёжа" } }],
-    "targets": [{ "id": "T1", "x": 4, "y": 200, "type": "ipsc-classic" }],
+    "targets": [{ "id": "T1", "x": 4, "y": 201, "type": "ipsc-classic" }],
     "sequence": [{ "action": "engage", "target": "T1", "shots": 6 }]
   },
   "related": ["precision-150-supported", "precision-100-five", "cold-bore-first-shot"]
