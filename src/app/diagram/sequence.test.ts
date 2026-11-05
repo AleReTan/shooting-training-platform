@@ -47,6 +47,17 @@ test('stateAt внутри engage: активная мишень и счёт в�
   expect(st.shotsDone.T1).toBe(1);
 });
 
+test('stateAt: повторный engage той же мишени накапливает счётчик', () => {
+  // el presidente-паттерн: T1 ×2, затем снова T1 ×2
+  const tl = computeTimeline([
+    { action: 'engage', target: 'T1', shots: 2 },
+    { action: 'engage', target: 'T1', shots: 2 },
+  ]);
+  const first = 2000; // engage×2 = 2000 мс
+  const st = stateAt(tl, first + 1000); // середина второй серии: 2 + 1 выстрел
+  expect(st.shotsDone.T1).toBe(3);
+});
+
 test('stateAt внутри move: интерполяция прогресса', () => {
   const tl = computeTimeline(sequence);
   const st = stateAt(tl, 2000 + 900); // середина move

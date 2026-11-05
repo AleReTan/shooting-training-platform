@@ -66,8 +66,6 @@ export function stateAt(timeline: Timeline, t: number): PlaybackState {
       if (t >= start && t < start + duration) {
         state.phase = 'playing';
         state.activeTarget = step.target;
-        // счётчик внутри шага — только завершённые выстрела этого шага
-        state.shotsDone[step.target] = shotsFired;
       }
     } else if (step.action === 'move') {
       if (t >= start && t < start + duration) {
