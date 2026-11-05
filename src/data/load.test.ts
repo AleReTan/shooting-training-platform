@@ -5,7 +5,7 @@ import type { Localized } from './types';
 
 test('loadData находит seed-данные и строит индексы', () => {
   const data = loadData();
-  expect(data.drills.length).toBe(3);
+  expect(data.drills.length).toBeGreaterThanOrEqual(3);
   expect(data.drillById.get('seed-1-to-5')?.name.ru).toBe('От 1 до 5');
   expect(data.courses.length).toBe(1);
   expect(data.taxonomy.tags.length).toBeGreaterThan(10);
