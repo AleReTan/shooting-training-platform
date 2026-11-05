@@ -19,6 +19,64 @@ export interface CatalogFilters {
   favorites?: string[];
 }
 
+/** UI-состояние фильтров каталога: ''/пустое = фильтр не задан.
+ *  Один объект вместо дюжины useState: новое поле здесь + контрол в
+ *  CatalogPage — сброс/подпись/проверка активности работают сами. */
+export interface CatalogState {
+  query: string;
+  tags: string[];
+  fireMode: '' | FireMode;
+  discipline: '' | Discipline;
+  difficultyMin: number;
+  difficultyMax: number;
+  maxRounds: number | '';
+  distanceMax: number | '';
+  review: '' | 'yes' | 'no';
+  source: string;
+  favOnly: boolean;
+}
+
+export const INITIAL_CATALOG_STATE: CatalogState = {
+  query: '',
+  tags: [],
+  fireMode: '',
+  discipline: '',
+  difficultyMin: 1,
+  difficultyMax: 5,
+  maxRounds: '',
+  distanceMax: '',
+  review: '',
+  source: '',
+  favOnly: false,
+};
+
+/** UI-состояние → фильтры для filterDrills ('' → не задано). */
+export function toCatalogFilters(s: CatalogState, favorites: string[]): CatalogFilters {
+  return {
+    query: s.query,
+    tags: s.tags,
+    difficultyMin: s.difficultyMin,
+    difficultyMax: s.difficultyMax,
+    fireMode: s.fireMode || undefined,
+    discipline: s.discipline || undefined,
+    maxRounds: s.maxRounds === '' ? undefined : s.maxRounds,
+    distanceMax: s.distanceMax === '' ? undefined : s.distanceMax,
+    needsReview: s.review === '' ? undefined : s.review === 'yes',
+    source: s.source || undefined,
+    favoritesOnly: s.favOnly || undefined,
+    favorites,
+  };
+}
+
+/** Есть ли отличия от начального состояния (кнопка «сбросить фильтры»). */
+export function hasActiveFilters(s: CatalogState): boolean {
+  return (Object.keys(INITIAL_CATALOG_STATE) as (keyof CatalogState)[]).some((k) => {
+    const v = s[k];
+    if (Array.isArray(v)) return v.length > 0;
+    return v !== INITIAL_CATALOG_STATE[k];
+  });
+}
+
 function matchesQuery(drill: Drill, query: string): boolean {
   const q = query.trim().toLowerCase();
   if (!q) return true;

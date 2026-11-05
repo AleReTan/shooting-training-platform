@@ -1,5 +1,12 @@
 import { test, expect } from 'vitest';
-import { filterDrills, type CatalogFilters } from './filters';
+import {
+  filterDrills,
+  INITIAL_CATALOG_STATE,
+  toCatalogFilters,
+  hasActiveFilters,
+  type CatalogFilters,
+  type CatalogState,
+} from './filters';
 import oneTo5 from '../../../data/drills/one-to-five.json';
 import billDrill from '../../../data/drills/bill-drill-carbine.json';
 import wallDry from '../../../data/drills/wall-dry.json';
@@ -90,4 +97,49 @@ test('source: точное совпадение origin', () => {
 test('favoritesOnly: только отмеченные упражнения', () => {
   const res = run({ query: '', tags: [], favoritesOnly: true, favorites: ['one-to-five'] });
   expect(res.map((d) => d.id)).toEqual(['one-to-five']);
+});
+
+test('toCatalogFilters: пустые значения UI не становятся фильтрами', () => {
+  const f = toCatalogFilters(INITIAL_CATALOG_STATE, ['x']);
+  expect(f).toEqual({
+    query: '',
+    tags: [],
+    difficultyMin: 1,
+    difficultyMax: 5,
+    favorites: ['x'],
+  });
+  expect(f.fireMode).toBeUndefined();
+  expect(f.source).toBeUndefined();
+  expect(f.favoritesOnly).toBeUndefined();
+
+  const filled: CatalogState = {
+    ...INITIAL_CATALOG_STATE,
+    fireMode: 'dry',
+    discipline: 'carbine',
+    maxRounds: 10,
+    distanceMax: 25,
+    review: 'yes',
+    source: 'Kyle Lamb',
+    favOnly: true,
+  };
+  expect(toCatalogFilters(filled, [])).toMatchObject({
+    fireMode: 'dry',
+    discipline: 'carbine',
+    maxRounds: 10,
+    distanceMax: 25,
+    needsReview: true,
+    source: 'Kyle Lamb',
+    favoritesOnly: true,
+  });
+});
+
+test('hasActiveFilters: любое отличие от начального состояния — активные фильтры', () => {
+  expect(hasActiveFilters(INITIAL_CATALOG_STATE)).toBe(false);
+  // пустой массив тегов после снятия выбора — фильтров нет
+  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, tags: [] })).toBe(false);
+
+  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, query: 'билл' })).toBe(true);
+  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, tags: ['accuracy'] })).toBe(true);
+  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, difficultyMax: 1 })).toBe(true);
+  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, favOnly: true })).toBe(true);
 });

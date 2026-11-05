@@ -1,10 +1,9 @@
 // Карточка упражнения: все разделы схемы Drill (спека §8 п.2).
 
-import { useState } from 'preact/hooks';
 import { localized, localizedList, PAR_LABELS, FIRE_LABELS } from '../../app/i18n';
 import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { TimerPanel } from '../../features/timer/TimerPanel';
-import { loadFavorites, saveFavorites, toggleFavorite } from './favorites';
+import { useFavorites } from './favorites';
 import type { AppData } from '../../data/load';
 import type { Drill } from '../../data/types';
 
@@ -14,7 +13,7 @@ const distanceText = (d: Drill['distance']) =>
 export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const { drillById, coursesByDrillId, taxonomy } = data;
   // Хуки до раннего return: drill может быть не найден.
-  const [favorites, setFavorites] = useState<string[]>(() => loadFavorites());
+  const [favorites, toggleFav] = useFavorites();
   const drill = drillById.get(id);
 
   if (!drill) {
@@ -33,12 +32,6 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const courses = coursesByDrillId.get(drill.id) ?? [];
 
   const isFav = favorites.includes(drill.id);
-  const toggleFav = () => {
-    // перечитываем хранилище: соседняя вкладка могла изменить список
-    const next = toggleFavorite(loadFavorites(), drill.id);
-    saveFavorites(next);
-    setFavorites(next);
-  };
 
   // у холостых патронов нет — тип тренировки уже говорит «холостая»
   const metaParts = [
@@ -60,7 +53,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
           class={'drill-card__star' + (isFav ? ' drill-card__star--on' : '')}
           aria-pressed={isFav}
           aria-label={isFav ? 'убрать из избранного' : 'в избранное'}
-          onClick={toggleFav}
+          onClick={() => toggleFav(drill.id)}
         >
           ★
         </button>
