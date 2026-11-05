@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-with-move",
+  "name": { "ru": "Перенос с шагом", "en": "Transition with a Step" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "movement", "movement-lateral", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 9.0 },
+    { "level": "intermediate", "time": 7.0 },
+    { "level": "advanced", "time": 5.5 },
+    { "level": "master", "time": 4.5 }
+  ],
+  "goal": {
+    "ru": "Каждый перенос сопровождается смещением: цель слева — шаг влево, выстрел в движении к позиции",
+    "en": "Every transition pairs with displacement: target left, step left, shot while settling into position"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10–15 м по фронту; три позиции-марки под ними",
+      "По сигналу — шаг к левому флангу в движении: 2 выстрела в левую",
+      "Сразу смещение к центру: 2 в среднюю, смещение вправо: 2 в правую",
+      "Выстрелы начинаются до полной остановки (разрешён 1 шаг «доворота»)",
+      "Реверс-подход справа налево; пар на серию"
+    ]
+  },
+  "safety": { "ru": "Смещение по фронту: держи габарит крайних мишеней при переносах на ходу" },
+  "equipment": ["карабин", "1 магазин на 6 патронов", "3 марки"],
+  "variants": { "ru": ["Сухая версия на переносах", "Двойной темп: 3+3 без возврата"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 16,
+    "positions": [
+      { "id": "L", "x": 3, "y": 1, "label": { "ru": "левая" } },
+      { "id": "C", "x": 8, "y": 1, "label": { "ru": "центр" } },
+      { "id": "R", "x": 13, "y": 1, "label": { "ru": "правая" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 14, "type": "ipsc-metric" },
+      { "id": "T3", "x": 13, "y": 12, "type": "ipsc-metric" }
+    ],
+    "movement": [
+      { "from": "L", "to": "C", "style": "lateral" },
+      { "from": "C", "to": "R", "style": "lateral" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "L", "to": "C" },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "C", "to": "R" },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["transition-three-sweep", "move-lateral-serial", "move-shoot-move"]
+}

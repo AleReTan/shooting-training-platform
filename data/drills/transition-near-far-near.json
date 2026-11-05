@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-near-far-near",
+  "name": { "ru": "Ближняя — дальняя — ближняя", "en": "Near, Far, Near" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "accuracy", "precision-long"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 40, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 2 },
+    { "type": "ipsc-classic", "count": 1 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 9.0 },
+    { "level": "advanced", "time": 7.0 },
+    { "level": "master", "time": 5.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Форсированная перефокусировка: смена дистанции в разы на каждом переносе — глаза, потом ствол",
+    "en": "Forced refocus: distance changes by multiples on every transition — eyes first, muzzle second"
+  },
+  "steps": {
+    "ru": [
+      "Ближняя мишень 10 м, дальняя 40 м (малый габарит), вторая ближняя 10 м со смещением",
+      "По сигналу: 2 в ближнюю → 2 в дальнюю → 2 во вторую ближнюю",
+      "На дальней — только зона «А»; её габарит жёстко наказывает грязевый перенос",
+      "Возврат на ближнюю — без «перелёта» прицела",
+      "Пар на серию; 3 подхода"
+    ]
+  },
+  "safety": { "ru": "Дальняя мишень требует чистого фона: проверь пулеуловитель на всей дистанции" },
+  "equipment": ["карабин", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Дальняя с колена", "Порядок: дальняя первой"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 42,
+    "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 40, "type": "ipsc-classic" },
+      { "id": "T3", "x": 10, "y": 11, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["transition-ladder", "a-zone-25", "transition-three-sweep"]
+}

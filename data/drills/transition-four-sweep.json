@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-four-sweep",
+  "name": { "ru": "Свип по четырём", "en": "Four-Target Sweep" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "speed", "accuracy", "recoil-control"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 10, "max": 18, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 11.0 },
+    { "level": "intermediate", "time": 8.5 },
+    { "level": "advanced", "time": 6.5 },
+    { "level": "master", "time": 5.2 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Четыре цели одной дугой: темп не падает к четвёртой мишени — главный признак усталости переноса",
+    "en": "Four targets in one arc: pace must not sag on the fourth target — the tell-tale of a fading transition"
+  },
+  "steps": {
+    "ru": [
+      "Четыре мишени дугой от 10 до 18 м, интервалы 2–3 м",
+      "По сигналу — по 2 выстрела в каждую, дуга слева направо",
+      "Второй подход — реверсом",
+      "Глаза уходят на следующую цель до завершения пары на текущей",
+      "Все в зачётных зонах; пар на серию"
+    ]
+  },
+  "safety": { "ru": "Дуга выводит ствол за крайние мишени — проверь боковые границы стрельбища" },
+  "equipment": ["карабин", "1 магазин на 8 патронов"],
+  "variants": { "ru": ["Удвоенная серия 8+8 без паузы", "Чередование: одна мишень — колено"] },
+  "layout": {
+    "unit": "m",
+    "width": 18,
+    "depth": 20,
+    "positions": [{ "id": "P1", "x": 9, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 13, "type": "ipsc-metric" },
+      { "id": "T3", "x": 11, "y": 16, "type": "ipsc-metric" },
+      { "id": "T4", "x": 15, "y": 18, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "engage", "target": "T4", "shots": 2 }
+    ]
+  },
+  "related": ["transition-three-sweep", "transition-five-sweep", "transition-ladder"]
+}

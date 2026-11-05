@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-par-three",
+  "name": { "ru": "Три цели на жёсткий пар", "en": "Three Targets, Hard Par" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "speed", "accuracy", "first-shot"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 3,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 5.0 },
+    { "level": "intermediate", "time": 3.8 },
+    { "level": "advanced", "time": 3.0 },
+    { "level": "master", "time": 2.4 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Минимум выстрелов, максимум скорости: три цели — три выстрела, один темп без срезов",
+    "en": "Minimum rounds, maximum speed: three targets, three shots, one clean pace"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10–15 м по фронту, старт готовности — низкая",
+      "По сигналу — по одному выстрелу в каждую, слева направо",
+      "Все три в зонах «А»: сдвиг прицела в «С» — уже не «А»",
+      "Пар на тройку; 5 заходов, засчитывается лучший",
+      "Прогресс: пар минус 0,2 с каждую неделю"
+    ]
+  },
+  "safety": { "ru": "Высокий темп провоцирует срыв спуска — финиш подхода только с подтверждёнными зонами" },
+  "equipment": ["карабин", "1 магазин на 5+ патронов"],
+  "variants": { "ru": ["Реверс направления", "Старт с патроном в патроннике, карабин на ремне"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 16,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 13, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 12, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 }
+    ]
+  },
+  "related": ["transition-five-sweep", "steel-single-par", "ready-up-standards"]
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-three-sweep",
+  "name": { "ru": "Свип по трём: 2+2+2", "en": "Three-Target Sweep 2+2+2" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "speed", "accuracy", "recoil-control"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 8.5 },
+    { "level": "intermediate", "time": 6.5 },
+    { "level": "advanced", "time": 5.0 },
+    { "level": "master", "time": 4.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Базовый перенос по трём равным целям: одинаковые двойки, перенос без «зависания» между мишенями",
+    "en": "Basic three-target transitions: equal pairs, no hovering between targets"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 10–15 м на одной линии, интервалы 2–3 м",
+      "По сигналу — 2 выстрела в левую, 2 в среднюю, 2 в правую",
+      "Перенос: глаза первыми уходят на следующую мишень, ствол за глазами",
+      "Все попадания в зачётных зонах, пар на серию",
+      "3–4 подхода с чередованием направления (слева-направо / справа-налево)"
+    ]
+  },
+  "safety": { "ru": "Проверь габариты по краям: перенос за крайнюю мишень — только в сторону пулеуловителя" },
+  "equipment": ["карабин", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Сухая отработка переносов", "Порядок по команде: средняя-левая-правая"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 16,
+    "positions": [{ "id": "P1", "x": 8, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 12, "type": "ipsc-metric" },
+      { "id": "T2", "x": 8, "y": 13, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 12, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["transition-four-sweep", "multiple-threat-priority", "transition-par-three"]
+}

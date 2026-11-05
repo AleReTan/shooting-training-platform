@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-five-sweep",
+  "name": { "ru": "Пятерка: по одному", "en": "Five Targets, One Each" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "speed", "accuracy", "first-shot"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 5,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 5 }],
+  "parTimes": [
+    { "level": "novice", "time": 8.0 },
+    { "level": "intermediate", "time": 6.0 },
+    { "level": "advanced", "time": 4.5 },
+    { "level": "master", "time": 3.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Пять целей — пять выстрелов: каждый выстрел — первый, перенос занимает больше времени, чем стрельба",
+    "en": "Five targets, five shots: every shot is a first shot; the transition costs more than the trigger press"
+  },
+  "steps": {
+    "ru": [
+      "Пять мишеней по фронту 10–20 м, интервалы ~2 м",
+      "По сигналу — по одному точному выстрелу в каждую, слева направо",
+      "Второй подход — реверсом; третий — «чётные-нечётные» по команде партнёра",
+      "Каждый промах стоит секунды: дисциплина одного выстрела",
+      "Пар на серию из 5"
+    ]
+  },
+  "safety": { "ru": "Широкий фронт: перед подходом проверь весь сектор от крайней левой до крайней правой" },
+  "equipment": ["карабин", "1 магазин на 5+ патронов"],
+  "variants": { "ru": ["Сухая отработка переносов с щелчком", "Старт сидя/с колена"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 22,
+    "positions": [{ "id": "P1", "x": 10, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 2, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 6, "y": 13, "type": "ipsc-metric" },
+      { "id": "T3", "x": 10, "y": 15, "type": "ipsc-metric" },
+      { "id": "T4", "x": 14, "y": 17, "type": "ipsc-metric" },
+      { "id": "T5", "x": 18, "y": 20, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T3", "shots": 1 },
+      { "action": "engage", "target": "T4", "shots": 1 },
+      { "action": "engage", "target": "T5", "shots": 1 }
+    ]
+  },
+  "related": ["transition-four-sweep", "transition-par-three", "el-presidente-uspsa"]
+}

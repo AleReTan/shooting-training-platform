@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-window-window",
+  "name": { "ru": "Окно — стена — окно", "en": "Window, Wall, Window" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "cover", "positions", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 10, "max": 18, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Три цели из двух окон баррикады: перенос через простенок — ствол идёт по стене, а не по горизонту",
+    "en": "Three targets from two barricade windows: transition across the wall with the muzzle tracking the cover"
+  },
+  "steps": {
+    "ru": [
+      "Баррикада с двумя окнами; мишени: левая и правая видны из разных окон, центральная — из обоих",
+      "По сигналу — из левого окна: 2 выстрела в левую мишень",
+      "Перенос через простенок (ствол вдоль стены) — из правого окна: 2 в правую",
+      "Центральная: 4 выстрела — по 2 из каждого окна (смена окна — смена ракурса)",
+      "Засчитываются только попадания из правильного окна; 2–3 подхода"
+    ]
+  },
+  "safety": { "ru": "Не выставляй ствол в простенок: перенос строго внутри баррикады" },
+  "equipment": ["карабин", "1 магазин на 8 патронов", "баррикада с двумя окнами"],
+  "variants": { "ru": ["Одно окно высокое — выстрелы стоя, другое низкое — с колена", "Штрафная зона в одном окне"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 20,
+    "positions": [
+      { "id": "WL", "x": 4, "y": 3, "label": { "ru": "левое окно" } },
+      { "id": "WR", "x": 10, "y": 3, "label": { "ru": "правое окно" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 2, "y": 16, "type": "ipsc-metric" },
+      { "id": "T2", "x": 7, "y": 18, "type": "ipsc-metric" },
+      { "id": "T3", "x": 12, "y": 15, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 7, "y": 4, "kind": "wall" }],
+    "movement": [{ "from": "WL", "to": "WR", "style": "lateral" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "WL", "to": "WR" },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "WR", "to": "WL" },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["offset-behind-barricade", "transition-barricade-ports", "barricade-kneeling"]
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-barricade-ports",
+  "name": { "ru": "Порты: верх — низ", "en": "Ports: High and Low" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "positions", "cover", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 15, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Четыре цели из верхних и нижних портов баррикады: перенос меняет не только угол, но и высоту упора",
+    "en": "Four targets from high and low ports: transitions change elevation of the mount, not just angle"
+  },
+  "steps": {
+    "ru": [
+      "Баррикада с двумя верхними и двумя нижними портами; 4 мишени 15–25 м",
+      "По сигналу — из левого верхнего порта: 2 выстрела в дальнюю левую",
+      "Смещение к правому верхнему: 2 в дальнюю правую",
+      "Опуск в правый нижний (колено): 2 в ближнюю правую",
+      "Левый нижний: 2 в ближнюю левую; каждый перенос — смена и угла, и высоты",
+      "Засчитываются попадания только из своего порта"
+    ]
+  },
+  "safety": { "ru": "Опуск в нижние порты: контролируй ствол — вниз через стену, не через простенок" },
+  "equipment": ["карабин", "1 магазин на 8 патронов", "баррикада с 4 портами"],
+  "variants": { "ru": ["Обход баррикады по кругу (право → низ → лево)", "Одна цель в верхнем порту со штрафной зоной"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 26,
+    "positions": [
+      { "id": "PL-T", "x": 4, "y": 3, "label": { "ru": "левый верхний порт" } },
+      { "id": "PR-T", "x": 10, "y": 3, "label": { "ru": "правый верхний порт" } },
+      { "id": "PR-B", "x": 10, "y": 3, "label": { "ru": "правый нижний порт" } },
+      { "id": "PL-B", "x": 4, "y": 3, "label": { "ru": "левый нижний порт" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 2, "y": 24, "type": "ipsc-metric" },
+      { "id": "T2", "x": 12, "y": 22, "type": "ipsc-metric" },
+      { "id": "T3", "x": 10, "y": 15, "type": "ipsc-metric" },
+      { "id": "T4", "x": 4, "y": 16, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 7, "y": 4, "kind": "wall" }],
+    "movement": [
+      { "from": "PL-T", "to": "PR-T", "style": "lateral" },
+      { "from": "PR-T", "to": "PR-B", "style": "lateral" },
+      { "from": "PR-B", "to": "PL-B", "style": "lateral" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "PL-T", "to": "PR-T" },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "PR-T", "to": "PR-B" },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "move", "from": "PR-B", "to": "PL-B" },
+      { "action": "engage", "target": "T4", "shots": 2 }
+    ]
+  },
+  "related": ["transition-window-window", "offset-behind-barricade", "position-flow"]
+}
