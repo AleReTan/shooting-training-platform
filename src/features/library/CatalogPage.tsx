@@ -3,6 +3,7 @@ import { localized, FIRE_LABELS_PLURAL } from '../../app/i18n';
 import { filterDrills, type CatalogFilters } from './filters';
 import { DrillCard } from './DrillCard';
 import { TagChip } from '../../ui/TagChip';
+import { Segmented } from '../../ui/Segmented';
 import type { AppData } from '../../data/load';
 import type { Discipline, FireMode } from '../../data/types';
 
@@ -42,6 +43,17 @@ export default function CatalogPage({ data }: { data: AppData }) {
     [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax, review],
   );
 
+  const hasActive =
+    query !== '' ||
+    tags.length > 0 ||
+    fireMode !== '' ||
+    discipline !== '' ||
+    difficultyMin !== 1 ||
+    difficultyMax !== 5 ||
+    maxRounds !== '' ||
+    distanceMax !== '' ||
+    review !== '';
+
   const toggleTag = (id: string) =>
     setTags((t) => (t.includes(id) ? t.filter((x) => x !== id) : [...t, id]));
 
@@ -57,9 +69,9 @@ export default function CatalogPage({ data }: { data: AppData }) {
     setReview('');
   };
 
-  const renderTagGroup = (group: 'skill' | 'condition', title: string) => (
-    <fieldset class="filters__group">
-      <legend>{title}</legend>
+  const tagRow = (group: 'skill' | 'condition', label: string) => (
+    <div class="filters__tags">
+      <span class="filters__tags-label">{label}</span>
       {taxonomy.tags
         .filter((t) => t.group === group)
         .map((t) => (
@@ -70,7 +82,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
             onClick={() => toggleTag(t.id)}
           />
         ))}
-    </fieldset>
+    </div>
   );
 
   return (
@@ -78,106 +90,121 @@ export default function CatalogPage({ data }: { data: AppData }) {
       <h2>Каталог упражнений</h2>
 
       <div class="filters">
-        <label class="filters__search">
-          Поиск
-          <input
-            type="search"
-            value={query}
-            onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
-            placeholder="название, текст упражнения…"
-          />
-        </label>
+        <input
+          type="search"
+          class="filters__search"
+          aria-label="Поиск"
+          placeholder="Поиск: название, текст упражнения…"
+          value={query}
+          onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
+        />
 
-        <label>
-          Тип тренировки
-          <select
+        <div class="filters__row">
+          <Segmented
+            ariaLabel="тип тренировки"
             value={fireMode}
-            onChange={(e) => setFireMode((e.target as HTMLSelectElement).value as '' | FireMode)}
-          >
-            <option value="">любой</option>
-            <option value="live">{FIRE_LABELS_PLURAL.live}</option>
-            <option value="dry">{FIRE_LABELS_PLURAL.dry}</option>
-          </select>
-        </label>
+            options={[
+              { value: '' as const, label: 'все' },
+              { value: 'live' as const, label: FIRE_LABELS_PLURAL.live },
+              { value: 'dry' as const, label: FIRE_LABELS_PLURAL.dry },
+            ]}
+            onChange={setFireMode}
+          />
 
-        <label>
-          Оружие
           <select
+            aria-label="Оружие"
             value={discipline}
             onChange={(e) => setDiscipline((e.target as HTMLSelectElement).value as '' | Discipline)}
           >
-            <option value="">любое</option>
+            <option value="">любое оружие</option>
             <option value="carbine">карабин</option>
             <option value="pistol-traumatic">пистолет / травмат</option>
             <option value="shotgun">ружьё</option>
           </select>
-        </label>
 
-        <label>
-          Сложность от
-          <select
-            value={difficultyMin}
-            onChange={(e) => setDifficultyMin(Number((e.target as HTMLSelectElement).value))}
-          >
-            {[1, 2, 3, 4, 5].map((n) => (
-              <option value={n}>{n}</option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          до
-          <select
-            value={difficultyMax}
-            onChange={(e) => setDifficultyMax(Number((e.target as HTMLSelectElement).value))}
-          >
-            {[1, 2, 3, 4, 5].map((n) => (
-              <option value={n}>{n}</option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          Патронов ≤
-          <input
-            type="number"
-            min={0}
-            value={maxRounds}
-            onInput={(e) => {
-              const v = (e.target as HTMLInputElement).value;
-              setMaxRounds(v === '' ? '' : Number(v));
-            }}
+          <Segmented
+            ariaLabel="сложность от"
+            value={difficultyMin <= 1 ? ('' as const) : (difficultyMin as number)}
+            options={[
+              { value: '' as const, label: 'все' },
+              { value: 2, label: '2+' },
+              { value: 3, label: '3+' },
+              { value: 4, label: '4+' },
+              { value: 5, label: '5' },
+            ]}
+            onChange={(v) => setDifficultyMin(v === '' ? 1 : v)}
           />
-        </label>
+          <span class="filters__num">
+            до
+            <select
+              aria-label="сложность до"
+              value={difficultyMax}
+              onChange={(e) => setDifficultyMax(Number((e.target as HTMLSelectElement).value))}
+            >
+              {[2, 3, 4, 5].map((n) => (
+                <option value={n} selected={n === difficultyMax}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          </span>
 
-        <label>
-          Дистанция ≤ (м)
-          <input
-            type="number"
-            min={0}
-            value={distanceMax}
-            onInput={(e) => {
-              const v = (e.target as HTMLInputElement).value;
-              setDistanceMax(v === '' ? '' : Number(v));
-            }}
-          />
-        </label>
+          <label class="filters__num">
+            патронов до
+            <input
+              type="number"
+              min={0}
+              value={maxRounds}
+              onInput={(e) => {
+                const v = (e.target as HTMLInputElement).value;
+                setMaxRounds(v === '' ? '' : Number(v));
+              }}
+            />
+          </label>
 
-        <label>
-          Вычитка
-          <select
+          <label class="filters__num">
+            дистанция до
+            <input
+              type="number"
+              min={0}
+              value={distanceMax}
+              onInput={(e) => {
+                const v = (e.target as HTMLInputElement).value;
+                setDistanceMax(v === '' ? '' : Number(v));
+              }}
+            />
+            м
+          </label>
+
+          <Segmented
+            ariaLabel="вычитка"
             value={review}
-            onChange={(e) => setReview((e.target as HTMLSelectElement).value as '' | 'yes' | 'no')}
-          >
-            <option value="">любая</option>
-            <option value="no">проверено</option>
-            <option value="yes">на проверке</option>
-          </select>
-        </label>
+            options={[
+              { value: '' as const, label: 'любая' },
+              { value: 'no' as const, label: 'проверено' },
+              { value: 'yes' as const, label: 'на проверке' },
+            ]}
+            onChange={setReview}
+          />
+        </div>
 
-        {renderTagGroup('skill', 'Навыки')}
-        {renderTagGroup('condition', 'Условия')}
+        {tagRow('skill', 'навыки')}
+        {tagRow('condition', 'условия')}
       </div>
+
+      {visible.length > 0 ? (
+        <p class="catalog-count">
+          Найдено {visible.length} из {drills.length}
+          {hasActive ? (
+            <>
+              {' · '}
+              <button type="button" class="link-btn" onClick={reset}>
+                сбросить фильтры
+              </button>
+            </>
+          ) : null}
+        </p>
+      ) : null}
 
       {courses.length ? (
         <section class="courses">

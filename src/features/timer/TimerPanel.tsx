@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { ParTime } from '../../data/types';
 import { PAR_LABELS } from '../../app/i18n';
-import { beep } from './beep';
+import { beep, unlockAudio } from './beep';
 import { initialTimerState, timerReducer, type TimerPhase } from './timerEngine';
 
 const PHASE_LABELS: Record<TimerPhase, string> = {
@@ -60,6 +60,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
   const running = state.phase === 'delay' || state.phase === 'running' || state.phase === 'par';
 
   const start = () => {
+    unlockAudio(); // жест пользователя: без этого iOS молчит при сигнале
     setState((s) =>
       timerReducer(s, {
         type: 'start',

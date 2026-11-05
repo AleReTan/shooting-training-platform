@@ -11,6 +11,8 @@ export default defineConfig({
       filename: 'sw.js',
       workbox: {
         navigateFallback: 'index.html',
+        // Сигналы таймера (.wav) обязаны работать офлайн — поэтому в precache.
+        globPatterns: ['**/*.{js,css,html,wav}'],
         // Медиа НЕ в precache (план: Global Constraints) — отдельный кеш, маршрут зарезервирован.
         runtimeCaching: [
           {

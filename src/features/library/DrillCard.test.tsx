@@ -20,3 +20,19 @@ test('карточка с needsReview: видна пометка «на пров
   const { container } = render(<DrillCard drill={drill} tagLabels={tagLabels} />);
   expect(container.querySelector('.drill-card__review')?.textContent).toBe('на проверке');
 });
+
+test('сложность показана рисками с доступной подписью', () => {
+  const { container } = render(<DrillCard drill={billDrill as Drill} tagLabels={tagLabels} />);
+  const ticks = container.querySelector('.drill-card__ticks');
+  expect(ticks?.getAttribute('role')).toBe('img');
+  expect(ticks?.getAttribute('aria-label')).toBe('сложность 2 из 5');
+  expect(container.querySelectorAll('.tick--on').length).toBe(2);
+  expect(container.querySelectorAll('.tick').length).toBe(5);
+});
+
+test('холостая без патронов: в мета-строке «холостая», не «0 патр.»', () => {
+  const drill = { ...(billDrill as Drill), rounds: 0, fireMode: ['dry'] as Drill['fireMode'] };
+  const { container } = render(<DrillCard drill={drill} tagLabels={tagLabels} />);
+  expect(container.textContent).toContain('холостая');
+  expect(container.textContent).not.toContain('0 патр.');
+});

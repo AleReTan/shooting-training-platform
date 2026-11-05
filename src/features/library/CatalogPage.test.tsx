@@ -24,18 +24,18 @@ test('поиск фильтрует карточки', () => {
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
 });
 
-test('фильтр «Тип тренировки»: варианты «огневые» и «холостые»', () => {
+test('фильтр «тип тренировки»: варианты «огневые» и «холостые»', () => {
   render(<CatalogPage data={data} />);
-  const select = screen.getByLabelText('Тип тренировки');
-  expect(select.textContent).toContain('огневые');
-  expect(select.textContent).toContain('холостые');
-  expect(select.textContent).not.toContain('сухие');
-  expect(select.textContent).not.toContain('боевые');
+  const group = screen.getByRole('group', { name: 'тип тренировки' });
+  expect(group.textContent).toContain('огневые');
+  expect(group.textContent).toContain('холостые');
+  expect(group.textContent).not.toContain('сухие');
+  expect(group.textContent).not.toContain('боевые');
 });
 
 test('фильтр fireMode «холостые» оставляет только dry', () => {
   render(<CatalogPage data={data} />);
-  fireEvent.change(screen.getByLabelText('Тип тренировки'), { target: { value: 'dry' } });
+  fireEvent.click(screen.getByRole('button', { name: 'холостые' }));
   expect(screen.getByText('Стена (холостая)')).toBeTruthy();
   expect(screen.queryByText('От 1 до 5')).toBeNull();
 });
@@ -47,11 +47,38 @@ test('фильтр «Оружие: пистолет» оставляет пис�
   expect(screen.queryByText('T-Rex: 50 патронов, карабин')).toBeNull();
 });
 
+test('сложность «3+» прячет упражнения легче третьей', () => {
+  render(<CatalogPage data={data} />);
+  fireEvent.click(screen.getByRole('button', { name: '3+' }));
+  expect(screen.getByText('От 1 до 5')).toBeTruthy(); // сложность 3
+  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull(); // сложность 2
+});
+
+test('сложность «до 2» прячет упражнения третьей и выше', () => {
+  render(<CatalogPage data={data} />);
+  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
+  expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy(); // сложность 2
+  expect(screen.queryByText('От 1 до 5')).toBeNull(); // сложность 3
+});
+
 test('чип тега «Первый выстрел» оставляет одно упражнение', () => {
   render(<CatalogPage data={data} />);
   fireEvent.click(screen.getByRole('button', { name: 'Первый выстрел' }));
   expect(screen.getByText('От 1 до 5')).toBeTruthy();
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
+});
+
+test('счётчик показывает «N из M» и сбрасывает фильтры', () => {
+  render(<CatalogPage data={data} />);
+  const total = data.drills.length;
+  expect(screen.getByText(`Найдено ${total} из ${total}`)).toBeTruthy();
+
+  fireEvent.click(screen.getByRole('button', { name: '3+' }));
+  expect(screen.queryByText(`Найдено ${total} из ${total}`)).toBeNull();
+
+  fireEvent.click(screen.getByText('сбросить фильтры'));
+  expect(screen.getByText(`Найдено ${total} из ${total}`)).toBeTruthy();
+  expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
 });
 
 test('пустой результат: «Ничего не найдено» + кнопка «Сбросить» возвращает список', () => {

@@ -1,35 +1,57 @@
-// Сигналы таймера: Web Audio, без ассетов (спека §8 п.4).
-// Тонкая обёртка — ошибки звука не должны ломать таймер.
+// Сигналы таймера: <audio> с wav-ассетами (спека §8 п.4).
+// Web Audio на iPhone глушится переключателем «без звука», медиа-канал
+// audio-элемента — нет. Плеи вне жеста требует разблокировки (unlockAudio).
 
-let ctx: AudioContext | null = null;
+import startUrl from './beep-start.wav';
+import parUrl from './beep-par.wav';
+import stopUrl from './beep-stop.wav';
 
-const FREQS: Record<'start' | 'par' | 'stop', number> = {
-  start: 1200,
-  par: 2400,
-  stop: 600,
-};
+type Kind = 'start' | 'par' | 'stop';
 
-/** Короткий бип 150 мс: старт 1200 Гц, пар 2400 Гц, стоп 600 Гц. */
-export function beep(kind: 'start' | 'par' | 'stop'): void {
+const SRCS: Record<Kind, string> = { start: startUrl, par: parUrl, stop: stopUrl };
+
+let els: Record<Kind, HTMLAudioElement> | null = null;
+
+function mk(src: string): HTMLAudioElement {
+  const a = document.createElement('audio');
+  a.src = src;
+  a.preload = 'auto';
+  return a;
+}
+
+/** Ленивые элементы; пересоздаются, если тесты почистили DOM. */
+function ensure(): Record<Kind, HTMLAudioElement> {
+  if (els && Object.values(els).every((a) => a.isConnected)) return els;
+  els = { start: mk(SRCS.start), par: mk(SRCS.par), stop: mk(SRCS.stop) };
+  return els;
+}
+
+/** Разблокировка звука по жесту (iOS): без неё play() вне тапа молчит. */
+export function unlockAudio(): void {
   try {
-    const AC: typeof AudioContext | undefined =
-      window.AudioContext ??
-      (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (!AC) return;
-    ctx ??= new AC();
-    if (ctx.state === 'suspended') void ctx.resume();
+    for (const a of Object.values(ensure())) {
+      a.muted = true;
+      a.play()
+        .then(() => {
+          a.pause();
+          a.currentTime = 0;
+          a.muted = false;
+        })
+        .catch(() => {
+          a.muted = false;
+        });
+    }
+  } catch {
+    // Нет звука — не критично.
+  }
+}
 
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = 'square';
-    osc.frequency.value = FREQS[kind];
-    gain.gain.value = 0.15;
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    const t = ctx.currentTime;
-    osc.start(t);
-    osc.stop(t + 0.15);
+/** Короткий сигнал: старт 1200 Гц, пар 2400 Гц, стоп 600 Гц. */
+export function beep(kind: Kind): void {
+  try {
+    const a = ensure()[kind];
+    a.currentTime = 0;
+    void a.play().catch(() => {});
   } catch {
     // Нет звука — не критично.
   }

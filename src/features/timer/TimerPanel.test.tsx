@@ -24,6 +24,23 @@ test('отрицательный пар-тайм зажимается в нол�
   expect(input.value).toBe('0');
 });
 
+test('Старт разблокирует звук по жесту: play для всех сигналов (iOS)', async () => {
+  const plays: HTMLAudioElement[] = [];
+  const orig = HTMLMediaElement.prototype.play;
+  HTMLMediaElement.prototype.play = function (this: HTMLAudioElement) {
+    plays.push(this);
+    return Promise.resolve();
+  };
+  try {
+    render(<TimerPanel />);
+    fireEvent.click(screen.getByText('Старт'));
+    // unlockAudio играет и сразу ставит паузу каждый сигнал — жест «Старт» это разрешает.
+    await waitFor(() => expect(plays.length).toBeGreaterThanOrEqual(3));
+  } finally {
+    HTMLMediaElement.prototype.play = orig;
+  }
+});
+
 test('wake lock освобождается при размонтировании во время работы таймера', async () => {
   const release = vi.fn(async () => {});
   Object.defineProperty(navigator, 'wakeLock', {
