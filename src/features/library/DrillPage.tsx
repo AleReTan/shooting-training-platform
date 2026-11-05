@@ -3,6 +3,7 @@
 import { loadData } from '../../data/load';
 import { localized, localizedList } from '../../app/i18n';
 import { SequencePlayer } from '../../app/diagram/SequencePlayer';
+import { TimerPanel } from '../../features/timer/TimerPanel';
 import type { Drill } from '../../data/types';
 
 const PAR_LABELS: Record<string, string> = {
@@ -141,7 +142,8 @@ export function DrillPage({ id }: { id: string }) {
         </>
       ) : null}
 
-      {/* Таймер (Task 11): сюда встраивается TimerPanel с par-временем упражнения. */}
+      <h3>Таймер</h3>
+      <TimerPanel parTimes={drill.parTimes} />
 
       {drill.related?.length ? (
         <>

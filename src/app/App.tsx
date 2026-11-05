@@ -3,6 +3,7 @@ import { Shell } from './shell';
 import CatalogPage from '../features/library/CatalogPage';
 import { DrillPage } from '../features/library/DrillPage';
 import { CoursePage } from '../features/library/CoursePage';
+import TimerPage from '../features/timer/TimerPage';
 
 export default function App() {
   const { path, segments } = useRoute();
@@ -20,6 +21,8 @@ export default function App() {
     page = <DrillPage id={segments[1]} />;
   } else if (segments[0] === 'course' && segments[1]) {
     page = <CoursePage id={segments[1]} />;
+  } else if (segments[0] === 'timer') {
+    page = <TimerPage />;
   }
 
   return <Shell>{page}</Shell>;
