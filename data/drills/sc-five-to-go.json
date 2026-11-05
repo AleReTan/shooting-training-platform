@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-five-to-go",
+  "name": { "ru": "Steel Challenge: Файв ту гоу", "en": "Steel Challenge: Five to Go" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Steel Challenge", "kind": "steel-challenge", "url": "https://en.wikipedia.org/wiki/Steel_Challenge" },
+  "tags": ["speed", "first-shot", "transitions", "accuracy"],
+  "needsReview": true,
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 25,
+  "distance": { "min": 7, "max": 18, "unit": "m" },
+  "targets": [
+    { "type": "steel-circle", "count": 4 },
+    { "type": "steel-popper", "count": 1 }
+  ],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Три плиты диагональю справа, одна слева и дальняя стоп-плита: большие перенос при высокой темповой составляющей",
+    "en": "Three plates on a right diagonal, one left, and the far stop plate: big transitions at speed"
+  },
+  "steps": {
+    "ru": [
+      "4 круглые плиты 12″: три справа диагональю от близкой к дальней, одна слева; стоп-плита 18×24″ — дальняя слева",
+      "По сигналу — по одной в каждую, маршрут: близкая-средняя-дальняя справа, дальняя левая, стоп",
+      "Стоп-плита последней; непоражённая до стопа — +3 с, лимит прогона — 30 с",
+      "5 прогонов, худший отбрасывается",
+      "Схема приблизительная: сверь с официальной диаграммой SCSA"
+    ]
+  },
+  "safety": { "ru": "Большие переносы — держи ствол в секторе и палец вне спуска при переносе" },
+  "equipment": ["карабин", "5+ магазинов", "таймер", "стальные плиты"],
+  "variants": { "ru": ["Начало с левой стороны реверсом", "Один прогон на слабом плече"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 20,
+    "positions": [{ "id": "BOX", "x": 10, "y": 1, "label": { "ru": "бокс" } }],
+    "targets": [
+      { "id": "P1", "x": 13, "y": 7, "type": "steel-circle" },
+      { "id": "P2", "x": 15, "y": 11, "type": "steel-circle" },
+      { "id": "P3", "x": 17, "y": 16, "type": "steel-circle" },
+      { "id": "P4", "x": 4, "y": 12, "type": "steel-circle" },
+      { "id": "STOP", "x": 5.5, "y": 18, "type": "steel-popper" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "P1", "shots": 1 },
+      { "action": "engage", "target": "P2", "shots": 1 },
+      { "action": "engage", "target": "P3", "shots": 1 },
+      { "action": "engage", "target": "P4", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 }
+    ]
+  },
+  "related": ["sc-pendulum", "sc-roundabout", "two-target-transitions"]
+}

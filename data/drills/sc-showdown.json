@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-showdown",
+  "name": { "ru": "Steel Challenge: Шоудаун", "en": "Steel Challenge: Showdown" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Steel Challenge", "kind": "steel-challenge", "url": "https://en.wikipedia.org/wiki/Steel_Challenge" },
+  "tags": ["speed", "first-shot", "transitions", "accuracy"],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 25,
+  "distance": { "min": 9, "max": 16, "unit": "m" },
+  "targets": [
+    { "type": "steel-circle", "count": 4 },
+    { "type": "steel-popper", "count": 1 }
+  ],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Единственный этап с двумя боксами: пары плит «ближняя-дальняя» слева и справа, стоп по центру; половина прогонов — из другого бокса",
+    "en": "The only two-box stage: near/far plate pairs left and right, center stop; half the runs from the other box"
+  },
+  "steps": {
+    "ru": [
+      "Два бокса 3×3 фута рядом; 4 круглые плиты: пара слева (ближняя и дальняя) и пара справа, стоп-плита 18×24″ по центру сзади",
+      "Прогоны 1–2 — из одного бокса (выбор стороны твой), по одному выстрелу в каждую плиту, стоп — последней",
+      "Прогоны 3–4 — из второго бокса; финальный пятый — из любого",
+      "Внутри прогона перемещения нет: один бокс — все 5 целей",
+      "Непоражённая плита до стопа — +3 с; 5 прогонов, худший отбрасывается",
+      "Схема приблизительная: сверь с официальной диаграммой SCSA"
+    ]
+  },
+  "safety": { "ru": "Между прогонами — смена бокса по команде; ствол в безопасном состоянии при переходе" },
+  "equipment": ["карабин", "5+ магазинов", "таймер", "стальные плиты"],
+  "variants": { "ru": ["Смена бокса после каждого прогона", "Чередование плеч между прогонами"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 17,
+    "positions": [
+      { "id": "BOX-A", "x": 6, "y": 1, "label": { "ru": "бокс A" } },
+      { "id": "BOX-B", "x": 14, "y": 1, "label": { "ru": "бокс B" } }
+    ],
+    "targets": [
+      { "id": "L1", "x": 3, "y": 9, "type": "steel-circle" },
+      { "id": "L2", "x": 4.5, "y": 16, "type": "steel-circle" },
+      { "id": "R1", "x": 17, "y": 9, "type": "steel-circle" },
+      { "id": "R2", "x": 15.5, "y": 16, "type": "steel-circle" },
+      { "id": "STOP", "x": 10, "y": 14, "type": "steel-popper" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "L1", "shots": 1 },
+      { "action": "engage", "target": "L2", "shots": 1 },
+      { "action": "engage", "target": "R1", "shots": 1 },
+      { "action": "engage", "target": "R2", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 }
+    ]
+  },
+  "related": ["sc-smoke-and-hope", "sc-speed-option", "steel-single-par"]
+}

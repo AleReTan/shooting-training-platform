@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-pendulum",
+  "name": { "ru": "Steel Challenge: Пендулум", "en": "Steel Challenge: Pendulum" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Steel Challenge", "kind": "steel-challenge", "url": "https://en.wikipedia.org/wiki/Steel_Challenge" },
+  "tags": ["speed", "first-shot", "transitions", "accuracy"],
+  "needsReview": true,
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 25,
+  "distance": { "min": 10, "max": 18, "unit": "m" },
+  "targets": [
+    { "type": "steel-circle", "count": 4 },
+    { "type": "steel-popper", "count": 1 }
+  ],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Официальный этап Steel Challenge: четыре круглые плиты «маятником» слева направо, стоп-плита — последней. Побеждает чистое время",
+    "en": "Official Steel Challenge stage: four round plates pendulum-style, stop plate last. Raw time wins"
+  },
+  "steps": {
+    "ru": [
+      "5 стальных целей: 4 круглые 12″ (≈30 см) и стоп-плита 18×24″, стрельба из бокса 3×3 фута",
+      "По сигналу — по одному выстрелу в каждую круглую плиту, перенос «маятником» слева направо",
+      "Стоп-плита — строго последней: она останавливает таймер",
+      "Непоражённая плита до стопа — +3 с; лимит прогона — 30 с",
+      "5 прогонов, худший отбрасывается; сумма 4 лучших — результат",
+      "Схема приблизительная: расстояния и стороны сверь с официальной диаграммой SCSA"
+    ]
+  },
+  "safety": { "ru": "Сталь даёт рикошеты: минимальная дистанция по правилам клуба, очки обязательны" },
+  "equipment": ["карабин", "5+ магазинов", "таймер", "стальные плиты 12″ и 18×24″"],
+  "variants": { "ru": ["Обратный порядок (справа налево)", "Сухая отработка переносов без выстрелов"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 20,
+    "positions": [{ "id": "BOX", "x": 10, "y": 1, "label": { "ru": "бокс" } }],
+    "targets": [
+      { "id": "P1", "x": 4, "y": 10, "type": "steel-circle" },
+      { "id": "P2", "x": 8, "y": 13, "type": "steel-circle" },
+      { "id": "P3", "x": 12, "y": 13, "type": "steel-circle" },
+      { "id": "P4", "x": 16, "y": 16, "type": "steel-circle" },
+      { "id": "STOP", "x": 18, "y": 18, "type": "steel-popper" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "P1", "shots": 1 },
+      { "action": "engage", "target": "P2", "shots": 1 },
+      { "action": "engage", "target": "P3", "shots": 1 },
+      { "action": "engage", "target": "P4", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 }
+    ]
+  },
+  "related": ["sc-smoke-and-hope", "sc-accelerator", "steel-single-par"]
+}

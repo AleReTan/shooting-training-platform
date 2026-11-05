@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-smoke-and-hope",
+  "name": { "ru": "Steel Challenge: Дым и надежда", "en": "Steel Challenge: Smoke & Hope" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Steel Challenge", "kind": "steel-challenge", "url": "https://en.wikipedia.org/wiki/Steel_Challenge" },
+  "tags": ["speed", "first-shot", "transitions", "accuracy"],
+  "needsReview": true,
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 25,
+  "distance": { "min": 10, "max": 13, "unit": "m" },
+  "targets": [
+    { "type": "steel-circle", "count": 4 },
+    { "type": "steel-popper", "count": 1 }
+  ],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Самый быстрый этап серии: четыре близкие плиты двумя банками и стоп-плита. Полная скорость при чистой работе",
+    "en": "The fastest stage of the set: four close plates in two banks plus stop plate. All-out speed, clean"
+  },
+  "steps": {
+    "ru": [
+      "4 круглые плиты 12″ двумя «банками» — пара слева и пара справа от бокса, стоп-плита 18×24″ по центру сзади",
+      "По сигналу — по плите в каждой банке, перенос между банками короткий и горизонтальный",
+      "Стоп-плита — последней; непоражённая плита до стопа — +3 с, лимит — 30 с",
+      "5 прогонов, худший отбрасывается",
+      "Схема приблизительная: сверь с официальной диаграммой SCSA"
+    ]
+  },
+  "safety": { "ru": "Близкая сталь — рикошеты: дистанция и защита глаз по правилам клуба" },
+  "equipment": ["карабин", "5+ магазинов", "таймер", "стальные плиты"],
+  "variants": { "ru": ["Старт с патроном в патроннике vs дослать при сигнале", "Порядок банков по команде партнёра"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 15,
+    "positions": [{ "id": "BOX", "x": 10, "y": 1, "label": { "ru": "бокс" } }],
+    "targets": [
+      { "id": "P1", "x": 4, "y": 10, "type": "steel-circle" },
+      { "id": "P2", "x": 7, "y": 10, "type": "steel-circle" },
+      { "id": "P3", "x": 13, "y": 10, "type": "steel-circle" },
+      { "id": "P4", "x": 16, "y": 10, "type": "steel-circle" },
+      { "id": "STOP", "x": 10, "y": 13, "type": "steel-popper" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "P1", "shots": 1 },
+      { "action": "engage", "target": "P2", "shots": 1 },
+      { "action": "engage", "target": "P3", "shots": 1 },
+      { "action": "engage", "target": "P4", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 }
+    ]
+  },
+  "related": ["sc-pendulum", "pairs-on-steel", "steel-single-par"]
+}

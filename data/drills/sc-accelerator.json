@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-accelerator",
+  "name": { "ru": "Steel Challenge: Акселератор", "en": "Steel Challenge: Accelerator" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Steel Challenge", "kind": "steel-challenge", "url": "https://en.wikipedia.org/wiki/Steel_Challenge" },
+  "tags": ["speed", "first-shot", "transitions", "accuracy"],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 25,
+  "distance": { "min": 10, "max": 16, "unit": "m" },
+  "targets": [
+    { "type": "steel-circle", "count": 4 },
+    { "type": "steel-popper", "count": 1 }
+  ],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Три малые 10″ плиты подряд и большая по краю: точность на малых габаритах при максимальном темпе",
+    "en": "Three small 10″ plates in a row plus a big edge plate: accuracy on small plates at full pace"
+  },
+  "steps": {
+    "ru": [
+      "Три малые круглые плиты 10″ (≈25 см) слева направо, одна большая 12″ у края, стоп-плита 18×24″ — дальняя",
+      "По сигналу — по одной в каждую малую, большая, стоп последней",
+      "10″ плиты не прощают «полёта»: перенос с дожимом спуска в темпе",
+      "Непоражённая плита до стопа — +3 с; 5 прогонов, худший отбрасывается",
+      "Схема приблизительная: сверь с официальной диаграммой SCSA"
+    ]
+  },
+  "safety": { "ru": "Малые плиты — соблазн «долбить» без попаданий: лимит прогона 30 с и контроль темпа" },
+  "equipment": ["карабин", "5+ магазинов", "таймер", "плиты 10″ и 12″"],
+  "variants": { "ru": ["Обратный порядок малых плит", "Только малые плиты + стоп (сокращённый вариант)"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 18,
+    "positions": [{ "id": "BOX", "x": 10, "y": 1, "label": { "ru": "бокс" } }],
+    "targets": [
+      { "id": "S1", "x": 4, "y": 10, "type": "steel-circle" },
+      { "id": "S2", "x": 8, "y": 11, "type": "steel-circle" },
+      { "id": "S3", "x": 12, "y": 12, "type": "steel-circle" },
+      { "id": "BIG", "x": 17, "y": 14, "type": "steel-circle" },
+      { "id": "STOP", "x": 2.5, "y": 16, "type": "steel-popper" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "S1", "shots": 1 },
+      { "action": "engage", "target": "S2", "shots": 1 },
+      { "action": "engage", "target": "S3", "shots": 1 },
+      { "action": "engage", "target": "BIG", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 }
+    ]
+  },
+  "related": ["sc-pendulum", "sc-roundabout", "pairs-on-steel"]
+}

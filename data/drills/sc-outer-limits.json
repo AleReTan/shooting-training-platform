@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-outer-limits",
+  "name": { "ru": "Steel Challenge: Аутер лимитс", "en": "Steel Challenge: Outer Limits" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Steel Challenge", "kind": "steel-challenge", "url": "https://en.wikipedia.org/wiki/Steel_Challenge" },
+  "tags": ["speed", "first-shot", "transitions", "accuracy", "movement-lateral", "precision-long"],
+  "needsReview": true,
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 20,
+  "distance": { "min": 18, "max": 32, "unit": "m" },
+  "targets": [
+    { "type": "steel-circle", "count": 2 },
+    { "type": "steel-popper", "count": 3 }
+  ],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Единственный этап с движением и самыми дальними выстрелами: старт в боксе со слабой стороны, две плиты оттуда, переход в центральный бокс — и три дальних цели",
+    "en": "The only moving stage with the longest shots: start in the weak-side box for two plates, move to the center box for three far targets"
+  },
+  "steps": {
+    "ru": [
+      "Три бокса: старт в боксе со стороны слабой руки (правша — левый)",
+      "Из стартового бокса — круглая 12″ на ~20 м и квадратная 18×24″ на ~35 м со своей стороны",
+      "Переход в центральный бокс (боксы 4×4 фута) — такая же пара с сильной стороны",
+      "Стоп-плита — последней, из центрального бокса",
+      "Непоражённая плита до стопа — +3 с; 4 прогона, в зачёт 3 лучших",
+      "Точные дистанции этапа: ~20 м круглые, ~35 м квадратные; стороны плит сверь с официальной диаграммой SCSA"
+    ]
+  },
+  "safety": { "ru": "Движение с заряженным карабином — палец вне спуска, ствол в безопасном направлении по сектору" },
+  "equipment": ["карабин", "4+ магазина", "таймер", "стальные плиты 12″ и 18×24″"],
+  "variants": { "ru": ["Старт с сильной стороны (тренировка слабого плеча при переносах)", "Сухая отработка смены бокса"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 34,
+    "positions": [
+      { "id": "BOX-L", "x": 3, "y": 1, "label": { "ru": "левый бокс" } },
+      { "id": "BOX-C", "x": 10, "y": 1, "label": { "ru": "центральный бокс" } },
+      { "id": "BOX-R", "x": 17, "y": 1, "label": { "ru": "правый бокс" } }
+    ],
+    "targets": [
+      { "id": "LR", "x": 2, "y": 18, "type": "steel-circle" },
+      { "id": "LS", "x": 4, "y": 32, "type": "steel-popper" },
+      { "id": "RR", "x": 16, "y": 18, "type": "steel-circle" },
+      { "id": "RS", "x": 18, "y": 32, "type": "steel-popper" },
+      { "id": "STOP", "x": 12, "y": 30, "type": "steel-popper" }
+    ],
+    "movement": [{ "from": "BOX-L", "to": "BOX-C", "style": "lateral" }],
+    "sequence": [
+      { "action": "engage", "target": "LR", "shots": 1 },
+      { "action": "engage", "target": "LS", "shots": 1 },
+      { "action": "move", "from": "BOX-L", "to": "BOX-C" },
+      { "action": "engage", "target": "RR", "shots": 1 },
+      { "action": "engage", "target": "RS", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 }
+    ]
+  },
+  "related": ["sc-speed-option", "move-lateral-single", "a-zone-25"]
+}

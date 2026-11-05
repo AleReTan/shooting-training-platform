@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-speed-option",
+  "name": { "ru": "Steel Challenge: Спид опшн", "en": "Steel Challenge: Speed Option" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Steel Challenge", "kind": "steel-challenge", "url": "https://en.wikipedia.org/wiki/Steel_Challenge" },
+  "tags": ["speed", "first-shot", "transitions", "accuracy", "precision-long"],
+  "needsReview": true,
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 25,
+  "distance": { "min": 11, "max": 26, "unit": "m" },
+  "targets": [
+    { "type": "steel-circle", "count": 4 },
+    { "type": "steel-popper", "count": 1 }
+  ],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Четыре плиты дугой от близкой к дальней с выбором порядка, стоп по центру дуги: баланс скорости и точности на росте дистанции",
+    "en": "Four plates arcing from close to far with order choice, center stop: speed-to-precision balance"
+  },
+  "steps": {
+    "ru": [
+      "4 круглые плиты 12″ дугой слева направо с ростом дистанции примерно 10–25 м; стоп-плита 18×24″ в середине дуги",
+      "По сигналу — по одной в каждую плиту, порядок на твой выбор (обычно от близкой к дальней)",
+      "Стоп-плита — последней; непоражённая до стопа — +3 с, лимит — 30 с",
+      "5 прогонов, худший отбрасывается",
+      "Схема приблизительная: сверь с официальной диаграммой SCSA"
+    ]
+  },
+  "safety": { "ru": "Дальние плиты провоцируют «подъём» стрельбы — контролируй фон за сталью" },
+  "equipment": ["карабин", "5+ магазинов", "таймер", "стальные плиты"],
+  "variants": { "ru": ["Порядок от дальней к близкой", "Слабое плечо на одном прогоне"] },
+  "layout": {
+    "unit": "m",
+    "width": 20,
+    "depth": 28,
+    "positions": [{ "id": "BOX", "x": 10, "y": 1, "label": { "ru": "бокс" } }],
+    "targets": [
+      { "id": "P1", "x": 3, "y": 11, "type": "steel-circle" },
+      { "id": "P2", "x": 6.5, "y": 16, "type": "steel-circle" },
+      { "id": "P3", "x": 13.5, "y": 21, "type": "steel-circle" },
+      { "id": "P4", "x": 17, "y": 26, "type": "steel-circle" },
+      { "id": "STOP", "x": 10, "y": 17, "type": "steel-popper" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "P1", "shots": 1 },
+      { "action": "engage", "target": "P2", "shots": 1 },
+      { "action": "engage", "target": "STOP", "shots": 1 },
+      { "action": "engage", "target": "P3", "shots": 1 },
+      { "action": "engage", "target": "P4", "shots": 1 }
+    ]
+  },
+  "related": ["sc-outer-limits", "sc-accelerator", "a-zone-25"]
+}
