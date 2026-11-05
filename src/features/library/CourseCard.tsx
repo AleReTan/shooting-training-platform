@@ -42,6 +42,16 @@ export function CourseCard(props: { course: Course; drillById: Map<string, Drill
         ) : null}
       </p>
       <p class="course-card__desc">{localized(course.description)}</p>
+      {course.structure?.length ? (
+        <ol class="course-card__phases">
+          {course.structure.map((s, i) => (
+            <li key={i}>
+              <span class="course-card__phase-num">{i + 1}</span>
+              <span>{localized(s.label)}</span>
+            </li>
+          ))}
+        </ol>
+      ) : null}
     </article>
   );
 }

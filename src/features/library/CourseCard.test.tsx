@@ -34,3 +34,11 @@ test('карточка курса: ссылка на курс и описани�
   expect(container.querySelector('a')?.getAttribute('href')).toBe('#/course/trex-carbine');
   expect(container.textContent).toContain('Программа по официальным материалам');
 });
+
+test('фазы программы показаны нумерованной цепочкой', () => {
+  const { container } = render(<CourseCard course={course} drillById={drillById} />);
+  const phases = container.querySelectorAll('.course-card__phases li');
+  expect(phases.length).toBe(4);
+  expect(phases[0]?.textContent).toContain('Фаза 1: база');
+  expect(phases[3]?.textContent).toContain('Фаза 4: квалификации');
+});
