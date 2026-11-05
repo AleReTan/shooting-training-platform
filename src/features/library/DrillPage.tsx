@@ -43,6 +43,12 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
         {drill.fireMode.map((m) => FIRE_LABELS[m] ?? m).join(' + ')}
       </p>
 
+      {drill.needsReview ? (
+        <p class="drill-page__review">
+          <strong>на проверке</strong> — черновой импорт: сверь с первоисточником
+        </p>
+      ) : null}
+
       <p class="drill-card__tags">
         {drill.tags.map((t) => tagLabels.get(t) ?? t).join(' · ')}
       </p>

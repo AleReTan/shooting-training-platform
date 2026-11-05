@@ -31,6 +31,10 @@
   "targets": [
     {
       "type": "ipsc-metric",
+      "count": 9
+    },
+    {
+      "type": "steel-popper",
       "count": 1
     }
   ],

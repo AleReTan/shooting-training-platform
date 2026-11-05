@@ -47,6 +47,14 @@ test('карточка Стены: тип «холостая», не «суха�
   expect(meta).not.toContain('сухая');
 });
 
+test('needsReview: на карточке видна пометка «на проверке»', () => {
+  render(<DrillPage id="import-shootie-zmejkoj-begit" data={data} />);
+  expect(screen.getByText('на проверке')).toBeTruthy();
+  expect(
+    document.querySelector('.drill-page__review')?.textContent,
+  ).toContain('сверь с первоисточником');
+});
+
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {
   render(<DrillPage id="no-such-drill" data={data} />);
   expect(screen.getByText('Упражнение не найдено')).toBeTruthy();

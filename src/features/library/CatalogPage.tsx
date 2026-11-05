@@ -18,6 +18,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
   const [difficultyMax, setDifficultyMax] = useState(5);
   const [maxRounds, setMaxRounds] = useState<number | ''>('');
   const [distanceMax, setDistanceMax] = useState<number | ''>('');
+  const [review, setReview] = useState<'' | 'yes' | 'no'>('');
 
   const tagLabels = useMemo(
     () => new Map(taxonomy.tags.map((t) => [t.id, localized(t.label)])),
@@ -33,11 +34,12 @@ export default function CatalogPage({ data }: { data: AppData }) {
     difficultyMax,
     maxRounds: maxRounds === '' ? undefined : maxRounds,
     distanceMax: distanceMax === '' ? undefined : distanceMax,
+    needsReview: review === '' ? undefined : review === 'yes',
   };
 
   const visible = useMemo(
     () => filterDrills(drills, filters),
-    [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax],
+    [drills, query, tags, fireMode, discipline, difficultyMin, difficultyMax, maxRounds, distanceMax, review],
   );
 
   const toggleTag = (id: string) =>
@@ -52,6 +54,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
     setDifficultyMax(5);
     setMaxRounds('');
     setDistanceMax('');
+    setReview('');
   };
 
   const renderTagGroup = (group: 'skill' | 'condition', title: string) => (
@@ -158,6 +161,18 @@ export default function CatalogPage({ data }: { data: AppData }) {
               setDistanceMax(v === '' ? '' : Number(v));
             }}
           />
+        </label>
+
+        <label>
+          Вычитка
+          <select
+            value={review}
+            onChange={(e) => setReview((e.target as HTMLSelectElement).value as '' | 'yes' | 'no')}
+          >
+            <option value="">любая</option>
+            <option value="no">проверено</option>
+            <option value="yes">на проверке</option>
+          </select>
         </label>
 
         {renderTagGroup('skill', 'Навыки')}

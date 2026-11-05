@@ -31,8 +31,8 @@
   },
   "targets": [
     {
-      "type": "ipsc-metric",
-      "count": 1
+      "type": "steel-circle",
+      "count": 4
     }
   ],
   "scoring": {

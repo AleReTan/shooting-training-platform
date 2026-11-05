@@ -29,8 +29,8 @@
   },
   "targets": [
     {
-      "type": "ipsc-metric",
-      "count": 1
+      "type": "steel-popper",
+      "count": 6
     }
   ],
   "scoring": {

@@ -29,7 +29,11 @@
   "targets": [
     {
       "type": "ipsc-metric",
-      "count": 1
+      "count": 10
+    },
+    {
+      "type": "steel-popper",
+      "count": 3
     }
   ],
   "scoring": {

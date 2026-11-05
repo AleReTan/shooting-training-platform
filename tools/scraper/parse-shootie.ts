@@ -8,7 +8,7 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Discipline, Drill } from '../../src/data/types';
+import type { Discipline, Drill, TargetSpec } from '../../src/data/types';
 
 export interface SkipRecord {
   file: string;
@@ -103,6 +103,32 @@ const WEAPON_MAP: Record<string, Discipline> = {
   shotgun: 'shotgun',
 };
 
+// --- мишени из текста описания --------------------------------------------
+
+const TARGET_RE =
+  /(\d+)\s*(?:шт\.?\s*)?(?:(лист[а-яё]*\s+)?а4|попп?ер[а-яё]*|тарел[а-яё]*|стальн[а-яё]*|круг[а-яё]*|картонн[а-яё]*|бумажн[а-яё]*|метрическ[а-яё]*|классическ[а-яё]*|ipsc|мишен[а-яё]*)/gi;
+
+function targetKind(match: string): string {
+  if (/а4/i.test(match)) return 'a4-paper';
+  if (/попп?ер/i.test(match)) return 'steel-popper';
+  if (/тарел|стальн|круг/i.test(match)) return 'steel-circle';
+  return 'ipsc-metric'; // картонн/бумажн/метрическ/классическ/ipsc/мишен
+}
+
+/** Счёт и тип мишеней из текста описания («5 тарелок и 3 бумажные мишени»).
+ *  Число должно стоять сразу перед словом — «по 2 выстрела в мишень»
+ *  не считается. Повторные упоминания того же типа не суммируются:
+ *  описания shootie часто повторяют счёт в разных секциях — берём максимум. */
+export function extractTargetsFromText(text: string): TargetSpec[] {
+  const byType = new Map<string, number>();
+  for (const m of text.matchAll(TARGET_RE)) {
+    const count = Number(m[1]);
+    const kind = targetKind(m[0]);
+    byType.set(kind, Math.max(byType.get(kind) ?? 0, count));
+  }
+  return [...byType].map(([type, count]) => ({ type, count }));
+}
+
 const INERTIA_RE = /<script data-page="app" type="application\/json">([\s\S]*?)<\/script>/;
 
 export function parseShootieHtml(file: string, html: string): ScrapeResult {
@@ -164,6 +190,7 @@ export function parseShootieHtml(file: string, html: string): ScrapeResult {
 
   const v = typeof stage.params?.distance === 'number' ? stage.params.distance : 0;
   const difficulty = DIFFICULTY[stage.params?.difficulty ?? ''] ?? 3;
+  const extractedTargets = extractTargetsFromText(steps.join('\n'));
 
   const drill: Drill = {
     schemaVersion: 1,
@@ -180,8 +207,9 @@ export function parseShootieHtml(file: string, html: string): ScrapeResult {
     fireMode: ['live'],
     rounds: typeof stage.params?.shotsCount === 'number' ? stage.params.shotsCount : 0,
     distance: { min: v, max: v, unit: 'm' },
-    // структурированных мишеней в источнике нет — плейсхолдер до вычитки
-    targets: [{ type: 'ipsc-metric', count: 1 }],
+    // структурированных мишеней в источнике нет — извлекаем счёт из текста
+    // описания; упоминаний нет → плейсхолдер до вычитки
+    targets: extractedTargets.length ? extractedTargets : [{ type: 'ipsc-metric', count: 1 }],
     scoring: { type: 'none' }, // тип скоринга в источнике не указан
     goal: { ru: title }, // фоллбек до вычитки
     steps: { ru: steps },

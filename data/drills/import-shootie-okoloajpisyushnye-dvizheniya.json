@@ -33,6 +33,10 @@
   "targets": [
     {
       "type": "ipsc-metric",
+      "count": 11
+    },
+    {
+      "type": "steel-circle",
       "count": 1
     }
   ],

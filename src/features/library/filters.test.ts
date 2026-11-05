@@ -70,3 +70,14 @@ test('фильтр по дисциплине; смешанные входят в
   expect(by('shotgun')).toEqual(['x-mixed']);
   expect(by('carbine').sort()).toEqual(['bill-drill-carbine', 'one-to-five', 'wall-dry', 'x-mixed']);
 });
+
+test('needsReview: true → только на проверке; false → только проверенные', () => {
+  const list: Drill[] = [
+    ...drills,
+    { ...oneTo5, id: 'x-review', needsReview: true } as Drill,
+  ];
+  const by = (needsReview: boolean) =>
+    filterDrills(list, { query: '', tags: [], needsReview }).map((d) => d.id);
+  expect(by(true)).toEqual(['x-review']);
+  expect(by(false).sort()).toEqual(['bill-drill-carbine', 'one-to-five', 'wall-dry']);
+});

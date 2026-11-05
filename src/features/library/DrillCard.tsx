@@ -21,6 +21,7 @@ export function DrillCard(props: { drill: Drill; tagLabels: Map<string, string> 
       <p class="drill-card__tags">
         {drill.tags.map((t) => props.tagLabels.get(t) ?? t).join(' · ')}
       </p>
+      {drill.needsReview ? <p class="drill-card__review">на проверке</p> : null}
     </article>
   );
 }

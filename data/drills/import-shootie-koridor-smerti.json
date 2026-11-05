@@ -32,7 +32,7 @@
   "targets": [
     {
       "type": "ipsc-metric",
-      "count": 1
+      "count": 3
     }
   ],
   "scoring": {
