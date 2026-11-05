@@ -13,7 +13,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/269"
   },
-  "tags": [],
+  "tags": [
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Очередь в поликлиннику 02.11"
+    "ru": "Поразить 10 картонных мишеней, 3 поппера и 4 бабки"
   },
   "steps": {
     "ru": [
@@ -42,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/378"
   },
-  "tags": [],
+  "tags": [
+    "barricade",
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Порт (не морской)"
+    "ru": "Из порта: тарелки и две картонные; подняться и из-за укрытия слева — поппер, движку и группу дальних мишеней"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

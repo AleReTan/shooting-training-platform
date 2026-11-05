@@ -13,7 +13,14 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/135"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "positions",
+    "kneeling",
+    "cover",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +41,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Подворотня гномов-хуекрадов"
+    "ru": "Маршрут: с колена за бочкой, снизу из-за стены, за правой бочкой и из окна; IDPA — 2+1, поппер — одиночным"
   },
   "steps": {
     "ru": [
@@ -42,5 +49,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/265"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "barricade"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Пожалуйста, только не опять биллдрилл 02.11"
+    "ru": "Билл-дрилл из окна: по 6 выстрелов в 3 мишени самовзводом"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

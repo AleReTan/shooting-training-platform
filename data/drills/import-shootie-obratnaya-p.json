@@ -13,7 +13,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/368"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "movement",
+    "transitions",
+    "accuracy",
+    "positions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Обратная «П»"
+    "ru": "Клин декораций: перекрёстное поражение групп (левую — справа, правую — слева), нижний порт, затем линии галереи строго по разметке"
   },
   "steps": {
     "ru": [
@@ -42,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

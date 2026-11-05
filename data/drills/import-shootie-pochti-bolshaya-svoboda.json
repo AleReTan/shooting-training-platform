@@ -12,7 +12,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/360"
   },
-  "tags": [],
+  "tags": [
+    "precision-long",
+    "cover",
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -33,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Почти большая свобода"
+    "ru": "30 м: свободный порядок, но группа за стеной — из-под неё, железо — только из-за стола/бочек; перезарядка после 10 выстрелов"
   },
   "steps": {
     "ru": [
@@ -41,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

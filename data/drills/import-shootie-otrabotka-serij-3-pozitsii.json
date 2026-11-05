@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/112"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "barricade",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Отработка серий — 3 позиции"
+    "ru": "Через порт стенки: пары попперов с перезарядкой после каждой пары"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

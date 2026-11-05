@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/413"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "first-shot",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Очень интересно провожу выходные"
+    "ru": "С разворота на скамейке (оружие и магазин сбоку): 5 мишеней по 2 в тело + 1 в голову"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

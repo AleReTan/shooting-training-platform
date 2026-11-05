@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/384"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "transitions",
+    "accuracy",
+    "positions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Полное окружение"
+    "ru": "Поразить все открытые мишени, не покидая укрытия и не поднимаясь"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

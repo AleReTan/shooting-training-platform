@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/157"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "movement",
+    "transitions",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Ордо #Trauma_2025 1 этап"
+    "ru": "3×3×3: тройки по мишеням на 3/6/9 м с перезарядкой и перебежкой, совмещаемой с ней"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

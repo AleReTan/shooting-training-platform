@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/415"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Обходной лист при увольнении"
+    "ru": "11 картонных мишеней мозамбиком: 2 в тело + 1 в голову"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

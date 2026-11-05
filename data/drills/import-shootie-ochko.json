@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/402"
   },
-  "tags": [],
+  "tags": [
+    "bilateral",
+    "reload",
+    "movement",
+    "transitions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "ОЧКО"
+    "ru": "Ближняя группа и тарелки (левая — с неудобного плеча), обязательная смена магазина, вторая позиция и финальный гонг"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

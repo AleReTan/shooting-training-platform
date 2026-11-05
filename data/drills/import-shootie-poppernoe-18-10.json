@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/230"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Попперное 18.10"
+    "ru": "2 картонные мишени (одна на свингере) и 4 поппера, один из которых — активатор"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

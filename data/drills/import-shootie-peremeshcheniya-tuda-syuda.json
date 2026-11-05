@@ -12,7 +12,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/386"
   },
-  "tags": [],
+  "tags": [
+    "precision-long",
+    "movement",
+    "movement-lateral",
+    "transitions",
+    "reload"
+  ],
   "difficulty": 4,
   "fireMode": [
     "live"
@@ -33,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Перемещения туда-сюда"
+    "ru": "35 м: из-за стола открытые мишени, затем перемещение влево по этапам; встать можно, не выходя за пределы стола"
   },
   "steps": {
     "ru": [
@@ -41,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

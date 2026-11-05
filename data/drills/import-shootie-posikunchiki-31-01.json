@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/340"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Посикунчики 31.01"
+    "ru": "4 IPSC-мишени парами и 3 тарелки до падения среди 3 непоражаемых"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

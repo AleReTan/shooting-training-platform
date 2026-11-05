@@ -14,7 +14,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/278"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "movement",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -35,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Перебежать и поразить"
+    "ru": "Картон и тарелки из пистолета/карабина, техасская звезда — из ружья; старт и второе оружие — в бочках"
   },
   "steps": {
     "ru": [
@@ -43,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

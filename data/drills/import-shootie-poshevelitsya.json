@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/320"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Пошевелиться"
+    "ru": "Все мишени строго из укрытия, по мере их открытия, без вреда штрафным"
   },
   "steps": {
     "ru": [
@@ -41,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,14 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/362"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "movement",
+    "movement-retreat",
+    "reload",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +41,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Подвигули без дострела"
+    "ru": "Со стола тройка мишеней, затем отход к следующим столам с дозарядкой магазинами по 9 и 6 патронов; дострел запрещён"
   },
   "steps": {
     "ru": [
@@ -42,5 +49,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

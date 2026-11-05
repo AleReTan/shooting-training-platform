@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/160"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Подвижешное 06.07"
+    "ru": "Из окошка по 2 выстрела в каждую картонку, отбежка назад и повтор; варианты стартов у разных групп мишеней"
   },
   "steps": {
     "ru": [
@@ -45,5 +49,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

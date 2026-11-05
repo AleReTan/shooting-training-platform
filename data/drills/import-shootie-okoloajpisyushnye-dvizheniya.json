@@ -13,7 +13,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/200"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy",
+    "positions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +39,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Околоайписюшные движения"
+    "ru": "Три зоны: парами без вреда заложнику, из второй зоны снизу мозамбиком, финальные серии по 2 выстрела"
   },
   "steps": {
     "ru": [
@@ -42,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

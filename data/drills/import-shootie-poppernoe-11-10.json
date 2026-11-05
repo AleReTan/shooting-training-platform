@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/223"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Попперное 11.10"
+    "ru": "7 картонных мишеней парами и 3 поппера до падения, не задев 3 штрафные"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

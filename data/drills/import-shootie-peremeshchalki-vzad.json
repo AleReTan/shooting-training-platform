@@ -13,7 +13,13 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/365"
   },
-  "tags": [],
+  "tags": [
+    "cover",
+    "movement",
+    "movement-retreat",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +40,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Перемещалки взад"
+    "ru": "Снизу из порта стенки, отход и поражение групп строго по отмеченным линиям"
   },
   "steps": {
     "ru": [
@@ -42,5 +48,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

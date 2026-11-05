@@ -14,7 +14,14 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/75"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "barricade",
+    "movement",
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -35,7 +42,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Перестрелка с гномами-хуекрадами"
+    "ru": "Через окно из-за стола (не более 5 патронов): IDPA 2+1 и тарелки ружьём; вперёд через дверь — вторая группа и мини-IPSC"
   },
   "steps": {
     "ru": [
@@ -43,5 +50,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

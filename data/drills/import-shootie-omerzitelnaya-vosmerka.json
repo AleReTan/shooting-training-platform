@@ -12,7 +12,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/89"
   },
-  "tags": [],
+  "tags": [
+    "movement"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"

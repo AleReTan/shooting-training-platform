@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/259"
   },
-  "tags": [],
+  "tags": [
+    "reload",
+    "first-shot",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "Примерочная в Вайлдберрис 03.11"
+    "ru": "4 ближние мишени и 2 бабки со сборкой оружия (магазин отстёгнут, патронник пуст)"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }
