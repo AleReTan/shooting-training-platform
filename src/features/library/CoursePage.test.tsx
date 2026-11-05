@@ -1,11 +1,17 @@
-import { test, expect, afterEach } from 'vitest';
+import { test, expect, afterEach, beforeAll } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/preact';
 import { CoursePage } from './CoursePage';
+import { loadData, type AppData } from '../../data/load';
+
+let data: AppData;
+beforeAll(async () => {
+  data = await loadData();
+});
 
 afterEach(cleanup);
 
 test('страница курса: фаза, элементы по order со ссылками и заметкой', () => {
-  render(<CoursePage id="trex-carbine" />);
+  render(<CoursePage id="trex-carbine" data={data} />);
 
   expect(screen.getByText('T-Rex Arms: карабинный путь')).toBeTruthy();
   expect(screen.getByText('Фаза 1: база — хват, зрение, темп')).toBeTruthy();
@@ -19,6 +25,6 @@ test('страница курса: фаза, элементы по order со с
 });
 
 test('несуществующий id → «Курс не найден»', () => {
-  render(<CoursePage id="no-such-course" />);
+  render(<CoursePage id="no-such-course" data={data} />);
   expect(screen.getByText('Курс не найден')).toBeTruthy();
 });

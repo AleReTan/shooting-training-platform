@@ -1,11 +1,17 @@
-import { test, expect, afterEach } from 'vitest';
+import { test, expect, afterEach, beforeAll } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/preact';
 import { DrillPage } from './DrillPage';
+import { loadData, type AppData } from '../../data/load';
+
+let data: AppData;
+beforeAll(async () => {
+  data = await loadData();
+});
 
 afterEach(cleanup);
 
 test('карточка Bill Drill: имя, шаги, пар-таймы, курс, схема', () => {
-  render(<DrillPage id="bill-drill-carbine" />);
+  render(<DrillPage id="bill-drill-carbine" data={data} />);
 
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
   expect(screen.getByText(/Bill Wilson/)).toBeTruthy();
@@ -29,7 +35,7 @@ test('карточка Bill Drill: имя, шаги, пар-таймы, курс
 });
 
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {
-  render(<DrillPage id="no-such-drill" />);
+  render(<DrillPage id="no-such-drill" data={data} />);
   expect(screen.getByText('Упражнение не найдено')).toBeTruthy();
   const back = screen.getByText('← В каталог') as HTMLAnchorElement;
   expect(back.getAttribute('href')).toBe('#/');

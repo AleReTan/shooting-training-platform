@@ -1,9 +1,9 @@
 // Карточка упражнения: все разделы схемы Drill (спека §8 п.2).
 
-import { loadData } from '../../data/load';
 import { localized, localizedList } from '../../app/i18n';
 import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { TimerPanel } from '../../features/timer/TimerPanel';
+import type { AppData } from '../../data/load';
 import type { Drill } from '../../data/types';
 
 const PAR_LABELS: Record<string, string> = {
@@ -21,8 +21,8 @@ const FIRE_LABELS: Record<string, string> = {
 const distanceText = (d: Drill['distance']) =>
   d.min === d.max ? `${d.min} м` : `${d.min}–${d.max} м`;
 
-export function DrillPage({ id }: { id: string }) {
-  const { drillById, coursesByDrillId, taxonomy } = loadData();
+export function DrillPage({ id, data }: { id: string; data: AppData }) {
+  const { drillById, coursesByDrillId, taxonomy } = data;
   const drill = drillById.get(id);
 
   if (!drill) {

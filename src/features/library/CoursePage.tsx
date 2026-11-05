@@ -1,11 +1,11 @@
 // Страница курса: фазы structure заголовками, упражнения по order (спека §4.1).
 
-import { loadData } from '../../data/load';
 import { localized } from '../../app/i18n';
+import type { AppData } from '../../data/load';
 import type { CourseItem } from '../../data/types';
 
-export function CoursePage({ id }: { id: string }) {
-  const { courseById, drillById } = loadData();
+export function CoursePage({ id, data }: { id: string; data: AppData }) {
+  const { courseById, drillById } = data;
   const course = courseById.get(id);
 
   if (!course) {

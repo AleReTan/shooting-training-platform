@@ -1,5 +1,6 @@
-// Слой данных: загружает JSON из data/** на этапе сборки, строит индексы.
-// Модуль-синглтон: loadData() кешируется.
+// Слой данных: строит индексы из контентного чанка content.ts (динамический
+// импорт — данные не едут в энтри-чанке, см. комментарий там). Промис
+// кешируется: параллельные вызовы ждут одну загрузку.
 
 import type { Course, Drill, Taxonomy } from './types';
 
@@ -12,29 +13,13 @@ export interface AppData {
   taxonomy: Taxonomy;
 }
 
-const drillModules = import.meta.glob<Drill>('/data/drills/*.json', {
-  eager: true,
-  import: 'default',
-});
-
-const courseModules = import.meta.glob<Course>('/data/courses/*.json', {
-  eager: true,
-  import: 'default',
-});
-
-const taxonomyModules = import.meta.glob<Taxonomy>('/data/taxonomy.json', {
-  eager: true,
-  import: 'default',
-});
-
-let cache: AppData | null = null;
-
-export function loadData(): AppData {
-  if (cache) return cache;
-
-  const drills = Object.values(drillModules).sort((a, b) => a.id.localeCompare(b.id, 'ru'));
-  const courses = Object.values(courseModules);
-  const taxonomy = Object.values(taxonomyModules)[0] as Taxonomy;
+function buildIndexes(
+  rawDrills: Drill[],
+  rawCourses: Course[],
+  taxonomy: Taxonomy,
+): AppData {
+  const drills = [...rawDrills].sort((a, b) => a.id.localeCompare(b.id, 'ru'));
+  const courses = [...rawCourses];
 
   const drillById = new Map(drills.map((d) => [d.id, d]));
   const courseById = new Map(courses.map((c) => [c.id, c]));
@@ -48,6 +33,19 @@ export function loadData(): AppData {
     }
   }
 
-  cache = { drills, drillById, courses, courseById, coursesByDrillId, taxonomy };
-  return cache;
+  return { drills, drillById, courses, courseById, coursesByDrillId, taxonomy };
+}
+
+let cache: AppData | null = null;
+let pending: Promise<AppData> | null = null;
+
+export function loadData(): Promise<AppData> {
+  if (cache) return Promise.resolve(cache);
+  if (!pending) {
+    pending = import('./content').then((c) => {
+      cache = buildIndexes(c.rawDrills, c.rawCourses, c.rawTaxonomy);
+      return cache;
+    });
+  }
+  return pending;
 }

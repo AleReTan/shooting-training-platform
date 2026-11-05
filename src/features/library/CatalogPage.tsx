@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'preact/hooks';
-import { loadData } from '../../data/load';
 import { localized } from '../../app/i18n';
 import { filterDrills, type CatalogFilters } from './filters';
 import { DrillCard } from './DrillCard';
 import { TagChip } from '../../ui/TagChip';
+import type { AppData } from '../../data/load';
 import type { FireMode } from '../../data/types';
 
 /** Каталог упражнений: поиск, фильтры, список (спека §8 п.1). */
-export default function CatalogPage() {
-  const { drills, courses, taxonomy } = loadData();
+export default function CatalogPage({ data }: { data: AppData }) {
+  const { drills, courses, taxonomy } = data;
 
   const [query, setQuery] = useState('');
   const [tags, setTags] = useState<string[]>([]);
