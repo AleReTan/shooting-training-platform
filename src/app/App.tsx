@@ -5,6 +5,7 @@ import CatalogPage from '../features/library/CatalogPage';
 import { DrillPage } from '../features/library/DrillPage';
 import { CoursePage } from '../features/library/CoursePage';
 import TimerPage from '../features/timer/TimerPage';
+import { HitFactorPage } from '../features/calc/HitFactorPage';
 import { loadData, type AppData } from '../data/load';
 
 export default function App() {
@@ -75,6 +76,8 @@ export default function App() {
     page = <CoursePage id={segments[1]} data={data} />;
   } else if (segments[0] === 'timer') {
     page = <TimerPage />;
+  } else if (segments[0] === 'calc') {
+    page = <HitFactorPage />;
   }
 
   return <Shell>{page}</Shell>;
