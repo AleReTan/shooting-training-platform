@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "move-lateral-serial",
+  "name": { "ru": "Боковой коридор: три цели", "en": "Lateral Corridor: Three Targets" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-lateral", "transitions", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 9,
+  "distance": { "min": 8, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Смещение по фронту через три цели: каждая активируется по мере входа в сектор, перенос вслед за шагом",
+    "en": "Frontal displacement across three targets: engage each as it enters your sector, transition with the step"
+  },
+  "steps": {
+    "ru": [
+      "Три мишени 8, 11 и 15 м, разнесены по фронту; коридор смещения вдоль всего ряда",
+      "По сигналу — смещение вправо-вперёд; по 3 выстрела в каждую цель по мере входа в её сектор",
+      "Прицел ведёт цель до полного прохода сектора, затем перенос на следующую",
+      "Финиш за крайней левой/правой мишенью",
+      "2 прохода в каждую сторону"
+    ]
+  },
+  "safety": { "ru": "Фронтальное смещение: следи за соседними стрелками и габаритами стрельбища по бокам" },
+  "equipment": ["карабин", "2 магазина (9+ патронов)"],
+  "variants": { "ru": ["Обратный порядок целей (дальняя первой)", "Одна цель — штрафная, обходить огнём"] },
+  "layout": {
+    "unit": "m",
+    "width": 18,
+    "depth": 17,
+    "positions": [
+      { "id": "P1", "x": 2, "y": 1, "label": { "ru": "старт слева" } },
+      { "id": "P2", "x": 16, "y": 2, "label": { "ru": "финиш справа" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 15, "type": "ipsc-metric" },
+      { "id": "T2", "x": 9, "y": 11, "type": "ipsc-metric" },
+      { "id": "T3", "x": 15, "y": 8, "type": "ipsc-metric" }
+    ],
+    "movement": [{ "from": "P1", "to": "P2", "style": "lateral" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T2", "shots": 3 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T3", "shots": 3 }
+    ]
+  },
+  "related": ["move-lateral-single", "transition-three-sweep", "move-forward-diagonal"]
+}

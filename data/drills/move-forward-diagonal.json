@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "move-forward-diagonal",
+  "name": { "ru": "Диагональный подход", "en": "Diagonal Advance" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-forward", "bilateral", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 8, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Движение по диагонали мимо целей: смена ведущего плеча на ходу без потери темпа",
+    "en": "Diagonal movement past targets: shoulder switch on the move without losing pace"
+  },
+  "steps": {
+    "ru": [
+      "Две мишени на 20 и 12 м, разнесены по фронту на 10 м; старт у левого края",
+      "По сигналу — диагональное движение вправо-вперёд: по 2 выстрела в каждую мишень на ходу",
+      "У середины маршрута — смена плеча (цель уходит в «слабую» сторону)",
+      "Ещё по 2 выстрела после смены плеча",
+      "2 прохода слева-направо, 2 справа-налево"
+    ]
+  },
+  "safety": { "ru": "Смена плеча в движении: контролируй сектор за мишенями при развороте корпуса" },
+  "equipment": ["карабин", "2 магазина по 8 патронов"],
+  "variants": { "ru": ["Без смены плеча (только слабое плечо весь проход)", "Три мишени по диагонали"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 22,
+    "positions": [
+      { "id": "P1", "x": 3, "y": 1, "label": { "ru": "старт слева" } },
+      { "id": "P2", "x": 13, "y": 9, "label": { "ru": "финиш справа" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 20, "type": "ipsc-metric" },
+      { "id": "T2", "x": 12, "y": 12, "type": "ipsc-metric" }
+    ],
+    "movement": [{ "from": "P1", "to": "P2", "style": "advance" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["move-forward-single", "bilateral-switch-par", "move-lateral-serial"]
+}

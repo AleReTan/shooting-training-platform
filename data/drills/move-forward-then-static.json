@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "move-forward-then-static",
+  "name": { "ru": "Подход и точный выстрел", "en": "Advance, Then One Precise Shot" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-forward", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Резкая смена режима: быстрый подход — полная остановка — один точный выстрел в «А»",
+    "en": "Mode switch: fast advance, hard stop, one precise A-zone hit"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 25 м с малой зачётной зоной (заклей «А» до ~15 см); старт 25 м",
+      "По сигналу — бег 10–12 м до маркированной точки",
+      "Полная остановка: два такта, прицел устоявшийся — один выстрел",
+      "6 циклов; засчитывается только попадание в зону",
+      "Ориентир: с постановки ног до выстрела — не более 2 с"
+    ]
+  },
+  "safety": { "ru": "Бег с карабином: палец вне спуска, предохранитель на замке (если есть)" },
+  "equipment": ["карабин", "1 магазин на 6 патронов", "маркер точки остановки"],
+  "variants": { "ru": ["Стоп с колена вместо стоя", "Увеличить дистанцию бега до 20 м"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 27,
+    "positions": [
+      { "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } },
+      { "id": "P2", "x": 5, "y": 13, "label": { "ru": "точка остановки" } }
+    ],
+    "targets": [{ "id": "T1", "x": 5, "y": 25, "type": "ipsc-metric" }],
+    "movement": [{ "from": "P1", "to": "P2", "style": "advance" }],
+    "sequence": [
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "related": ["move-forward-single", "stress-sprint-first-shot", "cold-bore-first-shot"]
+}

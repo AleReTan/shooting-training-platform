@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "move-lateral-single",
+  "name": { "ru": "Движение вбок: одна цель", "en": "Lateral Movement: Single Target" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-lateral", "bilateral", "recoil-control"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 8, "max": 12, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Боковое смещение с выстрелами: смена плеча при смене направления, стабильный прицел",
+    "en": "Lateral displacement with shots: shoulder switch on direction change, steady sights"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 10 м по центру; коридор смещения 6–8 м по фронту",
+      "По сигналу — смещение вправо, 3 выстрела в движении",
+      "На маркере — смена направления и плеча: ещё 3 выстрела влево",
+      "Ступни не перекрещивать, шаг приставной",
+      "3–4 подхода, чередуя стартовое направление"
+    ]
+  },
+  "safety": { "ru": "При смене плеча ствол проходит по вертикали — без выхода за габарит мишени" },
+  "equipment": ["карабин", "1 магазин на 6 патронов", "2 маркера коридора"],
+  "variants": { "ru": ["Только слабое плечо весь подход", "Смещение с попеременными двойками"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 12,
+    "positions": [
+      { "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт слева" } },
+      { "id": "P2", "x": 10, "y": 1, "label": { "ru": "финиш справа" } }
+    ],
+    "targets": [{ "id": "T1", "x": 7, "y": 10, "type": "ipsc-metric" }],
+    "movement": [
+      { "from": "P1", "to": "P2", "style": "lateral" },
+      { "from": "P2", "to": "P1", "style": "lateral" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "move", "from": "P2", "to": "P1" }
+    ]
+  },
+  "related": ["move-lateral-serial", "reload-emergency-off-axis", "bilateral-switch-par"]
+}

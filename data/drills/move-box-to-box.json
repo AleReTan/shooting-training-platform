@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "move-box-to-box",
+  "name": { "ru": "Из бокса в бокс", "en": "Box to Box" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-lateral", "cover", "reload-emergency", "transitions"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 28.0 },
+    { "level": "intermediate", "time": 22.0 },
+    { "level": "advanced", "time": 17.0 },
+    { "level": "master", "time": 14.0 }
+  ],
+  "goal": {
+    "ru": "Классическая конструкция матч-этапа: два бокса у укрытий, перенос огня между ними с перезарядкой на ходу",
+    "en": "Classic stage design: two shooting boxes at cover, fire transfer between them with a reload on the move"
+  },
+  "steps": {
+    "ru": [
+      "Бокс A слева, бокс B справа (5–6 м между ними); по две мишени открывается из каждого бокса",
+      "Старт в боксе A: по 2 выстрела в каждую из своих мишеней",
+      "Смена бокса: перезарядка на ходу (магазин не полный)",
+      "Из бокса B: по 2 выстрела в свои мишени, разные края укрытия",
+      "Все попадания в зачётных зонах; пар на весь этап"
+    ]
+  },
+  "safety": { "ru": "Перезарядка в движении: ствол в сектор, палец вне спуска при работе с магазином" },
+  "equipment": ["карабин", "3 магазина по 6 патронов", "2 укрытия"],
+  "variants": { "ru": ["Обратное направление (B → A)", "Одна мишень видна из обоих боксов — выбор приоритета"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 22,
+    "positions": [
+      { "id": "BOX-A", "x": 4, "y": 2, "label": { "ru": "бокс A" } },
+      { "id": "BOX-B", "x": 12, "y": 2, "label": { "ru": "бокс B" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 2, "y": 16, "type": "ipsc-metric" },
+      { "id": "T2", "x": 6, "y": 20, "type": "ipsc-metric" },
+      { "id": "T3", "x": 10, "y": 18, "type": "ipsc-metric" },
+      { "id": "T4", "x": 14, "y": 14, "type": "ipsc-metric" }
+    ],
+    "barriers": [
+      { "x": 4, "y": 4, "kind": "wall" },
+      { "x": 12, "y": 4, "kind": "wall" }
+    ],
+    "movement": [{ "from": "BOX-A", "to": "BOX-B", "style": "lateral" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "BOX-A", "to": "BOX-B" },
+      { "action": "reload" },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "engage", "target": "T4", "shots": 2 }
+    ]
+  },
+  "related": ["box-drill", "move-lateral-serial", "moving-reload"]
+}

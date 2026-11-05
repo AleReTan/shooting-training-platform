@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "move-retreat-cover-break",
+  "name": { "ru": "Отход под прикрытие", "en": "Break Contact to Cover" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-retreat", "cover", "reload-tactical"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Тактический отход: подавление целей на отходе, смена магазина за укрытием, контроль обстановки",
+    "en": "Tactical withdrawal: suppression while moving back, mag change behind cover, awareness"
+  },
+  "steps": {
+    "ru": [
+      "Две мишени 15–20 м; открытая позиция в 6–8 м перед укрытием (стена/бочка)",
+      "По сигналу — по 2 подавляющих выстрела в каждую цель",
+      "Отход назад к укрытию короткими перебежками (2–3 шага — стоп)",
+      "За укрытием — смена магазина (тактическая), контроль секторов",
+      "Из-за укрытия — по 2 контрольных выстрела в каждую цель (смена края)",
+      "3–4 цикла, чередуй края укрытия"
+    ]
+  },
+  "safety": { "ru": "Проверь маршрут отхода до подхода; при работе из-за укрытия не высовывай больше необходимого" },
+  "equipment": ["карабин", "2–3 магазина", "укрытие (стена/бочка)"],
+  "variants": { "ru": ["Отход в паре (напарник прикрывает)", "Укрытие с двумя окнами"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 22,
+    "positions": [
+      { "id": "P1", "x": 7, "y": 14, "label": { "ru": "открытая позиция" } },
+      { "id": "P2", "x": 7, "y": 6, "label": { "ru": "укрытие" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 20, "type": "ipsc-metric" },
+      { "id": "T2", "x": 11, "y": 18, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 7, "y": 7, "kind": "wall" }],
+    "movement": [{ "from": "P1", "to": "P2", "style": "retreat" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "reload" },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["move-retreat-single", "offset-behind-barricade", "reload-tactical-par"]
+}

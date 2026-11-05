@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "move-forward-steel",
+  "name": { "ru": "Вперёд по сталям", "en": "Advance on Steel" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-forward", "transitions", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 9,
+  "distance": { "min": 10, "max": 20, "unit": "m" },
+  "targets": [{ "type": "steel-popper", "count": 3 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Сокращение дистанции по трём попперам: мгновенная обратная связь стали на каждый шаг",
+    "en": "Closing on three poppers: instant steel feedback on every step"
+  },
+  "steps": {
+    "ru": [
+      "Три поппера: 20, 16 и 12 м; старт на 20 м",
+      "По сигналу — движение вперёд, поппер падает — переход к следующему",
+      "По 3 выстрела максимум на каждый; неподбитый поппер не останавливает движение",
+      "Стоп за последним поппером; 2–3 прохода",
+      "Следи за падением: сталь честно показывает качество выстрела в движении"
+    ]
+  },
+  "safety": { "ru": "Сталь на сокращении — угол рикошета меняется: очки обязательны, дистанцию согласуй с клубом" },
+  "equipment": ["карабин", "2 магазина", "3 стальных поппера"],
+  "variants": { "ru": ["Реверс: от ближнего к дальнему с отходом", "Порядок попперов по команде"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 22,
+    "positions": [
+      { "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт 20 м" } },
+      { "id": "P2", "x": 7, "y": 9, "label": { "ru": "финиш ~12 м" } }
+    ],
+    "targets": [
+      { "id": "S1", "x": 4, "y": 20, "type": "steel-popper" },
+      { "id": "S2", "x": 7, "y": 16, "type": "steel-popper" },
+      { "id": "S3", "x": 10, "y": 12, "type": "steel-popper" }
+    ],
+    "movement": [{ "from": "P1", "to": "P2", "style": "advance" }],
+    "sequence": [
+      { "action": "engage", "target": "S1", "shots": 3 },
+      { "action": "engage", "target": "S2", "shots": 3 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "S3", "shots": 3 }
+    ]
+  },
+  "related": ["move-forward-multiple", "sc-outer-limits", "pairs-on-steel"]
+}

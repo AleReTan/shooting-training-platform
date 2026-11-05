@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "moving-reload",
+  "name": { "ru": "Перезарядка в движении", "en": "Reload on the Move" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "reload-emergency", "reload-tactical", "cover"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 10,
+  "distance": { "min": 10, "max": 18, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 16.0 },
+    { "level": "intermediate", "time": 13.0 },
+    { "level": "advanced", "time": 10.5 },
+    { "level": "master", "time": 9.0 }
+  ],
+  "goal": {
+    "ru": "Полная перезарядка в движении между укрытиями: руки работают, ноги идут, прицел возвращается готовым",
+    "en": "Full reload while moving between cover: hands work, feet travel, sights come up ready"
+  },
+  "steps": {
+    "ru": [
+      "Два укрытия в 8–10 м друг от друга; мишени 12 и 18 м",
+      "Старт у левого укрытия: 4 выстрела (2+2) по своим целям",
+      "Отработка движения к правому укрытию с аварийной перезарядкой на ходу (магазин до конца)",
+      "У правого укрытия — без остановки ног: 3 выстрела, затем тактическая дозарядка за укрытием",
+      "Финальный выстрел по дальней мишени; пар на весь цикл"
+    ]
+  },
+  "safety": { "ru": "Не беги с открытым затвором дольше необходимого: патрон в патронник — сразу после смены магазина" },
+  "equipment": ["карабин", "3 магазина", "2 укрытия"],
+  "variants": { "ru": ["Сухая отработка: движение + смена магазина без выстрелов", "Перезарядка на слабой стороне"] },
+  "layout": {
+    "unit": "m",
+    "width": 16,
+    "depth": 20,
+    "positions": [
+      { "id": "P1", "x": 3, "y": 2, "label": { "ru": "укрытие левое" } },
+      { "id": "P2", "x": 13, "y": 3, "label": { "ru": "укрытие правое" } }
+    ],
+    "targets": [
+      { "id": "T1", "x": 5, "y": 18, "type": "ipsc-metric" },
+      { "id": "T2", "x": 11, "y": 14, "type": "ipsc-metric" }
+    ],
+    "barriers": [
+      { "x": 3, "y": 4, "kind": "wall" },
+      { "x": 13, "y": 5, "kind": "barrel" }
+    ],
+    "movement": [{ "from": "P1", "to": "P2", "style": "lateral" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "reload" },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T2", "shots": 3 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "related": ["reload-emergency-par", "move-box-to-box", "move-retreat-cover-break"]
+}

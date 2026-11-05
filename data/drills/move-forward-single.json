@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "move-forward-single",
+  "name": { "ru": "Движение вперёд: одна цель", "en": "Moving Forward: Single Target" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-forward", "recoil-control", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 7, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Первый шаг в стрельбу в движении: стабильный прицел при шаге вперёд, темп «шаг-выстрел»",
+    "en": "First step into shooting on the move: stable sight picture while advancing, step-shot rhythm"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 15 м, старт с 15 м, сокращение до ~7 м",
+      "По сигналу — начало движения вперёд, первые выстрелы со 2–3 шага",
+      "6 выстрелов в темпе шагов: выстрел в момент постановки стопы («тихая» фаза шага)",
+      "Все попадания в зачётной зоне; штрафные — как промах",
+      "3–4 прохода, между подходами смена траектории"
+    ]
+  },
+  "safety": { "ru": "Ствол всегда в секторе мишени; не пересекай ногу со стволом при шаге" },
+  "equipment": ["карабин", "2 магазина по 6 патронов"],
+  "variants": { "ru": ["Темп «двойной шаг — выстрел»", "Финиш в колено у мишени"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 17,
+    "positions": [
+      { "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт 15 м" } },
+      { "id": "P2", "x": 5, "y": 9, "label": { "ru": "финиш ~7 м" } }
+    ],
+    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],
+    "movement": [{ "from": "P1", "to": "P2", "style": "advance" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["move-forward-multiple", "move-retreat-single", "position-flow"]
+}

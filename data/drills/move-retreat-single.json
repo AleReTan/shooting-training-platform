@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "move-retreat-single",
+  "name": { "ru": "Отход: одна цель", "en": "Moving Back: Single Target" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-retreat", "recoil-control", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 7, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Стрельба при отходе назад: контроль пятки-носок, прицел не «гуляет» на заднем шаге",
+    "en": "Shooting while backing up: heel-toe control, sight picture steady on the rear step"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 15 м; старт в 7 м от неё",
+      "По сигналу — отход назад короткими шагами, 6 выстрелов в темпе шагов",
+      "Ступни не перекрещивать, вес на носках; выстрел в «тихой» фазе шага",
+      "Все попадания в зачётной зоне",
+      "3–4 подхода, финишная дистанция ~13–15 м"
+    ]
+  },
+  "safety": { "ru": "Проверь пространство за спиной до подхода: ямы, препятствия, границы стрельбища" },
+  "equipment": ["карабин", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Отход с попеременной сменой плеч", "Отход по диагонали (два маршрута)"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 17,
+    "positions": [
+      { "id": "P1", "x": 5, "y": 9, "label": { "ru": "старт 7 м" } },
+      { "id": "P2", "x": 5, "y": 1, "label": { "ru": "финиш 15 м" } }
+    ],
+    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],
+    "movement": [{ "from": "P1", "to": "P2", "style": "retreat" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["move-retreat-multiple", "move-forward-single", "move-retreat-cover-break"]
+}

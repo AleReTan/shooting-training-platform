@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "move-shoot-move",
+  "name": { "ru": "Выстрел — сдвиг — выстрел", "en": "Shoot, Displace, Shoot" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["movement", "movement-lateral", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "par-time" },
+  "parTimes": [
+    { "level": "novice", "time": 10.0 },
+    { "level": "intermediate", "time": 8.0 },
+    { "level": "advanced", "time": 6.5 },
+    { "level": "master", "time": 5.0 }
+  ],
+  "goal": {
+    "ru": "«Уйди с линии»: после каждой пары — резкое смещение с возвратом прицела на цель",
+    "en": "Get off the X: after each pair, a hard displacement with the sight right back on target"
+  },
+  "steps": {
+    "ru": [
+      "Мишень 12 м; три марки смещения по 1,5–2 м в стороны от стартовой точки",
+      "По сигналу — 2 выстрела, резкий сдвиг на соседнюю марку (2–3 шага), снова 2 выстрела",
+      "Три цикла: 6 выстрелов, три разные точки",
+      "Смещение — взрывное, приход с готовым прицелом (не «достреливать» корпус после остановки)",
+      "Пар на серию; все попадания в зачётной зоне"
+    ]
+  },
+  "safety": { "ru": "Быстрые смещения контролируй габаритом: ствол не выходит за край мишени при переносах" },
+  "equipment": ["карабин", "1 магазин на 6 патронов", "3 марки"],
+  "variants": { "ru": ["Сухая версия (отработка смещений и возврата прицела)", "Смещения по команде партнёра"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 14,
+    "positions": [
+      { "id": "M1", "x": 3, "y": 1, "label": { "ru": "марка 1" } },
+      { "id": "M2", "x": 6, "y": 1, "label": { "ru": "марка 2" } },
+      { "id": "M3", "x": 9, "y": 1, "label": { "ru": "марка 3" } }
+    ],
+    "targets": [{ "id": "T1", "x": 6, "y": 12, "type": "ipsc-metric" }],
+    "movement": [
+      { "from": "M1", "to": "M2", "style": "lateral" },
+      { "from": "M2", "to": "M3", "style": "lateral" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "M1", "to": "M2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "M2", "to": "M3" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["move-lateral-single", "stress-sprint-pairs", "ready-up-standards"]
+}
