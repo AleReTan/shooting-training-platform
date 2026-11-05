@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "steel-single-par",
+  "name": { "ru": "Одиночная сталь на пар", "en": "Single Steel on Par" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["speed", "first-shot", "accuracy"],
+  "difficulty": 1,
+  "fireMode": ["live"],
+  "rounds": 5,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "steel-popper", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 2.5 },
+    { "level": "intermediate", "time": 2.0 },
+    { "level": "advanced", "time": 1.6 },
+    { "level": "master", "time": 1.3 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Один выстрел — одно падение: время выхода в сталь с готовности",
+    "en": "One shot, one clang: presentation time to steel"
+  },
+  "steps": {
+    "ru": [
+      "15 м, один попер, карабин в готовности",
+      "По сигналу — 1 выстрел, попер должен упасть",
+      "Пар — на один выстрел; 5 заходов, засчитывается лучшее время"
+    ]
+  },
+  "safety": { "ru": "Очки и наушники обязательны; держи дистанцию до стали не меньше 10 м" },
+  "equipment": ["карабин", "1 магазин на 5 патронов", "попер"],
+  "variants": { "ru": ["С 25 м", "Круглая сталь 20 см"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 18,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "steel-popper" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 1 }]
+  },
+  "related": ["ready-up-standards", "reload-emergency-steel"]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "a-zone-25",
+  "name": { "ru": "Десять в «А» с 25 м", "en": "Ten in A at 25 m" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["accuracy", "speed", "recoil-control", "standing"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "distance": { "min": 25, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 15.0 },
+    { "level": "intermediate", "time": 12.0 },
+    { "level": "advanced", "time": 10.0 },
+    { "level": "master", "time": 8.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Рабочая дальность карабина: серия в зону «А» с 25 м в ровном темпе",
+    "en": "Working distance: full A-zone string at 25 m, steady tempo"
+  },
+  "steps": {
+    "ru": [
+      "25 м, одна мишень, 10 патронов в магазине",
+      "По сигналу — 10 выстрелов, все в зону «А»",
+      "Темп ровный, без «запада» между выстрелами",
+      "Пар на серию"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин на 10+ патронов"],
+  "variants": { "ru": ["Только головная зона", "С 50 м"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 28,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 25, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 10 }]
+  },
+  "related": ["the-test-10-10-10", "position-standard-standing"]
+}

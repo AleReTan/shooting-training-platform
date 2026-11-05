@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "one-hole-dry",
+  "name": { "ru": "Одно отверстие (сухая)", "en": "One Hole (Dry)" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["accuracy"],
+  "difficulty": 1,
+  "fireMode": ["dry"],
+  "rounds": 5,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "a4-paper", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Идеальная повторяемость: пять «выстрелов» в одну и ту же точку",
+    "en": "Perfect repeatability: five dry shots into one point"
+  },
+  "steps": {
+    "ru": [
+      "10 м, маленькая точка/крест на листе, карабин без патронов",
+      "С устойчивого положения — 5 спусков в одну точку прицеливания",
+      "С лазерным патроном оценивай пятно; без — стабильность прицельных",
+      "Каждый сбой картинки — повтор цикла"
+    ]
+  },
+  "safety": { "ru": "Проверка отсутствия боевых патронов перед каждой серией" },
+  "equipment": ["карабин", "мишень-точка", "лазерный патрон (опционально)"],
+  "variants": { "ru": ["Сближение до 5 м для начинающих", "С 25 м для продвинутых"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 14,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "a4-paper" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+  },
+  "related": ["trigger-control-dry", "dot-torture-carbine"]
+}

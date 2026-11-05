@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "pairs-on-steel",
+  "name": { "ru": "Пары по стали", "en": "Pairs on Steel" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["recoil-control", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "steel-popper", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 7.0 },
+    { "level": "intermediate", "time": 5.5 },
+    { "level": "advanced", "time": 4.5 },
+    { "level": "master", "time": 3.6 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Три пары в попер: возврат прицельных между выстрелами пары слышен по стали",
+    "en": "Three pairs on steel: recoil recovery audible in the clangs"
+  },
+  "steps": {
+    "ru": [
+      "15 м, один попер, 6 патронов",
+      "По сигналу — 3 пары выстрелов (6 всего)",
+      "Каждая пара — два отдельных падающих звука, не «двойная»",
+      "Пар на серию"
+    ]
+  },
+  "safety": { "ru": "Рикошеты от стали: очки обязательны, дистанция не меньше 10 м" },
+  "equipment": ["карабин", "1 магазин на 6 патронов", "попер"],
+  "variants": { "ru": ["«Молот» (двойная) — сравнить разброс", "С 25 м"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 18,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "steel-popper" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 6 }]
+  },
+  "related": ["controlled-pairs", "steel-single-par"]
+}

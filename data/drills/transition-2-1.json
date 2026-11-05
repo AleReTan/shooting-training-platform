@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "transition-2-1",
+  "name": { "ru": "Перенос 2+1", "en": "Transition 2+1" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["transitions", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 6,
+  "distance": { "min": 10, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "parTimes": [
+    { "level": "novice", "time": 7.0 },
+    { "level": "intermediate", "time": 5.5 },
+    { "level": "advanced", "time": 4.5 },
+    { "level": "master", "time": 3.6 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Асимметричный перенос: два в ближнюю, один в дальнюю — и реверсом",
+    "en": "Asymmetric transition: two near, one far — then reversed"
+  },
+  "steps": {
+    "ru": [
+      "Ближняя мишень 10 м, дальняя 15 м",
+      "По сигналу — 2 выстрела в ближнюю, 1 в дальнюю",
+      "Второй подход наоборот: 2 в дальнюю, 1 в ближнюю",
+      "Все попадания в зачётных зонах, пар на каждый подход"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин на 6 патронов"],
+  "variants": { "ru": ["Сухая отработка переносов", "Три цели 2+1+1"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 18,
+    "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 5, "y": 10, "type": "ipsc-metric" },
+      { "id": "T2", "x": 9, "y": 15, "type": "ipsc-metric" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 1 }
+    ]
+  },
+  "related": ["two-target-transitions", "transition-ladder"]
+}
