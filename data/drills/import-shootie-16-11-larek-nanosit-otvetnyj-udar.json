@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/288"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "16.11 Ларёк наносит ответный удар"
+    "ru": "Со старта перед дверью: 11 картонных мишеней, бабки и разделённые по оружию тарелки"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

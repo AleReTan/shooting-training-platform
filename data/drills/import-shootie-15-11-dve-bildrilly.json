@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/292"
   },
-  "tags": [],
+  "tags": [
+    "recoil-control",
+    "speed",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "15.11 Две билдриллы"
+    "ru": "Двойная билл-дрилл: по 6 выстрелов в две картонные мишени на максимальной скорости"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

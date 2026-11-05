@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/327"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "21.12 Скуфы, потомки скифов"
+    "ru": "Восемь мини-IPSC и четыре тарелки: точность по малым зонам поражения"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

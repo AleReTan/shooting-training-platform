@@ -12,7 +12,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/114"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "speed",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "1-2-3: Базовое упражнение для карабина"
+    "ru": "Базовая отработка первого выстрела и серий 1-2-3 из положений готовности (хай/лоу реди) с контролем времени — ориентир 2 секунды на выстрел"
   },
   "steps": {
     "ru": [
@@ -43,5 +47,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

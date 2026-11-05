@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "validate:data": "tsx tools/validate-data/cli.ts",
-    "scrape:shootie": "tsx tools/scraper/parse-shootie.ts"
+    "scrape:shootie": "tsx tools/scraper/parse-shootie.ts",
+    "proofread:apply": "tsx tools/proofread/apply-review.ts"
   },
   "dependencies": {
     "preact": "^10.19.0"

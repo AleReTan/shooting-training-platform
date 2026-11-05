@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/388"
   },
-  "tags": [],
+  "tags": [
+    "accuracy",
+    "transitions",
+    "positions"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "10.05.2026 - Упражнение 2"
+    "ru": "Мозамбик по 7 мишеням со старта сидя на стуле, оружие на столе"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

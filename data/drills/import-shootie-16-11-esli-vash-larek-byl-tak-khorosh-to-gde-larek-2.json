@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/289"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "16.11 Если ваш ларёк был так хорош, то где ларёк 2?"
+    "ru": "Старт сидя на стуле: смешанный набор мишеней, тарелки разделены по типу оружия (розовые — травматы, серые — карабины)"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

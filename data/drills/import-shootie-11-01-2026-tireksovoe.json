@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/334"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "11.01.2026 Тирексовое"
+    "ru": "Нарастающая серия 1-2-3-4 по четырём мишеням с переносами между ними"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

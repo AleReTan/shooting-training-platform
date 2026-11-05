@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/296"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "15.11 Застолье: часть два"
+    "ru": "Стад из 24 мишеней со старта сидя на стуле, всё оружие и магазины на столе"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

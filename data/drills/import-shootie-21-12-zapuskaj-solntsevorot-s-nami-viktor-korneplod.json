@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/328"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "21.12 Запускай солнцеворот – с нами Виктор Корнеплод"
+    "ru": "Шесть IPSC-мишеней и железо с бабками, тарелки разделены по типу оружия"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

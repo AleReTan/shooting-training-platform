@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/293"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "15.11 Застолье"
+    "ru": "Старт сидя на стуле, оружие на столе: 5 картонных мишеней и железо до падения"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -12,7 +12,12 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/284"
   },
-  "tags": [],
+  "tags": [
+    "first-shot",
+    "transitions",
+    "reload",
+    "speed"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -33,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "16.11 Эль президенте"
+    "ru": "El Presidente: разворот на 180°, две серии по 2 выстрела в 3 мишени с обязательной перезарядкой при ёмкости 10"
   },
   "steps": {
     "ru": [
@@ -41,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

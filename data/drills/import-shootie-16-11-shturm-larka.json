@@ -13,7 +13,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/287"
   },
-  "tags": [],
+  "tags": [
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "16.11 Штурм ларька"
+    "ru": "Штурм ларька: 5 картонных мишеней и железо, тарелки разделены по типу оружия"
   },
   "steps": {
     "ru": [
@@ -42,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/297"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "15.11 Ни слова по-картонному"
+    "ru": "Большой стад: 35 мишеней всех типов (картон, мини, тарелки, попперы, свингер, бабки) с перемещением внутри ограничительных линий"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

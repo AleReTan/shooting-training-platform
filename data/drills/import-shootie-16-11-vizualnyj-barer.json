@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/285"
   },
-  "tags": [],
+  "tags": [
+    "movement",
+    "transitions",
+    "cover"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "16.11 Визуальный барьер"
+    "ru": "Поражение мишеней из-за бочки-барьера с обходом её для второй серии"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

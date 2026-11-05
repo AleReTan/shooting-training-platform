@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/181"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "reload"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "№4. Борóня 17.08 – Мельница+Эль Договорнячок"
+    "ru": "Мозамбик по группам мишеней с зарядкой магазина максимум 6 патронами"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

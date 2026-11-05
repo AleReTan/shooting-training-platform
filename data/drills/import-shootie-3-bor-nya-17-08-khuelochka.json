@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/180"
   },
-  "tags": [],
+  "tags": [
+    "bilateral",
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "№3. Борóня 17.08 – хуёлочка"
+    "ru": "Посторонняя работа: мишени справа — правой рукой/с правого плеча, слева — левой"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

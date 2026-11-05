@@ -13,7 +13,9 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/331"
   },
-  "tags": [],
+  "tags": [
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "11.01.2026 Сплитанутые"
+    "ru": "Поражение всех мишеней в зоне видимости парами выстрелов"
   },
   "steps": {
     "ru": [
@@ -42,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

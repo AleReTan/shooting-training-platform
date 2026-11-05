@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/286"
   },
-  "tags": [],
+  "tags": [
+    "positions",
+    "transitions"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "16.11 Ларёчные войны"
+    "ru": "Из-за стола: 6 картонных мишеней и 3 бабки при ёмкости магазина 10"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

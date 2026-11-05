@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/290"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "16.11 Побег из Ларька: Арена"
+    "ru": "Побег из ларька: 15 картонных мишеней, 8 бабок и тарелки, разделённые по оружию"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

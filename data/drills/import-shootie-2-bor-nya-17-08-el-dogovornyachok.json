@@ -13,7 +13,11 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/179"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy",
+    "cover"
+  ],
   "difficulty": 2,
   "fireMode": [
     "live"
@@ -34,7 +38,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "№2. Борóня 17.08 – Эль Договорнячок."
+    "ru": "Разворот со сложенными за головой руками, подбор оружия со стола и поражение 3 мишеней серией 2+1 в голову"
   },
   "steps": {
     "ru": [
@@ -42,5 +46,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

@@ -13,7 +13,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/325"
   },
-  "tags": [],
+  "tags": [
+    "transitions",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -34,7 +37,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "21.12 Ронин среди макаронин"
+    "ru": "Шесть IPSC-мишеней и железо со старта №3, тарелки разделены по типу оружия"
   },
   "steps": {
     "ru": [
@@ -42,5 +45,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }

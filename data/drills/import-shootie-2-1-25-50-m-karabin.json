@@ -12,7 +12,10 @@
     "kind": "forum",
     "url": "https://shootie.pro/stages/128"
   },
-  "tags": [],
+  "tags": [
+    "precision-long",
+    "accuracy"
+  ],
   "difficulty": 3,
   "fireMode": [
     "live"
@@ -33,7 +36,7 @@
     "type": "none"
   },
   "goal": {
-    "ru": "“2-1” (25-50 м) Карабин"
+    "ru": "Смена дистанций: пара в бумажную мишень на 25 м и одиночный выстрел в гонг на 50 м"
   },
   "steps": {
     "ru": [
@@ -41,5 +44,5 @@
     ]
   },
   "equipment": [],
-  "needsReview": true
+  "needsReview": false
 }
