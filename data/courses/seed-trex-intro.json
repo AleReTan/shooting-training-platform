@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "seed-trex-intro",
+  "name": { "ru": "Вводная программа (заготовка)", "en": "Intro program (seed)" },
+  "source": { "origin": "T-Rex Arms", "kind": "course" },
+  "description": {
+    "ru": "Заготовка курса из двух seed-упражнений для проверки страницы курса",
+    "en": "Seed course of two drills to verify the course page"
+  },
+  "structure": [{ "label": { "ru": "Фаза 1: база" } }],
+  "items": [
+    { "drillId": "seed-wall-dry", "order": 1, "structureIndex": 0, "note": { "ru": "Разминка дома" } },
+    { "drillId": "seed-bill-drill-carbine", "order": 2, "structureIndex": 0 }
+  ]
+}

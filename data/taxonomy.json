@@ -1,0 +1,36 @@
+{
+  "tags": [
+    { "id": "first-shot", "label": { "ru": "Первый выстрел", "en": "First shot" }, "group": "skill" },
+    { "id": "reload", "label": { "ru": "Перезарядка", "en": "Reload" }, "group": "skill" },
+    { "id": "reload-tactical", "label": { "ru": "Тактическая перезарядка", "en": "Tactical reload" }, "group": "skill", "parent": "reload" },
+    { "id": "reload-emergency", "label": { "ru": "Аварийная перезарядка", "en": "Emergency reload" }, "group": "skill", "parent": "reload" },
+    { "id": "transitions", "label": { "ru": "Перенос огня", "en": "Transitions" }, "group": "skill" },
+    { "id": "movement", "label": { "ru": "Стрельба в движении", "en": "Shooting on the move" }, "group": "skill" },
+    { "id": "movement-forward", "label": { "ru": "Движение вперёд", "en": "Forward movement" }, "group": "skill", "parent": "movement" },
+    { "id": "movement-retreat", "label": { "ru": "Движение назад", "en": "Retreat movement" }, "group": "skill", "parent": "movement" },
+    { "id": "movement-lateral", "label": { "ru": "Боковое движение", "en": "Lateral movement" }, "group": "skill", "parent": "movement" },
+    { "id": "precision-long", "label": { "ru": "Точный дальний выстрел", "en": "Long-range precision" }, "group": "skill" },
+    { "id": "recoil-control", "label": { "ru": "Удержание и контроль отдачи", "en": "Recoil control" }, "group": "skill" },
+    { "id": "positions", "label": { "ru": "Позиции", "en": "Positions" }, "group": "skill" },
+    { "id": "standing", "label": { "ru": "Стоя", "en": "Standing" }, "group": "skill", "parent": "positions" },
+    { "id": "kneeling", "label": { "ru": "С колена", "en": "Kneeling" }, "group": "skill", "parent": "positions" },
+    { "id": "prone", "label": { "ru": "Лёжа", "en": "Prone" }, "group": "skill", "parent": "positions" },
+    { "id": "barricade", "label": { "ru": "С баррикады", "en": "Barricade" }, "group": "skill", "parent": "positions" },
+    { "id": "bilateral", "label": { "ru": "Смена плеча / двусторонняя работа", "en": "Bilateral" }, "group": "skill" },
+    { "id": "cover", "label": { "ru": "Работа с укрытием", "en": "Cover usage" }, "group": "skill" },
+    { "id": "speed", "label": { "ru": "Скорость", "en": "Speed" }, "group": "skill" },
+    { "id": "accuracy", "label": { "ru": "Точность", "en": "Accuracy" }, "group": "skill" },
+    { "id": "nvg", "label": { "ru": "Под ПНВ", "en": "Night vision" }, "group": "condition" },
+    { "id": "armor", "label": { "ru": "Обязателен бронежилет", "en": "Armor required" }, "group": "condition" },
+    { "id": "helmet", "label": { "ru": "Обязателен шлем", "en": "Helmet required" }, "group": "condition" },
+    { "id": "stress", "label": { "ru": "Стрельба на пульсе (физнагрузка)", "en": "Stress / elevated HR" }, "group": "condition" }
+  ],
+  "targetTypes": [
+    { "id": "ipsc-metric", "label": { "ru": "IPSC metric", "en": "IPSC metric" } },
+    { "id": "ipsc-classic", "label": { "ru": "IPSC classic", "en": "IPSC classic" } },
+    { "id": "steel-circle", "label": { "ru": "Круглая сталь", "en": "Steel circle" } },
+    { "id": "steel-popper", "label": { "ru": "Попер", "en": "Steel popper" } },
+    { "id": "a4-paper", "label": { "ru": "Лист А4", "en": "A4 paper" } }
+  ],
+  "parLevels": ["novice", "intermediate", "advanced", "master"]
+}

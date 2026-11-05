@@ -1,0 +1,11 @@
+{
+  "origins": [
+    { "origin": "Kyle Lamb", "note": { "ru": "Кайл Ламб, Viking Tactics" } },
+    { "origin": "Bill Wilson", "note": { "ru": "Билл Уилсон, Wilson Combat" } },
+    { "origin": "USPSA", "url": "https://uspsa.org/classifiers", "note": { "ru": "Библиотека официальных классифайеров USPSA" } },
+    { "origin": "Steel Challenge", "note": { "ru": "Официальные упражнения Steel Challenge" } },
+    { "origin": "T-Rex Arms", "note": { "ru": "Тренировочные материалы T-Rex Arms" } },
+    { "origin": "shootie.pro", "url": "https://shootie.pro", "note": { "ru": "Русскоязычное сообщество стрелков «Шути»" } },
+    { "origin": "карабинная адаптация", "note": { "ru": "Адаптация классического упражнения под карабин" } }
+  ]
+}
