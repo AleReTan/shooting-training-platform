@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "reload-emergency-off-axis",
+  "name": { "ru": "Аварийная перезарядка с уходом с линии", "en": "Emergency Reload Off-Axis" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["reload", "reload-emergency", "movement-lateral"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 4,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 9.0 },
+    { "level": "intermediate", "time": 7.5 },
+    { "level": "advanced", "time": 6.2 },
+    { "level": "master", "time": 5.2 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Уход с линии атаки во время аварийной перезарядки",
+    "en": "Getting off the line during an emergency reload"
+  },
+  "steps": {
+    "ru": [
+      "10 м, одна мишень, в карабине 2 патрона, полный магазин в подсумке",
+      "По сигналу — 2 выстрела до пустого магазина",
+      "Одновременно с аварийной перезарядкой — боковой уход на 2–3 м с линии",
+      "С новой позиции — 2 выстрела в зону «А»",
+      "Пар на весь подход"
+    ]
+  },
+  "safety": { "ru": "При движении вбок контролируй направление ствола: ноги не должны оказываться на линии огня" },
+  "equipment": ["карабин", "2 магазина", "подсумок + дамп-подсумок"],
+  "variants": { "ru": ["Уход в обе стороны по очереди", "Уход назад с изменением дистанции"] },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 14,
+    "positions": [
+      { "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } },
+      { "id": "P2", "x": 8, "y": 1, "label": { "ru": "после ухода" } }
+    ],
+    "targets": [{ "id": "T1", "x": 6, "y": 10, "type": "ipsc-metric" }],
+    "movement": [{ "from": "P1", "to": "P2", "style": "lateral" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "reload" },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["reload-emergency-par", "reload-emergency-steel"]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "position-standard-prone",
+  "name": { "ru": "Стандарт лёжа: 5 в «А»", "en": "Prone Standard: 5 in A" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["positions", "prone", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 5,
+  "distance": { "min": 50, "max": 50, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 40.0 },
+    { "level": "intermediate", "time": 32.0 },
+    { "level": "advanced", "time": 25.0 },
+    { "level": "master", "time": 20.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Лёжа — самая устойчивая позиция: плотная группа на 50 м",
+    "en": "Prone — most stable position: tight group at 50 m"
+  },
+  "steps": {
+    "ru": [
+      "50 м, одна мишень",
+      "По сигналу — занять положение лёжа",
+      "5 прицельных выстрелов в зону «А»",
+      "Пар на серию с учётом принятия позиции"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин на 5+ патронов", "коврик"],
+  "variants": { "ru": ["Скоростное занятие позиции", "100 м для точных карабинов"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 55,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт, лёжа" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 50, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 5 }]
+  },
+  "related": ["position-flow", "precision-prone-100"]
+}

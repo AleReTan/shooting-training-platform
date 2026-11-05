@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "barricade-kneeling",
+  "name": { "ru": "С колена из-за баррикады", "en": "Kneeling Behind Barricade" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["positions", "kneeling", "barricade", "cover"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 4,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 9.5 },
+    { "level": "advanced", "time": 7.5 },
+    { "level": "master", "time": 6.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стрельба с колена из-за укрытия по двум целям без лишних движений",
+    "en": "Kneeling fire from cover on two targets, no wasted motion"
+  },
+  "steps": {
+    "ru": [
+      "15 м, две мишени, баррикада на линии старта",
+      "По сигналу — выйти из-за баррикады на колено",
+      "2 выстрела в левую цель, 2 в правую",
+      "Минимизируй открытое тело за укрытием"
+    ]
+  },
+  "safety": { "ru": "Не выставляй колено и локти за габарит укрытия до готовности стрелять" },
+  "equipment": ["карабин", "1 магазин на 4+ патрона", "баррикада/щит"],
+  "variants": { "ru": ["Правая и левая стороны укрытия по очереди", "Добавить перезарядку за укрытием"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 18,
+    "positions": [{ "id": "P1", "x": 7, "y": 2, "label": { "ru": "у баррикады" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 15, "type": "ipsc-metric" },
+      { "id": "T2", "x": 10, "y": 15, "type": "ipsc-metric" }
+    ],
+    "barriers": [{ "x": 7, "y": 4, "kind": "wall" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["position-standard-kneeling", "bilateral-barrier-switch"]
+}

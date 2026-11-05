@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "position-flow",
+  "name": { "ru": "Поток позиций: стоя-колено-лёжа", "en": "Position Flow: Standing-Kneeling-Prone" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["positions", "standing", "kneeling", "prone", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 3,
+  "distance": { "min": 25, "max": 25, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 15.0 },
+    { "level": "intermediate", "time": 12.0 },
+    { "level": "advanced", "time": 9.5 },
+    { "level": "master", "time": 8.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Быстрое и безопасное принятие трёх позиций с выстрелом из каждой",
+    "en": "Fast, safe assumption of three positions with a shot from each"
+  },
+  "steps": {
+    "ru": [
+      "25 м, одна мишень, старт стоя с карабином в готовности",
+      "По сигналу — 1 выстрел стоя",
+      "Опуститься на колено — 1 выстрел",
+      "Перейти лёжа — 1 выстрел",
+      "Пар на весь поток; каждое попадание в зачётной зоне"
+    ]
+  },
+  "safety": { "ru": "При переходах держи ствол в сторону мишени и контролируй палец" },
+  "equipment": ["карабин", "1 магазин на 3+ патрона", "коврик"],
+  "variants": { "ru": ["Обратный порядок: лёжа-колено-стоя", "По 2 выстрела из позиции"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 28,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 25, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 3 }]
+  },
+  "related": ["position-standard-standing", "position-standard-kneeling", "position-standard-prone"]
+}

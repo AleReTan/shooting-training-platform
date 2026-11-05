@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "reload-emergency-steel",
+  "name": { "ru": "Перезарядка по стали", "en": "Reload on Steel" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["reload", "reload-emergency", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "steel-popper", "count": 2 }],
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 10.0 },
+    { "level": "advanced", "time": 8.0 },
+    { "level": "master", "time": 6.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Расстрелять магазин в первый попер, перезарядиться и закрыть второй",
+    "en": "Dump the magazine into popper one, reload, close popper two"
+  },
+  "steps": {
+    "ru": [
+      "15 м, два попера с интервалом 3–4 м, в карабине 6 патронов",
+      "По сигналу — стрелять в первый попер до его падения",
+      "Как только магазин пуст — аварийная перезарядка",
+      "Закрыть второй попер",
+      "Пар на весь подход"
+    ]
+  },
+  "safety": { "ru": "Сталь жёсткая: держи дистанцию и очки/наушники обязательно" },
+  "equipment": ["карабин", "2 магазина", "2 попера"],
+  "variants": { "ru": ["Три попера, магазин на 6", "Дистанция 25 м"] },
+  "layout": {
+    "unit": "m",
+    "width": 14,
+    "depth": 18,
+    "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [
+      { "id": "T1", "x": 4, "y": 15, "type": "steel-popper" },
+      { "id": "T2", "x": 10, "y": 15, "type": "steel-popper" }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 6 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["reload-emergency-par", "steel-single-par"]
+}

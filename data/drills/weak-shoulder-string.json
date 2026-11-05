@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "weak-shoulder-string",
+  "name": { "ru": "Серия со слабого плеча", "en": "Weak Shoulder String" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["bilateral", "accuracy", "standing"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 10,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 15.0 },
+    { "level": "advanced", "time": 12.0 },
+    { "level": "master", "time": 10.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Вся серия со слабого плеча: убрать разрыв между сторонами",
+    "en": "Whole string from the weak shoulder: close the side gap"
+  },
+  "steps": {
+    "ru": [
+      "15 м, одна мишень, старт со слабого плеча",
+      "По сигналу — 10 выстрелов со слабого плеча в зону «А»",
+      "Сравни время и плотность с серией с сильного плеча",
+      "Цель — разница между сторонами не больше 20%"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин на 10+ патронов"],
+  "variants": { "ru": ["Только головная зона", "С 25 м"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 18,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт, слабое плечо" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 10 }]
+  },
+  "related": ["bilateral-switch-par", "bilateral-barrier-switch"]
+}

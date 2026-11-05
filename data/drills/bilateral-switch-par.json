@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "bilateral-switch-par",
+  "name": { "ru": "Смена плеча на пар", "en": "Shoulder Switch on Par" },
+  "discipline": ["carbine"],
+  "source": { "origin": "Общая практика карабинных курсов", "kind": "classic" },
+  "tags": ["bilateral", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live", "dry"],
+  "rounds": 4,
+  "distance": { "min": 15, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 9.0 },
+    { "level": "intermediate", "time": 7.0 },
+    { "level": "advanced", "time": 5.5 },
+    { "level": "master", "time": 4.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Быстрая смена плеча без потери картинки прицельных и темпа",
+    "en": "Fast shoulder switch without losing sight picture or tempo"
+  },
+  "steps": {
+    "ru": [
+      "15 м, одна мишень, старт с сильного плеча",
+      "По сигналу — 2 выстрела с сильного плеча",
+      "Смена плеча — 2 выстрела со слабого",
+      "Пар на весь подход, все попадания в зачётной зоне"
+    ]
+  },
+  "equipment": ["карабин", "1 магазин на 4+ патрона"],
+  "variants": { "ru": ["Сухая отработка смены", "Чередование по команде партнёра"] },
+  "layout": {
+    "unit": "m",
+    "width": 10,
+    "depth": 18,
+    "positions": [{ "id": "P1", "x": 5, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 5, "y": 15, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 4 }]
+  },
+  "related": ["weak-shoulder-string", "bilateral-barrier-switch"]
+}
