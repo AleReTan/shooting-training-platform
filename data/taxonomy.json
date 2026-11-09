@@ -30,7 +30,8 @@
     { "id": "ipsc-classic", "label": { "ru": "IPSC classic", "en": "IPSC classic" } },
     { "id": "steel-circle", "label": { "ru": "Круглая сталь", "en": "Steel circle" } },
     { "id": "steel-popper", "label": { "ru": "Попер", "en": "Steel popper" } },
-    { "id": "a4-paper", "label": { "ru": "Лист А4", "en": "A4 paper" } }
+    { "id": "a4-paper", "label": { "ru": "Лист А4", "en": "A4 paper" } },
+    { "id": "card-3x5", "label": { "ru": "Карточка 3×5", "en": "3x5 card" } }
   ],
   "parLevels": ["novice", "intermediate", "advanced", "master"]
 }

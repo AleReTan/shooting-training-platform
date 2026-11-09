@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "spaulding-2x2x2",
+  "name": { "ru": "2×2×2 (Споулдинг)", "en": "2x2x2 (Spaulding)" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Dave Spaulding",
+    "kind": "classic"
+  },
+  "tags": ["first-shot", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 2,
+  "distance": { "min": 6, "max": 6, "unit": "m" },
+  "targets": [{ "type": "card-3x5", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 3.0 },
+    { "level": "intermediate", "time": 2.5 },
+    { "level": "advanced", "time": 2.0 },
+    { "level": "master", "time": 1.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Тест Дэйва Споулдинга: два выстрела за две секунды с шести метров в карточку 3×5 — выхват сразу туда, куда смотрят глаза",
+    "en": "Dave Spaulding's test: two rounds in two seconds at 6 meters into a 3x5 card — draw straight to where the eyes look"
+  },
+  "steps": {
+    "ru": [
+      "6 м (20 футов), карточка 3×5 на уровне груди, 2 патрона",
+      "Старт из кобуры по сигналу",
+      "Два выстрела одним потоком, оба в карточку",
+      "Стандарт Споулдинга — оба выстрела за 2 с чисто: промах = не зачёт"
+    ]
+  },
+  "safety": { "ru": "Скорость выхватывания не должна ломать контроль ствола: пистолет идёт к цели по кратчайшей линии без завала мимо сектора" },
+  "equipment": ["пистолет", "кобура", "1 магазин на 2+ патрона", "карточка 3×5 (или малярный скотч на мишени)"],
+  "variants": { "ru": ["Карточка на уровне глаз — другая высота выхвата", "С 10 м — жёсткая версия на точность"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 7, "type": "card-3x5" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 2 }]
+  },
+  "related": ["failure-2-plus-1", "bill-drill-pistol"]
+}
