@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-pistol-test-3",
+  "name": { "ru": "Тест №3 Дифура — пистолет (B-8, 23 м)", "en": "Defoor Pistol Test 3" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/pistol-shooting-tests"
+  },
+  "tags": ["first-shot", "precision-long", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "distance": { "min": 23, "max": 23, "unit": "m" },
+  "targets": [{ "type": "b8", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Скрытый выхват и 10 выстрелов в круг B-8 с 23 метров за 10 секунд, 90+ из 100",
+    "en": "Concealed draw, 10 rounds into a B-8 at 25 yards in 10 seconds, 90 or better"
+  },
+  "steps": {
+    "ru": [
+      "23 м (25 ярдов), мишень NRA B-8, скрытое ношение, 10 патронов",
+      "По сигналу — выхват и 10 выстрелов под 10 с",
+      "Зачёт: 90+ из 100",
+      "Перебор времени или недобор очков — провал"
+    ]
+  },
+  "safety": { "ru": "Плотная серия на дальности: контролируй подброс и возврат прицельных — никакой «стрельбы по площади»" },
+  "equipment": ["пистолет", "кобура скрытого ношения", "закрывающаяся одежда", "мишень B-8", "таймер"],
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 8, "type": "b8", "distance": 23 }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 10 }]
+  },
+  "related": ["defoor-pistol-test-1", "the-test-10-10-10"]
+}

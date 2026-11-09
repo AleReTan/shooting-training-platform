@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-pistol-test-1",
+  "name": { "ru": "Тест №1 Дифура — пистолет (23 м, скрытый выхват)", "en": "Defoor Pistol Test 1" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/pistol-shooting-tests"
+  },
+  "tags": ["first-shot", "precision-long", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 23, "max": 23, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Первый выстрел из скрытого ношения на 23 метра: 2 выстрела под 2,5 с, три подхода, 25 из 30",
+    "en": "Concealed first shot at 25 yards: 2 rounds under 2.5 s, three runs, 25 of 30 points"
+  },
+  "steps": {
+    "ru": [
+      "23 м (25 ярдов), IPSC-мишень, скрытое ношение",
+      "По сигналу — выхват и 2 выстрела под 2,5 с",
+      "Всего 3 подхода (6 выстрелов)",
+      "Зачёт: 25+ из 30 очков (A=5, C=3, D=1)",
+      "Перебор времени или недобор очков — провал"
+    ]
+  },
+  "safety": { "ru": "Выхват из-под одежды на дальности: ствол не пересекает собственные конечности, палец идёт на спуск только после выхода на мишень" },
+  "equipment": ["пистолет", "кобура скрытого ношения", "закрывающаяся одежда", "IPSC-мишень", "таймер"],
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 8, "type": "ipsc-metric", "distance": 23 }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 2 }]
+  },
+  "related": ["defoor-pistol-test-3", "bill-drill-pistol"]
+}

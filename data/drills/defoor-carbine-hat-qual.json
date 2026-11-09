@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-carbine-hat-qual",
+  "name": { "ru": "Хэт-квал Дифура (карабин)", "en": "Defoor Carbine Hat Qual" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/carbine-shooting-tests"
+  },
+  "tags": ["prone", "first-shot", "precision-long", "speed", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "distance": { "min": 91, "max": 91, "unit": "m" },
+  "targets": [{ "type": "b8", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Квалификация Дифура «за кепку»: падение в лёжа и 10 выстрелов в круг B-8 со 100 ярдов за 14 секунд",
+    "en": "Defoor's hat qual: drop to prone and put 10 rounds into a B-8 at 100 yards under 14 seconds"
+  },
+  "steps": {
+    "ru": [
+      "91 м (100 ярдов), мишень NRA B-8, 10 патронов, электронный таймер",
+      "Старт стоя; по сигналу — падение в лёжа",
+      "10 выстрелов в B-8, всё под 14 с",
+      "Зачёт: 90+ из 100; на курсе даётся три попытки, проходной результат — кепка DPS",
+      "Обновление 2022: плюс 0,75 с из низкой готовности и 1,0 с из высокой (в обоих палец вдоль ресивера, на предохранителе), и билл 6 выстрелов под 2 с из низкой готовности с 7 ярдов в квадрат 6×6″ или верхнюю половину зоны «А» — по 5 итераций каждого без промахов"
+    ]
+  },
+  "safety": {
+    "ru": "Падение в лёжа с заряженным карабином: ствол в сторону мишени всё время падения, палец вне спусковой скобы до изготовки"
+  },
+  "equipment": ["карабин", "2 магазина", "мишень B-8", "таймер"],
+  "variants": { "ru": ["Версия 2022 добавляет нормативы готовности и билл с 7 ярдов — полная схема на странице источника"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт, стоя" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 8, "type": "b8", "distance": 91 }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 10 }]
+  },
+  "related": ["bill-drill-carbine", "defoor-carbine-test-1"]
+}

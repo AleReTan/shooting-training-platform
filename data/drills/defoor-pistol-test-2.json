@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-pistol-test-2",
+  "name": { "ru": "Тест №2 Дифура — пистолет (рандаун, 40 с)", "en": "Defoor Pistol Test 2" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/pistol-shooting-tests"
+  },
+  "tags": ["movement", "stress", "first-shot", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 6, "max": 91, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Рандавн с пистолетом в кобуре скрытого ношения: 46-метровый спринт, корпус вдаль, головы вблизи — всё за 40 секунд",
+    "en": "Concealed-holster rundown: 50-yard sprint, body shots far, head shots close — all inside 40 seconds"
+  },
+  "steps": {
+    "ru": [
+      "IPSC-мишень, лимит 40 секунд, 8 патронов, скрытое ношение",
+      "Старт на 91 м (100 ярдов): пробежка 46 м до линии 50 ярдов — выхват, 2 в корпус",
+      "Бег к 23 м (25 ярдов) — 2 в корпус",
+      "Бег к 14 м (15 ярдов) — 2 в голову",
+      "Бег к 6 м (7 ярдов) — 2 в голову",
+      "Зачёт: 16+ очков в корпус (A=5, C=3, D=1) и все 4 выстрела в голову, из них 2 в зону «А» головы",
+      "Нарушение «длинного пальца» (палец вне скобы на бегу) или направление ствола — провал независимо от результата"
+    ]
+  },
+  "safety": {
+    "ru": "Спринт с патроном в патроннике: кобура с фиксацией, одежда расстёгнута заранее, ствол в сектор мишени на всём маршруте"
+  },
+  "equipment": ["пистолет", "кобура скрытого ношения", "IPSC-мишень", "таймер"],
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 12,
+    "positions": [
+      { "id": "P1", "x": 4, "y": 1, "label": { "ru": "91 м, старт" } },
+      { "id": "P2", "x": 5, "y": 5, "label": { "ru": "46 м, выхват" } },
+      { "id": "P3", "x": 6, "y": 6.5, "label": { "ru": "23 м" } },
+      { "id": "P4", "x": 5, "y": 8, "label": { "ru": "14 м, голова" } },
+      { "id": "P5", "x": 3, "y": 10, "label": { "ru": "6 м, голова" } }
+    ],
+    "targets": [{ "id": "T1", "x": 4, "y": 11, "type": "ipsc-metric" }],
+    "movement": [
+      { "from": "P1", "to": "P2", "style": "advance", "distance": 46 },
+      { "from": "P2", "to": "P3", "style": "advance", "distance": 23 },
+      { "from": "P3", "to": "P4", "style": "advance", "distance": 9 },
+      { "from": "P4", "to": "P5", "style": "advance", "distance": 8 }
+    ],
+    "sequence": [
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P2", "to": "P3" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P3", "to": "P4" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P4", "to": "P5" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["defoor-pistol-test-4", "el-presidente-classic"]
+}

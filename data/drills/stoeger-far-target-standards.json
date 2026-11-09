@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "stoeger-far-target-standards",
+  "name": { "ru": "Far Target Standards (Стоугер, холостая)", "en": "Far Target Standards" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Ben Stoeger",
+    "kind": "classic",
+    "url": "https://www.benstoeger.com/dryfire-drill-far-target-standards"
+  },
+  "tags": ["first-shot", "reload", "bilateral", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["dry"],
+  "rounds": 0,
+  "distance": { "min": 23, "max": 23, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Холостая сетка Стоугера на 23 м: выхват, перезарядки и сильная/слабая рука «в контексте дальнего выстрела» — время лёгкое, точность выхода на мишень и есть работа",
+    "en": "Stoeger's 25-yard dry set: draw, reloads, strong/weak hand — easy times, hitting center consistently is the challenge"
+  },
+  "steps": {
+    "ru": [
+      "23 м (25 ярдов), одна мишень; старт во всех сериях — запястья выше плеч",
+      "Каждая серия — 10 повторений; пар-таймы: новичок / средний / продвинутый",
+      "Серия 1: выхват, 2 выстрела, перезарядка, ещё 2 — 5,0 / 4,0 / 3,5 с",
+      "Серия 2: выхват, 1 выстрел — 2,0 / 1,5 / 1,1 с",
+      "Серия 3: выхват, 2 выстрела, затем 2 только сильной рукой, затем 2 только слабой — 8,0 / 5,2 / 4,5 с",
+      "Серия 4: 2 выстрела, перезарядка, 2, перезарядка, ещё 2 — 8,0 / 5,5 / 4,5 с",
+      "Серия 5: выхват и билл 6 выстрелов — 3,5 / 2,3 / 2,0 с"
+    ]
+  },
+  "safety": {
+    "ru": "Холостая отработка: оружие разряжено и проверено, боеприпасы — в другом помещении"
+  },
+  "equipment": ["пистолет", "кобура", "2 пустых магазина", "настенная мишень"],
+  "variants": { "ru": ["Огневая версия на реальной дальности 23 м — те же пары, контроль центра мишени"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт, руки вверх" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 8, "type": "ipsc-metric", "distance": 23 }]
+  },
+  "related": ["bill-drill-pistol", "spaulding-2x2x2"]
+}

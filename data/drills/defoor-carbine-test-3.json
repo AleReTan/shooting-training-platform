@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-carbine-test-3",
+  "name": { "ru": "Тест №3 Дифура — карабин (200 ярдов)", "en": "Defoor Carbine Test 3" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/carbine-shooting-tests"
+  },
+  "tags": ["prone", "kneeling", "standing", "movement", "stress", "precision-long", "accuracy"],
+  "difficulty": 5,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "distance": { "min": 9, "max": 183, "unit": "m" },
+  "targets": [{ "type": "sr42", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Дальний рандавн Дифура: спринт к 200-ярдовой линии, лёжа с 183 м и добегание до 9 м, 80/100 за 2 минуты",
+    "en": "Defoor's long-range rundown: sprint to the 200, prone at 183 m and run in to 9 m — 80/100 in 2 minutes"
+  },
+  "steps": {
+    "ru": [
+      "Мишень SR-42, лимит 2 минуты, 10 патронов",
+      "Старт на 91 м (100 ярдов)",
+      "Бег к 183 м (200 ярдов) — лёжа 2 выстрела",
+      "Возврат к 91 м (100 ярдов) — с колена 2",
+      "Бег к 46 м (50 ярдов) — стоя 2; к 23 м (25 ярдов) — стоя 2; к 9 м (10 ярдов) — стоя 2",
+      "Зачёт: 80 из 100"
+    ]
+  },
+  "safety": {
+    "ru": "Бег по дальней половине рубежа: убедись, что за мишенью — безопасный фон на всю дальность 200 ярдов; предохранитель на переходах"
+  },
+  "equipment": ["карабин", "1–2 магазина", "мишень SR-42", "таймер"],
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 12,
+    "positions": [
+      { "id": "P1", "x": 2, "y": 7, "label": { "ru": "91 м, старт" } },
+      { "id": "P2", "x": 4, "y": 10, "label": { "ru": "183 м, лёжа" } },
+      { "id": "P3", "x": 6, "y": 7, "label": { "ru": "91 м, колено" } },
+      { "id": "P4", "x": 6, "y": 5, "label": { "ru": "46 м, стоя" } },
+      { "id": "P5", "x": 4, "y": 3, "label": { "ru": "23 м, стоя" } },
+      { "id": "P6", "x": 2, "y": 1.5, "label": { "ru": "9 м, стоя" } }
+    ],
+    "targets": [{ "id": "T1", "x": 4, "y": 11, "type": "sr42", "distance": 183 }],
+    "movement": [
+      { "from": "P1", "to": "P2", "style": "retreat", "distance": 92 },
+      { "from": "P2", "to": "P3", "style": "advance", "distance": 92 },
+      { "from": "P3", "to": "P4", "style": "advance", "distance": 46 },
+      { "from": "P4", "to": "P5", "style": "advance", "distance": 23 },
+      { "from": "P5", "to": "P6", "style": "advance", "distance": 14 }
+    ],
+    "sequence": [
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P2", "to": "P3" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P3", "to": "P4" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P4", "to": "P5" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P5", "to": "P6" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["defoor-carbine-test-2", "defoor-carbine-hat-qual"]
+}

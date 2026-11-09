@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-carbine-test-2",
+  "name": { "ru": "Тест №2 Дифура — карабин (рандаун 100 ярдов)", "en": "Defoor Carbine Test 2" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/carbine-shooting-tests"
+  },
+  "tags": ["kneeling", "standing", "movement", "stress", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "distance": { "min": 9, "max": 91, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Рандавн на 8 патронов: корпус с дальней дистанции и головы с ближних, лимит — 1 минута",
+    "en": "8-round rundown: body shots from far, head shots up close, one minute limit"
+  },
+  "steps": {
+    "ru": [
+      "IPSC-мишень, лимит 1 минута, 8 патронов",
+      "Старт на 46 м (50 ярдов)",
+      "Бег к 91 м (100 ярдов) — с колена 2 в корпус",
+      "Возврат к 46 м (50 ярдов) — стоя 2 в корпус",
+      "Бег к 23 м (25 ярдов) — стоя 2 в голову; к 9 м (10 ярдов) — стоя 2 в голову",
+      "Зачёт: 16+ очков в корпус (A=5, C=3, D=2) и все 4 выстрела в голову, из них минимум 2 в зону «А» головы"
+    ]
+  },
+  "safety": {
+    "ru": "Спринты с заряженным карабином: предохранитель на переходах, палец вне спусковой скобы, ствол в сектор мишени"
+  },
+  "equipment": ["карабин", "1–2 магазина", "IPSC-мишень", "таймер"],
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 12,
+    "positions": [
+      { "id": "P1", "x": 2, "y": 6, "label": { "ru": "46 м, старт" } },
+      { "id": "P2", "x": 4, "y": 9, "label": { "ru": "91 м, колено" } },
+      { "id": "P3", "x": 6, "y": 6, "label": { "ru": "46 м, стоя" } },
+      { "id": "P4", "x": 5, "y": 3.5, "label": { "ru": "23 м, голова" } },
+      { "id": "P5", "x": 3, "y": 1.5, "label": { "ru": "9 м, голова" } }
+    ],
+    "targets": [{ "id": "T1", "x": 4, "y": 11, "type": "ipsc-metric" }],
+    "movement": [
+      { "from": "P1", "to": "P2", "style": "retreat", "distance": 46 },
+      { "from": "P2", "to": "P3", "style": "advance", "distance": 46 },
+      { "from": "P3", "to": "P4", "style": "advance", "distance": 23 },
+      { "from": "P4", "to": "P5", "style": "advance", "distance": 14 }
+    ],
+    "sequence": [
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P2", "to": "P3" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P3", "to": "P4" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P4", "to": "P5" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["defoor-carbine-test-1", "defoor-carbine-test-3"]
+}

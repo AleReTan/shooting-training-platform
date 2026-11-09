@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-pistol-test-5",
+  "name": { "ru": "Тест №5 Дифура — пистолет (билл-лестница)", "en": "Defoor Pistol Test 5" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/pistol-shooting-tests"
+  },
+  "tags": ["recoil-control", "first-shot", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "distance": { "min": 5, "max": 18, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Билл-дрилл из скрытого ношения на четырёх дистанциях с растущим пар-таймом — 20 «А» из 24, «D» нет",
+    "en": "Concealed bill drill at four distances with a rising par — 20 Alphas of 24, no Deltas"
+  },
+  "steps": {
+    "ru": [
+      "IPSC-мишень, скрытое ношение, 4×6 патронов",
+      "С 5 м (5 ярдов): выхват, билл 6 под 3,0 с",
+      "С 9 м (10 ярдов): билл 6 под 3,5 с",
+      "С 14 м (15 ярдов): билл 6 под 4,0 с",
+      "С 18 м (20 ярдов): билл 6 под 4,5 с",
+      "Зачёт: 20 попаданий в «А» из 24, «D» не допускаются",
+      "Перебор времени на любой серии — провал"
+    ]
+  },
+  "safety": { "ru": "Смены рубежей с заряженным пистолетом: палец вне спусковой скобы, ствол в сектор" },
+  "equipment": ["пистолет", "кобура скрытого ношения", "4 магазина по 6+", "IPSC-мишень", "таймер"],
+  "variants": { "ru": ["Тренировочная версия без лимита времени — только чистота зон"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [
+      { "id": "P1", "x": 2, "y": 8.5, "label": { "ru": "18 м" } },
+      { "id": "P2", "x": 3.5, "y": 6.5, "label": { "ru": "14 м" } },
+      { "id": "P3", "x": 5, "y": 4, "label": { "ru": "9 м" } },
+      { "id": "P4", "x": 6.5, "y": 2, "label": { "ru": "5 м" } }
+    ],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" }],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 6 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 6 },
+      { "action": "move", "from": "P2", "to": "P3" },
+      { "action": "engage", "target": "T1", "shots": 6 },
+      { "action": "move", "from": "P3", "to": "P4" },
+      { "action": "engage", "target": "T1", "shots": 6 }
+    ]
+  },
+  "related": ["bill-drill-pistol", "defoor-pistol-test-3"]
+}

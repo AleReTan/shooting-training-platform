@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "stoeger-close-90-close",
+  "name": { "ru": "Широкие перенос 90° (Стоугер, холостая)", "en": "90 Degree Transitions" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Ben Stoeger",
+    "kind": "classic",
+    "url": "https://www.benstoeger.com/dryfire-drill-close-90-close"
+  },
+  "tags": ["transitions", "first-shot", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["dry"],
+  "rounds": 0,
+  "distance": { "min": 6, "max": 6, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 2 }],
+  "scoring": { "type": "none" },
+  "goal": {
+    "ru": "Холостая работа широких переносов: две мишени под 90° друг к другу, по 2 выстрела в каждую от рук по швам — ориентир 1,6 с",
+    "en": "Wide-transition dry work: two targets 90° apart, two rounds each from hands relaxed — 1.6 s benchmark"
+  },
+  "steps": {
+    "ru": [
+      "Домашняя версия: два угла комнаты дают 90° переноса; дистанцию имитируй как 6–7 м (7 ярдов)",
+      "Старт — лицом в сектор, руки расслаблены по швам",
+      "По сигналу — по 2 выстрела в каждую мишень",
+      "Чередуй, с какой мишени начинаешь",
+      "Ориентир Стоугера: 1,6 с на всю пару"
+    ]
+  },
+  "safety": {
+    "ru": "Холостая отработка: оружие разряжено и проверено, боеприпасы — в другом помещении"
+  },
+  "equipment": ["пистолет", "2 настенные мишени по углам комнаты"],
+  "variants": { "ru": ["Огневая версия на диапазоне с теми же углами — старт в низкую готовность"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 2, "label": { "ru": "старт, руки по швам" } }],
+    "targets": [
+      { "id": "T1", "x": 0.5, "y": 9, "type": "ipsc-metric", "distance": 6 },
+      { "id": "T2", "x": 7.5, "y": 9, "type": "ipsc-metric", "distance": 6 }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 }
+    ]
+  },
+  "related": ["stoeger-far-target-standards", "bill-drill-pistol"]
+}

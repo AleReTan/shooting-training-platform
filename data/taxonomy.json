@@ -31,7 +31,9 @@
     { "id": "steel-circle", "label": { "ru": "Круглая сталь", "en": "Steel circle" } },
     { "id": "steel-popper", "label": { "ru": "Попер", "en": "Steel popper" } },
     { "id": "a4-paper", "label": { "ru": "Лист А4", "en": "A4 paper" } },
-    { "id": "card-3x5", "label": { "ru": "Карточка 3×5", "en": "3x5 card" } }
+    { "id": "card-3x5", "label": { "ru": "Карточка 3×5", "en": "3x5 card" } },
+    { "id": "b8", "label": { "ru": "NRA B-8 (круг)", "en": "NRA B-8" } },
+    { "id": "sr42", "label": { "ru": "SR-42 (200 ярдов)", "en": "SR-42 (200 yd)" } }
   ],
   "parLevels": ["novice", "intermediate", "advanced", "master"]
 }

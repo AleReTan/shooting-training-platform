@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "defoor-pistol-test-4",
+  "name": { "ru": "Тест №4 Дифура — пистолет (сближение, 10 с)", "en": "Defoor Pistol Test 4" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Kyle Defoor / Defoor Proformance Shooting",
+    "kind": "classic",
+    "url": "https://defoor-proformance-shooting.myshopify.com/pages/pistol-shooting-tests"
+  },
+  "tags": ["movement", "stress", "first-shot", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 5, "max": 23, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "scoring": { "type": "points" },
+  "goal": {
+    "ru": "Сближение с обстрелом: из-под одежды 2 выстрела с 23 м, бегом 14 м и 5 м — ещё по 2, всё под 10 с и только в «А»",
+    "en": "Shooting on the move in: 2 from concealment at 25 yds, run in shooting pairs at 15 and 5 — under 10 s, Alphas only"
+  },
+  "steps": {
+    "ru": [
+      "IPSC-мишень, скрытое ношение, 6 патронов",
+      "С 23 м (25 ярдов) — выхват, 2 выстрела",
+      "Бег к 14 м (15 ярдов) — 2 выстрела",
+      "Бег к 5 м — 2 выстрела",
+      "Зачёт: всё под 10 с, все 6 — в зону «А»",
+      "Нарушение «длинного пальца» или направления ствола — провал; выход из «А» или перебор времени — провал"
+    ]
+  },
+  "safety": { "ru": "Стрельба в движении вперёд: ствол не опускается при шаге, палец вне скобы до выхода на мишень на каждой остановке" },
+  "equipment": ["пистолет", "кобура скрытого ношения", "закрывающаяся одежда", "IPSC-мишень", "таймер"],
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [
+      { "id": "P1", "x": 3, "y": 2, "label": { "ru": "23 м, выхват" } },
+      { "id": "P2", "x": 5, "y": 5, "label": { "ru": "14 м" } },
+      { "id": "P3", "x": 4, "y": 8, "label": { "ru": "5 м" } }
+    ],
+    "targets": [{ "id": "T1", "x": 4, "y": 10, "type": "ipsc-metric" }],
+    "movement": [
+      { "from": "P1", "to": "P2", "style": "advance", "distance": 9 },
+      { "from": "P2", "to": "P3", "style": "advance", "distance": 9 }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P2", "to": "P3" },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "related": ["defoor-pistol-test-2", "bill-drill-pistol"]
+}
