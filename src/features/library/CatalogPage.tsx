@@ -1,9 +1,11 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
 import { localized, FIRE_LABELS_PLURAL, SOURCE_KIND_LABELS } from '../../app/i18n';
 import {
   filterDrills,
-  INITIAL_CATALOG_STATE,
   hasActiveFilters,
+  INITIAL_CATALOG_STATE,
+  loadCatalogState,
+  saveCatalogState,
   toCatalogFilters,
   type CatalogState,
 } from './filters';
@@ -23,8 +25,12 @@ export default function CatalogPage({ data }: { data: AppData }) {
 
   // Фильтры — один объект (CatalogState): сброс, «есть активные» и мемо
   // зависят только от него, новое поле не требует правок в пяти местах.
-  const [state, setState] = useState<CatalogState>(INITIAL_CATALOG_STATE);
+  // Начальное — из sessionStorage: возврат из упражнения не сбрасывает набор.
+  const [state, setState] = useState<CatalogState>(loadCatalogState);
   const patch = (p: Partial<CatalogState>) => setState((s) => ({ ...s, ...p }));
+  useEffect(() => {
+    saveCatalogState(state);
+  }, [state]);
   const [favorites, toggleFav] = useFavorites();
 
   const tagLabels = useMemo(

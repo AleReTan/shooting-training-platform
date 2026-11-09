@@ -50,6 +50,38 @@ export const INITIAL_CATALOG_STATE: CatalogState = {
   favOnly: false,
 };
 
+const STORAGE_KEY = 'shooting-catalog-filters-v1';
+
+/** Загружает фильтры из sessionStorage: каталог размонтируется при уходе в
+ *  упражнение, а фильтры не должны сбрасываться на «назад в каталог».
+ *  session, а не local: фильтры — контекст тренировки, не долгосрочные данные.
+ *  Битые данные → начальное состояние. */
+export function loadCatalogState(): CatalogState {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    const v = raw ? (JSON.parse(raw) as Partial<CatalogState>) : null;
+    if (!v) return INITIAL_CATALOG_STATE;
+    // от старой версии схемы защищает spread; crash-поля (строки/массив) — проверкой
+    const s = { ...INITIAL_CATALOG_STATE, ...v };
+    return {
+      ...s,
+      query: typeof s.query === 'string' ? s.query : '',
+      tags: Array.isArray(s.tags) ? s.tags.filter((t): t is string => typeof t === 'string') : [],
+    };
+  } catch {
+    return INITIAL_CATALOG_STATE;
+  }
+}
+
+/** Сохраняет фильтры; приватный режим Safari и т.п. — молча. */
+export function saveCatalogState(s: CatalogState): void {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+  } catch {
+    // нет хранилища — не критично
+  }
+}
+
 /** UI-состояние → фильтры для filterDrills ('' → не задано). */
 export function toCatalogFilters(s: CatalogState, favorites: string[]): CatalogFilters {
   return {

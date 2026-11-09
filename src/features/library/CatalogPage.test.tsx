@@ -12,6 +12,7 @@ afterEach(() => {
   cleanup();
   window.location.hash = '';
   window.localStorage.clear();
+  window.sessionStorage.clear();
 });
 
 test('каталог показывает упражнения', () => {
@@ -19,6 +20,19 @@ test('каталог показывает упражнения', () => {
   expect(screen.getByText('От 1 до 5')).toBeTruthy();
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
   expect(screen.getByText('Стена (холостая)')).toBeTruthy();
+});
+
+test('фильтры переживают возврат из упражнения в каталог', () => {
+  const { unmount } = render(<CatalogPage data={data} />);
+  fireEvent.click(screen.getByRole('radio', { name: 'холостые' }));
+  fireEvent.input(screen.getByLabelText('Поиск'), { target: { value: 'стена' } });
+  unmount(); // ушли на страницу упражнения — каталог размонтировался
+
+  render(<CatalogPage data={data} />);
+  expect((screen.getByLabelText('Поиск') as HTMLInputElement).value).toBe('стена');
+  expect(screen.getByRole('radio', { name: 'холостые' }).getAttribute('aria-checked')).toBe('true');
+  expect(screen.getByText('Стена (холостая)')).toBeTruthy();
+  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
 });
 
 test('поиск фильтрует карточки', () => {
