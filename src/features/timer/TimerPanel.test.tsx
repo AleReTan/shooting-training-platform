@@ -93,6 +93,61 @@ test('Стоп во время задержки отменяет ещё не п�
   }
 });
 
+test('пар = 0: сигнал пар-тайма не сливается с сигналом старта', () => {
+  const beepMock = vi.mocked(beep);
+  beepMock.mockClear();
+  const rand = vi.spyOn(Math, 'random').mockReturnValue(0); // задержка ровно 1 с
+  vi.useFakeTimers();
+  try {
+    render(<TimerPanel />);
+    fireEvent.input(screen.getByLabelText('Пар, с'), { target: { value: '0' } });
+    fireEvent.click(screen.getByText('Старт'));
+
+    act(() => { vi.advanceTimersByTime(1000); }); // t=1000: сигнал старта
+    expect(beepMock).toHaveBeenCalledWith('start');
+    expect(beepMock).not.toHaveBeenCalledWith('par');
+    act(() => { vi.advanceTimersByTime(199); });
+    expect(beepMock).not.toHaveBeenCalledWith('par');
+    act(() => { vi.advanceTimersByTime(1); }); // t=1200: пар-тайм — отдельно от старта
+    expect(beepMock).toHaveBeenCalledWith('par');
+    cleanup();
+  } finally {
+    vi.useRealTimers();
+    rand.mockRestore();
+  }
+});
+
+test('1e999 (Infinity) в «Пар, с» сбрасывается в «не задано»', () => {
+  render(<TimerPanel />);
+  const input = screen.getByLabelText('Пар, с') as HTMLInputElement;
+  fireEvent.input(input, { target: { value: '1e999' } });
+  expect(input.value).toBe('');
+});
+
+test('лок, полученный после Стопа, освобождается сразу, а не висит до закрытия вкладки', async () => {
+  const release = vi.fn(async () => {});
+  let resolveRequest!: (v: { release: () => Promise<void> }) => void;
+  const request = new Promise<{ release: () => Promise<void> }>((r) => {
+    resolveRequest = r;
+  });
+  Object.defineProperty(navigator, 'wakeLock', {
+    configurable: true,
+    value: { request: () => request },
+  });
+  try {
+    render(<TimerPanel />);
+    fireEvent.click(screen.getByText('Старт'));
+    fireEvent.click(screen.getByText('Стоп'));
+    resolveRequest({ release }); // ответ пришёл уже после Стопа
+    await waitFor(() => expect(release).toHaveBeenCalledTimes(1));
+  } finally {
+    Object.defineProperty(navigator, 'wakeLock', {
+      configurable: true,
+      value: undefined,
+    });
+  }
+});
+
 test('wake lock освобождается при размонтировании во время работы таймера', async () => {
   const release = vi.fn(async () => {});
   Object.defineProperty(navigator, 'wakeLock', {

@@ -45,14 +45,19 @@ export function applyReview(drillsDir: string, decisions: ReviewDecision[]): App
     }
     if (bad) continue; // это решение пропускаем, следующие — нет
 
-    const drill = JSON.parse(readFileSync(file, 'utf-8'));
-    if (d.tags) drill.tags = d.tags;
-    if (d.goalRu) drill.goal = { ru: d.goalRu };
-    if (d.scoring) drill.scoring = d.scoring;
-    if (d.targets) drill.targets = d.targets;
-    if (d.needsReview != null) drill.needsReview = d.needsReview;
-    writeFileSync(file, JSON.stringify(drill, null, 2) + '\n');
-    applied++;
+    try {
+      const drill = JSON.parse(readFileSync(file, 'utf-8'));
+      if (d.tags) drill.tags = d.tags;
+      if (d.goalRu) drill.goal = { ru: d.goalRu };
+      if (d.scoring) drill.scoring = d.scoring;
+      if (d.targets) drill.targets = d.targets;
+      if (d.needsReview != null) drill.needsReview = d.needsReview;
+      writeFileSync(file, JSON.stringify(drill, null, 2) + '\n');
+      applied++;
+    } catch (e) {
+      // битый JSON одного файла не должен ронять весь батч
+      errors.push(`${d.id}: ${(e as Error).message}`);
+    }
   }
 
   return { applied, errors };

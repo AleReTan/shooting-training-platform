@@ -73,6 +73,23 @@ test('ошибка в одном решении не блокирует вали
   expect(after.needsReview).toBe(false);
 });
 
+test('битый JSON одного файла не роняет батч: валидные до и после применяются', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'proof-'));
+  mk(dir, 'ok-first');
+  mk(dir, 'broken');
+  mk(dir, 'ok-last');
+  writeFileSync(join(dir, 'broken.json'), '{truncated');
+  const res = applyReview(dir, [
+    { id: 'ok-first', tags: ['speed'] },
+    { id: 'broken', tags: ['speed'] },
+    { id: 'ok-last', tags: ['speed'] },
+  ]);
+  expect(res.errors).toHaveLength(1);
+  expect(res.errors.join('\n')).toContain('broken');
+  expect(res.applied).toBe(2);
+  expect(JSON.parse(readFileSync(join(dir, 'ok-last.json'), 'utf-8')).tags).toEqual(['speed']);
+});
+
 test('пустое решение (только id) — валидный no-op', () => {
   const dir = mkdtempSync(join(tmpdir(), 'proof-'));
   mkdirSync(dir, { recursive: true });

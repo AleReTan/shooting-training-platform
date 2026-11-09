@@ -257,3 +257,56 @@ test('файл с null вместо объекта даёт ошибку, а н�
   expect(res.errors.join('\n')).toContain('не объект');
   expect(res.ok).toBe(false);
 });
+
+test('массив вместо объекта упражнения — одна ясная ошибка, а не каскад', () => {
+  const res = run([entry('x-drill.json', [drill()] as unknown)]);
+  expect(res.errors).toHaveLength(1);
+  expect(res.errors[0]).toContain('не объект');
+});
+
+test('курс с null или массивом вместо объекта даёт ошибку, а не краш', () => {
+  const res = run(
+    [entry('x-drill.json', drill())],
+    [entry('x-course.json', null), entry('y-course.json', [] as unknown)],
+  );
+  expect(res.errors.join('\n')).toContain('x-course.json: содержимое — не объект');
+  expect(res.errors.join('\n')).toContain('y-course.json: содержимое — не объект');
+  expect(res.ok).toBe(false);
+});
+
+test('курс с items не-массивом даёт ошибку, а не краш', () => {
+  const res = run(
+    [entry('x-drill.json', drill())],
+    [entry('x-course.json', course({ items: 5 as unknown as Course['items'] }))],
+  );
+  expect(res.errors.join('\n')).toContain('items');
+  expect(res.ok).toBe(false);
+});
+
+test('targets/tags/layout-поля не-списком — ошибка, а не краш итерации', () => {
+  const bad = drill({ targets: { type: 'a4-paper', count: 3 } as unknown });
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: 5 as unknown as never,
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric' }],
+    sequence: [{ action: 'engage', target: 'T1', shots: 2 }],
+  } as never;
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('targets — не список');
+  expect(res.errors.join('\n')).toContain('layout.positions — не список');
+  expect(res.ok).toBe(false);
+});
+
+test('layout не-объектом даёт ошибку, а не краш', () => {
+  const res = run([entry('x-drill.json', drill({ layout: 'см. схему' as unknown as never }))]);
+  expect(res.errors.join('\n')).toContain('layout — не объект');
+  expect(res.ok).toBe(false);
+});
+
+test('targets.count: целое ≥ 1, иначе на странице упражнения рендерится мусор', () => {
+  const res = run([
+    entry('x-drill.json', drill({ targets: [{ type: 'ipsc-metric', count: 0 }] })),
+  ]);
+  expect(res.errors.join('\n')).toContain('count');
+  expect(res.ok).toBe(false);
+});

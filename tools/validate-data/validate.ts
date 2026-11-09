@@ -25,6 +25,9 @@ const TARGET_TYPES_OF = (taxonomy: Taxonomy) => new Set(taxonomy.targetTypes.map
 
 const SCORING_TYPES = new Set<ScoringType>(['par-time', 'hit-factor', 'points', 'none']);
 
+/** Не-массив вместо списка — не краш итерации, а пустой список + ошибка поля. */
+const arr = <T,>(v: T | undefined | null): T => (Array.isArray(v) ? (v as T) : ([] as T));
+
 function validateDrill(
   entry: FileEntry,
   tagIds: Set<string>,
@@ -32,12 +35,16 @@ function validateDrill(
   errors: string[],
 ): Drill | null {
   const { file, data } = entry;
-  if (!data || typeof data !== 'object') {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
     errors.push(`${file}: содержимое — не объект`);
     return null;
   }
   const d = data as Drill;
   const base = file.replace(/\.json$/, '');
+
+  for (const f of ['tags', 'targets'] as const) {
+    if (d[f] != null && !Array.isArray(d[f])) errors.push(`${file}: ${f} — не список`);
+  }
 
   if (base !== d.id) {
     errors.push(`${file}: имя файла должно совпадать с id ("${d.id}")`);
@@ -47,11 +54,14 @@ function validateDrill(
   if (!d.goal?.ru) errors.push(`${file}: пустой goal.ru`);
   if (!d.source?.origin) errors.push(`${file}: пустой source.origin`);
 
-  for (const tag of d.tags ?? []) {
+  for (const tag of arr(d.tags)) {
     if (!tagIds.has(tag)) errors.push(`${file}: тег "${tag}" вне таксономии`);
   }
-  for (const t of d.targets ?? []) {
+  for (const t of arr(d.targets)) {
     if (!targetTypeIds.has(t.type)) errors.push(`${file}: тип мишени "${t.type}" вне таксономии`);
+    if (!Number.isInteger(t.count) || t.count < 1) {
+      errors.push(`${file}: targets.count у "${t.type}" должен быть целым ≥ 1`);
+    }
   }
   if (d.scoring && !SCORING_TYPES.has(d.scoring.type)) {
     errors.push(`${file}: неизвестный scoring.type "${d.scoring.type}"`);
@@ -95,9 +105,23 @@ function validateLayout(
   targetTypeIds: Set<string>,
   errors: string[],
 ): void {
+  if (!layout || typeof layout !== 'object' || Array.isArray(layout)) {
+    errors.push(`${file}: layout — не объект`);
+    return;
+  }
+
+  for (const f of ['positions', 'targets', 'movement', 'sequence'] as const) {
+    if (layout[f] != null && !Array.isArray(layout[f])) {
+      errors.push(`${file}: layout.${f} — не список`);
+    }
+  }
+
+  const positions = arr(layout.positions);
+  const targets = arr(layout.targets);
+
   // Схема с мишенями обязана иметь позиции: render.tsx ищет ближайшую
   // позицию к мишени и падает на пустом списке.
-  if (layout.targets.length > 0 && layout.positions.length === 0) {
+  if (targets.length > 0 && positions.length === 0) {
     errors.push(`${file}: layout с мишенями требует хотя бы одну позицию (positions)`);
   }
 
@@ -105,15 +129,15 @@ function validateLayout(
     errors.push(`${file}: layout.realDepth должен быть положительным числом`);
   }
 
-  const posIds = new Set(layout.positions.map((p) => p.id));
-  const tgtIds = new Set(layout.targets.map((t) => t.id));
+  const posIds = new Set(positions.map((p) => p.id));
+  const tgtIds = new Set(targets.map((t) => t.id));
   const inBounds = (x: number, y: number) =>
     x >= 0 && x <= layout.width && y >= 0 && y <= layout.depth;
 
-  for (const p of layout.positions) {
+  for (const p of positions) {
     if (!inBounds(p.x, p.y)) errors.push(`${file}: позиция ${p.id} вне габаритов width/depth`);
   }
-  for (const t of layout.targets) {
+  for (const t of targets) {
     if (!inBounds(t.x, t.y)) errors.push(`${file}: мишень ${t.id} вне габаритов width/depth`);
     if (t.distance != null && (typeof t.distance !== 'number' || t.distance <= 0)) {
       errors.push(`${file}: target.distance мишени ${t.id} должен быть положительным числом`);
@@ -122,7 +146,7 @@ function validateLayout(
       errors.push(`${file}: тип мишени "${t.type}" мишени ${t.id} вне таксономии`);
     }
   }
-  for (const m of layout.movement ?? []) {
+  for (const m of arr(layout.movement)) {
     if (!posIds.has(m.from) || !posIds.has(m.to)) {
       errors.push(`${file}: movement ссылается на несуществующую позицию ${m.from}→${m.to}`);
     }
@@ -130,7 +154,7 @@ function validateLayout(
       errors.push(`${file}: movement.distance ${m.from}→${m.to} должен быть положительным числом`);
     }
   }
-  for (const s of layout.sequence ?? []) {
+  for (const s of arr(layout.sequence)) {
     if (s.action === 'engage' && !tgtIds.has(s.target)) {
       errors.push(`${file}: sequence ссылается на несуществующую мишень ${s.target}`);
     }
@@ -159,7 +183,7 @@ export function validateAll(
   }
 
   for (const d of drills) {
-    for (const r of d.related ?? []) {
+    for (const r of arr(d.related)) {
       if (!drillIds.has(r)) {
         errors.push(`data/drills/${d.id}.json: related "${r}" не существует`);
       }
@@ -169,11 +193,18 @@ export function validateAll(
   for (const { file, data } of files.courses) {
     const c = data as Course;
     const base = file.replace(/\.json$/, '');
+    if (!c || typeof c !== 'object' || Array.isArray(c)) {
+      errors.push(`${file}: содержимое — не объект`);
+      continue;
+    }
     if (base !== c.id) errors.push(`${file}: имя файла курса должно совпадать с id ("${c.id}")`);
-    if (!c.items?.length) errors.push(`${file}: курс пуст (items)`);
+    if (!Array.isArray(c.items) || !c.items.length) {
+      errors.push(`${file}: курс пуст (items)`);
+      continue;
+    }
     const orders = new Set<number>();
     const phaseCount = c.structure?.length ?? 0;
-    for (const it of c.items ?? []) {
+    for (const it of c.items) {
       if (!drillIds.has(it.drillId)) {
         errors.push(`${file}: drillId "${it.drillId}" не существует`);
       }

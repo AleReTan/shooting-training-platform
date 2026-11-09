@@ -189,7 +189,9 @@ export default function CatalogPage({ data }: { data: AppData }) {
               value={state.maxRounds}
               onInput={(e) => {
                 const v = (e.target as HTMLInputElement).value;
-                patch({ maxRounds: v === '' ? '' : Math.max(0, Number(v)) });
+                const n = Number(v);
+                // 1e999 → Infinity: браузер примет, фильтр сломает — сбрасываем
+                patch({ maxRounds: v === '' || !Number.isFinite(n) ? '' : Math.max(0, n) });
               }}
             />
           </label>
@@ -202,7 +204,8 @@ export default function CatalogPage({ data }: { data: AppData }) {
               value={state.distanceMax}
               onInput={(e) => {
                 const v = (e.target as HTMLInputElement).value;
-                patch({ distanceMax: v === '' ? '' : Math.max(0, Number(v)) });
+                const n = Number(v);
+                patch({ distanceMax: v === '' || !Number.isFinite(n) ? '' : Math.max(0, n) });
               }}
             />
             м

@@ -32,6 +32,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
   const [parSec, setParSec] = useState<number | ''>(parTimes?.[0]?.time ?? '');
   const wakeRef = useRef<WakeLockSentinel | null>(null);
   const beepTimers = useRef<number[]>([]);
+  const runRef = useRef(0);
 
   const clearBeepTimers = () => {
     for (const id of beepTimers.current) clearTimeout(id);
@@ -42,6 +43,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
   // запланированные сигналы: иначе экран не гаснет, а сирена «догоняет» на другом экране.
   useEffect(() => {
     return () => {
+      runRef.current++;
       clearBeepTimers();
       wakeRef.current?.release().catch(() => {});
     };
@@ -58,27 +60,42 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
 
   const start = () => {
     unlockAudio(); // жест пользователя: без этого iOS молчит при сигнале
+    // Повторный Старт до перерисовки не должен течь таймерами прошлого запуска.
+    clearBeepTimers();
     const now = performance.now();
-    const ns = timerReducer(state, {
-      type: 'start',
-      parMs: parSec === '' ? undefined : parSec * 1000,
-      now,
+    const parMs = parSec === '' || !Number.isFinite(parSec) ? undefined : parSec * 1000;
+    // Редьюсим в апдейтере — только над последним состоянием, а не снапшотом рендера.
+    setState((s) => {
+      const ns = timerReducer(s, { type: 'start', parMs, now });
+      // Сигналы — таймаутами в назначенный момент: тик интервала (100 мс)
+      // заметил бы смену фазы с опозданием до 100 мс и сдул бы все замеры.
+      if (ns.startedAt !== undefined) {
+        const timers = [window.setTimeout(() => beep('start'), ns.startedAt - now)];
+        if (ns.parAt !== undefined) {
+          // пар = 0 (или меньше 0,2 с): пар-сигнал не сливается со стартовым
+          const parDelay = Math.max(ns.parAt - now, ns.startedAt - now + 200);
+          timers.push(window.setTimeout(() => beep('par'), parDelay));
+        }
+        beepTimers.current = timers;
+      }
+      return ns;
     });
-    setState(ns);
-    // Сигналы — таймаутами в назначенный момент: тик интервала (100 мс)
-    // заметил бы смену фазы с опозданием до 100 мс и сдул бы все замеры.
-    if (ns.startedAt !== undefined) {
-      const timers = [window.setTimeout(() => beep('start'), ns.startedAt - now)];
-      if (ns.parAt !== undefined) timers.push(window.setTimeout(() => beep('par'), ns.parAt - now));
-      beepTimers.current = timers;
-    }
+    const run = ++runRef.current;
     wakeRef.current = null;
-    void acquireWakeLock().then((lock) => (wakeRef.current = lock));
+    void acquireWakeLock().then((lock) => {
+      // Стоп/уход со страницы успели раньше запроса — лок не нужен
+      if (runRef.current !== run) {
+        lock?.release().catch(() => {});
+        return;
+      }
+      wakeRef.current = lock;
+    });
   };
 
   const stop = () => {
     clearBeepTimers();
     beep('stop');
+    runRef.current++;
     setState((s) => timerReducer(s, { type: 'stop', now: performance.now() }));
     wakeRef.current?.release().catch(() => {});
     wakeRef.current = null;
@@ -117,9 +134,9 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
               setParSec('');
               return;
             }
-            // min="0" действует не везде — зажимаем вручную.
+            // min="0" действует не везде — зажимаем вручную; 1e999 → Infinity тоже мимо
             const n = Number(v);
-            setParSec(Number.isNaN(n) ? '' : Math.max(0, n));
+            setParSec(!Number.isFinite(n) ? '' : Math.max(0, n));
           }}
         />
       </label>

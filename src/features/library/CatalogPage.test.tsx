@@ -160,6 +160,18 @@ test('«патронов до −5» зажимается в ноль, а не �
   expect(input.value).toBe('0');
 });
 
+test('«1e999» (Infinity) в числовых фильтрах сбрасывается в «не задано»', () => {
+  render(<CatalogPage data={data} />);
+  const rounds = screen.getByLabelText('патронов до') as HTMLInputElement;
+  fireEvent.input(rounds, { target: { value: '1e999' } });
+  expect(rounds.value).toBe('');
+  const dist = screen.getByLabelText(/дистанция до/) as HTMLInputElement;
+  fireEvent.input(dist, { target: { value: '1e999' } });
+  expect(dist.value).toBe('');
+  // фантомный «сбросить фильтры» от Infinity в состоянии — тоже нет
+  expect(screen.queryByText('сбросить фильтры')).toBeNull();
+});
+
 test('диапазон сложности не становится противоречивым: «от» и «до» зажимают друг друга', () => {
   render(<CatalogPage data={data} />);
   // «4+» после «до 2» поднимает «до» до 4, а не даёт пустой список
