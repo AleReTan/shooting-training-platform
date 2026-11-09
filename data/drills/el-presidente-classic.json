@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "el-presidente-classic",
+  "name": { "ru": "Эль Президенте (классика, пистолет)", "en": "El Presidente (classic)" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Jeff Cooper",
+    "kind": "classic"
+  },
+  "tags": ["first-shot", "reload", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "distance": { "min": 9, "max": 9, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 10.0 },
+    { "level": "advanced", "time": 8.0 },
+    { "level": "master", "time": 6.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Классика Джеффа Купера: поворот, первый выстрел, смена магазина и переходы между тремя мишенями в одном темпе",
+    "en": "Jeff Cooper's classic: turn, first shot, reload and transitions across three targets at speed"
+  },
+  "steps": {
+    "ru": [
+      "9 м (10 ярдов), три IPSC-мишени в ряд с интервалом ~1 м между центрами",
+      "Старт: спиной к мишеням, руки подняты вверх; в пистолете 6 патронов, второй магазин в подсумке",
+      "По сигналу — поворот, выстрел, по 2 в каждую мишень",
+      "Обязательная смена магазина — ещё по 2 в каждую",
+      "Всё чисто в зону «А»; классические ориентиры: 10 с — норма, 6 с — уровень эксперта"
+    ]
+  },
+  "safety": {
+    "ru": "Поворот на 180°: ствол всё время в безопасном секторе, мишени — только в зачётном секторе площадки, позади — nobody-зона"
+  },
+  "equipment": ["пистолет", "кобура", "2 магазина по 6 патронов", "3 IPSC-мишени"],
+  "variants": { "ru": ["USPSA-версия на 10 м — в каталоге отдельной карточкой", "Только головные зоны (жёсткая версия)"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 11,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт, спиной" } }],
+    "targets": [
+      { "id": "T1", "x": 3, "y": 9, "type": "ipsc-metric", "distance": 8.2 },
+      { "id": "T2", "x": 4, "y": 9, "type": "ipsc-metric" },
+      { "id": "T3", "x": 5, "y": 9, "type": "ipsc-metric", "distance": 8.2 }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 }
+    ]
+  },
+  "related": ["el-presidente-uspsa", "bill-drill-pistol"]
+}

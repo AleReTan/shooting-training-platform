@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "bill-drill-pistol",
+  "name": { "ru": "Билл Дрилл (пистолет)", "en": "Bill Drill (pistol)" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Bill Wilson",
+    "kind": "classic"
+  },
+  "tags": ["recoil-control", "speed", "accuracy", "first-shot"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 6, "max": 6, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 4.0 },
+    { "level": "intermediate", "time": 3.0 },
+    { "level": "advanced", "time": 2.5 },
+    { "level": "master", "time": 2.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Оригинал Билла Уилсона: шесть быстрых выстрелов в зону «А» из кобуры — контроль отдачи и возврат прицельных",
+    "en": "Bill Wilson's original: six fast A-zone hits from the holster — recoil control and sight recovery"
+  },
+  "steps": {
+    "ru": [
+      "6 м (7 ярдов), одна IPSC-мишень, 6 патронов",
+      "Старт из кобуры по сигналу",
+      "Шесть выстрелов одним темпом, все в зону «А»",
+      "Ориентир мастера — 2 с от сигнала до шестого выстрела"
+    ]
+  },
+  "safety": { "ru": "Серия плотная: проверь пулеулавливатель и держи запястья жёстко — подброс у травмата ощутимый" },
+  "equipment": ["пистолет", "кобура", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["Карабинная версия из готовности — отдельной карточкой", "Только головная зона (жёсткая версия)"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 10,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 7, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 6 }]
+  },
+  "related": ["bill-drill-carbine", "the-test-10-10-10"]
+}

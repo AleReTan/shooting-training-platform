@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "vickers-2x2x2",
+  "name": { "ru": "2×2×2 (Викерс)", "en": "2x2x2 (Vickers)" },
+  "discipline": ["pistol-traumatic"],
+  "source": {
+    "origin": "Larry Vickers",
+    "kind": "classic"
+  },
+  "tags": ["first-shot", "accuracy", "recoil-control", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "distance": { "min": 5, "max": 5, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 1 }],
+  "parTimes": [
+    { "level": "novice", "time": 5.0 },
+    { "level": "intermediate", "time": 4.0 },
+    { "level": "advanced", "time": 3.5 },
+    { "level": "master", "time": 3.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Компактный тест Ларри Викерса: переходы корпус–голова без потери темпа, всё чисто в «А»",
+    "en": "Larry Vickers' compact test: body-to-head transitions without losing pace, all A-zone clean"
+  },
+  "steps": {
+    "ru": [
+      "5 м, одна IPSC-мишень, 6 патронов",
+      "Старт из кобуры по сигналу",
+      "2 в корпус, 2 в головную зону, ещё 2 в корпус — одним потоком",
+      "Стандарт Викерса — 3 с чистыми попаданиями: любой промах = не зачёт"
+    ]
+  },
+  "safety": { "ru": "Головная зона на 5 м мелкая: темп важен, но контроль спуска — прежде всего" },
+  "equipment": ["пистолет", "кобура", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["С 7 м — для продвинутых", "2×2×2 на две мишени: переходы между целями"] },
+  "layout": {
+    "unit": "m",
+    "width": 8,
+    "depth": 9,
+    "positions": [{ "id": "P1", "x": 4, "y": 1, "label": { "ru": "старт" } }],
+    "targets": [{ "id": "T1", "x": 4, "y": 6, "type": "ipsc-metric" }],
+    "sequence": [{ "action": "engage", "target": "T1", "shots": 6 }]
+  },
+  "related": ["failure-2-plus-1", "bill-drill-pistol"]
+}
