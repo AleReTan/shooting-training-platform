@@ -1,7 +1,7 @@
 // Валидация данных упражнений и курсов — правила из спеки §4, §4.1, §5, §7.
 // Чистая функция без побочных эффектов; используется тестами и CLI (CI).
 
-import type { Course, Discipline, Drill, FireMode, Layout, Taxonomy } from '../../src/data/types';
+import type { Course, Discipline, Drill, FireMode, Layout, ScoringType, Taxonomy } from '../../src/data/types';
 
 // Доступные дисциплины (спека §8: MVP был только карабин; расширение —
 // решение владельца, shotgun/pistol-traumatic разрешены с 2026-11-05)
@@ -23,7 +23,7 @@ const TAGS_OF = (taxonomy: Taxonomy) => new Set(taxonomy.tags.map((t) => t.id));
 
 const TARGET_TYPES_OF = (taxonomy: Taxonomy) => new Set(taxonomy.targetTypes.map((t) => t.id));
 
-const SCORING_TYPES = new Set(['par-time', 'hit-factor', 'points', 'none']);
+const SCORING_TYPES = new Set<ScoringType>(['par-time', 'hit-factor', 'points', 'none']);
 
 function validateDrill(
   entry: FileEntry,

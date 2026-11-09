@@ -158,10 +158,10 @@ export default function CatalogPage({ data }: { data: AppData }) {
               { value: 5, label: '5' },
             ]}
             onChange={(v) =>
-              setState((s) =>
+              patch(
                 v === ''
-                  ? { ...s, difficultyMin: 1 }
-                  : { ...s, difficultyMin: v, difficultyMax: Math.max(v, s.difficultyMax) },
+                  ? { difficultyMin: 1 }
+                  : { difficultyMin: v, difficultyMax: Math.max(v, state.difficultyMax) },
               )
             }
           />
@@ -172,7 +172,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
               value={state.difficultyMax}
               onChange={(e) => {
                 const n = Number((e.target as HTMLSelectElement).value);
-                setState((s) => ({ ...s, difficultyMax: n, difficultyMin: Math.min(s.difficultyMin, n) }));
+                patch({ difficultyMax: n, difficultyMin: Math.min(state.difficultyMin, n) });
               }}
             >
               {[1, 2, 3, 4, 5].map((n) => (
