@@ -68,6 +68,7 @@ test('сигналы старта и пар-тайма звучат в назн�
     expect(beepMock).not.toHaveBeenCalledWith('par');
     act(() => { vi.advanceTimersByTime(1); }); // t=3250: момент parAt, тик был бы лишь на 3300
     expect(beepMock).toHaveBeenCalledWith('par');
+    cleanup(); // интервал гасим при живых fake-таймерах, иначе clearInterval промахнётся
   } finally {
     vi.useRealTimers();
     rand.mockRestore();
@@ -87,6 +88,7 @@ test('Стоп во время задержки отменяет ещё не п�
     act(() => { vi.advanceTimersByTime(1000); });
     expect(beepMock).not.toHaveBeenCalledWith('start');
     expect(beepMock).toHaveBeenCalledWith('stop');
+    cleanup(); // интервал гасим при живых fake-таймерах, иначе clearInterval промахнётся
   } finally {
     vi.useRealTimers();
     rand.mockRestore();
