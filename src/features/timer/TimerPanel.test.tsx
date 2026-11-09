@@ -15,7 +15,12 @@ const pars: ParTime[] = [
   { level: 'master', time: 1.8 },
 ];
 
-afterEach(cleanup);
+// Размонтирование — при живых fake-таймерах (clearInterval попадает в цель
+// и на упавшем expect), и только потом возврат реальных таймеров.
+afterEach(() => {
+  cleanup();
+  vi.useRealTimers();
+});
 
 test('чипы пар-таймов показывают русские уровни, а не сырые id', () => {
   render(<TimerPanel parTimes={pars} />);
@@ -68,9 +73,7 @@ test('сигналы старта и пар-тайма звучат в назн�
     expect(beepMock).not.toHaveBeenCalledWith('par');
     act(() => { vi.advanceTimersByTime(1); }); // t=3250: момент parAt, тик был бы лишь на 3300
     expect(beepMock).toHaveBeenCalledWith('par');
-    cleanup(); // интервал гасим при живых fake-таймерах, иначе clearInterval промахнётся
   } finally {
-    vi.useRealTimers();
     rand.mockRestore();
   }
 });
@@ -88,9 +91,7 @@ test('Стоп во время задержки отменяет ещё не п�
     act(() => { vi.advanceTimersByTime(1000); });
     expect(beepMock).not.toHaveBeenCalledWith('start');
     expect(beepMock).toHaveBeenCalledWith('stop');
-    cleanup(); // интервал гасим при живых fake-таймерах, иначе clearInterval промахнётся
   } finally {
-    vi.useRealTimers();
     rand.mockRestore();
   }
 });
@@ -112,9 +113,25 @@ test('пар = 0: сигнал пар-тайма не сливается с си
     expect(beepMock).not.toHaveBeenCalledWith('par');
     act(() => { vi.advanceTimersByTime(1); }); // t=1200: пар-тайм — отдельно от старта
     expect(beepMock).toHaveBeenCalledWith('par');
-    cleanup();
   } finally {
-    vi.useRealTimers();
+    rand.mockRestore();
+  }
+});
+
+test('пар на часы вперёд не звучит сразу после старта (переполнение setTimeout)', () => {
+  const beepMock = vi.mocked(beep);
+  beepMock.mockClear();
+  const rand = vi.spyOn(Math, 'random').mockReturnValue(0);
+  vi.useFakeTimers();
+  try {
+    render(<TimerPanel />);
+    // 3 000 000 с ≈ 35 суток: задержка таймаута > 2^31−1 мс
+    fireEvent.input(screen.getByLabelText('Пар, с'), { target: { value: '3000000' } });
+    fireEvent.click(screen.getByText('Старт'));
+    act(() => { vi.advanceTimersByTime(4000); }); // задержка старта + запас
+    expect(beepMock).toHaveBeenCalledWith('start');
+    expect(beepMock).not.toHaveBeenCalledWith('par');
+  } finally {
     rand.mockRestore();
   }
 });

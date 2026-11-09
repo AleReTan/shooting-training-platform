@@ -72,8 +72,9 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
       if (ns.startedAt !== undefined) {
         const timers = [window.setTimeout(() => beep('start'), ns.startedAt - now)];
         if (ns.parAt !== undefined) {
-          // пар = 0 (или меньше 0,2 с): пар-сигнал не сливается со стартовым
-          const parDelay = Math.max(ns.parAt - now, ns.startedAt - now + 200);
+          // пар = 0 (или меньше 0,2 с): пар-сигнал не сливается со стартовым;
+          // задержка > 2^31−1 мс переполняет таймер и в браузере звучит сразу
+          const parDelay = Math.min(Math.max(ns.parAt - now, ns.startedAt - now + 200), 2_147_483_647);
           timers.push(window.setTimeout(() => beep('par'), parDelay));
         }
         beepTimers.current = timers;

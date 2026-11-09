@@ -6,17 +6,18 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import taxonomyJson from '../../data/taxonomy.json';
-import type { Taxonomy } from '../../src/data/types';
+import type { ScoringType, Taxonomy } from '../../src/data/types';
 
 const taxonomy = taxonomyJson as Taxonomy;
 const TAG_IDS = new Set(taxonomy.tags.map((t) => t.id));
+const SCORING_TYPES = new Set<ScoringType>(['par-time', 'hit-factor', 'points', 'none']);
 
 /** Решение по одному упражнению; отсутствующие поля не меняются. */
 export interface ReviewDecision {
   id: string;
   tags?: string[];
   goalRu?: string;
-  scoring?: { type: 'par-time' | 'hit-factor' | 'points' | 'none'; points?: number };
+  scoring?: { type: ScoringType; points?: number };
   targets?: { type: string; count: number }[];
   needsReview?: boolean;
 }
@@ -31,10 +32,22 @@ export function applyReview(drillsDir: string, decisions: ReviewDecision[]): App
   let applied = 0;
 
   for (const d of decisions) {
-    const file = join(drillsDir, `${d.id}.json`);
     let bad = false;
-    if (!existsSync(file)) {
-      errors.push(`${d.id}: файла нет`);
+    // id строит путь к файлу — разделители или «..» выводят запись за пределы drillsDir
+    if (/[\\/]|\.\./.test(d.id)) {
+      errors.push(`${d.id}: id не должен содержать путь`);
+      bad = true;
+    }
+    if (d.goalRu === '') {
+      errors.push(`${d.id}: пустой goalRu`);
+      bad = true;
+    }
+    if (d.targets != null && !Array.isArray(d.targets)) {
+      errors.push(`${d.id}: targets — не список`);
+      bad = true;
+    }
+    if (d.scoring != null && !SCORING_TYPES.has(d.scoring.type)) {
+      errors.push(`${d.id}: неизвестный scoring.type "${d.scoring.type}"`);
       bad = true;
     }
     for (const tag of d.tags ?? []) {
@@ -45,10 +58,20 @@ export function applyReview(drillsDir: string, decisions: ReviewDecision[]): App
     }
     if (bad) continue; // это решение пропускаем, следующие — нет
 
+    const file = join(drillsDir, `${d.id}.json`);
+    if (!existsSync(file)) {
+      errors.push(`${d.id}: файла нет`);
+      continue;
+    }
+
     try {
       const drill = JSON.parse(readFileSync(file, 'utf-8'));
+      // массив/примитив «применится» без единого поля и пройдёт как успех
+      if (!drill || typeof drill !== 'object' || Array.isArray(drill)) {
+        throw new Error('файл — не объект упражнения');
+      }
       if (d.tags) drill.tags = d.tags;
-      if (d.goalRu) drill.goal = { ru: d.goalRu };
+      if (d.goalRu) drill.goal = { ...drill.goal, ru: d.goalRu };
       if (d.scoring) drill.scoring = d.scoring;
       if (d.targets) drill.targets = d.targets;
       if (d.needsReview != null) drill.needsReview = d.needsReview;
@@ -63,6 +86,21 @@ export function applyReview(drillsDir: string, decisions: ReviewDecision[]): App
   return { applied, errors };
 }
 
+/** Строки JSONL по одной: кривая строка — ошибка с номером, не краш батча. */
+export function parseDecisions(text: string): { decisions: ReviewDecision[]; errors: string[] } {
+  const decisions: ReviewDecision[] = [];
+  const errors: string[] = [];
+  text.split(/\r?\n/).forEach((line, i) => {
+    if (!line.trim()) return;
+    try {
+      decisions.push(JSON.parse(line) as ReviewDecision);
+    } catch (e) {
+      errors.push(`строка ${i + 1}: ${(e as Error).message}`);
+    }
+  });
+  return { decisions, errors };
+}
+
 // --- CLI: npm run proofread:apply -- decisions/batch-01.jsonl ---------------
 
 function main(): void {
@@ -71,10 +109,9 @@ function main(): void {
     console.error('Использование: npm run proofread:apply -- tools/proofread/decisions/<batch>.jsonl');
     process.exit(1);
   }
-  const decisions = readFileSync(input, 'utf-8')
-    .split(/\r?\n/)
-    .filter((l) => l.trim())
-    .map((l) => JSON.parse(l) as ReviewDecision);
+  const { decisions, errors: parseErrors } = parseDecisions(readFileSync(input, 'utf-8'));
+  for (const e of parseErrors) console.error(e);
+  if (parseErrors.length) process.exit(1); // батч валиден целиком или не применяется ничего
   const here = dirname(fileURLToPath(import.meta.url)); // ESM: __dirname нет
   const res = applyReview(join(here, '../../data/drills'), decisions);
   for (const e of res.errors) console.error(e);

@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "typecheck": "tsc --noEmit",
     "validate:data": "tsx tools/validate-data/cli.ts",
     "scrape:shootie": "tsx tools/scraper/parse-shootie.ts",
     "proofread:apply": "tsx tools/proofread/apply-review.ts"

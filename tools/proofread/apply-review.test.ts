@@ -2,7 +2,7 @@ import { test, expect } from 'vitest';
 import { mkdtempSync, writeFileSync, readFileSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { applyReview, type ReviewDecision } from './apply-review';
+import { applyReview, parseDecisions, type ReviewDecision } from './apply-review';
 
 const mk = (dir: string, id: string, extra: Record<string, unknown> = {}) => {
   writeFileSync(
@@ -96,4 +96,61 @@ test('пустое решение (только id) — валидный no-op',
   mk(dir, 'x-drill');
   const res = applyReview(dir, [{ id: 'x-drill' }]);
   expect(res.errors).toEqual([]);
+});
+
+test('файл-массив вместо объекта — ошибка, «применено» не растёт', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'proof-'));
+  writeFileSync(join(dir, 'arr.json'), '[{"old":true}]');
+  const res = applyReview(dir, [{ id: 'arr', tags: ['speed'], needsReview: false }]);
+  expect(res.errors.join('\n')).toContain('arr');
+  expect(res.applied).toBe(0);
+  expect(readFileSync(join(dir, 'arr.json'), 'utf-8')).toBe('[{"old":true}]');
+});
+
+test('goalRu правит только ru, не стирая en-перевод', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'proof-'));
+  mk(dir, 'x-drill', { goal: { ru: 'старый', en: 'old goal' } });
+  const res = applyReview(dir, [{ id: 'x-drill', goalRu: 'новый' }]);
+  expect(res.errors).toEqual([]);
+  const after = JSON.parse(readFileSync(join(dir, 'x-drill.json'), 'utf-8'));
+  expect(after.goal).toEqual({ ru: 'новый', en: 'old goal' });
+});
+
+test('id с разделителями пути отклоняется — тул не читает и не пишет вне drillsDir', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'proof-'));
+  mk(dir, 'x-drill');
+  const res = applyReview(dir, [{ id: '../taxonomy', tags: ['speed'] }]);
+  expect(res.errors.join('\n')).toContain('путь');
+  expect(res.applied).toBe(0);
+});
+
+test('кривая форма решения (targets не-список, scoring.type мимо) — ошибка, файл нетронут', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'proof-'));
+  mk(dir, 'x-drill');
+  const res = applyReview(dir, [
+    { id: 'x-drill', targets: { type: 'a4-paper', count: 3 } as unknown as ReviewDecision['targets'] },
+    { id: 'x-drill', scoring: { type: 'point' as never } },
+  ]);
+  expect(res.errors).toHaveLength(2);
+  expect(res.applied).toBe(0);
+  const after = JSON.parse(readFileSync(join(dir, 'x-drill.json'), 'utf-8'));
+  expect(after.targets).toEqual([{ type: 'ipsc-metric', count: 1 }]); // нетронут
+  expect(after.scoring).toEqual({ type: 'none' });
+});
+
+test('пустой goalRu — явная ошибка, а не тихий «успех»', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'proof-'));
+  mk(dir, 'x-drill');
+  const res = applyReview(dir, [{ id: 'x-drill', goalRu: '' }]);
+  expect(res.errors.join('\n')).toContain('goalRu');
+  expect(res.applied).toBe(0);
+  const after = JSON.parse(readFileSync(join(dir, 'x-drill.json'), 'utf-8'));
+  expect(after.goal.ru).toBe('Тест'); // нетронут
+});
+
+test('parseDecisions: кривая строка — в ошибки с номером, валидные строки парсятся', () => {
+  const { decisions, errors } = parseDecisions('{"id":"a"}\n{broken\n\n{"id":"b"}');
+  expect(decisions.map((d) => d.id)).toEqual(['a', 'b']);
+  expect(errors).toHaveLength(1);
+  expect(errors[0]).toContain('строка 2');
 });

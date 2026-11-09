@@ -310,3 +310,64 @@ test('targets.count: целое ≥ 1, иначе на странице упра
   expect(res.errors.join('\n')).toContain('count');
   expect(res.ok).toBe(false);
 });
+
+test('null-элементы в списках — ошибка по файлу, а не TypeError всего запуска', () => {
+  const bad = drill({ targets: [null as unknown as never] });
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [null as unknown as never],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric' }],
+    movement: [null as unknown as never],
+    sequence: [null as unknown as never],
+  };
+  const res = run(
+    [entry('x-drill.json', bad)],
+    [entry('x-course.json', course({ items: [null as unknown as never] }))],
+  );
+  const msg = res.errors.join('\n');
+  expect(msg).toContain('targets содержит не-объект');
+  expect(msg).toContain('layout.positions содержит не-объект');
+  expect(msg).toContain('layout.movement содержит не-объект');
+  expect(msg).toContain('layout.sequence содержит не-объект');
+  expect(msg).toContain('items содержит не-объект');
+  expect(res.ok).toBe(false);
+});
+
+test('structure не-массивом — ошибка формы, а не фантомный диапазон фаз', () => {
+  const res = run(
+    [entry('x-drill.json', drill())],
+    [
+      entry(
+        'x-course.json',
+        course({
+          structure: 'фазы' as unknown as never,
+          items: [{ drillId: 'x-drill', order: 1, structureIndex: 5 }],
+        }),
+      ),
+    ],
+  );
+  expect(res.errors.join('\n')).toContain('structure — не список');
+});
+
+test('related не-списком — ошибка (строка роняет страницу упражнения)', () => {
+  const res = run([entry('x-drill.json', drill({ related: 'one-to-five' as unknown as never }))]);
+  expect(res.errors.join('\n')).toContain('related — не список');
+});
+
+test('parTimes: строка вместо времени и неизвестный уровень отклоняются', () => {
+  const res = run([
+    entry('x-drill.json', drill({ parTimes: [{ level: 'novice', time: '8' as unknown as number }] })),
+    entry(
+      'y-drill.json',
+      drill({ id: 'y-drill', parTimes: [{ level: 'grandmaster', time: 3 } as unknown as never] }),
+    ),
+  ]);
+  const msg = res.errors.join('\n');
+  expect(msg).toContain('parTimes.time');
+  expect(msg).toContain('уровень');
+});
+
+test('scoring не-объектом — ошибка формы, а не «неизвестный undefined»', () => {
+  const res = run([entry('x-drill.json', drill({ scoring: 'par-time' as unknown as never }))]);
+  expect(res.errors.join('\n')).toContain('scoring — не объект');
+});
