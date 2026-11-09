@@ -52,13 +52,12 @@ test('unlock и сигнал играют одни и те же элементы
   expect(played[3]).toBe(unlocked[0]);
 });
 
-test('держатель: закольцованный неслышимый трек заводится и останавливается', () => {
+test('держатель: закольцованный тихий шум заводится и останавливается', () => {
   keepAudioAwake();
   const keeper = played[0]!;
   expect(keeper).toBeTruthy();
   expect(keeper.loop).toBe(true);
-  expect(keeper.src).toContain('silence');
-  expect(keeper.volume).toBeLessThan(0.05);
+  expect(keeper.src).toContain('keeper'); // уровень шума в файле — beep-keeper.test.ts
   releaseAudioAwake();
   expect(pausedEls).toContain(keeper);
 });
@@ -67,7 +66,7 @@ test('держатель один и переиспользуется, а не �
   keepAudioAwake();
   keepAudioAwake();
   const keepers = [...document.querySelectorAll('audio')].filter((a) =>
-    a.src.includes('silence'),
+    a.src.includes('keeper'),
   );
   expect(keepers.length).toBe(1);
 });

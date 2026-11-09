@@ -7,7 +7,7 @@
 import startUrl from './beep-start.wav';
 import parUrl from './beep-par.wav';
 import stopUrl from './beep-stop.wav';
-import silenceUrl from './beep-silence.wav';
+import keeperUrl from './beep-keeper.wav';
 
 type Kind = 'start' | 'par' | 'stop';
 
@@ -56,24 +56,26 @@ export function unlockAudio(): void {
 export function beep(kind: Kind): void {
   try {
     const a = ensure()[kind];
-    a.currentTime = 0;
+    // Seek только если реально ушёл с нуля: на iOS лишний currentTime=0
+    // перед play() добавляет задержку синхронизации декодера.
+    if (a.currentTime !== 0) a.currentTime = 0;
     void a.play().catch(() => {});
   } catch {
     // Нет звука — не критично.
   }
 }
 
-// iOS усыпляет медиа-тракт за секунды тишины и будит его ~0,7 с: без
-// держателя сигнал старта звучал бы заметно позже «время идёт».
+// iOS усыпляет медиа-тракт за секунды тишины и будит его ~0,7 с. Почти
+// цифровой ноль (±1/32767) iOS тишиной считает и тракт всё равно гасит —
+// держит горячим только настоящий шум (порог — в beep-keeper.test.ts).
+// volume не трогаем: iOS игнорирует свойство, уровень несёт сам файл.
 let keeper: HTMLAudioElement | null = null;
 
-/** Держит медиа-канал горячим закольцованным неслышимым треком (±1/32767,
- * не цифровой ноль — абсолютную тишину iOS может не считать звуком). */
+/** Держит медиа-канал горячим закольцованным неслышимым шумом. */
 export function keepAudioAwake(): void {
   try {
-    if (!keeper || !keeper.isConnected) keeper = mk(silenceUrl);
+    if (!keeper || !keeper.isConnected) keeper = mk(keeperUrl);
     keeper.loop = true;
-    keeper.volume = 0.01;
     void keeper.play().catch(() => {});
   } catch {
     // Нет звука — не критично.
