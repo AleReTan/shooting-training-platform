@@ -63,6 +63,14 @@ function validateDrill(
   if (!d.goal?.ru) errors.push(`${file}: пустой goal.ru`);
   if (!d.source?.origin) errors.push(`${file}: пустой source.origin`);
 
+  // строка вместо списка роняет DrillPage на .map
+  expectList(file, 'equipment', d.equipment, errors);
+  if (d.safety != null && !isRecord(d.safety)) {
+    errors.push(`${file}: safety — не объект`);
+  } else if (d.safety && !d.safety.ru) {
+    errors.push(`${file}: пустой safety.ru`);
+  }
+
   for (const tag of expectList(file, 'tags', d.tags, errors)) {
     if (!tagIds.has(tag)) errors.push(`${file}: тег "${tag}" вне таксономии`);
   }
@@ -139,6 +147,11 @@ function validateLayout(
 
   const positions = expectList(file, 'layout.positions', layout.positions, errors);
   const targets = expectList(file, 'layout.targets', layout.targets, errors);
+  expectList(file, 'layout.barriers', layout.barriers, errors);
+  // при нулевых/отсутствующих габаритах все координаты дают ложное «вне габаритов»
+  if (!Number.isFinite(layout.width) || layout.width <= 0 || !Number.isFinite(layout.depth) || layout.depth <= 0) {
+    errors.push(`${file}: layout.width/depth должны быть положительными числами`);
+  }
 
   // Схема с мишенями обязана иметь позиции: render.tsx ищет ближайшую
   // позицию к мишени и падает на пустом списке.

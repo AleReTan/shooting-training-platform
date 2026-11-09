@@ -371,3 +371,41 @@ test('scoring не-объектом — ошибка формы, а не «не�
   const res = run([entry('x-drill.json', drill({ scoring: 'par-time' as unknown as never }))]);
   expect(res.errors.join('\n')).toContain('scoring — не объект');
 });
+
+test('equipment не-списком и safety без ru — ошибки (строка роняет страницу упражнения)', () => {
+  const res = run([
+    entry('x-drill.json', drill({ equipment: 'кобура' as unknown as never })),
+    entry('y-drill.json', drill({ id: 'y-drill', safety: 'смотри выше' as unknown as never })),
+    entry(
+      'z-drill.json',
+      drill({ id: 'z-drill', safety: { en: 'only en' } as unknown as never }),
+    ),
+  ]);
+  const msg = res.errors.join('\n');
+  expect(msg).toContain('equipment — не список');
+  expect(msg).toContain('safety — не объект');
+  expect(msg).toContain('safety.ru');
+});
+
+test('layout.width/depth — положительные числа, иначе все координаты «вне габаритов»', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 0, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('layout.width');
+});
+
+test('layout.barriers не-списком — ошибка (рендер зовёт .map)', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [],
+    barriers: 'сплошная стена' as unknown as never,
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('layout.barriers — не список');
+});
