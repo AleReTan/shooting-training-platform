@@ -1,16 +1,20 @@
 import { test, expect, beforeEach, afterEach } from 'vitest';
-import { beep, unlockAudio } from './beep';
+import { beep, unlockAudio, keepAudioAwake, releaseAudioAwake } from './beep';
 
 // jsdom не умеет играть медиа — подменяем play/pause на учёт вызовов.
 const played: HTMLAudioElement[] = [];
+const pausedEls: HTMLAudioElement[] = [];
 
 beforeEach(() => {
   played.length = 0;
+  pausedEls.length = 0;
   HTMLMediaElement.prototype.play = function (this: HTMLAudioElement) {
     played.push(this);
     return Promise.resolve();
   };
-  HTMLMediaElement.prototype.pause = function () {};
+  HTMLMediaElement.prototype.pause = function (this: HTMLAudioElement) {
+    pausedEls.push(this);
+  };
 });
 
 afterEach(() => {
@@ -46,4 +50,24 @@ test('unlock и сигнал играют одни и те же элементы
   const unlocked = [...played];
   beep('start');
   expect(played[3]).toBe(unlocked[0]);
+});
+
+test('держатель: закольцованный неслышимый трек заводится и останавливается', () => {
+  keepAudioAwake();
+  const keeper = played[0]!;
+  expect(keeper).toBeTruthy();
+  expect(keeper.loop).toBe(true);
+  expect(keeper.src).toContain('silence');
+  expect(keeper.volume).toBeLessThan(0.05);
+  releaseAudioAwake();
+  expect(pausedEls).toContain(keeper);
+});
+
+test('держатель один и переиспользуется, а не плодится', () => {
+  keepAudioAwake();
+  keepAudioAwake();
+  const keepers = [...document.querySelectorAll('audio')].filter((a) =>
+    a.src.includes('silence'),
+  );
+  expect(keepers.length).toBe(1);
 });

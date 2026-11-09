@@ -1,13 +1,18 @@
 import { test, expect, afterEach, vi } from 'vitest';
 import { render, screen, fireEvent, cleanup, waitFor, act } from '@testing-library/preact';
 import { TimerPanel } from './TimerPanel';
-import { beep } from './beep';
+import { beep, keepAudioAwake, releaseAudioAwake } from './beep';
 import type { ParTime } from '../../data/types';
 
 // beep подменяем шпионом (момент вызова — суть тестов ниже), unlockAudio реальный.
 vi.mock('./beep', async (importOriginal) => {
   const actual = await importOriginal<typeof import('./beep')>();
-  return { ...actual, beep: vi.fn() };
+  return {
+    ...actual,
+    beep: vi.fn(),
+    keepAudioAwake: vi.fn(),
+    releaseAudioAwake: vi.fn(),
+  };
 });
 
 const pars: ParTime[] = [
@@ -91,6 +96,9 @@ test('Стоп во время задержки отменяет ещё не п�
     act(() => { vi.advanceTimersByTime(1000); });
     expect(beepMock).not.toHaveBeenCalledWith('start');
     expect(beepMock).toHaveBeenCalledWith('stop');
+    // держатель канала живёт на время работы и гаснет на Стопе
+    expect(keepAudioAwake).toHaveBeenCalled();
+    expect(releaseAudioAwake).toHaveBeenCalled();
   } finally {
     rand.mockRestore();
   }

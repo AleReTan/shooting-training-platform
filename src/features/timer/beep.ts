@@ -7,6 +7,7 @@
 import startUrl from './beep-start.wav';
 import parUrl from './beep-par.wav';
 import stopUrl from './beep-stop.wav';
+import silenceUrl from './beep-silence.wav';
 
 type Kind = 'start' | 'par' | 'stop';
 
@@ -57,6 +58,32 @@ export function beep(kind: Kind): void {
     const a = ensure()[kind];
     a.currentTime = 0;
     void a.play().catch(() => {});
+  } catch {
+    // Нет звука — не критично.
+  }
+}
+
+// iOS усыпляет медиа-тракт за секунды тишины и будит его ~0,7 с: без
+// держателя сигнал старта звучал бы заметно позже «время идёт».
+let keeper: HTMLAudioElement | null = null;
+
+/** Держит медиа-канал горячим закольцованным неслышимым треком (±1/32767,
+ * не цифровой ноль — абсолютную тишину iOS может не считать звуком). */
+export function keepAudioAwake(): void {
+  try {
+    if (!keeper || !keeper.isConnected) keeper = mk(silenceUrl);
+    keeper.loop = true;
+    keeper.volume = 0.01;
+    void keeper.play().catch(() => {});
+  } catch {
+    // Нет звука — не критично.
+  }
+}
+
+/** Гасит держатель — на Стопе/уходе со страницы канал больше не нужен. */
+export function releaseAudioAwake(): void {
+  try {
+    keeper?.pause();
   } catch {
     // Нет звука — не критично.
   }

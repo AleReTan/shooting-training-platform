@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { ParTime } from '../../data/types';
 import { PAR_LABELS } from '../../app/i18n';
-import { beep, unlockAudio } from './beep';
+import { beep, unlockAudio, keepAudioAwake, releaseAudioAwake } from './beep';
 import { initialTimerState, timerReducer, type TimerPhase } from './timerEngine';
 
 const PHASE_LABELS: Record<TimerPhase, string> = {
@@ -45,6 +45,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
     return () => {
       runRef.current++;
       clearBeepTimers();
+      releaseAudioAwake();
       wakeRef.current?.release().catch(() => {});
     };
   }, []);
@@ -60,6 +61,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
 
   const start = () => {
     unlockAudio(); // жест пользователя: без этого iOS молчит при сигнале
+    keepAudioAwake(); // и держим канал горячим: иначе iOS будит его ~0,7 с
     // Повторный Старт до перерисовки не должен течь таймерами прошлого запуска.
     clearBeepTimers();
     const now = performance.now();
@@ -96,6 +98,7 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
   const stop = () => {
     clearBeepTimers();
     beep('stop');
+    releaseAudioAwake(); // после сигнала: стоп-сигнал тоже играет по горячему каналу
     runRef.current++;
     setState((s) => timerReducer(s, { type: 'stop', now: performance.now() }));
     wakeRef.current?.release().catch(() => {});
