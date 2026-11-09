@@ -152,3 +152,23 @@ test('пустой результат: «Ничего не найдено» + к
   fireEvent.click(screen.getByText('Сбросить'));
   expect(screen.getByText('От 1 до 5')).toBeTruthy();
 });
+
+test('«патронов до −5» зажимается в ноль, а не ведёт себя как «без фильтра»', () => {
+  render(<CatalogPage data={data} />);
+  const input = screen.getByLabelText('патронов до') as HTMLInputElement;
+  fireEvent.input(input, { target: { value: '-5' } });
+  expect(input.value).toBe('0');
+});
+
+test('диапазон сложности не становится противоречивым: «от» и «до» зажимают друг друга', () => {
+  render(<CatalogPage data={data} />);
+  // «4+» после «до 2» поднимает «до» до 4, а не даёт пустой список
+  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
+  fireEvent.click(screen.getByRole('radio', { name: '4+' }));
+  expect(screen.queryByText('Ничего не найдено')).toBeNull();
+  expect((screen.getByLabelText('сложность до') as HTMLSelectElement).value).toBe('4');
+
+  // «до 2» при выбранном «4+» опускает «от» до 2
+  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
+  expect(screen.queryByText('Ничего не найдено')).toBeNull();
+});

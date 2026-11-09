@@ -19,7 +19,7 @@ import type { Discipline, FireMode } from '../../data/types';
 
 /** Каталог упражнений: поиск, фильтры, список (спека §8 п.1). */
 export default function CatalogPage({ data }: { data: AppData }) {
-  const { drills, courses, taxonomy } = data;
+  const { drills, drillById, courses, taxonomy } = data;
 
   // Фильтры — один объект (CatalogState): сброс, «есть активные» и мемо
   // зависят только от него, новое поле не требует правок в пяти местах.
@@ -31,7 +31,6 @@ export default function CatalogPage({ data }: { data: AppData }) {
     () => new Map(taxonomy.tags.map((t) => [t.id, localized(t.label)])),
     [taxonomy],
   );
-  const drillById = useMemo(() => new Map(drills.map((d) => [d.id, d])), [drills]);
 
   // Источники для фильтра: тип источника → origin'ы по убыванию количества.
   const sourceGroups = useMemo(() => {
@@ -158,21 +157,26 @@ export default function CatalogPage({ data }: { data: AppData }) {
               { value: 4, label: '4+' },
               { value: 5, label: '5' },
             ]}
-            onChange={(v) => patch({ difficultyMin: v === '' ? 1 : v })}
+            onChange={(v) =>
+              setState((s) =>
+                v === ''
+                  ? { ...s, difficultyMin: 1 }
+                  : { ...s, difficultyMin: v, difficultyMax: Math.max(v, s.difficultyMax) },
+              )
+            }
           />
           <span class="filters__num">
             до
             <select
               aria-label="сложность до"
               value={state.difficultyMax}
-              onChange={(e) =>
-                patch({ difficultyMax: Number((e.target as HTMLSelectElement).value) })
-              }
+              onChange={(e) => {
+                const n = Number((e.target as HTMLSelectElement).value);
+                setState((s) => ({ ...s, difficultyMax: n, difficultyMin: Math.min(s.difficultyMin, n) }));
+              }}
             >
               {[1, 2, 3, 4, 5].map((n) => (
-                <option value={n} selected={n === state.difficultyMax}>
-                  {n}
-                </option>
+                <option value={n}>{n}</option>
               ))}
             </select>
           </span>
@@ -185,7 +189,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
               value={state.maxRounds}
               onInput={(e) => {
                 const v = (e.target as HTMLInputElement).value;
-                patch({ maxRounds: v === '' ? '' : Number(v) });
+                patch({ maxRounds: v === '' ? '' : Math.max(0, Number(v)) });
               }}
             />
           </label>
@@ -198,7 +202,7 @@ export default function CatalogPage({ data }: { data: AppData }) {
               value={state.distanceMax}
               onInput={(e) => {
                 const v = (e.target as HTMLInputElement).value;
-                patch({ distanceMax: v === '' ? '' : Number(v) });
+                patch({ distanceMax: v === '' ? '' : Math.max(0, Number(v)) });
               }}
             />
             м

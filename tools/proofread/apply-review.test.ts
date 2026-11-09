@@ -59,6 +59,20 @@ test('неизвестный id и тег вне таксономии — оши
   expect(after.tags).toEqual([]); // файл не изменился
 });
 
+test('ошибка в одном решении не блокирует валидные после него', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'proof-'));
+  mk(dir, 'x-drill');
+  const res = applyReview(dir, [
+    { id: 'ghost' },
+    { id: 'x-drill', tags: ['speed'], needsReview: false },
+  ]);
+  expect(res.errors.join('\n')).toContain('ghost');
+  expect(res.applied).toBe(1);
+  const after = JSON.parse(readFileSync(join(dir, 'x-drill.json'), 'utf-8'));
+  expect(after.tags).toEqual(['speed']);
+  expect(after.needsReview).toBe(false);
+});
+
 test('пустое решение (только id) — валидный no-op', () => {
   const dir = mkdtempSync(join(tmpdir(), 'proof-'));
   mkdirSync(dir, { recursive: true });

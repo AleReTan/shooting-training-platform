@@ -31,12 +31,18 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
   const [state, setState] = useState(initialTimerState);
   const [parSec, setParSec] = useState<number | ''>(parTimes?.[0]?.time ?? '');
   const wakeRef = useRef<WakeLockSentinel | null>(null);
-  const prevPhase = useRef<TimerPhase>('idle');
+  const beepTimers = useRef<number[]>([]);
 
-  // Уход со страницы во время работы таймера тоже отпускает лок:
-  // иначе экран телефона не гаснет до перезагрузки страницы.
+  const clearBeepTimers = () => {
+    for (const id of beepTimers.current) clearTimeout(id);
+    beepTimers.current = [];
+  };
+
+  // Уход со страницы во время работы таймера отпускает лок и гасит
+  // запланированные сигналы: иначе экран не гаснет, а сирена «догоняет» на другом экране.
   useEffect(() => {
     return () => {
+      clearBeepTimers();
       wakeRef.current?.release().catch(() => {});
     };
   }, []);
@@ -48,35 +54,32 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
     return () => clearInterval(id);
   }, [state.phase]);
 
-  // Сигналы на переходах фаз.
-  useEffect(() => {
-    if (prevPhase.current !== state.phase) {
-      if (state.phase === 'running') beep('start');
-      else if (state.phase === 'par') beep('par');
-      prevPhase.current = state.phase;
-    }
-  }, [state.phase]);
-
   const running = state.phase === 'delay' || state.phase === 'running' || state.phase === 'par';
 
   const start = () => {
     unlockAudio(); // жест пользователя: без этого iOS молчит при сигнале
-    setState((s) =>
-      timerReducer(s, {
-        type: 'start',
-        parMs: parSec === '' ? undefined : parSec * 1000,
-        now: performance.now(),
-      }),
-    );
-    prevPhase.current = 'delay';
+    const now = performance.now();
+    const ns = timerReducer(state, {
+      type: 'start',
+      parMs: parSec === '' ? undefined : parSec * 1000,
+      now,
+    });
+    setState(ns);
+    // Сигналы — таймаутами в назначенный момент: тик интервала (100 мс)
+    // заметил бы смену фазы с опозданием до 100 мс и сдул бы все замеры.
+    if (ns.startedAt !== undefined) {
+      const timers = [window.setTimeout(() => beep('start'), ns.startedAt - now)];
+      if (ns.parAt !== undefined) timers.push(window.setTimeout(() => beep('par'), ns.parAt - now));
+      beepTimers.current = timers;
+    }
     wakeRef.current = null;
     void acquireWakeLock().then((lock) => (wakeRef.current = lock));
   };
 
   const stop = () => {
+    clearBeepTimers();
     beep('stop');
     setState((s) => timerReducer(s, { type: 'stop', now: performance.now() }));
-    prevPhase.current = 'stopped';
     wakeRef.current?.release().catch(() => {});
     wakeRef.current = null;
   };

@@ -218,3 +218,42 @@ test('distance.min > distance.max отклоняется', () => {
   const res = run([entry('x-drill.json', drill({ distance: { min: 30, max: 10, unit: 'm' } }))]);
   expect(res.errors.join('\n')).toContain('distance.min');
 });
+
+test('тип мишени вне таксономии отклоняется (targets и layout)', () => {
+  const bad = drill({ targets: [{ type: 'ipsk-metric', count: 1 }] });
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'nra-b8' }],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  expect(res.errors.join('\n')).toContain('ipsk-metric');
+  expect(res.errors.join('\n')).toContain('nra-b8');
+});
+
+test('неизвестный scoring.type отклоняется', () => {
+  const res = run([entry('x-drill.json', drill({ scoring: { type: 'point' } }))]);
+  expect(res.errors.join('\n')).toContain('scoring.type');
+});
+
+test('курс: structureIndex вне диапазона фаз отклоняется', () => {
+  const res = run(
+    [entry('x-drill.json', drill())],
+    [
+      entry(
+        'x-course.json',
+        course({
+          structure: [{ label: { ru: 'Фаза 1' } }, { label: { ru: 'Фаза 2' } }],
+          items: [{ drillId: 'x-drill', order: 1, structureIndex: 5 }],
+        }),
+      ),
+    ],
+  );
+  expect(res.errors.join('\n')).toContain('structureIndex');
+});
+
+test('файл с null вместо объекта даёт ошибку, а не краш', () => {
+  const res = run([entry('x-drill.json', null), entry('one-to-five.json', oneTo5)]);
+  expect(res.errors.join('\n')).toContain('не объект');
+  expect(res.ok).toBe(false);
+});

@@ -32,14 +32,18 @@ export function applyReview(drillsDir: string, decisions: ReviewDecision[]): App
 
   for (const d of decisions) {
     const file = join(drillsDir, `${d.id}.json`);
+    let bad = false;
     if (!existsSync(file)) {
       errors.push(`${d.id}: файла нет`);
-      continue;
+      bad = true;
     }
     for (const tag of d.tags ?? []) {
-      if (!TAG_IDS.has(tag)) errors.push(`${d.id}: тег "${tag}" вне таксономии`);
+      if (!TAG_IDS.has(tag)) {
+        errors.push(`${d.id}: тег "${tag}" вне таксономии`);
+        bad = true;
+      }
     }
-    if (errors.length) continue; // не портим файл при ошибочных решениях
+    if (bad) continue; // это решение пропускаем, следующие — нет
 
     const drill = JSON.parse(readFileSync(file, 'utf-8'));
     if (d.tags) drill.tags = d.tags;

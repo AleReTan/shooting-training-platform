@@ -21,8 +21,21 @@ export interface ValidationResult {
 
 const TAGS_OF = (taxonomy: Taxonomy) => new Set(taxonomy.tags.map((t) => t.id));
 
-function validateDrill(entry: FileEntry, tagIds: Set<string>, errors: string[]): Drill {
+const TARGET_TYPES_OF = (taxonomy: Taxonomy) => new Set(taxonomy.targetTypes.map((t) => t.id));
+
+const SCORING_TYPES = new Set(['par-time', 'hit-factor', 'points', 'none']);
+
+function validateDrill(
+  entry: FileEntry,
+  tagIds: Set<string>,
+  targetTypeIds: Set<string>,
+  errors: string[],
+): Drill | null {
   const { file, data } = entry;
+  if (!data || typeof data !== 'object') {
+    errors.push(`${file}: содержимое — не объект`);
+    return null;
+  }
   const d = data as Drill;
   const base = file.replace(/\.json$/, '');
 
@@ -36,6 +49,12 @@ function validateDrill(entry: FileEntry, tagIds: Set<string>, errors: string[]):
 
   for (const tag of d.tags ?? []) {
     if (!tagIds.has(tag)) errors.push(`${file}: тег "${tag}" вне таксономии`);
+  }
+  for (const t of d.targets ?? []) {
+    if (!targetTypeIds.has(t.type)) errors.push(`${file}: тип мишени "${t.type}" вне таксономии`);
+  }
+  if (d.scoring && !SCORING_TYPES.has(d.scoring.type)) {
+    errors.push(`${file}: неизвестный scoring.type "${d.scoring.type}"`);
   }
 
   if (!Array.isArray(d.discipline) || d.discipline.length === 0) {
@@ -65,12 +84,17 @@ function validateDrill(entry: FileEntry, tagIds: Set<string>, errors: string[]):
     errors.push(`${file}: scoring.type "hit-factor" требует scoring.points`);
   }
 
-  if (d.layout) validateLayout(file, d.layout, errors);
+  if (d.layout) validateLayout(file, d.layout, targetTypeIds, errors);
 
   return d;
 }
 
-function validateLayout(file: string, layout: Layout, errors: string[]): void {
+function validateLayout(
+  file: string,
+  layout: Layout,
+  targetTypeIds: Set<string>,
+  errors: string[],
+): void {
   // Схема с мишенями обязана иметь позиции: render.tsx ищет ближайшую
   // позицию к мишени и падает на пустом списке.
   if (layout.targets.length > 0 && layout.positions.length === 0) {
@@ -93,6 +117,9 @@ function validateLayout(file: string, layout: Layout, errors: string[]): void {
     if (!inBounds(t.x, t.y)) errors.push(`${file}: мишень ${t.id} вне габаритов width/depth`);
     if (t.distance != null && (typeof t.distance !== 'number' || t.distance <= 0)) {
       errors.push(`${file}: target.distance мишени ${t.id} должен быть положительным числом`);
+    }
+    if (!targetTypeIds.has(t.type)) {
+      errors.push(`${file}: тип мишени "${t.type}" мишени ${t.id} вне таксономии`);
     }
   }
   for (const m of layout.movement ?? []) {
@@ -119,11 +146,13 @@ export function validateAll(
 ): ValidationResult {
   const errors: string[] = [];
   const tagIds = TAGS_OF(taxonomy);
+  const targetTypeIds = TARGET_TYPES_OF(taxonomy);
   const drillIds = new Set<string>();
   const drills: Drill[] = [];
 
   for (const entry of files.drills) {
-    const d = validateDrill(entry, tagIds, errors);
+    const d = validateDrill(entry, tagIds, targetTypeIds, errors);
+    if (!d) continue;
     if (drillIds.has(d.id)) errors.push(`${entry.file}: дублирующийся id "${d.id}"`);
     drillIds.add(d.id);
     drills.push(d);
@@ -143,12 +172,23 @@ export function validateAll(
     if (base !== c.id) errors.push(`${file}: имя файла курса должно совпадать с id ("${c.id}")`);
     if (!c.items?.length) errors.push(`${file}: курс пуст (items)`);
     const orders = new Set<number>();
+    const phaseCount = c.structure?.length ?? 0;
     for (const it of c.items ?? []) {
       if (!drillIds.has(it.drillId)) {
         errors.push(`${file}: drillId "${it.drillId}" не существует`);
       }
       if (orders.has(it.order)) errors.push(`${file}: дублирующийся order ${it.order}`);
       orders.add(it.order);
+      // structureIndex вне списка фаз молча прячет упражнение со страницы курса
+      if (
+        phaseCount > 0 &&
+        it.structureIndex != null &&
+        (!Number.isInteger(it.structureIndex) ||
+          it.structureIndex < 0 ||
+          it.structureIndex >= phaseCount)
+      ) {
+        errors.push(`${file}: structureIndex ${it.structureIndex} вне диапазона фаз (0–${phaseCount - 1})`);
+      }
     }
   }
 
