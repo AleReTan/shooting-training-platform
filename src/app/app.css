@@ -165,7 +165,7 @@ body {
 }
 
 /* Калькулятор хит-фактора */
-.hf__hint { margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; }
+.page-hint { margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; }
 .hf__panel {
   background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
   padding: 1rem; display: flex; flex-direction: column; gap: 0.9rem;
@@ -267,18 +267,27 @@ body {
 }
 
 
-/* Конвертеры (#/calc) */
-.conv__panel { display: flex; flex-direction: column; gap: 0.8rem; }
-.conv-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
-.conv-field { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; color: var(--muted); }
-.conv-field input {
-  width: 7ch;
-  background: var(--panel-deep); color: var(--text);
-  border: 1px solid var(--border); border-radius: 6px;
-  padding: 0.45rem 0.5rem; font-size: 1rem; font-variant-numeric: tabular-nums;
+/* Конвертеры (#/conv): поля-«пилюли» одной строкой — как фильтры каталога */
+.conv__panel {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+  padding: 1rem; display: flex; flex-direction: column; gap: 0.9rem;
 }
+.conv-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.conv-field {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  color: var(--muted); font-size: 0.9rem;
+  background: var(--panel-deep); border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.28rem 0.55rem;
+}
+.conv-field input {
+  background: transparent; border: 0; color: var(--text);
+  font-size: 0.95rem; font-variant-numeric: tabular-nums;
+  width: 7ch; text-align: right;
+}
+.conv-field input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 4px; }
 .conv-eq { color: var(--muted); }
-.conv-result { margin: 0; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.conv-result { margin: 0; font-size: 0.95rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.conv-result strong { color: var(--accent); font-size: 1.2rem; }
 
 .drill-page__print { flex-shrink: 0; }
 

@@ -6,6 +6,7 @@ import { DrillPage } from '../features/library/DrillPage';
 import { CoursePage } from '../features/library/CoursePage';
 import TimerPage from '../features/timer/TimerPage';
 import { HitFactorPage } from '../features/calc/HitFactorPage';
+import { ConvertersPage } from '../features/calc/ConvertersPage';
 import { loadData, type AppData } from '../data/load';
 
 export default function App() {
@@ -78,6 +79,8 @@ export default function App() {
     page = <TimerPage />;
   } else if (segments[0] === 'calc') {
     page = <HitFactorPage />;
+  } else if (segments[0] === 'conv') {
+    page = <ConvertersPage />;
   }
 
   return <Shell>{page}</Shell>;

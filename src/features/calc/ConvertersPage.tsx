@@ -87,17 +87,18 @@ function AngleCard() {
         />
       </label>
       <p class="conv-result" role="status">
-        = {r2(cm)} см
+        = <strong>{r2(cm)}</strong> см
       </p>
     </div>
   );
 }
 
-export function ConvertersPanel() {
+export function ConvertersPage() {
   return (
     <section class="conv">
-      <h3>Конвертеры</h3>
-      <div class="hf__panel conv__panel">
+      <h2>Конвертеры</h2>
+      <p class="page-hint">Ярды — из американских схем, граны — из reloading-таблиц, MIL/MOA — поправки прицела.</p>
+      <div class="conv__panel">
         <ConvertPair labelA="метры" labelB="ярды" initialA="100" aToB={mToYd} bToA={ydToM} />
         <ConvertPair labelA="граны" labelB="граммы" initialA="125" aToB={gnToG} bToA={gToGn} />
         <AngleCard />

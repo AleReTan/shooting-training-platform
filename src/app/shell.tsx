@@ -10,6 +10,7 @@ export function Shell(props: { children: ComponentChildren }) {
           <a href="#/">Каталог</a>
           <a href="#/timer">Таймер</a>
           <a href="#/calc">Калькулятор</a>
+          <a href="#/conv">Конвертеры</a>
         </nav>
       </header>
       <main class="app-main">{props.children}</main>

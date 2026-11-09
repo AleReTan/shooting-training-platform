@@ -9,6 +9,12 @@ const inc = (label: string) => {
   fireEvent.click(row.querySelector('button.hf-zone__plus') as HTMLElement);
 };
 
+test('конвертеры вынесены со страницы хит-фактора', () => {
+  render(<HitFactorPage />);
+  expect(screen.queryByRole('heading', { name: 'Конвертеры' })).toBeNull();
+  expect(screen.queryByLabelText('метры')).toBeNull();
+});
+
 test('считает хит-фактор: зоны → очки → очки/время', () => {
   render(<HitFactorPage />);
   inc('зона A');
