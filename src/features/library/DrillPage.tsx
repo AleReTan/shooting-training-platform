@@ -43,11 +43,18 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
 
   return (
     <section>
-      <p>
+      <p class="drill-page__nav">
         <a href="#/">← В каталог</a>
       </p>
       <div class="drill-page__head">
         <h2>{localized(drill.name)}</h2>
+        <button
+          type="button"
+          class="drill-page__print"
+          onClick={() => window.print()}
+        >
+          печать
+        </button>
         <button
           type="button"
           class={'drill-card__star' + (isFav ? ' drill-card__star--on' : '')}
@@ -157,11 +164,13 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
         </>
       ) : null}
 
-      <h3>Таймер</h3>
-      <TimerPanel parTimes={drill.parTimes} />
+      <div class="no-print">
+        <h3>Таймер</h3>
+        <TimerPanel parTimes={drill.parTimes} />
+      </div>
 
       {drill.related?.length ? (
-        <>
+        <div class="no-print">
           <h3>Похожие</h3>
           <ul>
             {drill.related.map((rid) => {
@@ -174,11 +183,11 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
               );
             })}
           </ul>
-        </>
+        </div>
       ) : null}
 
       {courses.length ? (
-        <>
+        <div class="no-print">
           <h3>Входит в курсы</h3>
           <ul>
             {courses.map((c) => (
@@ -187,11 +196,11 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       ) : null}
 
       {drill.media?.images?.length || drill.media?.video?.length ? (
-        <>
+        <div class="no-print">
           <h3>Медиа</h3>
           <ul>
             {(drill.media.images ?? []).map((img, i) => (
@@ -214,7 +223,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       ) : null}
     </section>
   );

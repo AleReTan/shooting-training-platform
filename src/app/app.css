@@ -265,3 +265,29 @@ body {
   padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.6rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
+
+
+/* Конвертеры (#/calc) */
+.conv__panel { display: flex; flex-direction: column; gap: 0.8rem; }
+.conv-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.conv-field { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; color: var(--muted); }
+.conv-field input {
+  width: 7ch;
+  background: var(--panel-deep); color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 0.45rem 0.5rem; font-size: 1rem; font-variant-numeric: tabular-nums;
+}
+.conv-eq { color: var(--muted); }
+.conv-result { margin: 0; font-size: 1rem; font-variant-numeric: tabular-nums; }
+
+.drill-page__print { flex-shrink: 0; }
+
+
+/* Печать карточки упражнения: только содержание, без навигации и интерактива */
+@media print {
+  .app-header, .drill-page__nav, .drill-card__star, .drill-page__print, .no-print,
+  .sequence-player__controls, .update-toast { display: none; }
+  body { background: #fff; color: #000; }
+  .app-main { max-width: none; padding: 0; }
+  a { color: #000; text-decoration: none; }
+}

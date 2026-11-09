@@ -4,6 +4,7 @@ import { useState } from 'preact/hooks';
 import { plural } from '../../app/i18n';
 import { Segmented } from '../../ui/Segmented';
 import { zonesToPoints, hitFactor, requiredTime, requiredPoints, type Power, type Zone, type ZoneCounts } from './hitFactor';
+import { ConvertersPanel } from './ConvertersPanel';
 
 const ZONE_LABELS: Record<Zone, string> = {
   A: 'зона A',
@@ -129,6 +130,8 @@ export function HitFactorPage() {
           </p>
         )}
       </div>
+
+      <ConvertersPanel />
     </section>
   );
 }

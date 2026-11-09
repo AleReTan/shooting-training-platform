@@ -1,5 +1,5 @@
-import { test, expect, afterEach, beforeAll } from 'vitest';
-import { render, screen, cleanup } from '@testing-library/preact';
+import { test, expect, afterEach, beforeAll, vi } from 'vitest';
+import { render, screen, fireEvent, cleanup } from '@testing-library/preact';
 import { DrillPage } from './DrillPage';
 import { loadData, type AppData } from '../../data/load';
 
@@ -54,6 +54,21 @@ test('needsReview: на карточке видна пометка «на про
   expect(
     document.querySelector('.drill-page__review')?.textContent,
   ).toContain('сверь с первоисточником');
+});
+
+test('печать: кнопка вызывает window.print, шум уходит с листа', () => {
+  const orig = window.print;
+  window.print = vi.fn();
+  try {
+    render(<DrillPage id="bill-drill-carbine" data={data} />);
+    fireEvent.click(screen.getByText('печать'));
+    expect(window.print).toHaveBeenCalled();
+    // таймер и прочие не-бумажные блоки помечены no-print (скрыты стилями печати)
+    expect(document.querySelector('.no-print .timer')).toBeTruthy();
+    expect(document.querySelectorAll('.no-print').length).toBeGreaterThanOrEqual(2);
+  } finally {
+    window.print = orig;
+  }
 });
 
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {
