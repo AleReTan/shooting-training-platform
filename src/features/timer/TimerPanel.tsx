@@ -61,7 +61,10 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
 
   const start = () => {
     unlockAudio(); // жест пользователя: без этого iOS молчит при сигнале
-    keepAudioAwake(); // и держим канал горячим: иначе iOS будит его ~0,7 с
+    // Держатель шума будим жестом: только играющий медиа-элемент держит
+    // сессию в режиме воспроизведения — беззвучный режим не глушит осциллятор.
+    // Дальше он играет окнами вокруг сигналов, а не весь прогон.
+    keepAudioAwake();
     // Повторный Старт до перерисовки не должен течь таймерами прошлого запуска.
     clearBeepTimers();
     const now = performance.now();
@@ -73,11 +76,33 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
       // заметил бы смену фазы с опозданием до 100 мс и сдул бы все замеры.
       if (ns.startedAt !== undefined) {
         const timers = [window.setTimeout(() => beep('start'), ns.startedAt - now)];
+        // моменты сигналов: окна шума держателя [сигнал−0,8 с; сигнал+0,6 с],
+        // слипшиеся окна — одно; открываются програмно (элемент разблокирован жестом)
+        const beepsAt = [ns.startedAt - now];
         if (ns.parAt !== undefined) {
           // пар = 0 (или меньше 0,2 с): пар-сигнал не сливается со стартовым;
           // задержка > 2^31−1 мс переполняет таймер и в браузере звучит сразу
           const parDelay = Math.min(Math.max(ns.parAt - now, ns.startedAt - now + 200), 2_147_483_647);
           timers.push(window.setTimeout(() => beep('par'), parDelay));
+          beepsAt.push(parDelay);
+        }
+        let prevClose = 0;
+        for (const t of beepsAt.sort((a, b) => a - b)) {
+          const open = Math.max(0, t - 800);
+          const close = t + 600;
+          if (open > prevClose) {
+            if (prevClose === 0) {
+              // держатель уже играет от жеста; окно далеко — гасим шум до него
+              if (open > 700) {
+                timers.push(window.setTimeout(releaseAudioAwake, 700));
+                timers.push(window.setTimeout(keepAudioAwake, Math.min(open, 2_147_483_647)));
+              }
+            } else {
+              timers.push(window.setTimeout(keepAudioAwake, Math.min(open, 2_147_483_647)));
+            }
+          }
+          timers.push(window.setTimeout(releaseAudioAwake, Math.min(close, 2_147_483_647)));
+          prevClose = Math.max(prevClose, close);
         }
         beepTimers.current = timers;
       }

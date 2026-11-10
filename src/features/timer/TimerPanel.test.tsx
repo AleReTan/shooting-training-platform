@@ -83,6 +83,35 @@ test('сигналы старта и пар-тайма звучат в назн�
   }
 });
 
+test('шум держателя — окнами вокруг сигналов, а не весь прогон', () => {
+  vi.mocked(keepAudioAwake).mockClear();
+  vi.mocked(releaseAudioAwake).mockClear();
+  const rand = vi.spyOn(Math, 'random').mockReturnValue(0); // задержка ровно 1 с
+  vi.useFakeTimers();
+  try {
+    render(<TimerPanel />);
+    fireEvent.input(screen.getByLabelText('Пар, с'), { target: { value: '2.25' } });
+    fireEvent.click(screen.getByText('Старт'));
+    // сигналы на 1000 и 3250 мс → окна [200..1600] и [2450..3850];
+    // от тапа до 1600 держатель играет (жест + окно старта слились)
+    expect(keepAudioAwake).toHaveBeenCalledTimes(1);
+
+    act(() => { vi.advanceTimersByTime(1600); });
+    expect(releaseAudioAwake).toHaveBeenCalledTimes(1); // окно старта закрыто
+
+    act(() => { vi.advanceTimersByTime(849); }); // 2449: между окнами — тишина
+    expect(keepAudioAwake).toHaveBeenCalledTimes(1);
+
+    act(() => { vi.advanceTimersByTime(1); }); // 2450: окно пар-тайма открылось
+    expect(keepAudioAwake).toHaveBeenCalledTimes(2);
+
+    act(() => { vi.advanceTimersByTime(1400); }); // 3850: закрыто
+    expect(releaseAudioAwake).toHaveBeenCalledTimes(2);
+  } finally {
+    rand.mockRestore();
+  }
+});
+
 test('Стоп во время задержки отменяет ещё не прозвучавший сигнал старта', () => {
   const beepMock = vi.mocked(beep);
   beepMock.mockClear();

@@ -239,8 +239,10 @@ body {
 .timer__pars { margin-top: 0.6rem; }
 
 
-/* Схема мишенной обстановки */
-.diagram { width: 100%; height: auto; background: #181b20; border-radius: 10px; }
+/* Схема мишенной обстановки. max-height: глубокие рубежи (до 28+ м) иначе
+   растягиваются выше экрана телефона — анимацию видно только скроллом;
+   SVG с viewBox сам впишет рисунок (meet), не искажая. */
+.diagram { width: 100%; height: auto; max-height: 80vh; background: #181b20; border-radius: 10px; }
 .diagram-field { fill: none; stroke: #2a2e35; stroke-width: 2; }
 .diagram-caption { fill: var(--muted); font-size: 11px; text-anchor: start; }
 .diagram-target-label, .diagram-position-label, .diagram-barrier-label {
