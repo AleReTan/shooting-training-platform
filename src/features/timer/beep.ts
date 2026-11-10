@@ -1,8 +1,9 @@
-// Сигналы таймера: <audio> с wav-ассетами.
-// Web Audio на iPhone глушится переключателем «без звука», медиа-канал
-// audio-элемента — нет. Плэй вне жеста требует разблокировки (unlockAudio),
-// поэтому элементы живут в документе и переиспользуются: разблокированная
-// тройка не должна пересоздаваться перед сигналом.
+// Сигналы таймера: два канала.
+// Основной — Web Audio: у медиа-элемента на iOS ~0,5 с собственной задержки
+// запуска плеера (держатель сессии это не лечит). Но беззвучный режим глушит
+// Web Audio; пока играет медиа-элемент (держатель), сессия в режиме
+// воспроизведения и переключатель осциллятор не глушит.
+// Запасной — <audio> c wav-ассетами: медленнее, но звучит всегда.
 
 import startUrl from './beep-start.wav';
 import parUrl from './beep-par.wav';
@@ -12,6 +13,42 @@ import keeperUrl from './beep-keeper.wav';
 type Kind = 'start' | 'par' | 'stop';
 
 const SRCS: Record<Kind, string> = { start: startUrl, par: parUrl, stop: stopUrl };
+const FREQ: Record<Kind, number> = { start: 1200, par: 2400, stop: 600 };
+const BEEP_SEC = 0.15; // как у прежних wav-сигналов
+
+let ctx: AudioContext | null = null;
+
+/** Заводит Web Audio-контекст по жесту (вызывается из unlockAudio):
+ *  без жеста iOS оставит его suspended навсегда. */
+function ensureCtx(): void {
+  try {
+    const w = window as unknown as { AudioContext?: typeof AudioContext; webkitAudioContext?: typeof AudioContext };
+    const AC = w.AudioContext ?? w.webkitAudioContext;
+    if (!AC) return;
+    if (!ctx) ctx = new AC();
+    if (ctx.state === 'suspended') void ctx.resume().catch(() => {});
+  } catch {
+    // нет Web Audio — остаётся медиа-канал
+  }
+}
+
+/** Синтез сигнала осциллятором — миллисекунды вместо ~0,5 с медиа-плеера. */
+function oscBeep(kind: Kind): void {
+  const c = ctx!;
+  const t = c.currentTime;
+  const osc = c.createOscillator();
+  const g = c.createGain();
+  osc.type = 'sine';
+  osc.frequency.value = FREQ[kind];
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(0.9, t + 0.005);
+  g.gain.setValueAtTime(0.9, t + BEEP_SEC - 0.03);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + BEEP_SEC);
+  osc.connect(g);
+  g.connect(c.destination);
+  osc.start(t);
+  osc.stop(t + BEEP_SEC);
+}
 
 let els: Record<Kind, HTMLAudioElement> | null = null;
 
@@ -34,6 +71,7 @@ function ensure(): Record<Kind, HTMLAudioElement> {
 
 /** Разблокировка звука по жесту (iOS): без неё play() вне тапа молчит. */
 export function unlockAudio(): void {
+  ensureCtx();
   try {
     for (const a of Object.values(ensure())) {
       a.muted = true;
@@ -54,6 +92,16 @@ export function unlockAudio(): void {
 
 /** Короткий сигнал: старт 1200 Гц, пар 2400 Гц, стоп 600 Гц. */
 export function beep(kind: Kind): void {
+  try {
+    // Мгновенный путь — только когда контекст жив И держатель играет:
+    // без играющего медиа-элемента беззвучный режим заглушит осциллятор.
+    if (ctx && ctx.state === 'running' && keeper && !keeper.paused && !keeper.ended) {
+      oscBeep(kind);
+      return;
+    }
+  } catch {
+    // падаем в медиа-канал
+  }
   try {
     const a = ensure()[kind];
     // Seek только если реально ушёл с нуля: на iOS лишний currentTime=0
