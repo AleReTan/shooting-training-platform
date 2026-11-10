@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "bookouts-boogie-uspsa",
+  "name": { "ru": "Букоутс Буги (USPSA 99-57)", "en": "Bookouts Boogie (USPSA 99-57)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-57.pdf"
+  },
+  "tags": ["reload", "movement", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 8, "max": 15, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 5 },
+    { "type": "steel-popper", "count": 1 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 14.5 },
+    { "level": "advanced", "time": 12.0 },
+    { "level": "master", "time": 9.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Обход трёх позиций вокруг укрытий с обязательной перезарядкой между массивами",
+    "en": "A walk around three positions behind cover with a mandatory reload between arrays"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~8–15 м — сверить по официальной диаграмме USPSA; мишени на высоте 152 см по плечам, но-шут на T3 со смещением линии перфорации",
+      "Старт: в боксе A лицом к мишеням, руки расслабленно опущены; для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, карабин в обеих руках, предохранитель включён",
+      "По стартовому сигналу из бокса A поразить T1 и T2, затем сместиться в бокс B и поразить T3 и T4",
+      "Обязательная перезарядка, затем из бокса C поразить T5 и поппер PP1",
+      "Засчитываются лучшие 2 пробоины на бумагу; сталь засчитывается при падении; пропуск перезарядки — процедурный штраф за каждый выстрел"
+    ]
+  },
+  "safety": { "ru": "Перемещение между боксами со стволом в сторону мишеней, перезарядка в остановке, а не на ходу" },
+  "equipment": ["карабин", "2 магазина на 6+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Glenn Bookout"] }
+}

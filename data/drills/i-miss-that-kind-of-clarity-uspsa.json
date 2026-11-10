@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "i-miss-that-kind-of-clarity-uspsa",
+  "name": { "ru": "Ай Мис Зет Кайнд Оф Клэрити (USPSA 18-09)", "en": "I Miss That Kind of Clarity (USPSA 18-09)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/18-09.pdf"
+  },
+  "tags": ["reload", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 34.0 },
+    { "level": "intermediate", "time": 26.0 },
+    { "level": "advanced", "time": 21.0 },
+    { "level": "master", "time": 17.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Свободный сплит шести картонов: любые три двойками, перезарядка, оставшиеся три двойками — из двух стартовых позиций",
+    "en": "Free split of six paper: any three with pairs, reload, the remaining three — from two start positions"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м (в тексте PDF дистанций нет) — сверить по официальной диаграмме USPSA; зона стрельбы огорожена четырьмя стенами 4×6 футов, шесть картонов с верхом на 5 футах",
+      "Старт: серия 1 — пятки на задней фолт-линии; серия 2 — носки на передней фолт-линии; для карабина — приклад у пояса, ствол в сторону мишеней",
+      "Серия 1: поразить любые 3 мишени по два выстрела, обязательная перезарядка, затем оставшиеся 3 мишени по два выстрела",
+      "Серия 2 (новый стартовый сигнал): та же схема с другой стартовой позиции; порядок мишеней свободный",
+      "Засчитываются лучшие 4 пробоины с бумаги; лишние выстрелы и пробоины — штраф"
+    ]
+  },
+  "safety": { "ru": "Стены сужают сектор — до первого выстрела убедиться, что ствол вынесен в сторону мишеней, не задевая стены" },
+  "equipment": ["карабин", "3 магазина на 10+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда Nationals"] },
+  "related": ["baseball-standards-uspsa"]
+}

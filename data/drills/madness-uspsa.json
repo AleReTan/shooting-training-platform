@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "madness-uspsa",
+  "name": { "ru": "Мэднесс (USPSA 03-08)", "en": "Madness (USPSA 03-08)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/03-08.pdf"
+  },
+  "tags": ["reload", "transitions", "first-shot", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 14,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 7 }],
+  "parTimes": [
+    { "level": "novice", "time": 21.0 },
+    { "level": "intermediate", "time": 16.5 },
+    { "level": "advanced", "time": 13.5 },
+    { "level": "master", "time": 10.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Плотная стенка из семи мишеней со штрафными между ними: проход с перезарядкой посередине",
+    "en": "A tight wall of seven targets with no-shoots between them: one pass, reload in the middle"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; мишени на 5 футов по плечам, T4 — на центральной оси, T1 — в футе левее T2, T7 — в футе правее T6; штрафные между T2–T3, T3–T4, T4–T5, T5–T6 с точным совмещением перфорации с зонами A/C (см. setup notes PDF)",
+      "Старт: стрелок в боксе 3×3 фута лицом к мишеням, запястья выше плеч; для карабина — приклад у пояса, ствол в сторону мишеней, на предохранителе",
+      "Серия 1: по одному выстрелу в каждую из T1–T7, порядок свободный",
+      "Обязательная перезарядка",
+      "Серия 2: снова по одному выстрелу в T1–T7",
+      "Засчитываются лучшие 2 пробоины с каждой мишени; лишний выстрел/лишнее попадание — по −10, штрафная — −10; пропуск обязательной перезарядки — процедурный штраф за каждый выстрел"
+    ]
+  },
+  "safety": { "ru": "Плотная стенка со штрафными между мишенями — следить, чтобы ствол и трасса не уходили на соседние карточки при переносах" },
+  "equipment": ["карабин", "2 магазина на 7+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Энди Холлар, правки US Design Team"] },
+  "related": ["can-you-count-uspsa"]
+}

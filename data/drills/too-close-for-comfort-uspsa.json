@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "too-close-for-comfort-uspsa",
+  "name": { "ru": "Ту Клоуз Фор Комфорт (USPSA 13-06)", "en": "Too Close For Comfort (USPSA 13-06)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/13-06.pdf"
+  },
+  "tags": ["reload", "transitions", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "needsReview": true,
+  "distance": { "min": 7, "max": 7, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 5 }],
+  "parTimes": [
+    { "level": "novice", "time": 16.0 },
+    { "level": "intermediate", "time": 12.0 },
+    { "level": "advanced", "time": 10.0 },
+    { "level": "master", "time": 8.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Десять выстрелов по пяти близким мишеням из одного бокса с перезарядкой между проходами",
+    "en": "Ten rounds on five close targets from a single box with a reload between passes"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~7 м (прикидка: в тексте PDF дистанций нет) — сверить по официальной диаграмме USPSA; пять картонов, бокс стандартный 3×3 фута",
+      "Старт: стоя в пределах фолт-линий лицом в сторону мишеней, руки свободно опущены; для карабина — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "Проход 1: по одному выстрелу в T1–T5 из бокса",
+      "Проход 2: обязательная перезарядка, затем снова по одному выстрелу в T1–T5, всё время в пределах фолт-линий",
+      "Засчитываются лучшие 2 пробоины с каждой мишени; лишние выстрелы и пробоины — штраф"
+    ]
+  },
+  "safety": { "ru": "Вся стрельба из бокса 3×3 фута — ствол в сторону мишеней, не пересекать фолт-линии" },
+  "equipment": ["карабин", "2 магазина на 6+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда 2005 года"] }
+}

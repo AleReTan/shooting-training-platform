@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "times-two-uspsa",
+  "name": { "ru": "Таймс Ту (USPSA 99-10)", "en": "Times Two (USPSA 99-10)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-10.pdf"
+  },
+  "tags": ["movement", "movement-lateral", "transitions", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 16.0 },
+    { "level": "intermediate", "time": 14.0 },
+    { "level": "advanced", "time": 11.0 },
+    { "level": "master", "time": 8.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Группа A из бокса A, группа B из бокса B: стрельба с перемещением между двумя боксами",
+    "en": "Group A from box A, group B from box B: shooting with movement between two boxes"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; бумага на высоте плеч (5 футов), два стрелковых бокса 3×3 фута (A и B)",
+      "Старт: для карабина (PCC) — стоя в боксе A лицом в сторону мишеней, приклад у пояса, ствол вниз по направлению, оружие в двух руках на предохранителе; по общим правилам стартовать можно из любого бокса",
+      "Из стартового бокса, не выходя за его границы, по 2 выстрела в свою группу мишеней: из A — только T1–T3, из B — только T4–T6",
+      "Переместиться во второй бокс и поразить оставшуюся группу: по 2 выстрела в каждую мишень",
+      "Comstock: 12 патронов, 60 очков; засчитываются лучшие 2 пробоины на каждой мишени; старт по звуку, стоп — последний выстрел; стрельба из чужого бокса или вне границ — процедурный штраф"
+    ]
+  },
+  "safety": { "ru": "Ствол вниз по направлению на всём перемещении между боксами, палец вне спуска до занятия позиции" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов"],
+  "variants": { "ru": ["Автор — команда дизайнеров USPSA"] }
+}

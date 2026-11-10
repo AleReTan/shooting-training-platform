@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "steeler-standards-uspsa",
+  "name": { "ru": "Стилер Стендардс (USPSA 08-02)", "en": "Steeler Standards (USPSA 08-02)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/08-02.pdf"
+  },
+  "tags": ["reload", "bilateral", "transitions", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 20,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-classic", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 30.0 },
+    { "level": "intermediate", "time": 22.0 },
+    { "level": "advanced", "time": 18.0 },
+    { "level": "master", "time": 15.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стендардс из бокса: по выстрелу на мишень тремя хватами — вольный, сильное плечо, слабое плечо",
+    "en": "Box standards: one round per target in three grips — freestyle, strong, weak"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; T1/T2 на высоте 4,5 фута по верху с зазором 6 дюймов, T3/T4 на высоте 4 фута по верху, бокс 3×3 фута",
+      "Старт: в боксе, руки выше плеч; для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "Серия 1: по сигналу T1–T4 по одному выстрелу вольным хватом, обязательная перезарядка, снова T1–T4 по одному вольным хватом",
+      "Серия 2: T1–T4 по одному вольным хватом, обязательная перезарядка, снова T1–T4 по одному только с сильного плеча (PCC — сильное плечо)",
+      "Серия 3: T1–T4 по одному выстрелу только со слабого плеча (PCC — слабое плечо)",
+      "Засчитываются лучшие 5 пробоин на мишень; лишний выстрел, лишнее или в штрафную пробоину — штраф за каждую"
+    ]
+  },
+  "safety": { "ru": "При переносе на другое плечо ствол в сторону мишеней, палец вне спуска; все выстрелы только из бокса" },
+  "equipment": ["карабин", "2 магазина на 10+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Джордж Джонс"] },
+  "related": ["baseball-standards-uspsa"]
+}

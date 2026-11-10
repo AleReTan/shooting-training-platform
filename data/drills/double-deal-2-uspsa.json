@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "double-deal-2-uspsa",
+  "name": { "ru": "Дабл Дил 2 (USPSA 13-07)", "en": "Double Deal 2 (USPSA 13-07)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/13-07.pdf"
+  },
+  "tags": ["first-shot", "transitions", "cover", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "needsReview": true,
+  "distance": { "min": 5, "max": 8, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 3 },
+    { "type": "steel-popper", "count": 2 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 11.0 },
+    { "level": "advanced", "time": 9.0 },
+    { "level": "master", "time": 7.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Восемь выстрелов по картонам и мини-попперам, не вставая со стула за столом",
+    "en": "Eight rounds on paper and mini-poppers without leaving the chair behind the table"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~5–8 м (прикидка: в тексте PDF дистанций нет) — сверить по официальной диаграмме USPSA; стол с меткой X в центре, стул закреплён передним краем в 12 дюймах за столом, фолт-линии по 4 фута",
+      "Старт: сидя за столом лицом в сторону мишеней, в обеих руках игральные карты, локти на столе; заряженный карабин лежит на X стволом в сторону мишеней, ничем не подперт; для карабина правок нет",
+      "По стартовому сигналу взять карабин и поразить T1–T3 и мини-попперы 1–2, оставаясь за столом в пределах фолт-линий",
+      "Порядок мишеней свободный; сталь должна упасть, иначе выстрел не засчитан",
+      "T2 перекрыта жёстким укрытием на половину нижней зоны A; засчитываются лучшие 2 пробоины с картона"
+    ]
+  },
+  "safety": { "ru": "Поднимать карабин со стола стволом в сторону мишеней; сидя следить, чтобы ствол не выходил за фолт-линии при маневре" },
+  "equipment": ["карабин", "магазин на 8+ патронов", "стол и стул"],
+  "variants": { "ru": ["Автор — Рассел Клювер"] }
+}

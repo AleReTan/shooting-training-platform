@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "steely-speed-vii-uspsa",
+  "name": { "ru": "Стили Спид VII (USPSA 06-10)", "en": "Steely Speed VII (USPSA 06-10)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/06-10.pdf"
+  },
+  "tags": ["speed", "first-shot", "accuracy", "recoil-control"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "needsReview": true,
+  "distance": { "min": 11, "max": 11, "unit": "m" },
+  "targets": [
+    { "type": "steel-popper", "count": 6 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 8.0 },
+    { "level": "intermediate", "time": 6.0 },
+    { "level": "advanced", "time": 5.0 },
+    { "level": "master", "time": 4.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Спринт по шести попперам от баррикады: шесть падений за минимум времени",
+    "en": "A sprint across six poppers from the barricade: six falls in minimum time"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~11 м (массив попперов в 36 футах) — сверить по официальной диаграмме USPSA; 6 попперов в ряд с шагом 2 фута (3 полноразмерных Pepper + 3 Mini), массив по центру баррикады 2×6 фута; отметки X на баррикаде на высоте 60 дюймов, по 6 дюймов от краёв",
+      "Старт: в боксе за баррикадой лицом к мишеням, руки на отметках X; для карабина (PCC) — приклад у пояса, ствол касается отметки на высоте 3 фута по центру баррикады, предохранитель включён",
+      "По звуковому сигналу поразить все 6 попперов в любом порядке, все выстрелы — между огневыми линиями",
+      "Металл засчитывается только при падении; попадание без падения не считается"
+    ]
+  },
+  "safety": { "ru": "Металл: не подходить к упавшим попперам до команды RO, ствол в сторону мишеней, выстрелы только между огневыми линиями" },
+  "equipment": ["карабин", "1 магазин на 10+ патронов"],
+  "variants": { "ru": ["Автор — Nationals Design Team"] }
+}

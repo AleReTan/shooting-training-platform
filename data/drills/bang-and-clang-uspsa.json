@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "bang-and-clang-uspsa",
+  "name": { "ru": "Бэнг энд Клэнг (USPSA 99-62)", "en": "Bang and Clang (USPSA 99-62)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-62.pdf"
+  },
+  "tags": ["first-shot", "transitions", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 1 },
+    { "type": "steel-popper", "count": 4 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 8.0 },
+    { "level": "intermediate", "time": 6.5 },
+    { "level": "advanced", "time": 5.0 },
+    { "level": "master", "time": 4.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Быстрая шестёрка: одна бумага и четыре падающих поппера из-за стартовой позиции с руками у головы",
+    "en": "A quick six: one paper and four falling poppers from a hands-at-head start"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; T1 на высоте 152 см по плечам, бокс A 90×90 см",
+      "Старт: в боксе A лицом к мишеням, оба запястья выше плеч (позиция капитуляции); для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, карабин в обеих руках, предохранитель включён",
+      "По стартовому сигналу поразить T1 и PP1–PP4 — по одному выстрелу на цель, порядок любой",
+      "Засчитываются лучшие 2 пробоины на бумагу; поппер засчитывается при падении — расстреливать упавшую сталь не нужно"
+    ]
+  },
+  "safety": { "ru": "Металл: очки и наушники обязательны, ствол не поднимать выше пулеулавливателя при переносе на ближние попперы" },
+  "equipment": ["карабин", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["Автор — Mike Martin"] }
+}

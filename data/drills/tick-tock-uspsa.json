@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "tick-tock-uspsa",
+  "name": { "ru": "Тик-Ток (USPSA 13-05)", "en": "Tick-Tock (USPSA 13-05)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/13-05.pdf"
+  },
+  "tags": ["reload", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 16,
+  "needsReview": true,
+  "distance": { "min": 6, "max": 7, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 4 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 24.0 },
+    { "level": "intermediate", "time": 18.0 },
+    { "level": "advanced", "time": 15.0 },
+    { "level": "master", "time": 12.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Восемь двоек по четырём перекрытым но-шутами мишеням с единственной перезарядкой из магазина со стола",
+    "en": "Eight pairs on four no-shoot-overlapped targets with a single reload from a table magazine only"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~6,5 м — сверить по официальной диаграмме USPSA; мишени в 21 футе от передней фолт-линии, но-шут перекрывает край зоны C на T1/T3, на T2 закрывает верхнюю часть с зоной A, T4 поднята над но-шутом",
+      "Старт: за фолт-линиями, носки у меток, кисти выше соответствующих плеч; карабин разряженный лежит плоско на столе, все магазины — на столе; для карабина правок нет",
+      "Серия 1: по два выстрела в T1–T4 из-за фолт-линий",
+      "Серия 2: обязательная перезарядка магазином только со стола, затем по два выстрела в T1–T4; брать магазины из подсумка запрещено",
+      "Засчитываются лучшие 4 пробоины с бумаги; попадание в но-шут — минус 10 за каждое"
+    ]
+  },
+  "safety": { "ru": "До сигнала не трогать карабин на столе; поднять и направить ствол в сторону мишеней, не пересекая фолт-линии" },
+  "equipment": ["карабин", "2 магазина на 8+ патронов (на столе)", "стол"],
+  "variants": { "ru": ["Авторы — дизайн-команда US Nationals"] }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "down-the-middle-uspsa",
+  "name": { "ru": "Даун зе Миддл (USPSA 13-02)", "en": "Down The Middle (USPSA 13-02)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/13-02.pdf"
+  },
+  "tags": ["cover", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "needsReview": true,
+  "distance": { "min": 5.5, "max": 11, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 9.0 },
+    { "level": "intermediate", "time": 7.0 },
+    { "level": "advanced", "time": 5.5 },
+    { "level": "master", "time": 4.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Восемь выстрелов по четырём мишеням-лесенке, у которых зона A перекрыта жёстким укрытием",
+    "en": "Eight rounds on a staircase of four targets whose A zone is hard cover"
+  },
+  "steps": {
+    "ru": [
+      "Дистанции ~5,5–11 м (T1 в 36 футах, T4 в 18 футах от передней кромки зоны A) — по тексту брифа; 4 USPSA (Metric) мишени с шагом 6 футов, каждая смещена на полширины мишени к центральной линии",
+      "Жёсткое укрытие закрашено по всей зоне A от края до края: попадание в зону A не засчитывается, целиться в B/C/D",
+      "Старт: в боксе A лицом к мишеням, руки опущены; для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "По сигналу поразить каждую цель ровно 2 выстрелами, оставаясь в границах бокса",
+      "Засчитываются лучшие 2 пробоины на мишень; лишний выстрел и лишнее — штраф за каждый"
+    ]
+  },
+  "safety": { "ru": "Огонь только из границ бокса, ствол в сторону мишеней на всех переходах" },
+  "equipment": ["карабин", "1 магазин на 10+ патронов"],
+  "variants": { "ru": ["Автор — US Nationals Design Team"] },
+  "related": ["can-you-count-uspsa"]
+}

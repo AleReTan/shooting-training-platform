@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "lazy-man-standards-uspsa",
+  "name": { "ru": "Лэйзи Мэн Стандардс (USPSA 99-59)", "en": "Lazy Man Standards (USPSA 99-59)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-59.pdf"
+  },
+  "tags": ["bilateral", "reload", "transitions", "speed", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 35.0 },
+    { "level": "intermediate", "time": 26.0 },
+    { "level": "advanced", "time": 21.0 },
+    { "level": "master", "time": 17.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Четыре серии на три мишени: двойки, смена с перезарядкой, сильное и слабое плечо",
+    "en": "Four strings on three targets: doubles, a reload split, strong and weak shoulder"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; мишени на высоте 152 см по плечам, бокс A 90×90 см; на T1 и T2 жёсткое накрытие по диагонали от нижнего плеча к верху срезанного угла внизу — сверить по диаграмме",
+      "Старт: в боксе A лицом в сторону мишеней, оба запястья выше плеч (позиция капитуляции); для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, карабин в обеих руках, предохранитель включён",
+      "Серия 1: по два выстрела в T1–T3 свободным хватом",
+      "Серия 2: по одному выстрелу в T1–T3, обязательная перезарядка, снова по одному в T1–T3",
+      "Серия 3: по два выстрела в T1–T3 только с сильного плеча",
+      "Серия 4: по два выстрела в T1–T3 только со слабого плеча",
+      "Засчитываются лучшие 8 пробоин на мишень; пропуск перезарядки — процедурный штраф за каждый выстрел; лишний выстрел или лишнее попадание −10"
+    ]
+  },
+  "safety": { "ru": "Смена плеча в серии 3–4 — ствол в сторону мишеней, перезарядка серии 2 только на месте в боксе" },
+  "equipment": ["карабин", "2 магазина на 12+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Jay Worden"] },
+  "related": ["close-quarter-standards-uspsa"]
+}

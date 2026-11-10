@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "riverdale-standards-uspsa",
+  "name": { "ru": "Ривердейл Стандарты (USPSA 03-07)", "en": "Riverdale Standards (USPSA 03-07)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/03-07.pdf"
+  },
+  "tags": ["bilateral", "reload", "first-shot", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 20,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 42.0 },
+    { "level": "intermediate", "time": 31.0 },
+    { "level": "advanced", "time": 25.0 },
+    { "level": "master", "time": 21.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Классический стандарт из трёх серий: две свободные с перезарядкой, серия с одного плеча и серия с другого",
+    "en": "Classic three-string standard: two freestyle with a reload, then strong-side and weak-side strings"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; T1 и T2 на 4,5 фута по плечам и в 6 дюймах друг от друга, T3 и T4 — на 4 фута; бокс A — 3×3 фута",
+      "Старт: стрелок в боксе A лицом в сторону мишеней, руки подняты выше плеч; для карабина — приклад у пояса, ствол в сторону мишеней, на предохранителе",
+      "Серия 1: по одному выстрелу в T1–T4 свободно, обязательная перезарядка, снова по одному в T1–T4 свободно",
+      "Серия 2: по одному в T1–T4 свободно, обязательная перезарядка, снова T1–T4 по одному — только с сильного плеча (для карабина — только с правого плеча)",
+      "Серия 3: T1–T4 по одному — только со слабого плеча (для карабина — только с левого плеча)",
+      "Засчитываются лучшие 5 пробоин с каждой мишени; лишний выстрел/лишнее попадание — по −10; время каждой серии фиксируется отдельно, итог — сумма трёх серий"
+    ]
+  },
+  "safety": { "ru": "Стрельба со слабого плеча — корпус разворачивать плавно, ствол в секторе мишеней" },
+  "equipment": ["карабин", "2 магазина на 8+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Джордж Джонс, правки US Design Team"] },
+  "related": ["baseball-standards-uspsa"]
+}

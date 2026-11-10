@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "hi-way-robbery-uspsa",
+  "name": { "ru": "Хай-Вэй Робери (USPSA 19-02)", "en": "Hi-Way Robbery (USPSA 19-02)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/19-02.pdf"
+  },
+  "tags": ["transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 8, "max": 14, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 4 },
+    { "type": "steel-popper", "count": 4 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 15.0 },
+    { "level": "intermediate", "time": 12.5 },
+    { "level": "advanced", "time": 10.0 },
+    { "level": "master", "time": 7.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Смешанный набор: бумага на двойки и мини-попперы на валкость — все мишени из одной зоны обстрела",
+    "en": "Mixed set: paper for pairs and mini-poppers for follow-through, all from one shooting area"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~8–14 м — сверить по официальной диаграмме USPSA; 4 картонных и 4 мини-поппера расставлены «край в край», штрафные «точка в точку» по букве A, стенки вплотную к задней линии",
+      "Старт: стоя в зоне обстрела лицом к мишеням, пятки на задней линии, запястья ниже пояса; для карабина (PCC) — заряжен, предохранитель включён, приклад у пояса, ствол вперёд",
+      "По звуковому сигналу поразить все 8 мишеней по мере доступности из зоны обстрела, порядок и распределение выстрелов — на усмотрение стрелка",
+      "Каждый картон должен получить хотя бы одно зачётное попадание, каждый поппер — упасть",
+      "Засчитываются лучшие 2 пробоины с картона; несваленный металл не засчитывается"
+    ]
+  },
+  "safety": { "ru": "Металл на дистанции — очки обязательны; после выстрела по попперу контролируй ствол, он не должен уйти за соседние мишени" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов"],
+  "variants": { "ru": ["Автор — David Jenkins"] }
+}

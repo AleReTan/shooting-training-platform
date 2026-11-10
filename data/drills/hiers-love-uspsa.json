@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "hiers-love-uspsa",
+  "name": { "ru": "Хай'эр Лав (USPSA 19-03)", "en": "HI'er Love (USPSA 19-03)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/19-03.pdf"
+  },
+  "tags": ["transitions", "cover", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 7, "max": 12, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 11.5 },
+    { "level": "advanced", "time": 9.0 },
+    { "level": "master", "time": 7.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шесть картонов в ряд с частичным жёстким укрытием: точечно открывать зачётную зону на каждой мишени",
+    "en": "Six cardboards in a row with partial hard cover: hit only the open scoring zone on each"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~7–12 м — сверить по официальной диаграмме USPSA; 6 картонов «край в край», проходная стенка 8' по центральной линии, штрафные на уровне низа буквы A",
+      "Часть мишеней — с «половинным» жёстким укрытием (граница на 5\" ниже линии плеч): стрелять только в открытую часть",
+      "Старт: стоя в зоне обстрела, пятки на задней линии, запястья ниже пояса; для карабина (PCC) — заряжен, предохранитель включён, приклад у пояса, ствол вперёд",
+      "По звуковому сигналу поразить все 6 мишеней по мере доступности из зоны обстрела, без движения за границы",
+      "Засчитываются лучшие 2 пробоины с каждого картона; пробитое жёсткое укрытие не засчитывает попадание за собой, штрафные — минус по правилам USPSA"
+    ]
+  },
+  "safety": { "ru": "Статичное упражнение у стенки: ствол в секторе мишеней, жёсткое укрытие не пробивать, при переходах палец вне спуска" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов"],
+  "variants": { "ru": ["Автор — Jake from State Farm"] }
+}

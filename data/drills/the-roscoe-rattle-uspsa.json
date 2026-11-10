@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "the-roscoe-rattle-uspsa",
+  "name": { "ru": "Роско Раттл (USPSA 13-04)", "en": "The Roscoe Rattle (USPSA 13-04)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/13-04.pdf"
+  },
+  "tags": ["reload", "transitions", "recoil-control", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 18,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 26.0 },
+    { "level": "intermediate", "time": 19.0 },
+    { "level": "advanced", "time": 16.0 },
+    { "level": "master", "time": 13.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шестёрки в три мишени по одной: темп, контроль отдачи и перезарядка между T1 и T3",
+    "en": "Six-round strings into three single targets: pace, recoil control and a reload between T1 and T3"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м (в тексте PDF дистанций нет) — сверить по официальной диаграмме USPSA; три картона с шагом 6 футов между краями, плечи на 5 футах; края но-шутов выровнены с краями зоны C на T2",
+      "Старт: в боксе A; для карабина — лицом в сторону мишеней, приклад у пояса, ствол в сторону мишеней, предохранитель включён (поворот спиной для карабина не делается)",
+      "Серия 1: только 6 выстрелов в T2 из бокса A",
+      "Серия 2 (новый стартовый сигнал): только 6 выстрелов в T1, обязательная перезарядка, затем только 6 выстрелов в T3; все выстрелы из бокса A",
+      "Засчитываются лучшие 6 пробоин с каждой мишени; лишний выстрел или пробоина — минус 10 каждый"
+    ]
+  },
+  "safety": { "ru": "Вся стрельба из одного бокса — ствол в секторе мишеней, между сериями палец вне спуска" },
+  "equipment": ["карабин", "3 магазина на 6+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Роберт Портер"] },
+  "related": ["bill-drill-carbine"]
+}

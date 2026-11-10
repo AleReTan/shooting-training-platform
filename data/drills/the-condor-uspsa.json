@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "the-condor-uspsa",
+  "name": { "ru": "Кондор (USPSA 18-08)", "en": "The Condor (USPSA 18-08)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/18-08.pdf"
+  },
+  "tags": ["movement", "reload", "transitions", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 16,
+  "needsReview": true,
+  "distance": { "min": 5, "max": 11, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 8 }],
+  "parTimes": [
+    { "level": "novice", "time": 36.0 },
+    { "level": "intermediate", "time": 27.0 },
+    { "level": "advanced", "time": 22.0 },
+    { "level": "master", "time": 18.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Восемь картонов из двух боксов: по выстрелу на мишень, перезарядка и смена бокса в каждой серии",
+    "en": "Eight paper from two boxes: one round each, reload and box change in every string"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~5–11 м (прикидка по 16–36 футам на диаграмме) — сверить по официальной диаграмме USPSA; восемь картонов в две группы, боксы A и B по 3×3 фута; T2/T3/T6/T7 перекрыты укрытием по нижнему углу и нижнему плечу",
+      "Старт: в назначенной зоне; для карабина — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "Серия 1: из бокса A по одному выстрелу в T1–T4, обязательная перезарядка, затем из бокса B по одному выстрелу в T5–T8",
+      "Серия 2 (новый стартовый сигнал): из бокса B по одному выстрелу в T5–T8, обязательная перезарядка, затем из бокса A по одному выстрелу в T1–T4",
+      "Засчитываются лучшие 2 пробоины с бумаги; попадание в укрытие не засчитывается"
+    ]
+  },
+  "safety": { "ru": "Перебег между боксами только со стволом в сторону мишеней, палец вне спуска" },
+  "equipment": ["карабин", "4 магазина на 6+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда Nationals; редакция диаграммы от 20.01.2019"] },
+  "related": ["of-course-it-did-uspsa"]
+}

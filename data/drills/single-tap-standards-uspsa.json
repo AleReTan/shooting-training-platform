@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "single-tap-standards-uspsa",
+  "name": { "ru": "Сингл Тэп Стандардс (USPSA 99-51)", "en": "Single Tap Standards (USPSA 99-51)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-51.pdf"
+  },
+  "tags": ["bilateral", "prone", "kneeling", "transitions", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 5, "max": 18, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 30.0 },
+    { "level": "intermediate", "time": 24.0 },
+    { "level": "advanced", "time": 19.0 },
+    { "level": "master", "time": 15.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шесть мишеней по одному выстрелу из четырёх положений: лёжа, с колена, сильное и слабое плечо",
+    "en": "Six targets, one shot each, from four positions: prone, kneeling, strong and weak shoulder"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция 18/14/9/5 м по сериям (60/45/30/15 футов) — сверить по официальной диаграмме USPSA; мишени на высоте 122 см по плечам, края через 61 см, четырёхфутовые штрафные линии по центру на каждой дистанции",
+      "Старт: стоя за соответствующей штрафной линией лицом к мишеням, руки расслабленно опущены; для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, обе руки, предохранитель включён",
+      "Серия 1 (18 м): по одному выстрелу в T1–T6 из положения лёжа (руки до локтей за линией — не фол)",
+      "Серия 2 (14 м): по одному выстрелу в T1–T6 с колена (одно или оба колена на земле)",
+      "Серия 3 (9 м): по одному выстрелу в T1–T6 только с сильного плеча",
+      "Серия 4 (5 м): по одному выстрелу в T1–T6 только со слабого плеча",
+      "Засчитываются лучшие 4 пробоины на мишень; лишний выстрел или лишнее попадание −10"
+    ]
+  },
+  "safety": { "ru": "Переход в лёжу и с колена — ствол только в сторону мишеней и в сторону пулеулавливателя, без разворота через себя" },
+  "equipment": ["карабин", "1 магазин на 24+ патронов"],
+  "variants": { "ru": ["Автор — Bob Jones, модификации US Design Team"] },
+  "related": ["close-quarter-standards-uspsa"]
+}

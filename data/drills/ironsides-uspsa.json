@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "ironsides-uspsa",
+  "name": { "ru": "Айронсайдс (USPSA 03-12)", "en": "Ironsides (USPSA 03-12)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/03-12.pdf"
+  },
+  "tags": ["cover", "barricade", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 4 },
+    { "type": "steel-popper", "count": 4 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 14.0 },
+    { "level": "advanced", "time": 11.5 },
+    { "level": "master", "time": 9.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Два окна в стене: у каждого своё бумажное дупло и пара попперов, порядок окон на выбор",
+    "en": "Two ports in a wall: each with its own paper pair and popper pair, port order is the shooter's choice"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; бумага на 4 фута по плечам, зона обстрела 8 футов шириной за укрытием высотой 4 фута, перемычки над окнами выступают на 2 фута; штрафные стоят в 4 футах за попперами (верх поппера на линии B–C штрафной, по центру с точки стрельбы)",
+      "Старт: стрелок по центру за стеной, обе руки лежат на верху стены на отметке; для карабина (PCC) — за стеной по центру, оружие в двух руках без изготовки, ствол лежит на верху стены на отметке",
+      "Из окна A поразить только T1, T2, PP1, PP2; из окна B — только T3, T4, PP3, PP4",
+      "С какого окна начать — на выбор стрелка; внутри окна порядок свободный, бумага — по 2 выстрела максимум, сталь засчитывается при падении",
+      "Засчитываются лучшие 2 пробоины с бумаги, поппер — падение (как A); попадание в штрафную — −10"
+    ]
+  },
+  "safety": { "ru": "Ствол и руки — только через окно, не поверх перемычки; металл — очки обязательны" },
+  "equipment": ["карабин", "2 магазина на 12+ патронов"],
+  "variants": { "ru": ["Автор — Джон Мейджор, правки US Design Team"] }
+}

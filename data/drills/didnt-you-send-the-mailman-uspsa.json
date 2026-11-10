@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "didnt-you-send-the-mailman-uspsa",
+  "name": { "ru": "Диднт Ю Сенд Зе Мейлмен (USPSA 18-04)", "en": "Didn't You Send The Mailman (USPSA 18-04)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/18-04.pdf"
+  },
+  "tags": ["first-shot", "reload", "transitions", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "needsReview": true,
+  "distance": { "min": 9, "max": 14, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 12.0 },
+    { "level": "intermediate", "time": 9.0 },
+    { "level": "advanced", "time": 7.5 },
+    { "level": "master", "time": 6.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шесть выстрелов из стула: двойка в центр, перезарядка и двойки по крайним",
+    "en": "Six rounds from a chair: pair into the center, reload, pairs on the flankers"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~9–14 м (прикидка по 30/45 футам на диаграмме) — сверить по официальной диаграмме USPSA; три картона, T1 в центре; но-шут выровнен левым краем с краем зоны A, верх но-шута — с нижней линией надписи мишени",
+      "Старт: сидя на стуле; для карабина — заряженный карабин во вложенном положении, ствол в сторону мишеней; стул и ноги полностью за зоной стрельбы, носки у задней фолт-линии",
+      "По сигналу поразить T1 только двумя выстрелами",
+      "Обязательная перезарядка, затем поразить оставшиеся мишени (T2 и T3) только по два выстрела в каждую",
+      "Засчитываются лучшие 2 пробоины с бумаги; попадание в но-шут — минус 10"
+    ]
+  },
+  "safety": { "ru": "Старт сидя со вложенным карабином — ствол строго в сторону мишеней до выхода из-за задней фолт-линии" },
+  "equipment": ["карабин", "2 магазина на 6+ патронов", "стул", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда Nationals"] },
+  "related": ["double-deal-2-uspsa"]
+}

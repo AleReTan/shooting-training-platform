@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "hi-cost-of-living-uspsa",
+  "name": { "ru": "Хай Кост оф Ливинг (USPSA 19-04)", "en": "HI Cost of Living (USPSA 19-04)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/19-04.pdf"
+  },
+  "tags": ["transitions", "cover", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 14,
+  "needsReview": true,
+  "distance": { "min": 5, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 7 }],
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 15.0 },
+    { "level": "advanced", "time": 12.0 },
+    { "level": "master", "time": 9.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Работа с частично открытыми мишенями за стенками: найти угол и закрыть все семь картонов",
+    "en": "Working partially exposed targets behind walls: find each angle and clear all seven"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~5–10 м — сверить по официальной диаграмме USPSA; 7 картонов за двумя стенками 8' (фронтальная и проходная под углом), есть штрафные и жёсткое укрытие (hard cover) на T3/T4",
+      "Старт: стоя в зоне обстрела, пятки на отметке, запястья ниже пояса; для карабина (PCC) — заряжен, предохранитель включён, приклад у пояса, ствол вперёд",
+      "По звуковому сигналу поразить все 7 мишеней по мере их появления из зоны обстрела — сдвигаясь вдоль стенок, открывая каждый угол по очереди",
+      "T3 открыт только справа, T4 — только слева (жёсткое укрытие до линии зоны A): пробивать укрытие нельзя",
+      "Засчитываются лучшие 2 пробоины с каждого картона; попадания в штрафные — минус по правилам USPSA"
+    ]
+  },
+  "safety": { "ru": "Двигаться вдоль стенок только со стволом в секторе мишеней; жёсткое укрытие не пробивать, при смене угла палец вне спуска" },
+  "equipment": ["карабин", "1 магазин на 14+ патронов"],
+  "variants": { "ru": ["Автор — Jake from State Farm"] }
+}

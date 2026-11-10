@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "fluffys-revenge-2-uspsa",
+  "name": { "ru": "Месть Флаффи 2 (USPSA 06-05)", "en": "Fluffy's Revenge 2 (USPSA 06-05)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/06-05.pdf"
+  },
+  "tags": ["first-shot", "transitions", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-classic", "count": 3 },
+    { "type": "steel-popper", "count": 2 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 10.5 },
+    { "level": "advanced", "time": 8.5 },
+    { "level": "master", "time": 7.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Разворот к тройке классических мишеней вплотную и паре мини-попперов, всё из одного бокса",
+    "en": "Turn to a tight row of classic targets and a pair of mini poppers, all from one box"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; мишени на 5 футов по верхнему краю и стоят вплотную (edge to edge), центр T2 — на центральной оси площадки, бокс A — 3×3 фута",
+      "Старт (пистолет): стрелок в боксе A, запястья выше плеч, лицом в сторону, противоположную мишеням (uprange); для карабина (PCC) разворота нет — лицом в сторону мишеней, приклад у пояса, ствол вперёд, на предохранителе",
+      "По сигналу разворот, поразить все мишени, не выходя из бокса A; порядок свободный, бумага — по 2 выстрела максимум, мини-попперы засчитываются при падении",
+      "Засчитываются лучшие 2 пробоины с бумаги, поппер — падение (как A); попадание в штрафную — −10"
+    ]
+  },
+  "safety": { "ru": "Разворот только в боксе, ствол в секторе мишеней; мишени вплотную — контроль переноса ствола между карточками" },
+  "equipment": ["карабин", "1 магазин на 8+ патронов"],
+  "variants": { "ru": ["Автор — Бет Уингфилд"] },
+  "related": ["fluffys-revenge-1-uspsa"]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "pucker-factor-uspsa",
+  "name": { "ru": "Пакер Фактор (USPSA 09-04)", "en": "Pucker Factor (USPSA 09-04)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/09-04.pdf"
+  },
+  "tags": ["cover", "transitions", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 8.0 },
+    { "level": "intermediate", "time": 6.0 },
+    { "level": "advanced", "time": 5.0 },
+    { "level": "master", "time": 4.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Восемь выстрелов по четырём мишеням с жёстким укрытием: точность при работе по паре в цель",
+    "en": "Eight rounds on four hard-cover targets: accuracy while doubling each target"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; 4 Metric-мишени на высоте плеч (5 футов), внутренние края T2/T3 в 6 дюймах от центральной линии; жёсткое укрытие (hard cover): на T1 закрывает до верха зоны A, на T2 — до центра зоны A, на T3 — до низа зоны A",
+      "Старт: в зоне стрельбы лицом к мишеням, руки опущены; для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "По сигналу поразить каждую цель ровно 2 выстрелами вольным хватом, не выходя за огневые линии",
+      "Засчитываются лучшие 2 пробоины на мишень; лишний выстрел и лишнее — штраф за каждый; попадание в жёсткое укрытие не засчитывается"
+    ]
+  },
+  "safety": { "ru": "Огонь только между огневыми линиями, ствол в сторону мишеней" },
+  "equipment": ["карабин", "1 магазин на 10+ патронов"],
+  "variants": { "ru": ["Автор — Рассел Клювер"] }
+}

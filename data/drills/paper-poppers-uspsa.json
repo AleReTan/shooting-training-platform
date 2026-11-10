@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "paper-poppers-uspsa",
+  "name": { "ru": "Бумажные попперы (USPSA 03-05)", "en": "Paper Poppers (USPSA 03-05)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/03-05.pdf"
+  },
+  "tags": ["first-shot", "reload", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 10,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 2 },
+    { "type": "steel-popper", "count": 6 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 14.0 },
+    { "level": "advanced", "time": 11.0 },
+    { "level": "master", "time": 9.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Два массива — бумага и сталь: порядок на выбор стрелка, обязательная перезарядка между массивами",
+    "en": "Two arrays — paper and steel: shooter's choice of order, mandatory reload between arrays"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; бумажные мишени на 5 футов по плечам, бокс A — 3×3 фута",
+      "Старт: стрелок в боксе A лицом в сторону мишеней, руки в позиции surrender (запястья выше плеч); для карабина — приклад у пояса, ствол в сторону мишеней, на предохранителе",
+      "Массив 1 — две бумажные мишени (по 2 выстрела максимум), массив 2 — шесть попперов; стрелок сам выбирает, с какого массива начать",
+      "Внутри массива порядок свободный; бумага — по 2 выстрела, сталь засчитывается только при падении",
+      "При смене массива обязательна перезарядка",
+      "Засчитываются лучшие 2 пробоины с бумаги, поппер — падение; попадание в штрафную — −10"
+    ]
+  },
+  "safety": { "ru": "Металл на линии — очки обязательны, ствол в сторону мишеней весь подход" },
+  "equipment": ["карабин", "2 магазина на 6+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Клиф Кинг, правки US Design Team"] }
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "take-em-down-uspsa",
+  "name": { "ru": "Тейк Эм Даун (USPSA 03-03)", "en": "Take 'em Down (USPSA 03-03)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/03-03.pdf"
+  },
+  "tags": ["movement", "barricade", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 11,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 12, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 4 },
+    { "type": "steel-popper", "count": 3 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 14.0 },
+    { "level": "advanced", "time": 11.0 },
+    { "level": "master", "time": 9.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Бумага из-за баррикады по сторонам, затем переход в соседний бокс к падающим попперам",
+    "en": "Paper from both sides of a barricade, then move to the next box for falling poppers"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10–12 м — сверить по официальной диаграмме USPSA; бумажные мишени на 5 футов по плечам, кромки штрафных накладываются на нижние зоны A; метка старта для карабина (PCC) — на 3 фута над землёй по центру баррикады",
+      "Старт: стрелок в боксе A, руки свободно опущены; для карабина — ствол касается метки, приклад у пояса, оружие в двух руках на предохранителе",
+      "Серия 1 (бокс A): T1 и T2 — только из левой части баррикады, T3 и T4 — только из правой; мишени в любом порядке",
+      "Серия 2: перемещение в бокс B, оттуда — PP1–PP3 (попперы) из-за любой стороны баррикады; сталь должна упасть",
+      "Засчитываются лучшие 2 пробоины с бумаги, поппер — падение (вес как за A); начало и конец по последнему выстрелу, попадание в штрафную — −10"
+    ]
+  },
+  "safety": { "ru": "Ствол не выходит за плоскости баррикады при смене стороны, перемещение в бокс B — только с направленным вперёд оружием" },
+  "equipment": ["карабин", "2 магазина на 12+ патронов"],
+  "variants": { "ru": ["Автор — Рэнди Честаро, правки US Design Team"] }
+}

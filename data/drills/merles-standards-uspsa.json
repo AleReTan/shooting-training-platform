@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "merles-standards-uspsa",
+  "name": { "ru": "Мерлз Стандардс (USPSA 99-63)", "en": "Merles Standards (USPSA 99-63)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-63.pdf"
+  },
+  "tags": ["bilateral", "reload", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 33.0 },
+    { "level": "intermediate", "time": 25.5 },
+    { "level": "advanced", "time": 21.0 },
+    { "level": "master", "time": 16.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Две длинные серии по шесть: T3 дважды свободно, затем T2 с сильного и T1 со слабого плеча",
+    "en": "Two six-round strings: T3 twice freestyle, then T2 strong shoulder and T1 weak shoulder"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; мишени на высоте 152 см по плечам, бокс A 90×90 см",
+      "Старт: в боксе A лицом к мишеням, оба запястья выше плеч (позиция капитуляции); для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, карабин в обеих руках, предохранитель включён",
+      "Серия 1: шесть выстрелов только в T3 свободным хватом, обязательная перезарядка, шесть выстрелов только в T2 с сильного плеча",
+      "Серия 2: шесть выстрелов только в T3 свободным хватом, обязательная перезарядка, шесть выстрелов только в T1 со слабого плеча",
+      "Засчитываются лучшие 6 пробоин на T1 и T2, лучшие 12 на T3; пропуск перезарядки — процедурный штраф за каждый выстрел; лишний выстрел или лишнее попадание −10"
+    ]
+  },
+  "safety": { "ru": "Серии по шесть выстрелов на одну мишень и смена плеча — контроль отдачи и направления ствола, палец вне спуска при переносе между мишенями" },
+  "equipment": ["карабин", "2 магазина на 12+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — John Amidon"] },
+  "related": ["lazy-man-standards-uspsa"]
+}

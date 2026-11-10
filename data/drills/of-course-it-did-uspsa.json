@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "of-course-it-did-uspsa",
+  "name": { "ru": "Оф Корс Ит Дид (USPSA 18-01)", "en": "Of Course It Did (USPSA 18-01)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/18-01.pdf"
+  },
+  "tags": ["reload", "movement", "bilateral", "transitions", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 12, "max": 14, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 44.0 },
+    { "level": "intermediate", "time": 33.0 },
+    { "level": "advanced", "time": 27.0 },
+    { "level": "master", "time": 22.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стандарт: по выстрелу на мишень из стартового бокса, перезарядка и добор из противоположного — сильной, потом слабой рукой",
+    "en": "Standard: one shot per target from the start box, reload and repeat from the opposite box — strong hand, then weak hand"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~12–14 м (прикидка по 45 футам на диаграмме) — сверить по официальной диаграмме USPSA; два бокса 3×3 фута, верх мишеней на 5 футах, бошутов нет",
+      "Старт: для карабина — в боксе A или B, пятки у задней линии бокса, лицо в сторону мишеней, приклад у пояса, ствол в сторону мишеней",
+      "Серия 1: по одному выстрелу в каждую мишень из стартового бокса, обязательная перезарядка, затем по одному выстрелу в каждую мишень из противоположного бокса — только с сильного плеча",
+      "Серия 2 (новый стартовый сигнал): та же схема — свой бокс, перезарядка, противоположный бокс — только со слабого плеча",
+      "Засчитываются лучшие 4 пробоины с бумаги; лишние выстрелы, пробоины и процедурные нарушения — штраф"
+    ]
+  },
+  "safety": { "ru": "Переход между боксами только со стволом в сторону мишеней; стрельба с одного плеча — палец вне спуска вне сектора" },
+  "equipment": ["карабин", "3 магазина на 10+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда Nationals"] },
+  "related": ["baseball-standards-uspsa"]
+}

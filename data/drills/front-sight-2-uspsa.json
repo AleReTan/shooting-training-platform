@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "front-sight-2-uspsa",
+  "name": { "ru": "Фронт Сайт 2 (USPSA 99-24)", "en": "Front Sight 2 (USPSA 99-24)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-24.pdf"
+  },
+  "tags": ["first-shot", "standing", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 15.0 },
+    { "level": "intermediate", "time": 12.0 },
+    { "level": "advanced", "time": 9.5 },
+    { "level": "master", "time": 7.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Как Front Sight, но штрафные прижаты к зонам — скорость приходится дозировать точностью",
+    "en": "Front Sight with no-shoots pressed against the scoring zones — speed must be metered with precision"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; бокс A 3×3 фута, мишени на высоте плеч (~5 футов), T1 и T3 развёрнуты на стрелковый бокс",
+      "Штрафные: на T1 и T3 перфорация зон совмещена с линией зон A штрафной, штрафная у T2 стоит на 8 дюймов ниже верха нижней зоны A мишени",
+      "Серия 1 — старт: в боксе A спиной к мишеням, руки опущены или запястья выше плеч (выбор стрелка); для карабина (PCC) в обеих сериях — лицом в сторону мишеней, приклад у пояса, ствол в сторону мишеней, предохранитель включён, без разворота",
+      "Серия 1: по сигналу развернуться и из бокса A поразить T1–T3 ровно по два выстрела на мишень",
+      "Серия 2 — старт: лицом к мишеням, положение рук противоположное серии 1; по сигналу поразить T1–T3 ровно по два выстрела",
+      "Virginia Count: засчитываются лучшие 4 пробоины на мишень, время двух серий суммируется; попадание в штрафную — минус 10"
+    ]
+  },
+  "safety": { "ru": "Разворот в серии 1 — ствол в сторону мишеней с самого начала движения; работа только внутри бокса 3×3 фута" },
+  "equipment": ["карабин", "1 магазин на 6+ патронов"],
+  "variants": { "ru": ["Автор — П. Р. Меткалф, модификация дизайн-команды USPSA; правка от 01.01.2008"] },
+  "related": ["front-sight-uspsa"]
+}

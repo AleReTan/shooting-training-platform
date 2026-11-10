@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "lifes-little-problems-uspsa",
+  "name": { "ru": "Лайфс Литтл Проблемс (USPSA 09-10)", "en": "Life's Little Problems (USPSA 09-10)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/09-10.pdf"
+  },
+  "tags": ["barricade", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 10.0 },
+    { "level": "advanced", "time": 8.5 },
+    { "level": "master", "time": 7.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шесть мишеней через низкий проём в стене: часть целей сильно ниже уровня глаз",
+    "en": "Six targets through a low wall port: part of them well below eye level"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; 6 Metric-мишеней: T3/T4 на высоте всего 32 дюйма по плечам, остальные на 5 футах; проём в стене 18 дюймов шириной и 21 дюйм высотой, на 14 дюймах над землёй, по центру секции стены 8 футов; боковые стены баррикады 8×8 футов",
+      "Дистанция до T1 — до дальнего края штрафной мишени, сквозь которую T1 виден; попадание в штрафную — штраф",
+      "Старт: пятки на отметках, руки опущены; для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "По сигналу поразить все 6 мишеней (по 2 выстрела), оставаясь в зоне стрельбы",
+      "Засчитываются лучшие 2 пробоины на мишень; лишний выстрел, лишнее и попадание в штрафную — штраф за каждый"
+    ]
+  },
+  "safety": { "ru": "Стрельба через низкий проём — корпус и ствол не опирать о стену, работать коленом/приседанием, ствол в сторону мишеней" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов", "баррикада с низким проёмом"],
+  "variants": { "ru": ["Автор — US Nationals Design Team"] }
+}

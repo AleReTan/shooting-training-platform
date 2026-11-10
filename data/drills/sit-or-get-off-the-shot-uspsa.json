@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "sit-or-get-off-the-shot-uspsa",
+  "name": { "ru": "Сит Ор Гет Офф Зе Шот (USPSA 99-61)", "en": "Sit Or Get Off The Shot (USPSA 99-61)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-61.pdf"
+  },
+  "tags": ["bilateral", "positions", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 19.0 },
+    { "level": "intermediate", "time": 16.0 },
+    { "level": "advanced", "time": 12.5 },
+    { "level": "master", "time": 9.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стрельба из-за стола сидя: три захода — свободно, сильное и слабое плечо",
+    "en": "Shooting seated behind a table: freestyle, strong shoulder and weak shoulder passes"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; мишени на высоте 152 см по плечам; T1 прикрыта жёстким накрытием ниже зоны B, T2 — до вертикального центра; стол стандартного карточного размера",
+      "Старт: сидя в стуле, спина полностью прижата к спинке, обе ладони плашмя на столе, колени под столом; для карабина (PCC) — заряженный карабин на столе, ствол в сторону мишеней, предохранитель включён, карабин не за задним краем стола",
+      "Серия 1: по одному выстрелу в T1–T4 свободным хватом, вставать со стула нельзя",
+      "Серия 2: по одному выстрелу в T1–T4 только с сильного плеча",
+      "Серия 3: по одному выстрелу в T1–T4 только со слабого плеча",
+      "Засчитываются лучшие 3 пробоины на мишень; лишний выстрел или лишнее попадание −10"
+    ]
+  },
+  "safety": { "ru": "Стрельба сидя со слабого плеча — ствол только в сторону мишеней, карабин не цепляется за край стола при переносе" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов", "стул и стол"],
+  "variants": { "ru": ["Авторы — Silver Sage PC, модификации US Design Team"] },
+  "related": ["single-tap-standards-uspsa"]
+}

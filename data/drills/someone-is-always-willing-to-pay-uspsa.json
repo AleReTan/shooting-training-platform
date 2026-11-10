@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "someone-is-always-willing-to-pay-uspsa",
+  "name": { "ru": "Самуан Из Олвэйс Виллин Ту Пей (USPSA 18-07)", "en": "Someone Is Always Willing To Pay (USPSA 18-07)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/18-07.pdf"
+  },
+  "tags": ["reload", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "needsReview": true,
+  "distance": { "min": 7, "max": 11, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 3 },
+    { "type": "steel-popper", "count": 2 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 11.0 },
+    { "level": "advanced", "time": 9.0 },
+    { "level": "master", "time": 7.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Скоростная связка: три картона или два мини-поппера, перезарядка и остальные мишени",
+    "en": "Speed shoot: three paper or two mini-poppers first, reload, then the rest"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~6,5–11 м (прикидка по 21–36 футам на диаграмме) — сверить по официальной диаграмме USPSA; три картона T1–T3 и два мини-поппера P1–P2, верх мишеней 5 футов; но-шут выровнен с краем зоны A",
+      "Старт: в зоне стрельбы лицом в сторону мишеней; для карабина — приклад у пояса, ствол в сторону мишеней",
+      "Поразить T1–T3 или P1–P2 (группа на выбор)",
+      "Обязательная перезарядка, затем поразить оставшиеся мишени",
+      "Засчитываются лучшие 2 пробоины с бумаги; сталь засчитывается только при падении"
+    ]
+  },
+  "safety": { "ru": "Сталь рядом с картонами — ствол только в секторе своей группы, перезарядка без разворота" },
+  "equipment": ["карабин", "2 магазина на 8+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда Nationals"] },
+  "related": ["double-deal-2-uspsa"]
+}

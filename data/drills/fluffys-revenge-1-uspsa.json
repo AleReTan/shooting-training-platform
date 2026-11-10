@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "fluffys-revenge-1-uspsa",
+  "name": { "ru": "Месть Флаффи 1 (USPSA 06-04)", "en": "Fluffy's Revenge 1 (USPSA 06-04)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/06-04.pdf"
+  },
+  "tags": ["first-shot", "transitions", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 3 },
+    { "type": "steel-popper", "count": 2 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 13.0 },
+    { "level": "intermediate", "time": 10.0 },
+    { "level": "advanced", "time": 8.0 },
+    { "level": "master", "time": 6.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Короткая тройка из одного бокса: бумага со штрафными и пара попперов",
+    "en": "A short three-target course from one box: paper with no-shoots plus a pair of poppers"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; бумажные мишени на 5 футов по плечам, центр T2 — на центральной оси площадки, линии штрафных совпадают с линиями зоны C мишеней, бокс A — 3×3 фута",
+      "Старт: стрелок в боксе A лицом в сторону мишеней, руки свободно опущены; для карабина (PCC) — приклад у пояса, ствол вперёд, на предохранителе",
+      "По сигналу поразить все мишени, не выходя из бокса A; порядок свободный, бумага — по 2 выстрела максимум, сталь засчитывается при падении",
+      "Засчитываются лучшие 2 пробоины с бумаги, поппер — падение (как A); попадание в штрафную — −10"
+    ]
+  },
+  "safety": { "ru": "Штрафные вплотную к мишеням — переносы делать параллельно плоскости мишени, металл — очки обязательны" },
+  "equipment": ["карабин", "1 магазин на 8+ патронов"],
+  "variants": { "ru": ["Автор — Бет Уингфилд"] }
+}

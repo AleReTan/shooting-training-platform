@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "we-play-games-uspsa",
+  "name": { "ru": "Ви Плей Геймс (USPSA 18-03)", "en": "We Play Games (USPSA 18-03)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/18-03.pdf"
+  },
+  "tags": ["reload", "movement", "bilateral", "transitions", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 8, "max": 9, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 44.0 },
+    { "level": "intermediate", "time": 33.0 },
+    { "level": "advanced", "time": 27.0 },
+    { "level": "master", "time": 22.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стандарт на три бокса: фристайл из A, сильная рука из B, слабая рука из C — по выстрелу на каждую из шести мишеней за проход",
+    "en": "Three-box standard: freestyle from A, strong hand from B, weak hand from C — one shot per target per pass"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~8 м (прикидка по 27 футам на диаграмме) — сверить по официальной диаграмме USPSA; три бокса A/B/C по 3×3 фута, верх мишеней на 5 футах",
+      "Старт: в соответствующей зоне стрельбы лицом в сторону мишеней; для карабина — приклад у пояса, ствол в сторону мишеней",
+      "Серия 1: из бокса A по одному выстрелу в каждую мишень фристайл, обязательная перезарядка, затем из бокса B по одному выстрелу в каждую мишень только с сильного плеча",
+      "Серия 2 (новый стартовый сигнал, старт из B): по одному выстрелу в каждую мишень фристайл, обязательная перезарядка, затем из бокса C по одному выстрелу в каждую мишень только со слабого плеча",
+      "Засчитываются лучшие 4 пробоины с бумаги; лишние выстрелы, пробоины и процедурные нарушения — штраф"
+    ]
+  },
+  "safety": { "ru": "Перемещения A→B→C только со стволом в сторону мишеней; смена плеча — палец вне спуска вне сектора мишеней" },
+  "equipment": ["карабин", "3 магазина на 10+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда Nationals"] },
+  "related": ["baseball-standards-uspsa"]
+}

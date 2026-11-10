@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "triple-play-uspsa",
+  "name": { "ru": "Трипл Плэй (USPSA 99-53)", "en": "Triple Play (USPSA 99-53)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-53.pdf"
+  },
+  "tags": ["reload", "cover", "transitions", "speed", "accuracy"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 3 },
+    { "type": "steel-popper", "count": 3 },
+    { "type": "steel-circle", "count": 3 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 21.0 },
+    { "level": "intermediate", "time": 16.5 },
+    { "level": "advanced", "time": 13.5 },
+    { "level": "master", "time": 10.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Три тройки «бумага — поппер — пластина» с двух сторон баррикады и через порт, с двумя перезарядками",
+    "en": "Three paper-popper-plate trios from both sides of the barricade and through a port, with two reloads"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; бумага на высоте 152 см по плечам и под прямым углом к стрелку, пластины 8 дюймов на стойках в 61 см от земли; метка для PCC на 90 см по центру баррикады",
+      "Старт: в боксе A лицом к баррикаде, руки расслабленно опущены; для карабина (PCC) — приклад у пояса, дуло касается метки, обе руки, предохранитель включён",
+      "По стартовому сигналу с левой стороны баррикады поразить T1, PP1 и P1 (порядок в массиве любой)",
+      "Обязательная перезарядка, затем через порт B поразить T2, PP2 и P2",
+      "Вторая обязательная перезарядка, затем с правой стороны поразить T3, PP3 и P3",
+      "Засчитываются лучшие 2 пробоины на бумагу; сталь засчитывается при падении; пропуск обязательной перезарядки — процедурный штраф за каждый выстрел"
+    ]
+  },
+  "safety": { "ru": "Стрельба через порт — дуло только в проём и в сторону пулеулавливателя; металл в очках и наушниках" },
+  "equipment": ["карабин", "3 магазина на 4+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Larry Smith, модификации US Design Team"] },
+  "related": ["works-for-me-uspsa"]
+}

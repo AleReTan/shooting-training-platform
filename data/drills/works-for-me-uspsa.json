@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "works-for-me-uspsa",
+  "name": { "ru": "Воркс Фор Ми (USPSA 99-41)", "en": "Works For Me (USPSA 99-41)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/99-41.pdf"
+  },
+  "tags": ["reload", "cover", "transitions", "speed", "accuracy"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 5 },
+    { "type": "steel-popper", "count": 2 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 16.0 },
+    { "level": "intermediate", "time": 13.0 },
+    { "level": "advanced", "time": 10.5 },
+    { "level": "master", "time": 8.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Обе стороны баррикады с обязательной перезарядкой при смене стороны",
+    "en": "Both sides of the barricade with a mandatory reload on the side change"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; мишени на высоте 152 см по плечам, метки X врезаны в 15 см от каждого края баррикады",
+      "Старт: в боксе A, ладони плашмя на баррикаде на метках; для карабина (PCC) — приклад у пояса, дуло касается любой метки, карабин не прижат к плечу, обе руки, предохранитель включён",
+      "По стартовому сигналу из бокса A поразить T1 и T2 — только с левой стороны баррикады",
+      "Обязательная перезарядка, затем поразить T3 и T4 — только с правой стороны баррикады",
+      "T5, PP1 и PP2 можно поразить с любой стороны, второй перезарядки не требуется",
+      "Засчитываются лучшие 2 пробоины на бумагу; сталь засчитывается при падении; пропуск обязательной перезарядки — процедурный штраф за каждый выстрел"
+    ]
+  },
+  "safety": { "ru": "Дуло всегда за пределами баррикады при смене стороны, перезарядка только внутри бокса" },
+  "equipment": ["карабин", "2 магазина на 6+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Автор — Joe DeSimone"] },
+  "related": ["can-you-count-uspsa"]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "six-uspsa",
+  "name": { "ru": "Сикс (USPSA 08-03)", "en": "Six (USPSA 08-03)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/08-03.pdf"
+  },
+  "tags": ["first-shot", "speed", "accuracy"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 6,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 2 },
+    { "type": "steel-popper", "count": 2 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 7.0 },
+    { "level": "intermediate", "time": 5.5 },
+    { "level": "advanced", "time": 4.5 },
+    { "level": "master", "time": 3.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шесть патронов на четыре цели после разворота: две бумажные и два поппера",
+    "en": "Six rounds on four targets after a turn: two paper and two poppers"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; 2 Metric-мишени на высоте плеч (5 футов) плюс Pepper-поппер и Mini-поппер, бокс 3×3 фута",
+      "Старт: стоя в боксе спиной к мишеням (пальцы ног у задней границы), руки выше плеч; для карабина (PCC) разворота нет — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "По сигналу разворот (пистолет), вскидка и поражение T1–T2 и обоих попперов в любом порядке, все выстрелы между огневыми линиями",
+      "На бумаге засчитываются лучшие 2 пробоины; металл падает — засчитан, попперы калибровка 1A после последнего выстрела"
+    ]
+  },
+  "safety": { "ru": "Разворот (для пистолета) — ствол в сторону мишеней с первого движения; металл: не подходить к упавшим попперам до команды RO" },
+  "equipment": ["карабин", "1 магазин на 10+ патронов"],
+  "variants": { "ru": ["Автор — 1911 Design Team (2007)"] }
+}

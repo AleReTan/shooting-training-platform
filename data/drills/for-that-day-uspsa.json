@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "for-that-day-uspsa",
+  "name": { "ru": "Фор Зет Дей (USPSA 18-06)", "en": "For That Day (USPSA 18-06)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/18-06.pdf"
+  },
+  "tags": ["reload", "bilateral", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 18,
+  "needsReview": true,
+  "distance": { "min": 12, "max": 14, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 3 }],
+  "parTimes": [
+    { "level": "novice", "time": 32.0 },
+    { "level": "intermediate", "time": 24.0 },
+    { "level": "advanced", "time": 20.0 },
+    { "level": "master", "time": 16.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шестёрки в T1 и T3 (вторая — с сильного плеча) и две тройки в T2 со слабого плеча, с перезарядками",
+    "en": "Sixes into T1 and T3 (second strong-hand only) and two threes into T2 weak-hand only, with reloads"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~13–14 м (прикидка по 45 футам на диаграмме) — сверить по официальной диаграмме USPSA; три картона, верх на 5 футах; но-шут выровнен с краем зоны A, T1 перекрыта укрытием по обоим краям зоны A",
+      "Старт: в зоне стрельбы; для карабина — приклад у пояса, ствол в сторону мишеней",
+      "Серия 1: 6 выстрелов в T1 фристайл, обязательная перезарядка, затем 6 выстрелов в T3 только с сильного плеча",
+      "Серия 2 (новый стартовый сигнал): 3 выстрела в T2 фристайл, обязательная перезарядка, затем ещё 3 выстрела в T2 только со слабого плеча",
+      "Засчитываются лучшие 6 пробоин с каждой мишени; попадание в укрытие/но-шут — штраф"
+    ]
+  },
+  "safety": { "ru": "Стрельба с одного плеча на 13 м — палец вне спуска при переносе между мишенями, ствол в секторе" },
+  "equipment": ["карабин", "3 магазина на 10+ патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — дизайн-команда Nationals"] },
+  "related": ["the-roscoe-rattle-uspsa"]
+}
