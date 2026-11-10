@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "can-you-count-uspsa",
+  "name": { "ru": "Кэн Ю Каунт (USPSA 06-03)", "en": "Can You Count (USPSA 06-03)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/06-03.pdf"
+  },
+  "tags": ["reload", "reload-tactical", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 20,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 32.0 },
+    { "level": "intermediate", "time": 26.0 },
+    { "level": "advanced", "time": 22.0 },
+    { "level": "master", "time": 18.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Дисциплина счёта патронов: ровно пять в цель и смена магазина между целями",
+    "en": "Ammo-count discipline: exactly five per target, reload between targets"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; T1/T4 развёрнуты на 45° от оси и ниже, штрафные снизу вровень с краем мишени, линия штрафной совпадает с линией зоны C",
+      "Старт: стрелок в боксе 3×3 фута, руки свободно опущены; для карабина (PCC) — приклад у пояса, ствол в сторону мишеней, предохранитель включён",
+      "Серия 1: 5 выстрелов только в T1, обязательная перезарядка, 5 выстрелов только в T2",
+      "Серия 2: 5 выстрелов только в T3, обязательная перезарядка, 5 выстрелов только в T4",
+      "Засчитываются лучшие 5 пробоин с бумаги; пропуск перезарядки — штраф за каждый выстрел"
+    ]
+  },
+  "safety": { "ru": "Перезарядка только в боксе, ствол направлен в сторону мишеней" },
+  "equipment": ["карабин", "2 магазина на 10 патронов", "подсумок для магазинов"],
+  "variants": { "ru": ["Авторы — Марк Рэмзи и Джон Голсон; для тренировки серии можно гонять отдельно с паром на серию"] },
+  "related": ["el-presidente-uspsa"]
+}

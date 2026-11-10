@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "baseball-standards-uspsa",
+  "name": { "ru": "Бейсбольные стандарты (USPSA 03-14)", "en": "Baseball Standards (USPSA 03-14)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/03-14.pdf"
+  },
+  "tags": ["bilateral", "reload", "reload-tactical", "accuracy", "speed"],
+  "difficulty": 4,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 7.0 },
+    { "level": "intermediate", "time": 6.0 },
+    { "level": "advanced", "time": 5.2 },
+    { "level": "master", "time": 4.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Стандарты: работа со слабого и сильного плеча и перезарядка под жёстким лимитом 4,5 с на серию",
+    "en": "Standards: weak/strong shoulder work and a reload under a hard 4.5 s per-string cap"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~10 м — сверить по официальной диаграмме USPSA; 4 мишени на высоте 1,5 м, бокс 3×3 фута",
+      "Старт: запястья выше плеч; лимит Fixed Time — 4,5 с на серию (пар-тайм в приложении задаётся на одну серию)",
+      "Серия 1 (4,5 с): 6 выстрелов в T1 только с левого плеча",
+      "Серия 2 (4,5 с): 6 выстрелов в T2 вольным стилем",
+      "Серия 3 (4,5 с): 3 выстрела в T3, обязательная перезарядка, ещё 3 выстрела в T3",
+      "Серия 4 (4,5 с): 6 выстрелов в T4 только с правого плеча",
+      "Засчитываются лучшие 6 пробоин с бумаги; автор — Р. Т. МакМанус"
+    ]
+  },
+  "safety": { "ru": "Смена плеча — с пальцем вне спусковой скобы, ствол в сторону пулеуловителя" },
+  "equipment": ["карабин", "2 магазина на 6+ патронов", "подсумок для магазинов"]
+}

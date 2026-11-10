@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "diamond-cutter-uspsa",
+  "name": { "ru": "Даймонд Каттер (USPSA 09-02)", "en": "Diamond Cutter (USPSA 09-02)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/09-02.pdf"
+  },
+  "tags": ["first-shot", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 8,
+  "needsReview": true,
+  "distance": { "min": 6.4, "max": 6.4, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 11.0 },
+    { "level": "advanced", "time": 8.5 },
+    { "level": "master", "time": 7.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Первый выстрел после разворота и плотная группа из четырёх мишеней со штрафными",
+    "en": "First shot after a turn into a tight four-target wall with no-shoots"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~6,4 м (7 ярдов) и расстановка — сверить по официальной диаграмме USPSA: 4 мишени в ряд, центральные вплотную, крайние развёрнуты по врезке; штрафные с обеих сторон каждой, верх штрафной на уровне плеч",
+      "Старт: лицом от мишеней, носки у задней кромки бокса 3×3 фута, руки свободно опущены",
+      "По сигналу — разворот, вскидка, по 2 прицельных выстрела в каждую из 4 мишеней",
+      "Для карабина (PCC) старт без разворота — лицом к мишеням",
+      "Засчитываются лучшие 2 пробоины с бумаги; задетая штрафная — минус"
+    ]
+  },
+  "safety": { "ru": "Разворот — с опущенным стволом, карабин направлен в сторону пулеуловителя" },
+  "equipment": ["карабин", "1 магазин на 8+ патронов"],
+  "variants": { "ru": ["Автор — Расселл Клувер; ревизия схемы 21.06.2010"] },
+  "related": ["el-presidente-uspsa"]
+}
