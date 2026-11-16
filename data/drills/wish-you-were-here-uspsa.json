@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "wish-you-were-here-uspsa",
+  "name": { "ru": "Виш Ю Вёр Хиа (USPSA 20-01)", "en": "Wish You Were Here (USPSA 20-01)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/20-01.pdf"
+  },
+  "tags": ["transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 7, "max": 12, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 5 },
+    { "type": "steel-popper", "count": 2 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 15.0 },
+    { "level": "intermediate", "time": 13.0 },
+    { "level": "advanced", "time": 10.0 },
+    { "level": "master", "time": 7.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Смешанная группа: пять картонов и два полноразмерных поппера из одной зоны обстрела",
+    "en": "Mixed set: five cardboards and two full-size poppers from a single shooting area"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~7–12 м — сверить по официальной диаграмме USPSA; 5 картонов + 2 полноразмерных поппера, мишени на высоте 5' до верха, штрафная мишень перевёрнута на 5\" ниже плечевой перфорации",
+      "Старт: стоя в зоне обстрела, ноги на отметках, запястья ниже пояса; для карабина (PCC) — заряжен в обеих руках, предохранитель включён, приклад касается пояса, ствол в сторону мишеней",
+      "По звуковому сигналу поразить все 7 мишеней по мере их доступности из зоны обстрела, порядок — на усмотрение стрелка",
+      "Металл должен упасть, на бумагу — минимум по одному зачётному попаданию",
+      "Засчитываются лучшие 2 пробоины с каждого картона и сваленный металл; штрафы — по правилам USPSA"
+    ]
+  },
+  "safety": { "ru": "Металл на дистанции — очки обязательны; ствол в секторе мишеней при переходах бумага-металл" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов"]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "deja-vu-all-over-again-uspsa",
+  "name": { "ru": "Дежа Вю Ол Овер Эгеин (USPSA 20-03)", "en": "Deja Vu All Over Again (USPSA 20-03)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/20-03.pdf"
+  },
+  "tags": ["transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 7, "max": 15, "unit": "m" },
+  "targets": [
+    { "type": "ipsc-metric", "count": 4 },
+    { "type": "steel-popper", "count": 4 }
+  ],
+  "parTimes": [
+    { "level": "novice", "time": 17.0 },
+    { "level": "intermediate", "time": 14.0 },
+    { "level": "advanced", "time": 12.0 },
+    { "level": "master", "time": 9.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Смешанная группа из одной зоны обстрела: четыре картона, два полноразмерных поппера и два мини-поппера",
+    "en": "Mixed set from a single shooting area: four cardboards, two full-size poppers and two mini-poppers"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~7–15 м — сверить по официальной диаграмме USPSA; 4 картона + 2 полноразмерных поппера + 2 мини-поппера (все картонные верхом на 5 футов, штрафные перевёрнуты на 5\" ниже перфорации зоны A)",
+      "Старт: стоя в зоне обстрела, запястья ниже пояса; для карабина (PCC) — заряжен в обеих руках, предохранитель включён, приклад у пояса, ствол в сторону мишеней",
+      "По звуковому сигналу поразить все 8 мишеней по мере доступности из зоны обстрела: по два зачётных попадания на картон, металл должен упасть, порядок — на усмотрение стрелка",
+      "Засчитываются лучшие 2 пробоины с каждого картона и сваленный металл; штрафные и промахи — по правилам USPSA"
+    ]
+  },
+  "safety": { "ru": "Металл на дистанции — очки обязательны; ствол в секторе мишеней при переходах бумага-металл" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов"],
+  "related": ["deja-vu-uspsa", "wish-you-were-here-uspsa"]
+}

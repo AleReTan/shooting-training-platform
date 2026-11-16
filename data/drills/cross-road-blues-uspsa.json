@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "cross-road-blues-uspsa",
+  "name": { "ru": "Кросс Роуд Блюз (USPSA 22-07)", "en": "Cross Road Blues (USPSA 22-07)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/22-07.pdf"
+  },
+  "tags": ["standing", "barricade", "transitions", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 14,
+  "needsReview": true,
+  "distance": { "min": 6, "max": 8, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 7 }],
+  "parTimes": [
+    { "level": "novice", "time": 16.0 },
+    { "level": "intermediate", "time": 13.0 },
+    { "level": "advanced", "time": 11.0 },
+    { "level": "master", "time": 8.5 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Семь картонов за стенками на перекрёстке: перенос огня между ближними и дальними парами",
+    "en": "Seven cardboards behind walls at a crossroads: transitions between near and far pairs"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~6–8 м — сверить по официальной диаграмме USPSA; задняя линия 20 футов шириной, 7 картонов T1–T7: пары T1–T2 и T3–T4 в 20 футах от задней линии, T5 и пара T6–T7 в 24 футах, T2/T3/T5/T6 в 1 футе от стенок, верх мишеней на 5 футах, штрафные перевёрнуты на 8\" ниже верха плеча",
+      "Старт: пятки на отметках задней линии; для карабина (PCC) — заряжен, предохранитель включён, приклад у пояса, ствол в сторону мишеней",
+      "По звуковому сигналу поразить все мишени по мере доступности из зоны обстрела, по два зачётных попадания на зачётный картон, порядок — на усмотрение стрелка",
+      "Засчитываются лучшие 2 пробоины с каждого зачётного картона; штрафные и попадания в них — по правилам USPSA"
+    ]
+  },
+  "safety": { "ru": "Ствол в секторе мишеней при переносах между стенками; не выносить ствол за габариты зоны обстрела" },
+  "equipment": ["карабин", "1 магазин на 14+ патронов"]
+}

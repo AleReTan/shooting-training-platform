@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "deja-vu-uspsa",
+  "name": { "ru": "Дежа Вю (USPSA 20-02)", "en": "Deja Vu (USPSA 20-02)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/20-02.pdf"
+  },
+  "tags": ["transitions", "accuracy", "speed"],
+  "difficulty": 2,
+  "fireMode": ["live"],
+  "rounds": 12,
+  "needsReview": true,
+  "distance": { "min": 7, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 6 }],
+  "parTimes": [
+    { "level": "novice", "time": 14.0 },
+    { "level": "intermediate", "time": 11.0 },
+    { "level": "advanced", "time": 9.0 },
+    { "level": "master", "time": 7.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Шесть картонов из одной зоны обстрела: перенос огня по всему вееру без движения",
+    "en": "Six cardboards from a single shooting area: transitions across the fan without movement"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~7–15 м — сверить по официальной диаграмме USPSA; 6 картонов, верх на высоте 5 футов, штрафные мишени перевёрнуты на 5\" ниже перфорации зоны A",
+      "Старт: стоя в зоне обстрела, запястья ниже пояса; для карабина (PCC) — заряжен в обеих руках, предохранитель включён, приклад у пояса, ствол в сторону мишеней",
+      "По звуковому сигналу поразить все 6 мишеней двумя зачётными попаданиями каждая, по мере доступности из зоны обстрела, порядок — на усмотрение стрелка",
+      "Засчитываются лучшие 2 пробоины с каждого картона; штрафные и промахи — по правилам USPSA"
+    ]
+  },
+  "safety": { "ru": "Ствол в секторе мишеней, палец вне спуска на переносах огня через веер" },
+  "equipment": ["карабин", "1 магазин на 12+ патронов"],
+  "related": ["deja-vu-all-over-again-uspsa"]
+}

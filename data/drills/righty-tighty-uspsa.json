@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "righty-tighty-uspsa",
+  "name": { "ru": "Райти Тайти (USPSA 22-01)", "en": "Righty Tighty (USPSA 22-01)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/22-01.pdf"
+  },
+  "tags": ["standing", "barricade", "transitions", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 18,
+  "needsReview": true,
+  "distance": { "min": 8, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 9 }],
+  "parTimes": [
+    { "level": "novice", "time": 22.0 },
+    { "level": "intermediate", "time": 18.0 },
+    { "level": "advanced", "time": 15.0 },
+    { "level": "master", "time": 12.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Девять картонов между стенками, последние три — только с сильной руки",
+    "en": "Nine cardboards between walls, the last three engaged strong hand only"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~8–15 м — сверить по официальной диаграмме USPSA; зона обстрела 12×19 футов, стенки по 8 футов, 9 картонов парами (шаг 2 фута между краями, 4 фута в глубину между парами), у крайних — перевёрнутые штрафные на 8\" ниже верха плеча, плечи на 5 футах",
+      "Старт: обе ноги на стартовой отметке, лицом в сторону мишеней; для карабина (PCC) — заряжен, предохранитель включён, в обеих руках, приклад у пояса",
+      "По звуковому сигналу поразить все 9 мишеней (по два зачётных попадания) из зоны обстрела; последние три мишени — только с сильной руки, вторая рука не касается оружия и опор",
+      "Засчитываются лучшие 2 пробоины с каждого картона; использование второй руки на последних трёх — правило 10.2.8 USPSA"
+    ]
+  },
+  "safety": { "ru": "Стрельба одной рукой от карабина — контроль темпа; ствол в секторе мишеней, палец вне спуска при переносах вдоль стенок" },
+  "equipment": ["карабин", "1 магазин на 18+ патронов"],
+  "related": ["lefty-loosey-uspsa"]
+}

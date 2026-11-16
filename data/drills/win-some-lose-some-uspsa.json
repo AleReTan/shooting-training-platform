@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "win-some-lose-some-uspsa",
+  "name": { "ru": "Вин Сам Луз Сам (USPSA 22-05)", "en": "Win Some Lose Some (USPSA 22-05)" },
+  "discipline": ["carbine"],
+  "source": {
+    "origin": "USPSA",
+    "kind": "uspsa-classifier",
+    "url": "https://uspsa.org/resources/classifiers/22-05.pdf"
+  },
+  "tags": ["standing", "reload", "bilateral", "accuracy", "speed"],
+  "difficulty": 3,
+  "fireMode": ["live"],
+  "rounds": 24,
+  "needsReview": true,
+  "distance": { "min": 7, "max": 15, "unit": "m" },
+  "targets": [{ "type": "ipsc-metric", "count": 4 }],
+  "parTimes": [
+    { "level": "novice", "time": 18.0 },
+    { "level": "intermediate", "time": 16.0 },
+    { "level": "advanced", "time": 15.0 },
+    { "level": "master", "time": 14.0 }
+  ],
+  "scoring": { "type": "par-time" },
+  "goal": {
+    "ru": "Фиксированное время, две серии по 7 секунд: двойки по всем мишеням, перезарядка и по одному с сильной/слабой руки",
+    "en": "Fixed time, two 7-second strings: two rounds on every target, reload, then one each strong/weak hand only"
+  },
+  "steps": {
+    "ru": [
+      "Дистанция ~7–15 м — сверить по официальной диаграмме USPSA; два бокса 3×3 фута (A и B), 4 картона колонкой: правый край правой мишени на линии правых краёв боксов, остальные через 1 фут по краям и 3 фута в глубину, верх на 5 футах",
+      "Старт: внутри бокса; для карабина (PCC) — заряжен, предохранитель включён, в обеих руках, приклад у пояса",
+      "Серия 1 (7 с): из бокса A по звуковому сигналу — по два попадания в каждую мишень, обязательная перезарядка, по одному попаданию в каждую только с сильной руки",
+      "Серия 2 (7 с): из бокса B то же, но последний заход — только со слабой руки",
+      "Фиксированное время: засчитываются лучшие 6 попаданий с мишени, успей в 7 секунд серии; всё вне времени — не считается"
+    ]
+  },
+  "safety": { "ru": "Стрельба одной рукой от карабина — контроль темпа; смена боксов только с направленным в сторону мишеней стволом" },
+  "equipment": ["карабин", "2 магазина на 12+ патронов"]
+}
