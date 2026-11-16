@@ -214,6 +214,24 @@ test('fireMode: пустой список отклоняется', () => {
   expect(res.errors.join('\n')).toContain('fireMode');
 });
 
+test('rounds: целое ≥ 0 (строка/отрицательное ломают карточку и сумму курса)', () => {
+  const res = run([
+    entry('x-drill.json', drill({ rounds: '24' as unknown as number })),
+    entry('y-drill.json', drill({ id: 'y-drill', rounds: -5 })),
+  ]);
+  const msg = res.errors.join('\n');
+  expect(msg).toContain('rounds');
+  expect(res.ok).toBe(false);
+});
+
+test('distance: min/max — конечные числа ≥ 0', () => {
+  const res = run([
+    entry('x-drill.json', drill({ distance: { min: -3, max: 10, unit: 'm' } })),
+    entry('y-drill.json', drill({ id: 'y-drill', distance: { min: '3' as unknown as number, max: 10, unit: 'm' } })),
+  ]);
+  expect(res.errors.join('\n')).toContain('distance.min/max');
+});
+
 test('distance.min > distance.max отклоняется', () => {
   const res = run([entry('x-drill.json', drill({ distance: { min: 30, max: 10, unit: 'm' } }))]);
   expect(res.errors.join('\n')).toContain('distance.min');

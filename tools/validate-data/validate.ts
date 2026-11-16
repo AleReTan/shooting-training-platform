@@ -121,7 +121,18 @@ function validateDrill(
   if (!Number.isInteger(d.difficulty) || d.difficulty < 1 || d.difficulty > 5) {
     errors.push(`${file}: difficulty должен быть целым 1–5`);
   }
+  // 0 — холостая; строка/отрицательное ломают «N патр.» и сумму курса
+  if (!Number.isInteger(d.rounds) || d.rounds < 0) {
+    errors.push(`${file}: rounds должен быть целым ≥ 0`);
+  }
   if (d.distance?.unit !== 'm') errors.push(`${file}: distance.unit должен быть "m"`);
+  if (
+    d.distance &&
+    (!Number.isFinite(d.distance.min) || d.distance.min < 0 ||
+      !Number.isFinite(d.distance.max) || d.distance.max < 0)
+  ) {
+    errors.push(`${file}: distance.min/max должны быть числами ≥ 0`);
+  }
   if (d.distance && d.distance.min > d.distance.max) {
     errors.push(`${file}: distance.min > distance.max`);
   }

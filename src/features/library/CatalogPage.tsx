@@ -20,6 +20,11 @@ import type { AppData } from '../../data/load';
 import type { Discipline, FireMode } from '../../data/types';
 
 /** Каталог упражнений: поиск, фильтры, список (спека §8 п.1). */
+
+// Первым экраном рендерим только шаг списка — карточек сотни, и монтировать
+// их все разом на телефоне не нужно; фильтр/сброс возвращают шаг.
+const LIST_STEP = 100;
+
 export default function CatalogPage({ data }: { data: AppData }) {
   const { drills, drillById, courses, taxonomy } = data;
 
@@ -27,7 +32,11 @@ export default function CatalogPage({ data }: { data: AppData }) {
   // зависят только от него, новое поле не требует правок в пяти местах.
   // Начальное — из sessionStorage: возврат из упражнения не сбрасывает набор.
   const [state, setState] = useState<CatalogState>(loadCatalogState);
-  const patch = (p: Partial<CatalogState>) => setState((s) => ({ ...s, ...p }));
+  const [limit, setLimit] = useState(LIST_STEP);
+  const patch = (p: Partial<CatalogState>) => {
+    setLimit(LIST_STEP);
+    setState((s) => ({ ...s, ...p }));
+  };
   useEffect(() => {
     saveCatalogState(state);
   }, [state]);
@@ -64,7 +73,10 @@ export default function CatalogPage({ data }: { data: AppData }) {
       tags: s.tags.includes(id) ? s.tags.filter((x) => x !== id) : [...s.tags, id],
     }));
 
-  const reset = () => setState(INITIAL_CATALOG_STATE);
+  const reset = () => {
+    setLimit(LIST_STEP);
+    setState(INITIAL_CATALOG_STATE);
+  };
 
   // Тренировка дня: стабильный выбор по дате из всех упражнений.
   const pickDaily = () => {
@@ -268,17 +280,30 @@ export default function CatalogPage({ data }: { data: AppData }) {
           </button>
         </div>
       ) : (
-        <div class="drill-list">
-          {visible.map((d) => (
-            <DrillCard
-              key={d.id}
-              drill={d}
-              tagLabels={tagLabels}
-              favorite={favorites.includes(d.id)}
-              onToggleFavorite={() => toggleFav(d.id)}
-            />
-          ))}
-        </div>
+        <>
+          <div class="drill-list">
+            {visible.slice(0, limit).map((d) => (
+              <DrillCard
+                key={d.id}
+                drill={d}
+                tagLabels={tagLabels}
+                favorite={favorites.includes(d.id)}
+                onToggleFavorite={() => toggleFav(d.id)}
+              />
+            ))}
+          </div>
+          {visible.length > limit ? (
+            <p class="catalog-count">
+              <button
+                type="button"
+                class="link-btn"
+                onClick={() => setLimit((l) => l + LIST_STEP)}
+              >
+                показать ещё ({visible.length - limit})
+              </button>
+            </p>
+          ) : null}
+        </>
       )}
     </section>
   );

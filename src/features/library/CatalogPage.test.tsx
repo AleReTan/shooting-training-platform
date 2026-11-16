@@ -15,11 +15,10 @@ afterEach(() => {
   window.sessionStorage.clear();
 });
 
-test('каталог показывает упражнения', () => {
+test('каталог показывает упражнения (первый экран списка)', () => {
   render(<CatalogPage data={data} />);
-  expect(screen.getByText('От 1 до 5')).toBeTruthy();
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
-  expect(screen.getByText('Стена (холостая)')).toBeTruthy();
+  expect(screen.getByText('Билл Дрилл (пистолет)')).toBeTruthy();
 });
 
 test('фильтры переживают возврат из упражнения в каталог', () => {
@@ -61,14 +60,14 @@ test('фильтр fireMode «холостые» оставляет только
 test('фильтр «Оружие: пистолет» оставляет пистолетные упражнения', () => {
   render(<CatalogPage data={data} />);
   fireEvent.change(screen.getByLabelText('Оружие'), { target: { value: 'pistol-traumatic' } });
-  expect(screen.getByText('T-Rex: 50 патронов, пистолет')).toBeTruthy();
-  expect(screen.queryByText('T-Rex: 50 патронов, карабин')).toBeNull();
+  expect(screen.getByText('Билл Дрилл (пистолет)')).toBeTruthy();
+  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
 });
 
 test('сложность «3+» прячет упражнения легче третьей', () => {
   render(<CatalogPage data={data} />);
   fireEvent.click(screen.getByRole('radio', { name: '3+' }));
-  expect(screen.getByText('От 1 до 5')).toBeTruthy(); // сложность 3
+  expect(screen.getByText('3-V (USPSA 03-04)')).toBeTruthy(); // сложность 3, ранний по сортировке
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull(); // сложность 2
 });
 
@@ -76,7 +75,7 @@ test('сложность «до 2» прячет упражнения треть
   render(<CatalogPage data={data} />);
   fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy(); // сложность 2
-  expect(screen.queryByText('От 1 до 5')).toBeNull(); // сложность 3
+  expect(screen.queryByText('3-V (USPSA 03-04)')).toBeNull(); // сложность 3
 });
 
 test('сложность «до 1» оставляет только самые простые', () => {
@@ -137,26 +136,26 @@ test('тренировка дня: кнопка ведёт на страницу
 
 test('избранное: звезда сохраняет в localStorage, чип сужает список', () => {
   render(<CatalogPage data={data} />);
-  const card = screen.getByText('От 1 до 5').closest('.drill-card') as HTMLElement;
+  const card = screen.getByText('Билл Дрилл (карабин)').closest('.drill-card') as HTMLElement;
   fireEvent.click(card.querySelector('.drill-card__star') as HTMLElement);
   expect(JSON.parse(window.localStorage.getItem('shooting-favorites-v1') ?? '[]')).toContain(
-    'one-to-five',
+    'bill-drill-carbine',
   );
 
   fireEvent.click(screen.getByRole('button', { name: 'избранное' }));
-  expect(screen.getByText('От 1 до 5')).toBeTruthy();
-  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
+  expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
+  expect(screen.queryByText('3-V (USPSA 03-04)')).toBeNull();
 });
 
 test('избранное из соседней вкладки не затирается при клике', () => {
   render(<CatalogPage data={data} />);
   // пока каталог открыт, другая вкладка добавила своё избранное
-  window.localStorage.setItem('shooting-favorites-v1', JSON.stringify(['bill-drill-carbine']));
-  const card = screen.getByText('От 1 до 5').closest('.drill-card') as HTMLElement;
+  window.localStorage.setItem('shooting-favorites-v1', JSON.stringify(['one-to-five']));
+  const card = screen.getByText('Билл Дрилл (карабин)').closest('.drill-card') as HTMLElement;
   fireEvent.click(card.querySelector('.drill-card__star') as HTMLElement);
   const stored = JSON.parse(window.localStorage.getItem('shooting-favorites-v1') ?? '[]');
-  expect(stored).toContain('one-to-five');
-  expect(stored).toContain('bill-drill-carbine'); // не затёрт
+  expect(stored).toContain('one-to-five'); // не затёрт
+  expect(stored).toContain('bill-drill-carbine');
 });
 
 test('пустой результат: «Ничего не найдено» + кнопка «Сбросить» возвращает список', () => {
@@ -164,7 +163,25 @@ test('пустой результат: «Ничего не найдено» + к
   fireEvent.input(screen.getByLabelText('Поиск'), { target: { value: 'квантовая баллистика' } });
   expect(screen.getByText('Ничего не найдено')).toBeTruthy();
   fireEvent.click(screen.getByText('Сбросить'));
-  expect(screen.getByText('От 1 до 5')).toBeTruthy();
+  expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
+});
+
+test('длинный список рендерится шагом: 100 карточек + «показать ещё»', () => {
+  render(<CatalogPage data={data} />);
+  const drillCards = () =>
+    document.querySelectorAll('.drill-list .drill-card a[href^="#/drill/"]').length;
+  expect(data.drills.length).toBeGreaterThan(100); // предусловие: список длиннее шага
+  expect(drillCards()).toBe(100);
+
+  fireEvent.click(screen.getByText(/показать ещё/));
+  expect(drillCards()).toBe(200);
+
+  // смена фильтра возвращает шаг, а не тащит старый лимит
+  fireEvent.input(screen.getByLabelText('Поиск'), { target: { value: 'билл' } });
+  const visible = document.querySelectorAll('.drill-list .drill-card a[href^="#/drill/"]').length;
+  expect(visible).toBeGreaterThan(0);
+  expect(visible).toBeLessThan(100);
+  expect(screen.queryByText(/показать ещё/)).toBeNull();
 });
 
 test('«патронов до −5» зажимается в ноль, а не ведёт себя как «без фильтра»', () => {
