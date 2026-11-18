@@ -7,6 +7,8 @@ import type { Discipline, Drill, FireMode } from '../../data/types';
 export interface CatalogFilters {
   query: string;
   tags: string[];
+  /** Теги-исключения: drill с любым из них скрыт (условия места — «не бегаю в плитнике»). */
+  excludedTags?: string[];
   difficultyMin?: number;
   difficultyMax?: number;
   fireMode?: FireMode;
@@ -19,16 +21,26 @@ export interface CatalogFilters {
   favorites?: string[];
 }
 
+/** Сложность корзинами: диапазон 1–5 дробить «от/до» неудобно с телефона,
+ *  а люди думают словами «лёгкая/средняя/сложная», не «3+». */
+export type DifficultyBucket = '' | 'easy' | 'mid' | 'hard';
+
+const DIFFICULTY_RANGE: Record<Exclude<DifficultyBucket, ''>, [number, number]> = {
+  easy: [1, 2],
+  mid: [3, 3],
+  hard: [4, 5],
+};
+
 /** UI-состояние фильтров каталога: ''/пустое = фильтр не задан.
  *  Один объект вместо дюжины useState: новое поле здесь + контрол в
  *  CatalogPage — сброс/подпись/проверка активности работают сами. */
 export interface CatalogState {
   query: string;
   tags: string[];
+  excludedTags: string[];
   fireMode: '' | FireMode;
   discipline: '' | Discipline;
-  difficultyMin: number;
-  difficultyMax: number;
+  difficulty: DifficultyBucket;
   maxRounds: number | '';
   distanceMax: number | '';
   review: '' | 'yes' | 'no';
@@ -39,10 +51,10 @@ export interface CatalogState {
 export const INITIAL_CATALOG_STATE: CatalogState = {
   query: '',
   tags: [],
+  excludedTags: [],
   fireMode: '',
   discipline: '',
-  difficultyMin: 1,
-  difficultyMax: 5,
+  difficulty: '',
   maxRounds: '',
   distanceMax: '',
   review: '',
@@ -63,11 +75,13 @@ export function loadCatalogState(): CatalogState {
     if (!v) return INITIAL_CATALOG_STATE;
     // от старой версии схемы защищает spread; crash-поля (строки/массив) — проверкой
     const s = { ...INITIAL_CATALOG_STATE, ...v };
-    return {
-      ...s,
-      query: typeof s.query === 'string' ? s.query : '',
-      tags: Array.isArray(s.tags) ? s.tags.filter((t): t is string => typeof t === 'string') : [],
-    };
+    const tags = Array.isArray(s.tags) ? s.tags.filter((t): t is string => typeof t === 'string') : [];
+    // один тег не может быть и фильтром, и исключением — цикл чипа этого не
+    // допускает, битое хранилище может; включение важнее
+    const excludedTags = (
+      Array.isArray(s.excludedTags) ? s.excludedTags.filter((t): t is string => typeof t === 'string') : []
+    ).filter((t) => !tags.includes(t));
+    return { ...s, query: typeof s.query === 'string' ? s.query : '', tags, excludedTags };
   } catch {
     return INITIAL_CATALOG_STATE;
   }
@@ -84,11 +98,13 @@ export function saveCatalogState(s: CatalogState): void {
 
 /** UI-состояние → фильтры для filterDrills ('' → не задано). */
 export function toCatalogFilters(s: CatalogState, favorites: string[]): CatalogFilters {
+  const [difficultyMin, difficultyMax] = s.difficulty ? DIFFICULTY_RANGE[s.difficulty] : [1, 5];
   return {
     query: s.query,
     tags: s.tags,
-    difficultyMin: s.difficultyMin,
-    difficultyMax: s.difficultyMax,
+    excludedTags: s.excludedTags,
+    difficultyMin,
+    difficultyMax,
     fireMode: s.fireMode || undefined,
     discipline: s.discipline || undefined,
     maxRounds: s.maxRounds === '' ? undefined : s.maxRounds,
@@ -128,6 +144,7 @@ function matchesQuery(drill: Drill, query: string): boolean {
 export function filterDrills(drills: Drill[], f: CatalogFilters): Drill[] {
   return drills.filter((d) => {
     if (f.tags.length > 0 && !f.tags.some((t) => d.tags.includes(t))) return false;
+    if (f.excludedTags?.length && f.excludedTags.some((t) => d.tags.includes(t))) return false;
     if (f.difficultyMin != null && d.difficulty < f.difficultyMin) return false;
     if (f.difficultyMax != null && d.difficulty > f.difficultyMax) return false;
     if (f.fireMode != null && !d.fireMode.includes(f.fireMode)) return false;

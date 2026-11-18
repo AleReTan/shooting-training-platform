@@ -67,21 +67,29 @@ export default function CatalogPage({ data }: { data: AppData }) {
   const filters = useMemo(() => toCatalogFilters(state, favorites), [state, favorites]);
   const visible = useMemo(() => filterDrills(drills, filters), [drills, filters]);
 
-  const toggleTag = (id: string) =>
-    setState((s) => ({
-      ...s,
-      tags: s.tags.includes(id) ? s.tags.filter((x) => x !== id) : [...s.tags, id],
-    }));
+  // Чип тега — цикл из трёх состояний: выкл → фильтр → исключение → выкл.
+  const cycleTag = (id: string) => {
+    setLimit(LIST_STEP); // как у остальных фильтров: смена — возврат к первому экрану
+    setState((s) => {
+      if (s.excludedTags.includes(id))
+        return { ...s, excludedTags: s.excludedTags.filter((x) => x !== id) };
+      if (s.tags.includes(id))
+        return { ...s, tags: s.tags.filter((x) => x !== id), excludedTags: [...s.excludedTags, id] };
+      return { ...s, tags: [...s.tags, id] };
+    });
+  };
 
   const reset = () => {
     setLimit(LIST_STEP);
     setState(INITIAL_CATALOG_STATE);
   };
 
-  // Тренировка дня: стабильный выбор по дате из всех упражнений.
+  // Тренировка дня: стабильный выбор по дате. Из видимого списка — исключения
+  // («не бегаю в плитнике») касаются и её; всё отфильтровано — из всех.
   const pickDaily = () => {
+    const pool = visible.length > 0 ? visible : drills;
     const id = dailyDrillId(
-      drills.map((d) => d.id),
+      pool.map((d) => d.id),
       todayKey(),
     );
     if (id) navigate(`/drill/${id}`);
@@ -97,7 +105,8 @@ export default function CatalogPage({ data }: { data: AppData }) {
             key={t.id}
             label={localized(t.label)}
             active={state.tags.includes(t.id)}
-            onClick={() => toggleTag(t.id)}
+            excluded={state.excludedTags.includes(t.id)}
+            onClick={() => cycleTag(t.id)}
           />
         ))}
     </div>
@@ -166,38 +175,16 @@ export default function CatalogPage({ data }: { data: AppData }) {
           </select>
 
           <Segmented
-            ariaLabel="сложность от"
-            value={state.difficultyMin <= 1 ? ('' as const) : (state.difficultyMin as number)}
+            ariaLabel="сложность"
+            value={state.difficulty}
             options={[
-              { value: '' as const, label: 'все' },
-              { value: 2, label: '2+' },
-              { value: 3, label: '3+' },
-              { value: 4, label: '4+' },
-              { value: 5, label: '5' },
+              { value: '' as const, label: 'любая' },
+              { value: 'easy' as const, label: 'лёгкая' },
+              { value: 'mid' as const, label: 'средняя' },
+              { value: 'hard' as const, label: 'сложная' },
             ]}
-            onChange={(v) =>
-              patch(
-                v === ''
-                  ? { difficultyMin: 1 }
-                  : { difficultyMin: v, difficultyMax: Math.max(v, state.difficultyMax) },
-              )
-            }
+            onChange={(v) => patch({ difficulty: v })}
           />
-          <span class="filters__num">
-            до
-            <select
-              aria-label="сложность до"
-              value={state.difficultyMax}
-              onChange={(e) => {
-                const n = Number((e.target as HTMLSelectElement).value);
-                patch({ difficultyMax: n, difficultyMin: Math.min(state.difficultyMin, n) });
-              }}
-            >
-              {[1, 2, 3, 4, 5].map((n) => (
-                <option value={n}>{n}</option>
-              ))}
-            </select>
-          </span>
 
           <label class="filters__num">
             патронов до

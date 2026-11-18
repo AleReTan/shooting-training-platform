@@ -4,6 +4,7 @@ import {
   INITIAL_CATALOG_STATE,
   toCatalogFilters,
   hasActiveFilters,
+  loadCatalogState,
   type CatalogFilters,
   type CatalogState,
 } from './filters';
@@ -28,6 +29,16 @@ test('фильтр по одному тегу', () => {
 test('OR внутри тегов', () => {
   const res = run({ query: '', tags: ['recoil-control', 'first-shot'] });
   expect(res.map((d) => d.id).sort()).toEqual(['bill-drill-carbine', 'one-to-five']);
+});
+
+test('исключение тега прячет упражнения с ним', () => {
+  const res = run({ query: '', tags: [], excludedTags: ['recoil-control'] });
+  expect(res.map((d) => d.id).sort()).toEqual(['one-to-five', 'wall-dry']);
+});
+
+test('включение и исключение вместе: AND между списками', () => {
+  const res = run({ query: '', tags: ['first-shot'], excludedTags: ['recoil-control'] });
+  expect(res.map((d) => d.id)).toEqual(['one-to-five']);
 });
 
 test('AND: тег + fireMode', () => {
@@ -99,11 +110,31 @@ test('favoritesOnly: только отмеченные упражнения', ()
   expect(res.map((d) => d.id)).toEqual(['one-to-five']);
 });
 
+test('корзины сложности → диапазоны', () => {
+  const f = (difficulty: CatalogState['difficulty']) =>
+    toCatalogFilters({ ...INITIAL_CATALOG_STATE, difficulty }, []);
+  expect(f('')).toMatchObject({ difficultyMin: 1, difficultyMax: 5 });
+  expect(f('easy')).toMatchObject({ difficultyMin: 1, difficultyMax: 2 });
+  expect(f('mid')).toMatchObject({ difficultyMin: 3, difficultyMax: 3 });
+  expect(f('hard')).toMatchObject({ difficultyMin: 4, difficultyMax: 5 });
+});
+
+test('loadCatalogState: пересечение include/exclude разрешается в пользу include', () => {
+  sessionStorage.setItem(
+    'shooting-catalog-filters-v1',
+    JSON.stringify({ tags: ['a'], excludedTags: ['a', 'b'] }),
+  );
+  const s = loadCatalogState();
+  expect(s.tags).toEqual(['a']);
+  expect(s.excludedTags).toEqual(['b']);
+});
+
 test('toCatalogFilters: пустые значения UI не становятся фильтрами', () => {
   const f = toCatalogFilters(INITIAL_CATALOG_STATE, ['x']);
   expect(f).toEqual({
     query: '',
     tags: [],
+    excludedTags: [],
     difficultyMin: 1,
     difficultyMax: 5,
     favorites: ['x'],
@@ -140,6 +171,7 @@ test('hasActiveFilters: любое отличие от начального со
 
   expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, query: 'билл' })).toBe(true);
   expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, tags: ['accuracy'] })).toBe(true);
-  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, difficultyMax: 1 })).toBe(true);
+  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, excludedTags: ['movement'] })).toBe(true);
+  expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, difficulty: 'easy' })).toBe(true);
   expect(hasActiveFilters({ ...INITIAL_CATALOG_STATE, favOnly: true })).toBe(true);
 });

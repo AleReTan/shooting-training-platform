@@ -1,6 +1,7 @@
 import { test, expect, afterEach, beforeAll } from 'vitest';
 import { render, screen, fireEvent, cleanup } from '@testing-library/preact';
 import CatalogPage from './CatalogPage';
+import { dailyDrillId, todayKey } from './daily';
 import { loadData, type AppData } from '../../data/load';
 
 let data: AppData;
@@ -64,25 +65,26 @@ test('фильтр «Оружие: пистолет» оставляет пис�
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
 });
 
-test('сложность «3+» прячет упражнения легче третьей', () => {
+test('сложность «лёгкая» (1–2) прячет третью и выше', () => {
   render(<CatalogPage data={data} />);
-  fireEvent.click(screen.getByRole('radio', { name: '3+' }));
-  expect(screen.getByText('3-V (USPSA 03-04)')).toBeTruthy(); // сложность 3, ранний по сортировке
-  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull(); // сложность 2
-});
-
-test('сложность «до 2» прячет упражнения третьей и выше', () => {
-  render(<CatalogPage data={data} />);
-  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
+  fireEvent.click(screen.getByRole('radio', { name: 'лёгкая' }));
   expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy(); // сложность 2
   expect(screen.queryByText('3-V (USPSA 03-04)')).toBeNull(); // сложность 3
 });
 
-test('сложность «до 1» оставляет только самые простые', () => {
+test('сложность «средняя» (3) прячет и лёгкие, и сложные', () => {
   render(<CatalogPage data={data} />);
-  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '1' } });
-  expect(screen.getByText('Стена (холостая)')).toBeTruthy(); // сложность 1
+  fireEvent.click(screen.getByRole('radio', { name: 'средняя' }));
+  expect(screen.getByText('3-V (USPSA 03-04)')).toBeTruthy(); // сложность 3, ранний по сортировке
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull(); // сложность 2
+  expect(screen.queryByText('Броня: марш и серия')).toBeNull(); // сложность 4
+});
+
+test('сложность «сложная» (4–5) прячет всё легче четвёртой', () => {
+  render(<CatalogPage data={data} />);
+  fireEvent.click(screen.getByRole('radio', { name: 'сложная' }));
+  expect(screen.getByText('Броня: марш и серия')).toBeTruthy(); // сложность 4
+  expect(screen.queryByText('3-V (USPSA 03-04)')).toBeNull(); // сложность 3
 });
 
 test('ряды тегов подписаны как группы (навыки, условия)', () => {
@@ -96,6 +98,37 @@ test('чип тега «Первый выстрел» оставляет одн�
   fireEvent.click(screen.getByRole('button', { name: 'Первый выстрел' }));
   expect(screen.getByText('От 1 до 5')).toBeTruthy();
   expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
+});
+
+test('второй тап по чипу исключает тег (−режим), третий снимает', () => {
+  render(<CatalogPage data={data} />);
+  const chip = () => screen.getByRole('button', { name: /Первый выстрел/ });
+
+  fireEvent.click(chip()); // фильтр: только «От 1 до 5»
+  expect(screen.queryByText('Билл Дрилл (карабин)')).toBeNull();
+
+  fireEvent.click(chip()); // исключение: всё, кроме тега
+  expect(chip().textContent).toContain('−');
+  expect(chip().getAttribute('aria-pressed')).toBe('true');
+  expect(screen.getByText('Билл Дрилл (карабин)')).toBeTruthy();
+  expect(screen.queryByText('От 1 до 5')).toBeNull();
+
+  fireEvent.click(chip()); // снят: счётчик снова полный
+  expect(chip().getAttribute('aria-pressed')).toBe('false');
+  const total = data.drills.length;
+  expect(screen.getByText(`Найдено ${total} из ${total}`)).toBeTruthy();
+});
+
+test('тренировка дня выбирается из видимого списка — исключённый тег учтён', () => {
+  render(<CatalogPage data={data} />);
+  const chip = () => screen.getByRole('button', { name: /Первый выстрел/ });
+  fireEvent.click(chip());
+  fireEvent.click(chip()); // исключили first-shot
+
+  const pool = data.drills.filter((d) => !d.tags.includes('first-shot'));
+  const expected = dailyDrillId(pool.map((d) => d.id), todayKey());
+  fireEvent.click(screen.getByText('тренировка дня'));
+  expect(window.location.hash).toBe(`#/drill/${expected}`);
 });
 
 test('фильтр «Источник»: варианты сгруппированы по типу, выбор сужает список', () => {
@@ -120,7 +153,7 @@ test('счётчик показывает «N из M» и сбрасывает �
   const total = data.drills.length;
   expect(screen.getByText(`Найдено ${total} из ${total}`)).toBeTruthy();
 
-  fireEvent.click(screen.getByRole('radio', { name: '3+' }));
+  fireEvent.click(screen.getByRole('radio', { name: 'средняя' }));
   expect(screen.queryByText(`Найдено ${total} из ${total}`)).toBeNull();
 
   fireEvent.click(screen.getByText('сбросить фильтры'));
@@ -201,17 +234,4 @@ test('«1e999» (Infinity) в числовых фильтрах сбрасыва
   expect(dist.value).toBe('');
   // фантомный «сбросить фильтры» от Infinity в состоянии — тоже нет
   expect(screen.queryByText('сбросить фильтры')).toBeNull();
-});
-
-test('диапазон сложности не становится противоречивым: «от» и «до» зажимают друг друга', () => {
-  render(<CatalogPage data={data} />);
-  // «4+» после «до 2» поднимает «до» до 4, а не даёт пустой список
-  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
-  fireEvent.click(screen.getByRole('radio', { name: '4+' }));
-  expect(screen.queryByText('Ничего не найдено')).toBeNull();
-  expect((screen.getByLabelText('сложность до') as HTMLSelectElement).value).toBe('4');
-
-  // «до 2» при выбранном «4+» опускает «от» до 2
-  fireEvent.change(screen.getByLabelText('сложность до'), { target: { value: '2' } });
-  expect(screen.queryByText('Ничего не найдено')).toBeNull();
 });
