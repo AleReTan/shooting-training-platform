@@ -100,7 +100,9 @@ test('бланк источника картинкой: сворачивающи
   // service worker отвечает на любую навигацию оболочкой приложения: картинка
   // не должна вести себя как ссылка (в т.ч. target="_blank") — иначе PWA виснет
   expect(img?.closest('a')).toBeNull();
-  expect(document.querySelector('.drill-page__form-img a')).toBeNull();
+  // и без своего зума: приближение и прокрутка — нативным щипком браузера
+  // (кнопка с прокруткой в рамке была «слишком близко и неудобно двигать»)
+  expect(document.querySelector('.drill-page__form-img button, .drill-page__form-img a')).toBeNull();
 
   // блок стоит сразу под заголовком схемы, до самой схемы
   const first = document.querySelector('h3 + details.drill-page__form-img');
@@ -112,17 +114,6 @@ test('бланк источника картинкой: сворачивающи
       if (i.file) expect(existsSync(join('public', i.file)), `${d.id}: ${i.file}`).toBe(true);
     }
   }
-});
-
-test('бланк источника: нажатие приближает картинку на месте, без перехода', () => {
-  render(<DrillPage id="trex-50-round-cof" data={data} />);
-  const toggle = document.querySelector('.drill-page__form-zoom') as HTMLElement;
-  expect(toggle.tagName).toBe('BUTTON');
-  expect(toggle.getAttribute('aria-pressed')).toBe('false');
-  fireEvent.click(toggle);
-  expect(toggle.getAttribute('aria-pressed')).toBe('true');
-  fireEvent.click(toggle);
-  expect(toggle.getAttribute('aria-pressed')).toBe('false');
 });
 
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {

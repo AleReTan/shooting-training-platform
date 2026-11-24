@@ -17,7 +17,6 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   // Хуки до раннего return: drill может быть не найден.
   const [favorites, toggleFav] = useFavorites();
   const [copied, setCopied] = useState(false);
-  const [zoomedId, setZoomedId] = useState<string | null>(null); // id упражнения с приближённым бланком
   const drill = drillById.get(id);
 
   if (!drill) {
@@ -49,7 +48,6 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const courses = coursesByDrillId.get(drill.id) ?? [];
   // официальный бланк/схема источника — локальной картинкой над схемой
   const form = drill.media?.images?.[0];
-  const zoom = zoomedId === drill.id;
 
   const isFav = favorites.includes(drill.id);
 
@@ -190,20 +188,10 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
               <summary>
                 Бланк{form.credit ? ` (${form.credit})` : ''} — картинкой
               </summary>
-              {/* без ссылки «открыть отдельно»: service worker отвечает на любую
-                  навигацию оболочкой приложения — и установленное PWA виснет */}
-              <div class="drill-page__form-frame">
-                <button
-                  type="button"
-                  class="drill-page__form-zoom"
-                  aria-pressed={zoom}
-                  aria-label={zoom ? 'Уменьшить бланк' : 'Увеличить бланк'}
-                  onClick={() => setZoomedId(zoom ? null : drill.id)}
-                >
-                  <img src={form.file} alt={`Бланк упражнения: ${localized(drill.name)}`} loading="lazy" />
-                </button>
-              </div>
-              <p class="drill-page__form-hint">Нажми на бланк, чтобы приблизить</p>
+              {/* без ссылки и без своего зума: навигацию перехватывает service worker,
+                  а приближение и прокрутку делает сам браузер (щипок) */}
+              <img src={form.file} alt={`Бланк упражнения: ${localized(drill.name)}`} loading="lazy" />
+              <p class="drill-page__form-hint">Мелкий текст приблизь щипком — страница двигается как обычно</p>
             </details>
           ) : null}
           {drill.layout ? <SequencePlayer layout={drill.layout} /> : null}

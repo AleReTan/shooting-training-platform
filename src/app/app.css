@@ -231,18 +231,12 @@ body {
   list-style: none; font-size: 0.9rem; color: var(--muted);
 }
 
-/* Бланк источника картинкой: свёрнут по умолчанию, масштаб — на месте
-   (навигацию по адресу картинки перехватывает service worker — ссылки нет) */
+/* Бланк источника картинкой: свёрнут по умолчанию; без ссылки (навигацию
+   перехватывает service worker) и без своего зума (кнопка с прокруткой в рамке
+   оказалась неудобна) — приближение и прокрутка нативным щипком браузера */
 .drill-page__form-img { margin: 0 0 0.75rem; }
 .drill-page__form-img summary { cursor: pointer; color: var(--muted); }
-.drill-page__form-frame { overflow-x: auto; margin-top: 0.5rem; -webkit-overflow-scrolling: touch; border-radius: 8px; }
-.drill-page__form-zoom {
-  display: block; width: 100%; padding: 0; border: 0; background: none;
-  cursor: zoom-in; text-align: left;
-}
-.drill-page__form-zoom[aria-pressed="true"] { width: 450%; cursor: zoom-out; }
-.drill-page__form-zoom img { display: block; width: 100%; min-width: 100%; height: auto; border-radius: 8px; }
-.drill-page__form-zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+.drill-page__form-img img { display: block; width: 100%; height: auto; margin-top: 0.5rem; border-radius: 8px; }
 .drill-page__form-hint { margin: 0.3rem 0 0; font-size: 0.85rem; color: var(--muted); }
 
 /* Таймер */
