@@ -17,6 +17,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   // Хуки до раннего return: drill может быть не найден.
   const [favorites, toggleFav] = useFavorites();
   const [copied, setCopied] = useState(false);
+  const [zoomedId, setZoomedId] = useState<string | null>(null); // id упражнения с приближённым бланком
   const drill = drillById.get(id);
 
   if (!drill) {
@@ -46,8 +47,9 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const tagLabels = new Map(taxonomy.tags.map((t) => [t.id, localized(t.label)]));
   const targetLabels = new Map(taxonomy.targetTypes.map((t) => [t.id, localized(t.label)]));
   const courses = coursesByDrillId.get(drill.id) ?? [];
-  // официальный бланк/схема источника — ссылкой рядом со схемой
+  // официальный бланк/схема источника — локальной картинкой над схемой
   const form = drill.media?.images?.[0];
+  const zoom = zoomedId === drill.id;
 
   const isFav = favorites.includes(drill.id);
 
@@ -180,33 +182,32 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
         </>
       ) : null}
 
-      {drill.layout ? (
+      {drill.layout || form?.file ? (
         <>
-          <h3>
-            Схема
-            {form ? (
-              <>
-                {' '}
-                <a class="drill-page__form no-print" href={form.url} rel="noreferrer" target="_blank">
-                  · {form.credit ? `бланк: ${form.credit}` : 'бланк упражнения'} ↗
-                </a>
-              </>
-            ) : null}
-          </h3>
-          <SequencePlayer layout={drill.layout} />
+          <h3>Схема</h3>
+          {form?.file ? (
+            <details key={drill.id} class="drill-page__form-img">
+              <summary>
+                Бланк{form.credit ? ` (${form.credit})` : ''} — картинкой
+              </summary>
+              {/* без ссылки «открыть отдельно»: service worker отвечает на любую
+                  навигацию оболочкой приложения — и установленное PWA виснет */}
+              <div class="drill-page__form-frame">
+                <button
+                  type="button"
+                  class="drill-page__form-zoom"
+                  aria-pressed={zoom}
+                  aria-label={zoom ? 'Уменьшить бланк' : 'Увеличить бланк'}
+                  onClick={() => setZoomedId(zoom ? null : drill.id)}
+                >
+                  <img src={form.file} alt={`Бланк упражнения: ${localized(drill.name)}`} loading="lazy" />
+                </button>
+              </div>
+              <p class="drill-page__form-hint">Нажми на бланк, чтобы приблизить</p>
+            </details>
+          ) : null}
+          {drill.layout ? <SequencePlayer layout={drill.layout} /> : null}
         </>
-      ) : null}
-
-      {form?.file ? (
-        <details class="drill-page__form-img">
-          <summary>
-            Бланк{form.credit ? ` (${form.credit})` : ''} — картинкой
-          </summary>
-          {/* ссылкой на сам файл: на телефоне открывается отдельно и масштабируется щипком */}
-          <a href={form.file} rel="noreferrer" target="_blank">
-            <img src={form.file} alt={`Бланк упражнения: ${localized(drill.name)}`} loading="lazy" />
-          </a>
-        </details>
       ) : null}
 
       <div class="no-print">
@@ -244,17 +245,11 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
         </div>
       ) : null}
 
-      {drill.media?.images?.length || drill.media?.video?.length ? (
+      {/* картинки бланков не линкуем наружу: CDN источников из РФ не открывается */}
+      {drill.media?.video?.length ? (
         <div class="no-print">
           <h3>Медиа</h3>
           <ul>
-            {(drill.media.images ?? []).map((img, i) => (
-              <li key={`img-${i}`}>
-                <a href={img.url} rel="noreferrer" target="_blank">
-                  бланк{img.credit ? ` — ${img.credit}` : ''}
-                </a>
-              </li>
-            ))}
             {(drill.media.video ?? []).map((v, i) => (
               <li key={`vid-${i}`}>
                 {v.provider === 'youtube' ? (
