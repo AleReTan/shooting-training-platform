@@ -18,14 +18,13 @@
     "speed",
     "accuracy"
   ],
-  "needsReview": true,
   "difficulty": 3,
   "fireMode": [
     "live"
   ],
   "rounds": 12,
   "distance": {
-    "min": 23,
+    "min": 6,
     "max": 23,
     "unit": "m"
   },
@@ -40,24 +39,25 @@
     "points": 5
   },
   "goal": {
-    "ru": "12 патронов, 3 USPSA-мишени, 23 м (25 ярдов): разные уровни подтверждения прицела и работа оружием на скорости",
-    "en": "12 rounds, 3 USPSA targets, 23 m (25 yd): different levels of sight confirmation and gun handling at speed"
+    "ru": "12 патронов, 3 USPSA-мишени лесенкой на 7, 15 и 25 ярдов (6, 14 и 23 м): разные уровни подтверждения прицела и работа оружием на скорости",
+    "en": "12 rounds, 3 USPSA targets staggered at 7, 15 and 25 yd (6, 14 and 23 m): different levels of sight confirmation and gun handling at speed"
   },
   "steps": {
     "ru": [
-      "Три USPSA-мишени на 23 м; 12 патронов",
-      "По сигналу — серия по трём целям (расклад — по PDF T-Rex, ссылка в источнике)",
-      "Хит-фактор: дальняя дистанция требует видеть прицел, темп требует не залипать",
-      "Главная идея T-Rex: на каждой цели — свой уровень подтверждения прицела",
-      "3–4 подхода"
+      "Три USPSA-мишени лесенкой: ближняя слева — 7 ярдов (6 м), средняя по центру — 15 ярдов (14 м), дальняя справа — 25 ярдов (23 м). 12 патронов",
+      "По сигналу: 2 в ближнюю → 2 в среднюю → 4 в дальнюю → 2 в среднюю → 2 в ближнюю",
+      "Главная идея T-Rex: на каждой цели — свой уровень подтверждения прицела, работа оружием — на скорости",
+      "Хит-фактор: очки ÷ время",
+      "3–4 подхода. Расклад 2-2-4-2-2 — из описания «акселератора» в бланке T-Rex «Intermediate Carbine»; на странице самого дрела он текстом не дан"
     ]
   },
   "safety": {
-    "ru": "23 м + скорость: штрафные зоны «дороже», чем на близкой дистанции — не срезай"
+    "ru": "Скорость на трёх дистанциях: на дальней мишени (23 м) подтверждай прицел, иначе серия уходит в зоны C и D"
   },
   "equipment": [
     "карабин",
-    "1 магазин на 12 патронов"
+    "1 магазин на 12 патронов",
+    "3 мишени USPSA + стойки"
   ],
   "variants": {
     "ru": [
@@ -67,53 +67,54 @@
   },
   "layout": {
     "unit": "m",
-    "width": 14,
+    "width": 9,
     "depth": 25,
     "positions": [
       {
         "id": "P1",
-        "x": 7,
+        "x": 4.5,
         "y": 1,
         "label": {
-          "ru": "бокс"
+          "ru": "старт"
         }
       }
     ],
     "targets": [
       {
         "id": "T1",
-        "x": 3,
-        "y": 23,
-        "type": "ipsc-metric"
+        "x": 1.5,
+        "y": 6.4,
+        "type": "ipsc-metric",
+        "distance": 6
       },
       {
         "id": "T2",
-        "x": 7,
-        "y": 23,
-        "type": "ipsc-metric"
+        "x": 4.5,
+        "y": 13.7,
+        "type": "ipsc-metric",
+        "distance": 14
       },
       {
         "id": "T3",
-        "x": 11,
-        "y": 23,
-        "type": "ipsc-metric"
+        "x": 7.5,
+        "y": 22.9,
+        "type": "ipsc-metric",
+        "distance": 23
       }
     ],
     "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 4 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "media": {
+    "images": [
       {
-        "action": "engage",
-        "target": "T1",
-        "shots": 4
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 4
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 4
+        "url": "https://img.trex-arms.com/wp/uploads/2024/10/Accelerator.png",
+        "credit": "T.REX ARMS"
       }
     ]
   },

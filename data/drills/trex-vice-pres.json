@@ -5,38 +5,49 @@
   "discipline": ["carbine"],
   "source": { "origin": "T-Rex Arms", "kind": "course", "url": "https://www.trex-arms.com/training/drills-assessments/vice-pres-drill-104" },
   "tags": ["first-shot", "transitions", "reload-emergency", "speed"],
-  "needsReview": true,
   "difficulty": 3,
   "fireMode": ["live", "dry"],
   "rounds": 6,
-  "distance": { "min": 10, "max": 10, "unit": "m" },
+  "distance": { "min": 6, "max": 6, "unit": "m" },
   "targets": [{ "type": "ipsc-metric", "count": 3 }],
   "scoring": { "type": "par-time" },
   "goal": {
-    "ru": "Упрощённый El Presidente от T-Rex Arms: вскидка, захват прицела, перенос глазами, перезарядка, темп",
-    "en": "T-Rex Arms' simplified El Presidente: presentation, sight acquisition, eye-driven transitions, reload, pace"
+    "ru": "Упрощённый «Эль Президенте» от T-Rex: вскидка и захват прицела, перенос глазами с цели на цель, перезарядка, темп. Подходит для огневой и холостой отработки",
+    "en": "T-Rex's simplified El Presidente: sight picture acquisition, eye-to-target transitions, reload and pace. Good for live and dry fire"
   },
   "steps": {
     "ru": [
-      "Три мишени по фронту на 10 м, спиной к целям (старт по развороту)",
-      "По сигналу — разворот, вскидка: по одному выстрелу в каждую цель",
-      "Аварийная перезарядка",
-      "Снова по одному в каждую цель; фиксируй общее время",
-      "Подходит для огневой и холостой отработки (страница T-Rex фиксированный счёт патронов не публикует — типовая версия: 1+1 в каждую цель)"
+      "Три USPSA-мишени в ряд на 7 ярдов (6,4 м); стрелок — по центру, напротив средней",
+      "По сигналу — вскидка: по одному выстрелу в каждую цель; глаза уходят на следующую цель раньше карабина",
+      "Перезарядка — и снова по одному в каждую цель; фиксируй общее время",
+      "Стартовую готовность и расклад выстрелов T-Rex текстом не публикует — они в видео на странице источника. В карточке показана типовая схема: 1+1+1, перезарядка, 1+1+1"
     ]
   },
-  "safety": { "ru": "Разворот на 180°: проверь сектор позади до подхода" },
-  "equipment": ["карабин", "2 магазина по 3+ патрона"],
-  "variants": { "ru": ["Холостая отработка без патронов", "По 2 выстрела на цель (полный формат)"] },
+  "safety": {
+    "ru": "Ближняя дистанция и темп: до подтверждения прицела на каждой цели палец вне спуска"
+  },
+  "equipment": [
+    "карабин",
+    "2 магазина по 3+ патрона",
+    "3 мишени USPSA + стойки"
+  ],
+  "variants": {
+    "ru": [
+      "Холостая отработка без патронов",
+      "По 2 выстрела на цель (полный формат)"
+    ]
+  },
   "layout": {
     "unit": "m",
-    "width": 14,
-    "depth": 13,
-    "positions": [{ "id": "P1", "x": 7, "y": 1, "label": { "ru": "старт (спиной)" } }],
+    "width": 12,
+    "depth": 8,
+    "positions": [
+      { "id": "P1", "x": 6, "y": 1.6, "label": { "ru": "старт · 7 ярдов от мишеней" } }
+    ],
     "targets": [
-      { "id": "T1", "x": 3, "y": 10, "type": "ipsc-metric" },
-      { "id": "T2", "x": 7, "y": 11, "type": "ipsc-metric" },
-      { "id": "T3", "x": 11, "y": 10, "type": "ipsc-metric" }
+      { "id": "T1", "x": 2, "y": 8, "type": "ipsc-metric", "distance": 6.4 },
+      { "id": "T2", "x": 6, "y": 8, "type": "ipsc-metric", "distance": 6.4 },
+      { "id": "T3", "x": 10, "y": 8, "type": "ipsc-metric", "distance": 6.4 }
     ],
     "sequence": [
       { "action": "engage", "target": "T1", "shots": 1 },
@@ -46,6 +57,14 @@
       { "action": "engage", "target": "T3", "shots": 1 },
       { "action": "engage", "target": "T2", "shots": 1 },
       { "action": "engage", "target": "T1", "shots": 1 }
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://img.trex-arms.com/wp/uploads/2024/10/Vice_Pres.png",
+        "credit": "T.REX ARMS"
+      }
     ]
   },
   "related": ["el-presidente-uspsa", "bill-drill-carbine", "reload-emergency-par"]

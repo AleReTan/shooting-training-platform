@@ -4,6 +4,18 @@ import { multiTargetLayout as layout } from './testFixtures';
 import type { Layout } from '../../data/types';
 import { LayoutDiagram } from './render';
 
+// Мишени в ряд у дальнего края (CoF 50): подписи мишеней — у верхней кромки поля
+const farRow: Layout = {
+  unit: 'm',
+  width: 12,
+  depth: 25,
+  positions: [{ id: 'P1', x: 6, y: 20 }],
+  targets: [
+    { id: 'T1', x: 1, y: 25, type: 'ipsc-metric' },
+    { id: 'T2', x: 6, y: 25, type: 'ipsc-metric' },
+  ],
+};
+
 test('схема содержит svg, позиции и мишени', () => {
   const { container } = render(<LayoutDiagram layout={layout} />);
   expect(container.querySelector('svg')).toBeTruthy();
@@ -64,6 +76,17 @@ test('сжатая схема подписывает дальнюю границ
   };
   const { container } = render(<LayoutDiagram layout={far} />);
   expect(container.textContent).toContain('дальняя граница 202 м');
+});
+
+test('подпись дальней границы — над полем, а не на мишенях у дальнего края', () => {
+  const { container } = render(<LayoutDiagram layout={farRow} />);
+  const caption = container.querySelector('.diagram-caption');
+  const field = container.querySelector('.diagram-field');
+  // низ подписи (базовая линия + выносные) выше верха подписей мишеней
+  expect(Number(caption?.getAttribute('y'))).toBeLessThan(
+    Number(container.querySelector('.diagram-target-label')?.getAttribute('y')) - 12,
+  );
+  expect(Number(caption?.getAttribute('y'))).toBeLessThan(Number(field?.getAttribute('y')));
 });
 
 test('playback подсвечивает активную мишень и счёт выстрелов', () => {

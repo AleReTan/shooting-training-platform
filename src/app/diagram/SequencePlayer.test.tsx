@@ -18,6 +18,24 @@ test('пошаговый режим: «Шаг вперёд» подсвечив�
   expect(document.body.textContent).toContain('×2');
 });
 
+test('несколько позиций — под схемой легенда с их подписями', () => {
+  const { container } = render(<SequencePlayer layout={layout} reducedMotion />);
+  const legend = container.querySelector('.sequence-player__legend');
+  expect(legend?.textContent).toContain('P1 — старт');
+  expect(legend?.textContent).toContain('P2'); // без подписи — только id
+});
+
+test('одна позиция — легенды нет', () => {
+  const { container } = render(<SequencePlayer layout={tinyLayout} reducedMotion />);
+  expect(container.querySelector('.sequence-player__legend')).toBeNull();
+});
+
+test('без sequence — только схема, без кнопок проигрывания', () => {
+  const { container } = render(<SequencePlayer layout={{ ...layout, sequence: [] }} reducedMotion />);
+  expect(container.querySelector('svg.diagram')).toBeTruthy();
+  expect(screen.queryByText('Проиграть')).toBeNull();
+});
+
 test('при reducedMotion «Проиграть» доступна: стрелок скачет, а не скользит', () => {
   render(<SequencePlayer layout={layout} reducedMotion />);
   fireEvent.click(screen.getByText('Проиграть'));

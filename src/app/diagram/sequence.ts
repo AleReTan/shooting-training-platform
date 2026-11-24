@@ -34,11 +34,15 @@ export function stepDuration(step: SequenceStep): number {
     case 'engage':
       return STEP_DURATIONS.engageBase + step.shots * STEP_DURATIONS.engagePerShot;
     case 'move':
-      return STEP_DURATIONS.move;
+      // стрельба в движении: каждый выстрел удлиняет переход
+      return STEP_DURATIONS.move + moveShots(step) * STEP_DURATIONS.engagePerShot;
     case 'reload':
       return STEP_DURATIONS.reload;
   }
 }
+
+const moveShots = (step: Extract<SequenceStep, { action: 'move' }>): number =>
+  (step.engage ?? []).reduce((sum, e) => sum + e.shots, 0);
 
 export function computeTimeline(sequence: SequenceStep[]): Timeline {
   let t = 0;
@@ -74,8 +78,25 @@ export function stateAt(timeline: Timeline, t: number, opts: StateAtOpts = {}): 
         state.activeTarget = step.target;
       }
     } else if (step.action === 'move') {
-      if (t >= start && t < start + duration) {
-        const raw = duration === 0 ? 1 : done / duration;
+      const raw = duration === 0 ? 1 : done / duration;
+      const active = t >= start && t < start + duration;
+      if (step.engage?.length) {
+        // выстрелы в движении распределены по переходу равномерно и идут по порядку
+        const total = moveShots(step);
+        const fired = Math.floor(raw * total + 1e-9); // сколько сделано = индекс идущего
+        let left = fired;
+        for (const e of step.engage) {
+          const n = Math.min(left, e.shots);
+          if (n) state.shotsDone[e.target] = (state.shotsDone[e.target] ?? 0) + n;
+          left -= n;
+        }
+        if (active) {
+          let i = fired;
+          const current = step.engage.find((e) => (i -= e.shots) < 0);
+          state.activeTarget = (current ?? step.engage[step.engage.length - 1])?.target;
+        }
+      }
+      if (active) {
         state.phase = 'playing';
         state.activeMove = {
           from: step.from,
@@ -115,6 +136,10 @@ export function stepStates(timeline: Timeline): PlaybackState[] {
       state.shotsDone = { ...carried };
     } else if (step.action === 'move') {
       state.activeMove = { from: step.from, to: step.to, progress: 1 };
+      for (const e of step.engage ?? []) {
+        carried[e.target] = (carried[e.target] ?? 0) + e.shots;
+        state.activeTarget = e.target; // в пошаговом режиме подсвечена последняя мишень перехода
+      }
       state.shotsDone = { ...carried };
     } else {
       state.reloading = true;

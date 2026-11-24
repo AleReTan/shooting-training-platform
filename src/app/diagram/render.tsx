@@ -6,6 +6,7 @@ import type { PlaybackState } from './types';
 
 const S = 20; // px на метр
 const M = 30; // поля схемы, px
+const CAP = 10; // полоса подписи дальней границы над полем: внутри поля она ложилась на мишени у дальнего края
 
 interface Point {
   x: number;
@@ -19,9 +20,9 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
   const { layout, playback } = props;
 
   const W = layout.width * S + 2 * M;
-  const H = layout.depth * S + 2 * M;
+  const H = layout.depth * S + 2 * M + CAP;
   const px = (x: number) => x * S + M;
-  const py = (y: number) => (layout.depth - y) * S + M;
+  const py = (y: number) => (layout.depth - y) * S + M + CAP;
 
   const posById = new Map(layout.positions.map((p) => [p.id, p]));
 
@@ -49,13 +50,13 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
       {/* Рубеж */}
       <rect
         x={M / 2}
-        y={M / 2}
+        y={M / 2 + CAP}
         width={layout.width * S + M}
         height={layout.depth * S + M}
         rx="8"
         class="diagram-field"
       />
-      <text x={M / 2 + 8} y={M / 2 + 16} class="diagram-caption">
+      <text x={M / 2 + 8} y={M / 2 - 2} class="diagram-caption">
         дальняя граница {layout.realDepth ?? layout.depth} м
       </text>
 

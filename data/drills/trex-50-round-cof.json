@@ -43,28 +43,30 @@
     "points": 5
   },
   "goal": {
-    "ru": "Ассесмент T-Rex на 50 выстрелов: 3 USPSA-мишени вряд — центральная на 10 м, фланговые на 25 м от боковых маркеров. Семь серий: одиночные в голову из низкой и высокой готовности, «лесенка» 1-2-3-4, разворот на 180° с перезарядкой, головы с уходом на 25 м, работа с двух фланговых позиций и финал по 4 выстрела на мишень в движении к 5 м. Счёт — хит-фактор: очки ÷ время, максимум 250 очков",
-    "en": "T-Rex 50-round assessment: 3 USPSA targets in a row — center at 10 m, flanks 25 m from the side markers. Seven strings: single head shots from low/high ready, a 1-2-3-4 ladder, 180° turn with bolt-lock reload, heads on the move to 25 m, both flank positions, and 4 rounds per target moving back to the 5 m line. Hit factor: points ÷ time, 250 max"
+    "ru": "Ассесмент T-Rex на 50 выстрелов: 3 USPSA-мишени в ряд через 5 м, палки-маркеры 25 м — по краям ближней линии, метки 5 м и 10 м — перед центральной мишенью. Семь серий: одиночные в голову из низкой и высокой готовности, «лесенка» 1-2-3-4, разворот на 180° с перезарядкой, головы с отходом на палку 25 м, работа с двух палок и финал по 4 выстрела на мишень в движении к метке 5 м. Счёт — хит-фактор: очки ÷ время, максимум 250 очков",
+    "en": "T-Rex 50-round assessment: 3 USPSA targets in a row 5 m apart, 25 m stick markers at both ends of the near line, 5 m and 10 m marks in front of the center target. Seven strings: single head shots from low/high ready, a 1-2-3-4 ladder, a 180° turn with bolt-lock reload, head shots with a move back to a 25 m stick, work from both sticks, and 4 rounds per target moving up to the 5 m mark. Hit factor: points ÷ time, 250 max"
   },
   "steps": {
     "ru": [
-      "Серия 1 · 5 м, центральная мишень: из низкой готовности — 1 выстрел в голову",
-      "Серия 2 · 5 м: из высокой готовности — 1 выстрел в голову центральной",
-      "Серия 3 · 10 м, стоя напротив центральной: 1 — центральная, 2 — левая, 3 — правая, 4 — центральная (по корпусу)",
-      "Серия 4 · 10 м, спиной к мишеням: разворот на 180° — 5 в левую, перезарядка с задержки затвора, 5 в правую",
-      "Серия 5 · 10→25 м: с рубежа 10 м — 2 в голову левой; смещение на 25-метровую позицию — 2 в голову правой",
-      "Серия 6 · 25↔25 м: с левой позиции — по 2 в каждую мишень; смена на правую позицию — снова по 2 в каждую",
-      "Серия 7 · 25→5 м: двигаясь к линии 5 м — по 4 выстрела в каждую мишень в любом порядке",
+      "Разметка 25×10 м: 3 USPSA-мишени в ряд через 5 м; палки — по краям ближней линии, в 25 м от крайних мишеней; метки 5 м и 10 м — перед центральной мишенью",
+      "Серия 1 · метка 5 м, напротив центральной: из низкой готовности — 1 выстрел в голову",
+      "Серия 2 · метка 5 м: из высокой готовности — 1 выстрел в голову центральной",
+      "Серия 3 · метка 10 м: 1 — центральная, 2 — левая, 3 — правая, 4 — центральная (по корпусу)",
+      "Серия 4 · метка 10 м, спиной к мишеням: разворот на 180° — 5 в левую, перезарядка с задержки затвора, 5 в правую",
+      "Серия 5 · 10→25 м: с метки 10 м — 2 в голову левой; отход на левую палку (25 м) — 2 в голову правой",
+      "Серия 6 · 25↔25 м: с левой палки — по 2 в каждую мишень; смена на правую палку — снова по 2 в каждую",
+      "Серия 7 · 25→5 м: двигаясь к метке 5 м — по 4 выстрела в каждую мишень в любом порядке",
       "Счёт: A=5, C=3, D=1, промах −10; максимум 250 очков, дострелы запрещены; хит-фактор = очки ÷ время. Итог по мишеням: левая 2 в голову + 15 в корпус, центральная 2 + 13, правая 2 + 16"
     ],
     "en": [
-      "String 1 · 5 m, center target: from low ready — 1 round to the head",
-      "String 2 · 5 m: from high ready — 1 round to the center target's head",
-      "String 3 · 10 m, in front of center: 1 — center, 2 — left, 3 — right, 4 — center (body)",
-      "String 4 · 10 m, back to targets: 180° turn — 5 on the left, bolt-lock reload, 5 on the right",
-      "String 5 · 10→25 m: from the 10 m line — 2 to the left target's head; move to the 25 m position — 2 to the right target's head",
-      "String 6 · 25↔25 m: from the left position — 2 rounds on each target; move to the right position — 2 on each again",
-      "String 7 · 25→5 m: moving toward the 5 m line — 4 rounds on each target, any order",
+      "Setup, 25×10 m: 3 USPSA targets in a row 5 m apart; sticks at both ends of the near line, 25 m from the flank targets; 5 m and 10 m marks in front of the center target",
+      "String 1 · 5 m mark: from low ready — 1 round to the head",
+      "String 2 · 5 m mark: from high ready — 1 round to the center target's head",
+      "String 3 · 10 m mark: 1 — center, 2 — left, 3 — right, 4 — center (body)",
+      "String 4 · 10 m mark, back to targets: 180° turn — 5 on the left, bolt-lock reload, 5 on the right",
+      "String 5 · 10→25 m: from the 10 m mark — 2 to the left target's head; move back to the left stick (25 m) — 2 to the right target's head",
+      "String 6 · 25↔25 m: from the left stick — 2 rounds on each target; move to the right stick — 2 on each again",
+      "String 7 · 25→5 m: moving toward the 5 m mark — 4 rounds on each target, any order",
       "Scoring: A=5, C=3, D=1, Mike −10; 250 points max, no make-ups; hit factor = points ÷ time. Per target: left 2 head + 15 body, center 2 + 13, right 2 + 16"
     ]
   },
@@ -76,7 +78,7 @@
     "магазины на 50 патронов суммарно (в серии 4 — перезарядка с задержки затвора)",
     "таймер",
     "3 мишени USPSA + стойки",
-    "разметка рубежа 25×10 м (маркеры-«палки» по краям линии 10 м)",
+    "разметка 25×10 м: 2 палки по краям ближней линии (25 м от крайних мишеней) + метки 5 м и 10 м перед центральной",
     "бланк курса T-Rex (PDF на странице источника)"
   ],
   "variants": {
@@ -88,202 +90,55 @@
   },
   "layout": {
     "unit": "m",
-    "width": 10,
+    "width": 12,
     "depth": 25,
     "positions": [
-      {
-        "id": "P1",
-        "x": 5,
-        "y": 5,
-        "label": {
-          "ru": "старт · 5 м от центральной"
-        }
-      },
-      {
-        "id": "P2",
-        "x": 5,
-        "y": 0,
-        "label": {
-          "ru": "линия огня · 10 м от центральной"
-        }
-      },
-      {
-        "id": "P3",
-        "x": 0.6,
-        "y": 0,
-        "label": {
-          "ru": "левая метка · 25 м от фланговых"
-        }
-      },
-      {
-        "id": "P4",
-        "x": 9.4,
-        "y": 0,
-        "label": {
-          "ru": "правая метка · 25 м от фланговых"
-        }
-      }
+      { "id": "P1", "x": 6, "y": 20, "label": { "ru": "метка 5 м · старт" } },
+      { "id": "P2", "x": 6, "y": 15, "label": { "ru": "метка 10 м" } },
+      { "id": "P3", "x": 1, "y": 0, "label": { "ru": "левая палка · 25 м от крайних мишеней" } },
+      { "id": "P4", "x": 11, "y": 0, "label": { "ru": "правая палка · 25 м от крайних мишеней" } }
     ],
     "targets": [
-      {
-        "id": "T1",
-        "x": 1,
-        "y": 25,
-        "type": "ipsc-metric"
-      },
-      {
-        "id": "T2",
-        "x": 5,
-        "y": 10,
-        "type": "ipsc-metric"
-      },
-      {
-        "id": "T3",
-        "x": 9,
-        "y": 25,
-        "type": "ipsc-metric"
-      }
+      { "id": "T1", "x": 1, "y": 25, "type": "ipsc-metric" },
+      { "id": "T2", "x": 6, "y": 25, "type": "ipsc-metric" },
+      { "id": "T3", "x": 11, "y": 25, "type": "ipsc-metric" }
     ],
     "movement": [
-      {
-        "from": "P1",
-        "to": "P2",
-        "style": "retreat"
-      },
-      {
-        "from": "P2",
-        "to": "P3",
-        "style": "lateral"
-      },
-      {
-        "from": "P3",
-        "to": "P4",
-        "style": "lateral"
-      },
-      {
-        "from": "P4",
-        "to": "P1",
-        "style": "advance"
-      }
+      { "from": "P1", "to": "P2", "style": "retreat" },
+      { "from": "P2", "to": "P3", "style": "retreat" },
+      { "from": "P3", "to": "P4", "style": "lateral" },
+      { "from": "P4", "to": "P1", "style": "advance" }
     ],
     "sequence": [
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 1
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 1
-      },
-      {
-        "action": "move",
-        "from": "P1",
-        "to": "P2"
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 1
-      },
-      {
-        "action": "engage",
-        "target": "T1",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 3
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 4
-      },
-      {
-        "action": "engage",
-        "target": "T1",
-        "shots": 5
-      },
-      {
-        "action": "reload"
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 5
-      },
-      {
-        "action": "engage",
-        "target": "T1",
-        "shots": 2
-      },
-      {
-        "action": "move",
-        "from": "P2",
-        "to": "P3"
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T1",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 2
-      },
-      {
-        "action": "move",
-        "from": "P3",
-        "to": "P4"
-      },
-      {
-        "action": "engage",
-        "target": "T1",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 2
-      },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "move", "from": "P1", "to": "P2" },
+      { "action": "engage", "target": "T2", "shots": 1 },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 3 },
+      { "action": "engage", "target": "T2", "shots": 4 },
+      { "action": "engage", "target": "T1", "shots": 5 },
+      { "action": "reload" },
+      { "action": "engage", "target": "T3", "shots": 5 },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "P2", "to": "P3" },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "move", "from": "P3", "to": "P4" },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T2", "shots": 2 },
+      { "action": "engage", "target": "T3", "shots": 2 },
       {
         "action": "move",
         "from": "P4",
-        "to": "P1"
-      },
-      {
-        "action": "engage",
-        "target": "T1",
-        "shots": 4
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 4
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 4
+        "to": "P1",
+        "engage": [
+          { "target": "T1", "shots": 4 },
+          { "target": "T2", "shots": 4 },
+          { "target": "T3", "shots": 4 }
+        ]
       }
     ]
   },

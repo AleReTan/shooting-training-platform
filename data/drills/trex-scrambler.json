@@ -16,18 +16,18 @@
   "tags": [
     "movement",
     "movement-forward",
+    "movement-lateral",
     "speed",
     "accuracy",
     "first-shot"
   ],
-  "needsReview": true,
   "difficulty": 4,
   "fireMode": [
     "live"
   ],
   "rounds": 28,
   "distance": {
-    "min": 5,
+    "min": 10,
     "max": 20,
     "unit": "m"
   },
@@ -42,106 +42,86 @@
     "points": 5
   },
   "goal": {
-    "ru": "28 патронов, 3 USPSA-мишени, 20×10 м: стрельба в движении и управление «газом» — контроль темпа между целями",
-    "en": "28 rounds, 3 USPSA targets, 20×10 m: shooting on the move and throttle control between targets"
+    "ru": "Ассесмент T-Rex «Скрэмблер»: 28 выстрелов, 3 USPSA-мишени в ряд, рубеж 20×10 м, четыре палки A/B/C/D. Два зеркальных прогона по 14: с каждой палки — 2 выстрела в мишень напротив, на каждом переходе — 2 в центральную в движении. Тренирует стрельбу в движении, управление «газом», механику корпуса и коллинг выстрелов при малом расходе патронов. Хит-фактор: очки ÷ время, максимум 140",
+    "en": "T-Rex Scrambler Assessment: 28 rounds, 3 USPSA targets in a row, a 20×10 m bay, four sticks A/B/C/D. Two mirrored runs of 14: 2 rounds on the target in front from each stick, 2 on the center target while moving between sticks. Trains shooting on the move, throttle control, body mechanics and shot calling on a low round count. Hit factor: points ÷ time, 140 max"
   },
   "steps": {
     "ru": [
-      "Рубеж 20×10 м; 3 USPSA-мишени; 28 патронов (формат T-Rex, есть официальный PDF — ссылка в источнике)",
-      "Прогон включает стрельбу в движении и смены темпа: близкая цель — полный газ, дальняя — сброс",
-      "Хит-фактор; следи за механикой корпуса и коллингом выстрелов",
-      "2 прогона; между прогонами разбор: где потерял очки, где потерял время",
-      "Подходит при лимите патронов: малый счёт при высокой плотности навыков"
+      "Разметка 20×10 м: три USPSA-мишени в ряд на дальней линии — через 5 м. Палки A и B — на ближней линии, в 20 м от мишеней; палки D и C — посередине, в 10 м от мишеней (D под левой, C под правой)",
+      "Прогон 1, старт с A: с A — 2 в левую; движение к B — в движении 2 в центральную; с B — 2 в правую; по диагонали к D — в движении 2 в центральную; с D — 2 в левую; переход на C — в движении 2 в центральную; с C — 2 в правую",
+      "Прогон 2, старт с B (зеркально): с B — 2 в правую; движение к A — в движении 2 в центральную; с A — 2 в левую; по диагонали к C — в движении 2 в центральную; с C — 2 в правую; переход на D — в движении 2 в центральную; с D — 2 в левую",
+      "Счёт: A=5, C=3, D=1, промах −10; 28 патронов, максимум 140 очков, дострелы запрещены; хит-фактор = очки ÷ суммарное время серий. Итог по мишеням: левая 8, центральная 12, правая 8",
+      "Бланк допускает пистолет или карабин (здесь — карабин). Стартовая готовность оружия в бланке не указана — задай её до прогона"
+    ],
+    "en": [
+      "Setup, 20×10 m: three USPSA targets in a row on the far line, 5 m apart. Sticks A and B on the near line, 20 m from the targets; sticks D and C midway, 10 m from the targets (D under the left target, C under the right)",
+      "Run 1, start at A: at A — 2 on the left; moving to B — 2 on the center on the move; at B — 2 on the right; diagonally to D — 2 on the center on the move; at D — 2 on the left; across to C — 2 on the center on the move; at C — 2 on the right",
+      "Run 2, start at B (mirrored): at B — 2 on the right; moving to A — 2 on the center on the move; at A — 2 on the left; diagonally to C — 2 on the center on the move; at C — 2 on the right; across to D — 2 on the center on the move; at D — 2 on the left",
+      "Scoring: A=5, C=3, D=1, Mike −10; 28 rounds, 140 points max, no make-ups; hit factor = points ÷ total time of all strings. Per target: left 8, center 12, right 8",
+      "The form allows pistol or rifle (carbine here). The form does not state the start position — set it before the run"
     ]
   },
   "safety": {
-    "ru": "Движение через рубеж: маршрут не должен пересекать соседние сектора"
+    "ru": "Стрельба в движении: весь маршрут — внутри разметки 10-метровой ширины, ствол остаётся в секторе мишеней; диагональные переходы идут вперёд, к мишеням — перед стартом проверь, что между палками никого нет"
   },
   "equipment": [
-    "карабин",
-    "3–4 магазина (28 патронов)",
-    "рубеж 20×10 м"
+    "карабин (или пистолет)",
+    "28 патронов",
+    "3 мишени USPSA + стойки",
+    "разметка 20×10 м: 4 палки или маркера",
+    "таймер",
+    "бланк T-Rex (PDF на странице источника)"
   ],
   "variants": {
     "ru": [
-      "Сокращённый вариант 14 патронов",
-      "Прогон с колена в середине"
+      "Пистолетная версия — бланк допускает pistol или rifle",
+      "Сокращённый вариант: один прогон на 14 патронов"
     ]
   },
   "layout": {
     "unit": "m",
-    "width": 10,
-    "depth": 22,
+    "width": 12,
+    "depth": 20,
     "positions": [
-      {
-        "id": "P1",
-        "x": 5,
-        "y": 1,
-        "label": {
-          "ru": "старт"
-        }
-      },
-      {
-        "id": "P2",
-        "x": 5,
-        "y": 10,
-        "label": {
-          "ru": "средняя точка"
-        }
-      }
+      { "id": "A", "x": 1, "y": 0, "label": { "ru": "старт прогона 1 · 20 м от мишеней" } },
+      { "id": "B", "x": 11, "y": 0, "label": { "ru": "старт прогона 2 · 20 м от мишеней" } },
+      { "id": "C", "x": 11, "y": 10, "label": { "ru": "правая середина · 10 м от мишеней" } },
+      { "id": "D", "x": 1, "y": 10, "label": { "ru": "левая середина · 10 м от мишеней" } }
     ],
     "targets": [
-      {
-        "id": "T1",
-        "x": 2,
-        "y": 8,
-        "type": "ipsc-metric"
-      },
-      {
-        "id": "T2",
-        "x": 5,
-        "y": 15,
-        "type": "ipsc-metric"
-      },
-      {
-        "id": "T3",
-        "x": 8,
-        "y": 20,
-        "type": "ipsc-metric"
-      }
+      { "id": "T1", "x": 1, "y": 20, "type": "ipsc-metric" },
+      { "id": "T2", "x": 6, "y": 20, "type": "ipsc-metric" },
+      { "id": "T3", "x": 11, "y": 20, "type": "ipsc-metric" }
     ],
     "movement": [
-      {
-        "from": "P1",
-        "to": "P2",
-        "style": "advance"
-      }
+      { "from": "A", "to": "B", "style": "lateral" },
+      { "from": "B", "to": "D", "style": "advance" },
+      { "from": "D", "to": "C", "style": "lateral" },
+      { "from": "A", "to": "C", "style": "advance" }
     ],
     "sequence": [
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "A", "to": "B", "engage": [{ "target": "T2", "shots": 2 }] },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "move", "from": "B", "to": "D", "engage": [{ "target": "T2", "shots": 2 }] },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "D", "to": "C", "engage": [{ "target": "T2", "shots": 2 }] },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "move", "from": "C", "to": "B" },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "move", "from": "B", "to": "A", "engage": [{ "target": "T2", "shots": 2 }] },
+      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "move", "from": "A", "to": "C", "engage": [{ "target": "T2", "shots": 2 }] },
+      { "action": "engage", "target": "T3", "shots": 2 },
+      { "action": "move", "from": "C", "to": "D", "engage": [{ "target": "T2", "shots": 2 }] },
+      { "action": "engage", "target": "T1", "shots": 2 }
+    ]
+  },
+  "media": {
+    "images": [
       {
-        "action": "engage",
-        "target": "T1",
-        "shots": 6
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 4
-      },
-      {
-        "action": "move",
-        "from": "P1",
-        "to": "P2"
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 6
-      },
-      {
-        "action": "engage",
-        "target": "T3",
-        "shots": 12
+        "url": "https://img.trex-arms.com/wp/uploads/2025/12/scrambler.jpg",
+        "credit": "T.REX ARMS"
       }
     ]
   },

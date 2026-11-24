@@ -1,5 +1,5 @@
 import { test, expect, afterEach, beforeAll, vi } from 'vitest';
-import { render, screen, fireEvent, cleanup } from '@testing-library/preact';
+import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/preact';
 import { DrillPage } from './DrillPage';
 import { loadData, type AppData } from '../../data/load';
 
@@ -69,6 +69,23 @@ test('печать: кнопка вызывает window.print, шум уход�
   } finally {
     window.print = orig;
   }
+});
+
+test('share: кнопка «ссылка» копирует адрес упражнения и подтверждает', async () => {
+  const writeText = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
+  render(<DrillPage id="bill-drill-carbine" data={data} />);
+  fireEvent.click(screen.getByText('копировать ссылку'));
+  await waitFor(() => expect(writeText).toHaveBeenCalled());
+  const url = writeText.mock.calls[0]?.[0] as string;
+  expect(url.endsWith('/#/drill/bill-drill-carbine')).toBe(true);
+  expect(screen.getByText('скопировано')).toBeTruthy();
+});
+
+test('схема из официального бланка: рядом со схемой ссылка на бланк источника', () => {
+  render(<DrillPage id="trex-50-round-cof" data={data} />);
+  const link = document.querySelector('.drill-page__form') as HTMLAnchorElement;
+  expect(link.getAttribute('href')).toContain('50-rd-Carbine-COF');
 });
 
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {

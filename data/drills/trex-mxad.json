@@ -19,14 +19,13 @@
     "accuracy",
     "recoil-control"
   ],
-  "needsReview": true,
   "difficulty": 3,
   "fireMode": [
     "live"
   ],
   "rounds": 8,
   "distance": {
-    "min": 11,
+    "min": 5,
     "max": 11,
     "unit": "m"
   },
@@ -41,16 +40,16 @@
     "points": 5
   },
   "goal": {
-    "ru": "8 патронов, 2 мишени, 11 м (12 ярдов): награда за расслабленность при агрессивной стрельбе и быстрые чистые переносы",
-    "en": "8 rounds, 2 targets, 11 m (12 yd): rewards staying relaxed while shooting aggressively with fast, precise transitions"
+    "ru": "8 патронов, 2 USPSA-мишени на 5 и 12 ярдов (4,6 и 11 м): награда за расслабленность при очень агрессивной стрельбе и быстрые чистые переносы",
+    "en": "8 rounds, 2 USPSA targets at 5 and 12 yd (4.6 and 11 m): rewards staying relaxed while shooting very aggressively, with fast and precise transitions"
   },
   "steps": {
     "ru": [
-      "Две USPSA-мишени на 11 м; 8 патронов",
-      "По сигналу — серия с переносами между двумя целями (расклад и порядок — по PDF T-Rex, ссылка в источнике)",
-      "Хит-фактор: очки делим на время; промах стоит дорого",
-      "Ключ от T-Rex: агрессивный темп при расслабленном корпусе — «зажатый» стрелок теряет и время, и очки",
-      "3–4 подхода, следи за динамикой хит-фактора"
+      "Две USPSA-мишени одна за другой: ближняя — на 5 ярдов (4,6 м) левее центра, дальняя — на 12 ярдов (11 м) правее. Стрелок — по центру, 8 патронов",
+      "По сигналу — серия с переносами между двумя целями; корпус расслаблен, темп — максимально агрессивный",
+      "Расклад 8 выстрелов T-Rex текстом не публикует — он в видео на странице источника",
+      "Хит-фактор: очки ÷ время; промах стоит дорого",
+      "Несколько подходов, следи за динамикой хит-фактора"
     ]
   },
   "safety": {
@@ -58,7 +57,8 @@
   },
   "equipment": [
     "карабин",
-    "1 магазин на 8 патронов"
+    "1 магазин на 8 патронов",
+    "2 мишени USPSA + стойки"
   ],
   "variants": {
     "ru": [
@@ -68,52 +68,40 @@
   },
   "layout": {
     "unit": "m",
-    "width": 10,
+    "width": 5,
     "depth": 13,
     "positions": [
       {
         "id": "P1",
-        "x": 5,
-        "y": 1,
+        "x": 2.5,
+        "y": 0.5,
         "label": {
-          "ru": "бокс"
+          "ru": "старт"
         }
       }
     ],
     "targets": [
       {
         "id": "T1",
-        "x": 3,
-        "y": 11,
-        "type": "ipsc-metric"
+        "x": 1.6,
+        "y": 4.57,
+        "type": "ipsc-metric",
+        "distance": 4.6
       },
       {
         "id": "T2",
-        "x": 7,
-        "y": 11,
-        "type": "ipsc-metric"
+        "x": 3.4,
+        "y": 10.97,
+        "type": "ipsc-metric",
+        "distance": 11
       }
-    ],
-    "sequence": [
+    ]
+  },
+  "media": {
+    "images": [
       {
-        "action": "engage",
-        "target": "T1",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T1",
-        "shots": 2
-      },
-      {
-        "action": "engage",
-        "target": "T2",
-        "shots": 2
+        "url": "https://img.trex-arms.com/wp/uploads/2024/10/MXAD.png",
+        "credit": "T.REX ARMS"
       }
     ]
   },

@@ -18,7 +18,7 @@ const course = trexCourse as Course;
 test('карточка курса: агрегаты упражнений, патронов, фаз', () => {
   const { container } = render(<CourseCard course={course} drillById={drillById} />);
   expect(container.textContent).toContain('10 упражнений');
-  expect(container.textContent).toContain('234 патр.');
+  expect(container.textContent).toContain('232 патр.');
   expect(container.textContent).toContain('4 фазы');
 });
 

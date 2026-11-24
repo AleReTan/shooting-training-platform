@@ -1,5 +1,6 @@
 // Карточка упражнения: все разделы схемы Drill (спека §8 п.2).
 
+import { useState } from 'preact/hooks';
 import { localized, localizedList, PAR_LABELS, FIRE_LABELS } from '../../app/i18n';
 import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { TimerPanel } from '../../features/timer/TimerPanel';
@@ -14,6 +15,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const { drillById, coursesByDrillId, taxonomy } = data;
   // Хуки до раннего return: drill может быть не найден.
   const [favorites, toggleFav] = useFavorites();
+  const [copied, setCopied] = useState(false);
   const drill = drillById.get(id);
 
   if (!drill) {
@@ -27,9 +29,24 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
     );
   }
 
+  const copyLink = async () => {
+    // адрес собираем из id: он не зависит от того, как открыли страницу
+    const url = new URL(`#/drill/${drill.id}`, window.location.href).href;
+    // без защищённого контекста (http) буфер недоступен — показываем адрес вручную
+    if (!navigator.clipboard?.writeText) {
+      window.prompt('Ссылка на упражнение', url);
+      return;
+    }
+    await navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const tagLabels = new Map(taxonomy.tags.map((t) => [t.id, localized(t.label)]));
   const targetLabels = new Map(taxonomy.targetTypes.map((t) => [t.id, localized(t.label)]));
   const courses = coursesByDrillId.get(drill.id) ?? [];
+  // официальный бланк/схема источника — ссылкой рядом со схемой
+  const form = drill.media?.images?.[0];
 
   const isFav = favorites.includes(drill.id);
 
@@ -48,22 +65,27 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
       </p>
       <div class="drill-page__head">
         <h2>{localized(drill.name)}</h2>
-        <button
-          type="button"
-          class="drill-page__print"
-          onClick={() => window.print()}
-        >
-          печать
-        </button>
-        <button
-          type="button"
-          class={'drill-card__star' + (isFav ? ' drill-card__star--on' : '')}
-          aria-pressed={isFav}
-          aria-label={isFav ? 'убрать из избранного' : 'в избранное'}
-          onClick={() => toggleFav(drill.id)}
-        >
-          ★
-        </button>
+        <div class="drill-page__actions">
+          <button type="button" class="drill-page__share" aria-live="polite" onClick={copyLink}>
+            {copied ? 'скопировано' : 'копировать ссылку'}
+          </button>
+          <button
+            type="button"
+            class="drill-page__print"
+            onClick={() => window.print()}
+          >
+            печать
+          </button>
+          <button
+            type="button"
+            class={'drill-card__star' + (isFav ? ' drill-card__star--on' : '')}
+            aria-pressed={isFav}
+            aria-label={isFav ? 'убрать из избранного' : 'в избранное'}
+            onClick={() => toggleFav(drill.id)}
+          >
+            ★
+          </button>
+        </div>
       </div>
       {drill.name.en && drill.name.en !== drill.name.ru ? (
         <p class="drill-page__alt">{drill.name.en}</p>
@@ -159,7 +181,17 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
 
       {drill.layout ? (
         <>
-          <h3>Схема</h3>
+          <h3>
+            Схема
+            {form ? (
+              <>
+                {' '}
+                <a class="drill-page__form no-print" href={form.url} rel="noreferrer" target="_blank">
+                  · {form.credit ? `бланк: ${form.credit}` : 'бланк упражнения'} ↗
+                </a>
+              </>
+            ) : null}
+          </h3>
           <SequencePlayer layout={drill.layout} />
         </>
       ) : null}
@@ -206,7 +238,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
             {(drill.media.images ?? []).map((img, i) => (
               <li key={`img-${i}`}>
                 <a href={img.url} rel="noreferrer" target="_blank">
-                  фото{img.credit ? ` — ${img.credit}` : ''}
+                  бланк{img.credit ? ` — ${img.credit}` : ''}
                 </a>
               </li>
             ))}

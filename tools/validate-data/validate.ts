@@ -221,8 +221,23 @@ function validateLayout(
     if (s.action === 'engage' && !tgtIds.has(s.target)) {
       errors.push(`${file}: sequence ссылается на несуществующую мишень ${s.target}`);
     }
-    if (s.action === 'move' && (!posIds.has(s.from) || !posIds.has(s.to))) {
-      errors.push(`${file}: sequence ссылается на несуществующую позицию ${s.from}→${s.to}`);
+    if (s.action === 'move') {
+      if (!posIds.has(s.from) || !posIds.has(s.to)) {
+        errors.push(`${file}: sequence ссылается на несуществующую позицию ${s.from}→${s.to}`);
+      }
+      // стрельба в движении: список обстрелов на переходе
+      for (const e of expectList(file, 'layout.sequence move.engage', s.engage, errors)) {
+        if (!isRecord(e)) {
+          errors.push(`${file}: layout.sequence move.engage содержит не-объект`);
+          continue;
+        }
+        if (!tgtIds.has(e.target)) {
+          errors.push(`${file}: sequence ссылается на несуществующую мишень ${e.target}`);
+        }
+        if (!Number.isInteger(e.shots) || e.shots < 1) {
+          errors.push(`${file}: sequence shots у мишени ${e.target} должен быть целым ≥ 1`);
+        }
+      }
     }
   }
 }

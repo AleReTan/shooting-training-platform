@@ -14,21 +14,25 @@
     "url": "https://www.trex-arms.com/training/drills-assessments/close-quarters-rifle-assessment-294"
   },
   "tags": [
-    "speed",
-    "accuracy",
+    "first-shot",
+    "reload-emergency",
     "transitions",
     "positions",
-    "first-shot"
+    "prone",
+    "kneeling",
+    "movement-forward",
+    "movement-lateral",
+    "speed",
+    "accuracy"
   ],
-  "needsReview": true,
   "difficulty": 4,
   "fireMode": [
     "live"
   ],
   "rounds": 60,
   "distance": {
-    "min": 3,
-    "max": 45,
+    "min": 5,
+    "max": 46,
     "unit": "m"
   },
   "targets": [
@@ -42,31 +46,112 @@
     "points": 5
   },
   "goal": {
-    "ru": "Квалификация T-Rex для CQB: 60 патронов, 4 USPSA-мишени, рубеж 45×10 м — навыки ближнего боя под хит-фактор",
-    "en": "T-Rex qualification for CQB: 60 rounds, 4 USPSA targets, 45×10 m bay — close-quarters skills under hit-factor scoring"
+    "ru": "Квалификация T-Rex для ближнего боя: 60 патронов, 4 USPSA-мишени, рубеж 45×10 м, 6 серий с 5 до 50 ярдов — навыки CQB под хит-фактор",
+    "en": "T-Rex CQB qualification: 60 rounds, 4 USPSA targets, a 45×10 m bay, 6 strings from 5 to 50 yards — close-quarters skills under hit-factor scoring"
   },
   "steps": {
     "ru": [
-      "Рубеж 45×10 м; 4 USPSA-мишени; 60 патронов карабинных",
-      "Официальный PDF и видео T-Rex (ссылка в источнике) дают полную раскладку квалификации",
-      "Проверяются типовые CQB-навыки: близкие цели, частично закрытые, смена высот и позиций",
-      "Хит-фактор; цель аттестации — подтвердить уровень, а не только тренироваться",
-      "Повторяй раз в месяц и веди историю результатов"
+      "Разметка 45×10 м: 4 USPSA-мишени в ряд на дальней линии — крайние развёрнуты под углом, центральные левая и правая — рядом, по центру (линия мишеней на схеме T-Rex — 10 ярдов). Линии от мишеней: 5, 10, 15, 25 и 50 ярдов (4,6 / 9,1 / 13,7 / 22,9 / 45,7 м); на линиях 10 и 25 ярдов — три позиции: центральная, левая, правая",
+      "Серия 1 · 5 ярдов, высокая готовность: «бокс» по двум центральным — 2 в корпус и 1 в голову на каждой",
+      "Серия 2 · 10↔10 ярдов, «GO STOP»: старт на центре линии 10 ярдов из низкой готовности — 2 в голову центральной левой; левая позиция — 2 в корпус крайней левой; правая позиция — 2 в корпус крайней правой; обратно на центр — 2 в голову центральной правой",
+      "Серия 3 · 15 ярдов, спиной к мишеням, высокая готовность: разворот на 180° — 3 в центральную левую, 3 в центральную правую; перезарядка с задержки затвора; 3 в крайнюю левую, 3 в крайнюю правую",
+      "Серия 4 · 25↔25 ярдов, старт с левой позиции из низкой готовности: 2 в голову крайней левой; движение на правую позицию — в движении по 2 в корпус каждой центральной; с правой позиции — 2 в голову крайней правой",
+      "Серия 5 · 50→25 ярдов, низкая готовность: 2 в корпус крайних; лёжа — по 2 в корпус центральных; спринт на линию 25 ярдов; 2 в корпус крайних; с колена — по 2 в корпус центральных",
+      "Серия 6 · 25→10 ярдов, высокая готовность: движение вперёд к линии 10 ярдов — в движении по 5 в каждую крайнюю",
+      "Счёт: A=5, C=3, D=1, промах −10, «ношот» −20; 60 патронов; хит-фактор = очки ÷ общее время всех серий. По мишеням: крайние — 2 в голову + 14 в корпус, центральные — 3 в голову + 11 в корпус. Нормативы дня: Minuteman 4.0+, Militiaman 2.5–3.9, Prepared Citizen 1.0–2.4",
+      "Режимы: Easy — все выстрелы в голову заменить по корпусу; Hard — добавить «ношоты»: один у центральной мишени (закрывает ⅓ зоны A) и один у крайней (закрывает ½ зоны C). Ночные нормативы: Minuteman 3.5+, Militiaman 2.0–3.4, Prepared Citizen 1.0–1.9"
     ]
   },
   "safety": {
-    "ru": "Близкие цели (3–5 м) — следи за наводкой на всех переходах, штрафные зоны стоят дорого"
+    "ru": "Серия 5 — спринт 25 ярдов со сменой высот (лёжа, с колена): проверь покрытие под ногами на линии спринта. Стрельба в движении в сериях 2, 4 и 6 — ствол остаётся в секторе мишеней"
   },
   "equipment": [
     "карабин",
-    "5–6 магазинов (60 патронов)",
-    "рубеж 45×10 м",
-    "PDF T-Rex"
+    "магазины на 60 патронов",
+    "4 мишени USPSA + стойки",
+    "разметка 45×10 м: линии 5, 10, 15, 25 и 50 ярдов, на линиях 10 и 25 — по три марки",
+    "таймер",
+    "бланк T-Rex (PDF на странице источника)"
   ],
   "variants": {
     "ru": [
       "В полном сете (броня + шлем)",
-      "Половина аттестации для лимита патронов"
+      "Ночные нормативы — см. счёт"
+    ]
+  },
+  "layout": {
+    "unit": "m",
+    "width": 12,
+    "depth": 24,
+    "realDepth": 46,
+    "positions": [
+      { "id": "L50", "x": 6, "y": 0, "label": { "ru": "линия 50 ярдов (45,7 м)" } },
+      { "id": "L25L", "x": 1.45, "y": 12, "label": { "ru": "левая позиция линии 25 ярдов (22,9 м)" } },
+      { "id": "L25", "x": 6, "y": 12, "label": { "ru": "центр линии 25 ярдов" } },
+      { "id": "L25R", "x": 10.55, "y": 12, "label": { "ru": "правая позиция линии 25 ярдов" } },
+      { "id": "L15", "x": 6, "y": 16.8, "label": { "ru": "15 ярдов (13,7 м)" } },
+      { "id": "L10L", "x": 1.45, "y": 19.2, "label": { "ru": "левая позиция линии 10 ярдов (9,1 м)" } },
+      { "id": "L10", "x": 6, "y": 19.2, "label": { "ru": "центр линии 10 ярдов" } },
+      { "id": "L10R", "x": 10.55, "y": 19.2, "label": { "ru": "правая позиция линии 10 ярдов" } },
+      { "id": "L5", "x": 6, "y": 21.6, "label": { "ru": "5 ярдов (4,6 м)" } }
+    ],
+    "targets": [
+      { "id": "FL", "x": 1.45, "y": 24, "type": "ipsc-metric", "distance": 23 },
+      { "id": "CL", "x": 4.4, "y": 24, "type": "ipsc-metric", "distance": 23 },
+      { "id": "CR", "x": 7.6, "y": 24, "type": "ipsc-metric", "distance": 23 },
+      { "id": "FR", "x": 10.55, "y": 24, "type": "ipsc-metric", "distance": 23 }
+    ],
+    "movement": [
+      { "from": "L10L", "to": "L10R", "style": "lateral", "distance": 9 },
+      { "from": "L25L", "to": "L25R", "style": "lateral", "distance": 9 },
+      { "from": "L50", "to": "L25", "style": "advance", "distance": 23 }
+    ],
+    "sequence": [
+      { "action": "engage", "target": "CL", "shots": 3 },
+      { "action": "engage", "target": "CR", "shots": 3 },
+      { "action": "move", "from": "L5", "to": "L10" },
+      { "action": "engage", "target": "CL", "shots": 2 },
+      { "action": "move", "from": "L10", "to": "L10L" },
+      { "action": "engage", "target": "FL", "shots": 2 },
+      { "action": "move", "from": "L10L", "to": "L10R" },
+      { "action": "engage", "target": "FR", "shots": 2 },
+      { "action": "move", "from": "L10R", "to": "L10" },
+      { "action": "engage", "target": "CR", "shots": 2 },
+      { "action": "move", "from": "L10", "to": "L15" },
+      { "action": "engage", "target": "CL", "shots": 3 },
+      { "action": "engage", "target": "CR", "shots": 3 },
+      { "action": "reload" },
+      { "action": "engage", "target": "FL", "shots": 3 },
+      { "action": "engage", "target": "FR", "shots": 3 },
+      { "action": "move", "from": "L15", "to": "L25L" },
+      { "action": "engage", "target": "FL", "shots": 2 },
+      { "action": "move", "from": "L25L", "to": "L25R", "engage": [
+        { "target": "CL", "shots": 2 },
+        { "target": "CR", "shots": 2 }
+      ] },
+      { "action": "engage", "target": "FR", "shots": 2 },
+      { "action": "move", "from": "L25R", "to": "L50" },
+      { "action": "engage", "target": "FL", "shots": 2 },
+      { "action": "engage", "target": "FR", "shots": 2 },
+      { "action": "engage", "target": "CL", "shots": 2 },
+      { "action": "engage", "target": "CR", "shots": 2 },
+      { "action": "move", "from": "L50", "to": "L25" },
+      { "action": "engage", "target": "FL", "shots": 2 },
+      { "action": "engage", "target": "FR", "shots": 2 },
+      { "action": "engage", "target": "CL", "shots": 2 },
+      { "action": "engage", "target": "CR", "shots": 2 },
+      { "action": "move", "from": "L25", "to": "L10", "engage": [
+        { "target": "FL", "shots": 5 },
+        { "target": "FR", "shots": 5 }
+      ] }
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://img.trex-arms.com/wp/uploads/2025/12/CQB-Rifle-Cover-Image.png",
+        "credit": "T.REX ARMS"
+      }
     ]
   },
   "related": [

@@ -106,3 +106,36 @@ test('stateAt со snapMoves: прогресс перемещения тольк
   const mid = stateAt(tl, 2000 + 900, { snapMoves: true }); // после середины move
   expect(mid.activeMove?.progress).toBe(1);
 });
+
+test('стрельба в движении: move с engage растягивается на выстрелы и ведёт счёт', () => {
+  // Скрэмблер: переход A→B, в движении 2 в центральную
+  const tl = computeTimeline([
+    { action: 'move', from: 'A', to: 'B', engage: [{ target: 'T2', shots: 2 }] },
+  ]);
+  expect(tl.total).toBe(STEP_DURATIONS.move + 2 * STEP_DURATIONS.engagePerShot);
+  const st = stateAt(tl, 1400); // середина перехода: 1 выстрел из 2 сделан
+  expect(st.activeMove?.from).toBe('A');
+  expect(st.activeTarget).toBe('T2');
+  expect(st.shotsDone.T2).toBe(1);
+  expect(stateAt(tl, 99999).shotsDone).toEqual({ T2: 2 });
+});
+
+test('стрельба в движении: несколько мишеней на переходе обстреливаются по порядку', () => {
+  // CoF 50, серия 7: двигаясь к линии 5 м — по 4 в каждую, всего 12
+  const tl = computeTimeline([
+    {
+      action: 'move',
+      from: 'P4',
+      to: 'P1',
+      engage: [
+        { target: 'T1', shots: 4 },
+        { target: 'T2', shots: 4 },
+        { target: 'T3', shots: 4 },
+      ],
+    },
+  ]);
+  const st = stateAt(tl, 2250); // треть перехода: 4 выстрела сделаны, активна вторая мишень
+  expect(st.shotsDone).toEqual({ T1: 4 });
+  expect(st.activeTarget).toBe('T2');
+  expect(stepStates(tl)[0]?.shotsDone).toEqual({ T1: 4, T2: 4, T3: 4 });
+});

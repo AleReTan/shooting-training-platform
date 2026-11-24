@@ -24,8 +24,8 @@
   ],
   "rounds": 6,
   "distance": {
-    "min": 10,
-    "max": 10,
+    "min": 3,
+    "max": 23,
     "unit": "m"
   },
   "targets": [
@@ -56,12 +56,12 @@
     "type": "par-time"
   },
   "goal": {
-    "ru": "Контроль отдачи и скорость шести быстрых точных выстрелов",
-    "en": "Recoil control and speed for six fast accurate shots"
+    "ru": "Контроль отдачи и скорость шести быстрых точных выстрелов на разных дистанциях; у T-Rex счёт — хит-фактор",
+    "en": "Recoil control and speed for six fast accurate shots at varying distances; scored by hit factor at T-Rex"
   },
   "steps": {
     "ru": [
-      "Карабин в готовности, 6 патронов в магазине",
+      "Карабин в готовности, 6 патронов в магазине. Дистанция — от 3 до 25 ярдов (2,7–23 м), начни с 10 м",
       "По сигналу — 6 выстрелов в зону «А» на максимальной скорости",
       "Все пробоины должны быть в зачётной зоне"
     ]
@@ -105,8 +105,16 @@
   },
   "variants": {
     "ru": [
-      "Увеличить дистанцию до 25 м",
+      "Дальняя дистанция — до 23 м (25 ярдов)",
       "Стрелять со слабого плеча"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://img.trex-arms.com/wp/uploads/2024/10/Bill_Drill.png",
+        "credit": "T.REX ARMS"
+      }
     ]
   },
   "related": [

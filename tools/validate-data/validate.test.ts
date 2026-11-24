@@ -148,6 +148,30 @@ test('sequence: ссылка на несуществующую позицию о
   expect(res.errors.join('\n')).toContain('P9');
 });
 
+test('sequence: стрельба в движении — мишень существует, shots — целое ≥ 1', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }, { id: 'P2', x: 1, y: 5 }],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric' }],
+    sequence: [
+      {
+        action: 'move',
+        from: 'P1',
+        to: 'P2',
+        engage: [
+          { target: 'T9', shots: 2 },
+          { target: 'T1', shots: 0 },
+        ],
+      },
+    ],
+  };
+  const res = run([entry('x-drill.json', bad)]);
+  const msg = res.errors.join('\n');
+  expect(msg).toContain('T9');
+  expect(msg).toContain('shots');
+});
+
 test('координаты вне width/depth отклоняются', () => {
   const bad = drill();
   bad.layout = {

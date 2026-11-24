@@ -74,7 +74,13 @@ export interface LayoutMovement {
 
 export type SequenceStep =
   | { action: 'engage'; target: string; shots: number }
-  | { action: 'move'; from: string; to: string }
+  | {
+      action: 'move';
+      from: string;
+      to: string;
+      /** Стрельба в движении: выстрелы распределены по переходу, по порядку списка. */
+      engage?: { target: string; shots: number }[];
+    }
   | { action: 'reload' };
 
 export interface Layout {

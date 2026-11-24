@@ -5,6 +5,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Layout } from '../../data/types';
 import type { PlaybackState } from './types';
+import { localized } from '../i18n';
 import { LayoutDiagram } from './render';
 import { computeTimeline, stateAt, stepStates } from './sequence';
 
@@ -73,33 +74,46 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
   return (
     <div class="sequence-player">
       <LayoutDiagram layout={layout} playback={playback} />
-      <div class="sequence-player__controls">
-        <button type="button" class="btn btn--primary" onClick={playing ? stop : play}>
-          {playing ? 'Стоп' : 'Проиграть'}
-        </button>
-        <button
-          type="button"
-          class="btn"
-          onClick={() => setStepIndex((i) => Math.min(i + 1, states.length - 1))}
-        >
-          Шаг вперёд
-        </button>
-        <button
-          type="button"
-          class="btn"
-          onClick={() => setStepIndex((i) => Math.max(i - 1, -1))}
-        >
-          Шаг назад
-        </button>
-        <button type="button" class="btn" onClick={stop}>
-          Сброс
-        </button>
-        {stepIndex >= 0 && (
-          <span class="sequence-player__counter">
-            шаг {stepIndex + 1}/{states.length}
-          </span>
-        )}
-      </div>
+      {/* Легенда позиций: на схеме только id, расшифровка — здесь */}
+      {layout.positions.length > 1 && (
+        <ul class="sequence-player__legend">
+          {layout.positions.map((p) => (
+            <li key={p.id}>
+              <b>{p.id}</b>
+              {p.label ? ` — ${localized(p.label)}` : ''}
+            </li>
+          ))}
+        </ul>
+      )}
+      {states.length > 0 && (
+        <div class="sequence-player__controls">
+          <button type="button" class="btn btn--primary" onClick={playing ? stop : play}>
+            {playing ? 'Стоп' : 'Проиграть'}
+          </button>
+          <button
+            type="button"
+            class="btn"
+            onClick={() => setStepIndex((i) => Math.min(i + 1, states.length - 1))}
+          >
+            Шаг вперёд
+          </button>
+          <button
+            type="button"
+            class="btn"
+            onClick={() => setStepIndex((i) => Math.max(i - 1, -1))}
+          >
+            Шаг назад
+          </button>
+          <button type="button" class="btn" onClick={stop}>
+            Сброс
+          </button>
+          {stepIndex >= 0 && (
+            <span class="sequence-player__counter">
+              шаг {stepIndex + 1}/{states.length}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 }
