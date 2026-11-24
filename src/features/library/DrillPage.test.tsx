@@ -1,4 +1,6 @@
 import { test, expect, afterEach, beforeAll, vi } from 'vitest';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/preact';
 import { DrillPage } from './DrillPage';
 import { loadData, type AppData } from '../../data/load';
@@ -88,6 +90,19 @@ test('схема из официального бланка: рядом со с�
   render(<DrillPage id="trex-50-round-cof" data={data} />);
   const link = document.querySelector('.drill-page__form') as HTMLAnchorElement;
   expect(link.getAttribute('href')).toContain('50-rd-Carbine-COF');
+});
+
+test('бланк источника картинкой: сворачивающийся блок, и файл реально лежит в public/', () => {
+  render(<DrillPage id="trex-50-round-cof" data={data} />);
+  const img = document.querySelector('.drill-page__form-img img');
+  expect(img?.getAttribute('src')).toBe('media/trex/50rd-carbine-cof.webp');
+
+  // битого пути к картинке быть не должно — иначе блок раскрывается в пустоту
+  for (const d of data.drills) {
+    for (const i of d.media?.images ?? []) {
+      if (i.file) expect(existsSync(join('public', i.file)), `${d.id}: ${i.file}`).toBe(true);
+    }
+  }
 });
 
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {

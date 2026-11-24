@@ -197,6 +197,18 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
         </>
       ) : null}
 
+      {form?.file ? (
+        <details class="drill-page__form-img">
+          <summary>
+            Бланк{form.credit ? ` (${form.credit})` : ''} — картинкой
+          </summary>
+          {/* ссылкой на сам файл: на телефоне открывается отдельно и масштабируется щипком */}
+          <a href={form.file} rel="noreferrer" target="_blank">
+            <img src={form.file} alt={`Бланк упражнения: ${localized(drill.name)}`} loading="lazy" />
+          </a>
+        </details>
+      ) : null}
+
       <div class="no-print">
         <h3>Таймер</h3>
         <TimerPanel parTimes={drill.parTimes} />

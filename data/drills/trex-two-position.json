@@ -96,7 +96,8 @@
     "images": [
       {
         "url": "https://img.trex-arms.com/wp/uploads/2024/10/Two_Position.png",
-        "credit": "T.REX ARMS"
+        "credit": "T.REX ARMS",
+        "file": "media/trex/two-position.webp"
       }
     ]
   },

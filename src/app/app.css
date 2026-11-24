@@ -231,6 +231,11 @@ body {
   list-style: none; font-size: 0.9rem; color: var(--muted);
 }
 
+/* Бланк источника картинкой (свёрнут по умолчанию: тяжёлая картинка не нужна всем) */
+.drill-page__form-img { margin-top: 0.75rem; }
+.drill-page__form-img summary { cursor: pointer; color: var(--muted); }
+.drill-page__form-img img { display: block; width: 100%; height: auto; margin-top: 0.5rem; border-radius: 8px; }
+
 /* Таймер */
 .timer { background: var(--panel); border: 1px solid #2a2e35; border-radius: 10px; padding: 1rem; }
 .timer__phase { margin: 0; color: var(--muted); }

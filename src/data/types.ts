@@ -98,6 +98,9 @@ export interface Layout {
 export interface MediaImage {
   url: string;
   credit?: string;
+  /** Локальная копия в public/ (напр. «media/trex/x.webp»): CDN источника может
+   *  быть недоступен или чрезмерно медленным. */
+  file?: string;
 }
 
 export interface MediaVideo {

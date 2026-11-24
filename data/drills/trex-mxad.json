@@ -101,7 +101,8 @@
     "images": [
       {
         "url": "https://img.trex-arms.com/wp/uploads/2024/10/MXAD.png",
-        "credit": "T.REX ARMS"
+        "credit": "T.REX ARMS",
+        "file": "media/trex/mxad.webp"
       }
     ]
   },
