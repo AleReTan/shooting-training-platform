@@ -2,6 +2,7 @@ import { test, expect, afterEach, beforeAll, vi } from 'vitest';
 import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/preact';
 import { DrillPage } from './DrillPage';
 import { loadData, type AppData } from '../../data/load';
+import { shortId } from '../../data/shortId';
 
 let data: AppData;
 beforeAll(async () => {
@@ -71,14 +72,15 @@ test('печать: кнопка вызывает window.print, шум уход�
   }
 });
 
-test('share: кнопка «ссылка» копирует адрес упражнения и подтверждает', async () => {
+test('share: кнопка «копировать ссылку» копирует короткий адрес упражнения и подтверждает', async () => {
   const writeText = vi.fn().mockResolvedValue(undefined);
   Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
   render(<DrillPage id="bill-drill-carbine" data={data} />);
   fireEvent.click(screen.getByText('копировать ссылку'));
   await waitFor(() => expect(writeText).toHaveBeenCalled());
   const url = writeText.mock.calls[0]?.[0] as string;
-  expect(url.endsWith('/#/drill/bill-drill-carbine')).toBe(true);
+  // короткий роут #/d/<код>, код детерминирован по id
+  expect(url.endsWith(`/#/d/${shortId('bill-drill-carbine')}`)).toBe(true);
   expect(screen.getByText('скопировано')).toBeTruthy();
 });
 

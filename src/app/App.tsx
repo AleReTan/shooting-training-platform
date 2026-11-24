@@ -8,6 +8,7 @@ import TimerPage from '../features/timer/TimerPage';
 import { HitFactorPage } from '../features/calc/HitFactorPage';
 import { ConvertersPage } from '../features/calc/ConvertersPage';
 import { loadData, type AppData } from '../data/load';
+import { byShortId } from '../data/shortId';
 
 export default function App() {
   const { path, segments } = useRoute();
@@ -73,6 +74,9 @@ export default function App() {
     page = <CatalogPage data={data} />;
   } else if (segments[0] === 'drill' && segments[1]) {
     page = <DrillPage id={segments[1]} data={data} />;
+  } else if (segments[0] === 'd' && segments[1]) {
+    // короткая ссылка #/d/<код>; полный адрес #/drill/<id> работает как раньше
+    page = <DrillPage id={byShortId(data.drills, segments[1]) ?? segments[1]} data={data} />;
   } else if (segments[0] === 'course' && segments[1]) {
     page = <CoursePage id={segments[1]} data={data} />;
   } else if (segments[0] === 'timer') {

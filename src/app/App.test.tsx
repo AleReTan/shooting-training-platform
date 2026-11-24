@@ -1,6 +1,7 @@
 import { test, expect } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/preact';
 import App from './App';
+import { shortId } from '../data/shortId';
 
 test('App показывает заголовок «Стрелковые тренировки»', () => {
   render(<App />);
@@ -17,6 +18,19 @@ test('App: «Загрузка…» до готовности данных, за�
   expect(screen.getByText('Загрузка…')).toBeTruthy();
   await screen.findByText('Каталог упражнений', {}, { timeout: 5000 });
   cleanup();
+});
+
+test('App: #/d/<код> — короткая ссылка открывает упражнение; незнакомый код → «не найдено»', async () => {
+  window.location.hash = `#/d/${shortId('bill-drill-carbine')}`;
+  render(<App />);
+  await screen.findByRole('heading', { level: 2, name: 'Билл Дрилл (карабин)' }, { timeout: 5000 });
+  cleanup();
+
+  window.location.hash = '#/d/zzzzzz';
+  render(<App />);
+  await screen.findByText('Упражнение не найдено', {}, { timeout: 5000 });
+  cleanup();
+  window.location.hash = '';
 });
 
 test('App: #/conv — конвертеры отдельным разделом, с ссылкой в навигации', async () => {

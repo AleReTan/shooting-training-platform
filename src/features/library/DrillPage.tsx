@@ -6,6 +6,7 @@ import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { TimerPanel } from '../../features/timer/TimerPanel';
 import { useFavorites } from './favorites';
 import type { AppData } from '../../data/load';
+import { shortId } from '../../data/shortId';
 import type { Drill } from '../../data/types';
 
 const distanceText = (d: Drill['distance']) =>
@@ -30,8 +31,8 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   }
 
   const copyLink = async () => {
-    // адрес собираем из id: он не зависит от того, как открыли страницу
-    const url = new URL(`#/drill/${drill.id}`, window.location.href).href;
+    // короткий адрес #/d/<код> собираем из id: он не зависит от того, как открыли страницу
+    const url = new URL(`#/d/${shortId(drill.id)}`, window.location.href).href;
     // без защищённого контекста (http) буфер недоступен — показываем адрес вручную
     if (!navigator.clipboard?.writeText) {
       window.prompt('Ссылка на упражнение', url);
