@@ -72,6 +72,13 @@ test('пустой source.origin отклоняется', () => {
   expect(res.errors.join('\n')).toContain('source.origin');
 });
 
+test('source.url: только http(s) — ссылка становится кликабельной в карточке', () => {
+  const link = (url: unknown) => run([entry('x-drill.json', drill({ source: { origin: 'x', kind: 'classic', url } }))]).errors.join('\n');
+  expect(link('javascript:alert(1)')).toContain('source.url');
+  expect(link('data:text/html,x')).toContain('source.url');
+  expect(link('https://uspsa.org/classifiers')).not.toContain('source.url');
+});
+
 test('related на несуществующий id отклоняется', () => {
   const res = run([entry('x-drill.json', drill({ related: ['ghost-drill'] }))]);
   expect(res.errors.join('\n')).toContain('related "ghost-drill"');
@@ -190,6 +197,17 @@ test('sequence: стрельба в движении — мишень сущес
   const msg = res.errors.join('\n');
   expect(msg).toContain('T9');
   expect(msg).toContain('shots');
+});
+
+test('sequence не-списком — одна ошибка формы, а не две', () => {
+  const bad = drill();
+  bad.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }],
+    targets: [],
+    sequence: 'шаги' as unknown as never,
+  };
+  expect(run([entry('x-drill.json', bad)]).errors.join('\n').match(/layout\.sequence — не список/g)).toHaveLength(1);
 });
 
 test('координаты вне width/depth отклоняются', () => {

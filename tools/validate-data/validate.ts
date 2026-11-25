@@ -62,6 +62,10 @@ function validateDrill(
   if (!d.steps?.ru?.length) errors.push(`${file}: пустые steps.ru`);
   if (!d.goal?.ru) errors.push(`${file}: пустой goal.ru`);
   if (!d.source?.origin) errors.push(`${file}: пустой source.origin`);
+  // ссылка источника попадает в <a href> карточки: всё, кроме http(s), туда не должно доходить
+  if (d.source?.url != null && !/^https?:\/\//.test(d.source.url)) {
+    errors.push(`${file}: source.url должен начинаться с http(s):// — "${d.source.url}"`);
+  }
 
   // строка вместо списка роняет DrillPage на .map
   expectList(file, 'equipment', d.equipment, errors);
@@ -161,8 +165,9 @@ function validateDrill(
   if (d.layout) {
     validateLayout(file, d.layout, targetTypeIds, errors);
     // размеченные серии сходятся с листом подсчёта и с текстом «Выполнения»:
-    // иначе проигрыватель режет не там, где серии в карточке
-    const seq = expectList(file, 'layout.sequence', d.layout.sequence, errors);
+    // иначе проигрыватель режет не там, где серии в карточке. О форме sequence
+    // уже сообщил validateLayout — здесь она только читается
+    const seq = Array.isArray(d.layout.sequence) ? d.layout.sequence : [];
     if (seq.length) {
       const marked = 1 + seq.filter((s) => isRecord(s) && s.string != null).length;
       const written = (Array.isArray(d.steps?.ru) ? d.steps.ru : []).filter((s) => /^Серия \d+\b/.test(s)).length;
