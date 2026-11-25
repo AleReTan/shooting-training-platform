@@ -21,8 +21,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy3.outputs.page_url || steps.deploy2.outputs.page_url || steps.deploy1.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
@@ -31,23 +31,23 @@ jobs:
       - run: npm run validate:data
       - run: npm test
       - run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
       # actions/deploy-pages плавает: сразу после загрузки артефакт «не виден»
       # (Fetching artifact metadata failed) — публикация повторяется с паузами
       - id: deploy1
         continue-on-error: true
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
       - if: steps.deploy1.outcome == 'failure'
         run: sleep 30
       - id: deploy2
         if: steps.deploy1.outcome == 'failure'
         continue-on-error: true
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
       - if: steps.deploy2.outcome == 'failure'
         run: sleep 90
       - id: deploy3
         if: steps.deploy2.outcome == 'failure'
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
