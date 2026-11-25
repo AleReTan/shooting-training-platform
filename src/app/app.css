@@ -253,7 +253,8 @@ body {
 .hfsheet__points { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.95rem; }
 .hfsheet__hf { margin: 0.2rem 0 0; font-size: 1.1rem; }
 .hfsheet__hf strong { font-size: 2rem; color: var(--accent); font-variant-numeric: tabular-nums; }
-.hfsheet__prices { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; margin: 0.6rem 0 0; color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+/* цены зон — поля (свои цены вводятся на месте), узкие колонки */
+.hfsheet__prices { display: grid; grid-template-columns: repeat(auto-fill, minmax(3.6rem, 1fr)); gap: 0.5rem; margin: 0 0 0.2rem; }
 
 /* Избранное: звезда поверх растянутой ссылки карточки и в шапке упражнения */
 .drill-card__star {
@@ -300,6 +301,12 @@ body {
 .drill-page__form-img summary { cursor: pointer; color: var(--muted); }
 .drill-page__form-img img { display: block; width: 100%; height: auto; margin-top: 0.5rem; border-radius: 8px; }
 .drill-page__form-hint { margin: 0.3rem 0 0; font-size: 0.85rem; color: var(--muted); }
+
+/* Свёрнутые блоки карточки (схема, таймер): закрыты по умолчанию — развёрнутыми
+   они «постоянно болтаются на экране». Заголовок блока — сам переключатель;
+   padding растягивает строку заголовка до пальцевой зоны тапа */
+.drill-page__fold > summary { cursor: pointer; padding: 0.55rem 0; margin: 0.15rem 0; }
+.drill-page__fold > summary h3 { display: inline; margin: 0; }
 
 /* Таймер */
 .timer { background: var(--panel); border: 1px solid #2a2e35; border-radius: 10px; padding: 1rem; }
@@ -374,6 +381,7 @@ body {
 @media print {
   .app-header, .drill-page__nav, .drill-card__star, .drill-page__print, .drill-page__share, .no-print,
   .sequence-player__controls, .update-toast { display: none; }
+  .drill-page__fold > summary { list-style: none; } /* на листе — просто заголовок, без стрелки */
   body { background: #fff; color: #000; }
   .app-main { max-width: none; padding: 0; }
   a { color: #000; text-decoration: none; }

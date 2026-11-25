@@ -1,4 +1,4 @@
-// Проигрывание упражнения поверх схемы: Play/Стоп/Шаг.
+// Проигрывание упражнения поверх схемы: Проиграть/Стоп (пауза)/Шаг/Сброс.
 // prefers-reduced-motion не прячет «Проиграть» (анимация инициирована
 // пользователем и несёт информацию) — стрелок просто скачет, а не скользит.
 
@@ -38,22 +38,33 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
 
   useEffect(() => () => cancelFrame(rafRef.current), []);
 
+  // пауза — только посреди таймлайна: после конца или сброса t стоит на краю
+  const paused = !playing && t > 0 && t < timeline.total;
+  const resume = paused && stepIndex < 0; // на паузе, а не на выбранном шаге
+
   const stop = () => {
     setPlaying(false);
     cancelFrame(rafRef.current);
+  };
+
+  const reset = () => {
+    stop();
     setT(0);
     setStepIndex(-1);
   };
 
   const play = () => {
-    // Паузы нет: каждый запуск — с нуля (иначе после естественного конца
-    // первый же кадр считался бы «уже закончилось»).
+    // старт — то, что на экране: пауза — с места, шаг — с начала шага, иначе с нуля.
+    // После естественного конца тоже с нуля: иначе первый же кадр считался бы
+    // «уже закончилось».
+    const from = stepIndex >= 0 ? (timeline.steps[stepIndex]?.start ?? 0) : resume ? t : 0;
     setStepIndex(-1);
-    setT(0);
+    setT(from);
     setPlaying(true);
-    startRef.current = performance.now();
+    startRef.current = performance.now() - from;
     const loop = (now: number) => {
-      const elapsed = now - startRef.current;
+      // метка кадра может чуть отставать от performance.now() в обработчике тапа
+      const elapsed = Math.max(0, now - startRef.current);
       if (elapsed >= timeline.total) {
         setT(timeline.total);
         setPlaying(false);
@@ -65,11 +76,11 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
     rafRef.current = nextFrame(loop);
   };
 
-  const playback: PlaybackState | undefined = playing
+  // по часам — пока играем и на паузе (картинка замирает); иначе — выбранный шаг
+  const onClock = playing || resume;
+  const playback: PlaybackState | undefined = onClock
     ? stateAt(timeline, t, { snapMoves: prefersReduced })
-    : stepIndex >= 0 && stepIndex < states.length
-      ? states[stepIndex]
-      : undefined;
+    : states[stepIndex];
 
   return (
     <div class="sequence-player">
@@ -88,7 +99,7 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
       {states.length > 0 && (
         <div class="sequence-player__controls">
           <button type="button" class="btn btn--primary" onClick={playing ? stop : play}>
-            {playing ? 'Стоп' : 'Проиграть'}
+            {playing ? 'Стоп' : resume ? 'Продолжить' : 'Проиграть'}
           </button>
           <button
             type="button"
@@ -104,7 +115,7 @@ export function SequencePlayer(props: { layout: Layout; reducedMotion?: boolean 
           >
             Шаг назад
           </button>
-          <button type="button" class="btn" onClick={stop}>
+          <button type="button" class="btn" onClick={reset}>
             Сброс
           </button>
           {stepIndex >= 0 && (

@@ -13,6 +13,8 @@ beforeAll(async () => {
 
 afterEach(cleanup);
 
+const text = (sel: string) => document.querySelector(sel)?.textContent ?? '';
+
 test('карточка Bill Drill: имя, шаги, пар-таймы, курс, схема', () => {
   render(<DrillPage id="bill-drill-carbine" data={data} />);
 
@@ -34,7 +36,7 @@ test('карточка Bill Drill: имя, шаги, пар-таймы, курс
 
   // курс, куда входит упражнение
   expect(screen.getByText('Входит в курсы')).toBeTruthy();
-  expect(screen.getByText('T-Rex Arms: карабинный путь')).toBeTruthy();
+  expect(screen.getByRole('link', { name: 'T-Rex Arms: карабинный путь' })).toBeTruthy();
 
   // тип тренировки — «огневая», не «боевая»
   const meta = document.querySelector('.drill-card__meta')?.textContent ?? '';
@@ -74,6 +76,63 @@ test('печать: кнопка вызывает window.print, шум уход�
   }
 });
 
+const fold = (name: string) =>
+  [...document.querySelectorAll<HTMLDetailsElement>('details.drill-page__fold')].find(
+    (d) => d.querySelector(':scope > summary')?.textContent === name,
+  );
+
+test('схема и таймер — свёрнутые блоки: раскрываются по запросу, на печать схема попадает', () => {
+  render(<DrillPage id="trex-50-round-cof" data={data} />);
+  const schema = fold('Схема');
+  const timer = fold('Таймер');
+  expect(schema?.querySelector('svg.diagram')).toBeTruthy();
+  expect(timer?.querySelector('.timer')).toBeTruthy();
+  // по умолчанию закрыты: развёрнутые «болтаются на экране»
+  expect(schema?.open).toBe(false);
+  expect(timer?.open).toBe(false);
+
+  const orig = window.print;
+  window.print = vi.fn();
+  try {
+    fireEvent.click(screen.getByText('печать'));
+    // закрытый <details> не печатается — схема должна попасть на лист
+    expect(schema?.open).toBe(true);
+  } finally {
+    window.print = orig;
+  }
+});
+
+test('назад из упражнения курса — к курсу; упражнение вне курсов — в каталог', () => {
+  const { rerender } = render(<DrillPage id="bill-drill-carbine" data={data} />);
+  const back = () => document.querySelector('.drill-page__nav a') as HTMLAnchorElement;
+  expect(back().getAttribute('href')).toBe('#/course/trex-carbine');
+  expect(back().textContent).toContain('T-Rex Arms: карабинный путь');
+
+  rerender(<DrillPage id="the-wall" data={data} />);
+  expect(back().getAttribute('href')).toBe('#/');
+});
+
+test('упражнение CLIFF: в источнике — ссылка на Telegram автора', () => {
+  render(<DrillPage id="the-wall" data={data} />);
+  const link = document.querySelector<HTMLAnchorElement>('a[href="https://t.me/beard_cliff"]');
+  expect(link).toBeTruthy();
+  expect(link?.closest('p')?.textContent).toContain('Источник: CLIFF');
+});
+
+test('другое упражнение не наследует ввод: лист подсчёта и пар-тайм начинаются заново', () => {
+  const { rerender } = render(<DrillPage id="trex-50-round-cof" data={data} />);
+  fireEvent.input(screen.getByLabelText('Серия 1, время, с'), { target: { value: '5' } });
+  fireEvent.input(screen.getByLabelText('Мишень 1, зона A'), { target: { value: '2' } });
+  rerender(<DrillPage id="the-wall" data={data} />);
+  expect((screen.getByLabelText('Серия 1, время, с') as HTMLInputElement).value).toBe('');
+  expect(text('.hfsheet__points')).toBe('Очки: 0');
+
+  rerender(<DrillPage id="bill-drill-carbine" data={data} />);
+  expect((screen.getByLabelText('Пар, с') as HTMLInputElement).value).toBe('4');
+  rerender(<DrillPage id="the-wall" data={data} />);
+  expect((screen.getByLabelText('Пар, с') as HTMLInputElement).value).toBe('');
+});
+
 test('share: кнопка «копировать ссылку» копирует короткий адрес упражнения и подтверждает', async () => {
   const writeText = vi.fn().mockResolvedValue(undefined);
   Object.defineProperty(navigator, 'clipboard', { value: { writeText }, configurable: true });
@@ -104,9 +163,13 @@ test('бланк источника картинкой: сворачивающи
   // (кнопка с прокруткой в рамке была «слишком близко и неудобно двигать»)
   expect(document.querySelector('.drill-page__form-img button, .drill-page__form-img a')).toBeNull();
 
-  // блок стоит сразу под заголовком схемы, до самой схемы
-  const first = document.querySelector('h3 + details.drill-page__form-img');
-  expect(first).toBeTruthy();
+  // блок стоит внутри блока «Схема», до самой схемы
+  const block = document.querySelector('details.drill-page__form-img');
+  const diagram = document.querySelector('svg.diagram');
+  expect(block).toBeTruthy();
+  expect(
+    block!.compareDocumentPosition(diagram!) & Node.DOCUMENT_POSITION_FOLLOWING,
+  ).toBeTruthy();
 
   // битого пути к картинке быть не должно — иначе блок раскрывается в пустоту
   for (const d of data.drills) {

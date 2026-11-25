@@ -49,8 +49,19 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const courses = coursesByDrillId.get(drill.id) ?? [];
   // официальный бланк/схема источника — локальной картинкой над схемой
   const form = drill.media?.images?.[0];
+  // назад — к курсу, куда входит упражнение; вне курсов (// shortcut: или в двух и
+  // больше курсах — тогда в каталог, курсы перечислены внизу карточки)
+  const course = courses.length === 1 ? courses[0] : undefined;
 
   const isFav = favorites.includes(drill.id);
+
+  // свёрнутые блоки (схема) не печатаются: раскрываем на время печати
+  const printCard = () => {
+    const folded = [...document.querySelectorAll<HTMLDetailsElement>('details:not([open])')];
+    folded.forEach((d) => (d.open = true));
+    window.print();
+    window.addEventListener('afterprint', () => folded.forEach((d) => (d.open = false)), { once: true });
+  };
 
   // у холостых патронов нет — тип тренировки уже говорит «холостая»
   const metaParts = [
@@ -63,7 +74,11 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   return (
     <section>
       <p class="drill-page__nav">
-        <a href="#/">← В каталог</a>
+        {course ? (
+          <a href={`#/course/${course.id}`}>← {localized(course.name)}</a>
+        ) : (
+          <a href="#/">← В каталог</a>
+        )}
       </p>
       <div class="drill-page__head">
         <h2>{localized(drill.name)}</h2>
@@ -71,11 +86,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
           <button type="button" class="drill-page__share" aria-live="polite" onClick={copyLink}>
             {copied ? 'скопировано' : 'копировать ссылку'}
           </button>
-          <button
-            type="button"
-            class="drill-page__print"
-            onClick={() => window.print()}
-          >
+          <button type="button" class="drill-page__print" onClick={printCard}>
             печать
           </button>
           <button
@@ -188,11 +199,16 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
         </>
       ) : null}
 
+      {/* Схема и таймер — свёрнутые блоки: закрыты по умолчанию, развёрнутыми они
+          «постоянно болтаются на экране». key по упражнению: у другого упражнения
+          блоки заново закрыты, а проигрыватель и таймер внутри не наследуют состояние */}
       {drill.layout || form?.file ? (
-        <>
-          <h3>Схема</h3>
+        <details key={drill.id} class="drill-page__fold">
+          <summary>
+            <h3>Схема</h3>
+          </summary>
           {form?.file ? (
-            <details key={drill.id} class="drill-page__form-img">
+            <details class="drill-page__form-img">
               <summary>
                 Бланк{form.credit ? ` (${form.credit})` : ''} — картинкой
               </summary>
@@ -203,19 +219,23 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
             </details>
           ) : null}
           {drill.layout ? <SequencePlayer layout={drill.layout} /> : null}
-        </>
+        </details>
       ) : null}
 
       {drill.scoring.type === 'hit-factor' ? (
         <div class="no-print">
           <h3>Счёт</h3>
-          <HitFactorSheet drill={drill} />
+          <HitFactorSheet key={drill.id} drill={drill} />
         </div>
       ) : null}
 
       <div class="no-print">
-        <h3>Таймер</h3>
-        <TimerPanel parTimes={drill.parTimes} />
+        <details key={drill.id} class="drill-page__fold">
+          <summary>
+            <h3>Таймер</h3>
+          </summary>
+          <TimerPanel parTimes={drill.parTimes} />
+        </details>
       </div>
 
       {drill.related?.length ? (

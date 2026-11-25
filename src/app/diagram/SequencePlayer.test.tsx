@@ -1,10 +1,14 @@
-import { test, expect, afterEach } from 'vitest';
-import { render, screen, fireEvent, cleanup, waitFor } from '@testing-library/preact';
+import { test, expect, afterEach, vi } from 'vitest';
+import { render, screen, fireEvent, cleanup, waitFor, act } from '@testing-library/preact';
 import { multiTargetLayout as layout } from './testFixtures';
 import type { Layout } from '../../data/types';
 import { SequencePlayer } from './SequencePlayer';
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  vi.useRealTimers();
+  vi.restoreAllMocks();
+});
 
 test('пошаговый режим: «Шаг вперёд» подсвечивает мишень T1', () => {
   render(<SequencePlayer layout={layout} reducedMotion />);
@@ -42,12 +46,72 @@ test('при reducedMotion «Проиграть» доступна: стрело
   expect(screen.getByText('Стоп')).toBeTruthy();
 });
 
-test('игра: Стоп возвращает в начало', async () => {
+test('игра: Стоп ставит на паузу («Продолжить»), Сброс — в начало', () => {
+  const { tick } = manualClock();
   render(<SequencePlayer layout={layout} />);
   fireEvent.click(screen.getByText('Проиграть'));
-  await new Promise((r) => setTimeout(r, 80));
+  tick(50);
   fireEvent.click(screen.getByText('Стоп'));
+  expect(screen.getByText('Продолжить')).toBeTruthy();
+  fireEvent.click(screen.getByText('Сброс'));
   expect(screen.getByText('Проиграть')).toBeTruthy();
+});
+
+/** Часы — вручную и в такт фейковым таймерам: кадры детерминированы
+ *  (на настоящих часах jsdom метка кадра и performance.now расходятся). */
+function manualClock() {
+  let now = 0;
+  vi.useFakeTimers();
+  vi.spyOn(performance, 'now').mockImplementation(() => now);
+  return {
+    tick: (ms: number) => {
+      now += ms;
+      act(() => {
+        vi.advanceTimersByTime(ms);
+      });
+    },
+  };
+}
+
+test('пауза: картинка замирает на месте, «Продолжить» идёт дальше, а не с нуля', () => {
+  const { tick } = manualClock();
+  const active = () => document.querySelector('.diagram-target--active')?.getAttribute('data-target') ?? null;
+
+  render(<SequencePlayer layout={twoShotsLayout} />);
+  fireEvent.click(screen.getByText('Проиграть'));
+  for (let t = 0; t < 1700; t += 50) tick(50);
+  expect(active()).toBe('T2');
+
+  fireEvent.click(screen.getByText('Стоп'));
+  expect(screen.getByText('Продолжить')).toBeTruthy();
+  expect(active()).toBe('T2'); // замирает: подсветка не гаснет
+
+  fireEvent.click(screen.getByText('Продолжить'));
+  tick(50);
+  expect(active()).toBe('T2'); // с нуля была бы уже T1
+
+  // после естественного конца — снова «Проиграть» и с нуля
+  for (let t = 0; t < 1600; t += 50) tick(50);
+  expect(screen.getByText('Проиграть')).toBeTruthy();
+  fireEvent.click(screen.getByText('Проиграть'));
+  tick(50);
+  expect(active()).toBe('T1');
+
+  // «Сброс» — в начало: подсветка гаснет, снова «Проиграть»
+  fireEvent.click(screen.getByText('Стоп'));
+  fireEvent.click(screen.getByText('Сброс'));
+  expect(active()).toBeNull();
+  expect(screen.getByText('Проиграть')).toBeTruthy();
+});
+
+test('«Проиграть» после пошагового режима стартует с выбранного шага', () => {
+  const { tick } = manualClock();
+  render(<SequencePlayer layout={twoShotsLayout} />);
+  fireEvent.click(screen.getByText('Шаг вперёд')); // шаг 1 — T1
+  fireEvent.click(screen.getByText('Шаг вперёд')); // шаг 2 — T2
+  fireEvent.click(screen.getByText('Проиграть'));
+  tick(50); // с нуля на 50-й мс была бы активна T1
+  expect(document.querySelector('.diagram-target--active')?.getAttribute('data-target')).toBe('T2');
 });
 
 // Минимальная схема: одна мишень, один выстрел — 1600 мс проигрывания.
@@ -79,3 +143,16 @@ test('после конца проигрывания «Проиграть» за
     ).toContain('diagram-target--active'),
   );
 });
+
+// Две одиночные мишени по 1600 мс: на 1700-й мс активна вторая.
+const twoShotsLayout: Layout = {
+  ...tinyLayout,
+  targets: [
+    { id: 'T1', x: 2, y: 9, type: 'ipsc-metric' },
+    { id: 'T2', x: 6, y: 9, type: 'ipsc-metric' },
+  ],
+  sequence: [
+    { action: 'engage', target: 'T1', shots: 1 },
+    { action: 'engage', target: 'T2', shots: 1 },
+  ],
+};
