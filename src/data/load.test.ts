@@ -24,6 +24,22 @@ test('loadData кешируется: повторный вызов — тот ж
   expect(b).toBe(a);
 });
 
+test('The Wall: сумма выстрелов в sequence равна rounds (брифинг автора: 7 серий)', async () => {
+  const d = (await loadData()).drillById.get('the-wall');
+  expect(d?.rounds).toBe(48);
+  const shots = (d?.layout?.sequence ?? []).reduce(
+    (sum, s) =>
+      sum +
+      (s.action === 'engage'
+        ? s.shots
+        : s.action === 'move'
+          ? (s.engage ?? []).reduce((n, e) => n + e.shots, 0)
+          : 0),
+    0,
+  );
+  expect(shots).toBe(d?.rounds);
+});
+
 test('localized: ru первично, en fallback, undefined → пусто', () => {
   expect(localized({ ru: 'А', en: 'B' })).toBe('А');
   expect(localized({ en: 'X' } as unknown as Localized)).toBe('X');
