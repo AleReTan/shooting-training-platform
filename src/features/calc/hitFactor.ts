@@ -1,4 +1,7 @@
-// Хит-фактор: очки за секунду. Чистые функции для калькулятора (спека §8, расширение).
+// Хит-фактор: очки за секунду. Чистые функции для калькулятора (спека §8, расширение)
+// и листа подсчёта в карточке упражнения.
+
+import type { ZonePrices } from '../../data/types';
 
 export type Power = 'minor' | 'major';
 
@@ -32,4 +35,21 @@ export function requiredTime(points: number, targetHf: number): number {
 export function requiredPoints(timeSec: number, targetHf: number): number {
   // ε против ошибки представления: 16.6×15 = 249.00000000000003 → 249, не 250
   return Math.ceil(timeSec * targetHf - 1e-9);
+}
+
+/** Колонки листа подсчёта: A / C / D / промах / «ношот». */
+export type SheetColumn = 'A' | 'C' | 'D' | 'M' | 'NS';
+
+export type SheetRow = Record<SheetColumn, number>;
+
+/** Цены зон по умолчанию (USPSA-стиль); ношот — как в Range Day. */
+export const DEFAULT_ZONE_PRICES: Required<ZonePrices> = { A: 5, C: 3, D: 1, miss: -10, noShoot: -10 };
+
+/** Очки листа подсчёта: по каждой мишени попадания × цена зоны (штрафы — отрицательные). */
+export function sheetPoints(rows: readonly SheetRow[], prices: ZonePrices = DEFAULT_ZONE_PRICES): number {
+  const p: Required<ZonePrices> = { ...DEFAULT_ZONE_PRICES, ...prices };
+  return rows.reduce(
+    (sum, r) => sum + r.A * p.A + r.C * p.C + r.D * p.D + r.M * p.miss + r.NS * p.noShoot,
+    0,
+  );
 }

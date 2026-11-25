@@ -139,6 +139,19 @@ function validateDrill(
   if (d.scoring?.type === 'hit-factor' && d.scoring.points == null) {
     errors.push(`${file}: scoring.type "hit-factor" требует scoring.points`);
   }
+  if (d.scoring?.type === 'hit-factor') {
+    // лист подсчёта: цены зон обязаны быть числами, иначе очки = NaN
+    const z = d.scoring.zones;
+    if (z != null && (!isRecord(z) || ![z.A, z.C, z.D, z.miss].every((n) => typeof n === 'number' && Number.isFinite(n)))) {
+      errors.push(`${file}: scoring.zones требует конечные числа A, C, D, miss`);
+    }
+    if (z?.noShoot != null && !(typeof z.noShoot === 'number' && Number.isFinite(z.noShoot))) {
+      errors.push(`${file}: scoring.zones.noShoot должен быть конечным числом`);
+    }
+    if (d.scoring.strings != null && (!Number.isInteger(d.scoring.strings) || d.scoring.strings < 1)) {
+      errors.push(`${file}: scoring.strings должен быть целым ≥ 1`);
+    }
+  }
 
   if (d.layout) validateLayout(file, d.layout, targetTypeIds, errors);
 

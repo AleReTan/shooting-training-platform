@@ -87,6 +87,21 @@ test('hit-factor без points отклоняется', () => {
   expect(res.errors.join('\n')).toContain('points');
 });
 
+test('scoring: для hit-factor strings — целое ≥ 1, zones — конечные числа', () => {
+  const bad = drill({
+    scoring: {
+      type: 'hit-factor',
+      points: 5,
+      strings: 0,
+      zones: { A: 5, C: 'x', D: 1, miss: -10 },
+    } as unknown as Drill['scoring'],
+  });
+  const res = run([entry('x-drill.json', bad)]);
+  const msg = res.errors.join('\n');
+  expect(msg).toContain('scoring.strings');
+  expect(msg).toContain('scoring.zones');
+});
+
 test('discipline: любое непустое подмножество дисциплин допустимо', () => {
   for (const discipline of [['shotgun'], ['pistol-traumatic'], ['carbine', 'pistol-traumatic']]) {
     const res = run([entry('x-drill.json', drill({ discipline }))]);

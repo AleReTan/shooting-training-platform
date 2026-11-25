@@ -3,6 +3,7 @@
 import { useState } from 'preact/hooks';
 import { localized, localizedList, PAR_LABELS, FIRE_LABELS } from '../../app/i18n';
 import { SequencePlayer } from '../../app/diagram/SequencePlayer';
+import { HitFactorSheet } from '../calc/HitFactorSheet';
 import { TimerPanel } from '../../features/timer/TimerPanel';
 import { useFavorites } from './favorites';
 import type { AppData } from '../../data/load';
@@ -196,6 +197,13 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
           ) : null}
           {drill.layout ? <SequencePlayer layout={drill.layout} /> : null}
         </>
+      ) : null}
+
+      {drill.scoring.type === 'hit-factor' ? (
+        <div class="no-print">
+          <h3>Счёт</h3>
+          <HitFactorSheet drill={drill} />
+        </div>
       ) : null}
 
       <div class="no-print">

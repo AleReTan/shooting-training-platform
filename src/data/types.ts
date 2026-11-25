@@ -35,9 +35,21 @@ export interface ParTime {
 
 export type ScoringType = 'par-time' | 'hit-factor' | 'points' | 'none';
 
+/** Цены зон для листа подсчёта хит-фактора (штрафы — отрицательные). */
+export interface ZonePrices {
+  A: number;
+  C: number;
+  D: number;
+  miss: number;
+  noShoot?: number; // нет — берётся −10: «ношот» могут добавить на месте
+}
+
 export interface Scoring {
   type: ScoringType;
   points?: number; // обязателен при type === 'hit-factor'
+  /** Лист подсчёта хит-фактора: цены зон (нет — по умолчанию) и число серий в прогоне (нет — 1). */
+  zones?: ZonePrices;
+  strings?: number;
 }
 
 export interface LayoutPosition {

@@ -116,6 +116,14 @@ test('бланк источника картинкой: сворачивающи
   }
 });
 
+test('лист подсчёта хит-фактора: есть у упражнений с хит-фактором, у остальных нет', () => {
+  render(<DrillPage id="trex-50-round-cof" data={data} />);
+  expect(document.querySelector('.hfsheet')).toBeTruthy();
+  cleanup();
+  render(<DrillPage id="bill-drill-carbine" data={data} />);
+  expect(document.querySelector('.hfsheet')).toBeNull();
+});
+
 test('несуществующий id → «Упражнение не найдено» и ссылка в каталог', () => {
   render(<DrillPage id="no-such-drill" data={data} />);
   expect(screen.getByText('Упражнение не найдено')).toBeTruthy();

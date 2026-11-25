@@ -193,6 +193,27 @@ body {
 .hf__result strong { font-size: 2rem; color: var(--accent); font-variant-numeric: tabular-nums; }
 .hf__target { margin: 0; color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 
+/* Лист подсчёта хит-фактора в карточке упражнения */
+.hfsheet { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+.hfsheet__times { display: grid; grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); gap: 0.5rem; }
+.hfsheet__field { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; color: var(--muted); }
+.hfsheet input {
+  width: 100%; min-width: 0; text-align: center;
+  background: var(--panel-deep); color: var(--text);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 0.45rem 0.3rem; font-size: 1rem; font-variant-numeric: tabular-nums;
+}
+.hfsheet__time { margin: 0.6rem 0; color: var(--muted); font-size: 0.95rem; }
+.hfsheet__time strong, .hfsheet__points strong { color: var(--text); font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.hfsheet__table { width: 100%; border-collapse: collapse; }
+.hfsheet__table th { color: var(--muted); font-size: 0.9rem; font-weight: 600; padding: 0.25rem; text-align: center; }
+.hfsheet__table th:first-child { text-align: left; white-space: nowrap; padding-right: 0.5rem; }
+.hfsheet__table td { padding: 0.15rem; }
+.hfsheet__points { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.hfsheet__hf { margin: 0.2rem 0 0; font-size: 1.1rem; }
+.hfsheet__hf strong { font-size: 2rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+.hfsheet__prices { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; margin: 0.6rem 0 0; color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+
 /* Избранное: звезда поверх растянутой ссылки карточки и в шапке упражнения */
 .drill-card__star {
   position: relative; z-index: 1; /* выше растянутой ссылки карточки */
