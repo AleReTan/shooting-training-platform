@@ -135,7 +135,8 @@ export function TimerPanel(props: { parTimes?: ParTime[] }) {
       <p class="timer__phase" role="status">
         {PHASE_LABELS[state.phase]}
       </p>
-      <p class="timer__clock">{(state.elapsed / 1000).toFixed(1)} с</p>
+      {/* сотые: по этому времени считают хит-фактор, десятые его огрубляют */}
+      <p class="timer__clock">{(state.elapsed / 1000).toFixed(2)} с</p>
 
       <div class="timer__controls">
         {running ? (

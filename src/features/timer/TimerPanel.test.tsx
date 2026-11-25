@@ -112,6 +112,20 @@ test('шум держателя — окнами вокруг сигналов, 
   }
 });
 
+test('время — с сотыми: после Стопа на экране точное время (по нему считают хит-фактор)', () => {
+  const rand = vi.spyOn(Math, 'random').mockReturnValue(0); // задержка ровно 1 с
+  vi.useFakeTimers();
+  try {
+    render(<TimerPanel />);
+    fireEvent.click(screen.getByText('Старт'));
+    act(() => { vi.advanceTimersByTime(1000 + 1234); });
+    fireEvent.click(screen.getByText('Стоп'));
+    expect(document.querySelector('.timer__clock')?.textContent).toBe('1.23 с');
+  } finally {
+    rand.mockRestore();
+  }
+});
+
 test('Стоп во время задержки отменяет ещё не прозвучавший сигнал старта', () => {
   const beepMock = vi.mocked(beep);
   beepMock.mockClear();
