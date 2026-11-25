@@ -68,20 +68,37 @@ const STORAGE_KEY = 'shooting-catalog-filters-v1';
  *  упражнение, а фильтры не должны сбрасываться на «назад в каталог».
  *  session, а не local: фильтры — контекст тренировки, не долгосрочные данные.
  *  Битые данные → начальное состояние. */
+/** Значение поля-выбора из хранилища: только допустимое, иначе «не задано». */
+const pick = <T extends string>(v: unknown, allowed: readonly T[]): T =>
+  allowed.find((a) => a === v) ?? allowed[0] ?? ('' as T);
+const finite = (v: unknown): number | '' => (typeof v === 'number' && Number.isFinite(v) ? v : '');
+
 export function loadCatalogState(): CatalogState {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     const v = raw ? (JSON.parse(raw) as Partial<CatalogState>) : null;
     if (!v) return INITIAL_CATALOG_STATE;
-    // от старой версии схемы защищает spread; crash-поля (строки/массив) — проверкой
-    const s = { ...INITIAL_CATALOG_STATE, ...v };
-    const tags = Array.isArray(s.tags) ? s.tags.filter((t): t is string => typeof t === 'string') : [];
+    const tags = Array.isArray(v.tags) ? v.tags.filter((t): t is string => typeof t === 'string') : [];
     // один тег не может быть и фильтром, и исключением — цикл чипа этого не
     // допускает, битое хранилище может; включение важнее
     const excludedTags = (
-      Array.isArray(s.excludedTags) ? s.excludedTags.filter((t): t is string => typeof t === 'string') : []
+      Array.isArray(v.excludedTags) ? v.excludedTags.filter((t): t is string => typeof t === 'string') : []
     ).filter((t) => !tags.includes(t));
-    return { ...s, query: typeof s.query === 'string' ? s.query : '', tags, excludedTags };
+    // каждая запись проверяется: чужой формат в хранилище не должен ронять каталог
+    // (ошибку рисования в приложении никто не перехватывает)
+    return {
+      query: typeof v.query === 'string' ? v.query : '',
+      tags,
+      excludedTags,
+      fireMode: pick(v.fireMode, ['', 'live', 'dry'] as const),
+      discipline: pick(v.discipline, ['', 'carbine', 'shotgun', 'pistol-traumatic'] as const),
+      difficulty: pick(v.difficulty, ['', 'easy', 'mid', 'hard'] as const),
+      maxRounds: finite(v.maxRounds),
+      distanceMax: finite(v.distanceMax),
+      review: pick(v.review, ['', 'yes', 'no'] as const),
+      source: typeof v.source === 'string' ? v.source : '',
+      favOnly: v.favOnly === true,
+    };
   } catch {
     return INITIAL_CATALOG_STATE;
   }
@@ -150,7 +167,8 @@ export function filterDrills(drills: Drill[], f: CatalogFilters): Drill[] {
     if (f.fireMode != null && !d.fireMode.includes(f.fireMode)) return false;
     if (f.discipline != null && !d.discipline.includes(f.discipline)) return false;
     if (f.maxRounds != null && d.rounds > f.maxRounds) return false;
-    if (f.distanceMax != null && d.distance.min > f.distanceMax) return false;
+    // «дистанция до» — упражнение целиком укладывается в рубеж: смотрим на дальнюю границу
+    if (f.distanceMax != null && d.distance.max > f.distanceMax) return false;
     if (f.needsReview != null && !!d.needsReview !== f.needsReview) return false;
     if (f.source != null && d.source.origin !== f.source) return false;
     if (f.favoritesOnly && !(f.favorites ?? []).includes(d.id)) return false;

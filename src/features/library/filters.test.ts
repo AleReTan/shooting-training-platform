@@ -66,9 +66,10 @@ test('maxRounds: только упражнения с расходом ≤ по�
   expect(res.map((d) => d.id).sort()).toEqual(['bill-drill-carbine', 'wall-dry']);
 });
 
-test('distanceMax: ближняя граница упражнения ≤ порога', () => {
-  const res = run({ query: '', tags: [], distanceMax: 10 });
-  expect(res.map((d) => d.id).sort()).toEqual(['bill-drill-carbine', 'wall-dry']);
+test('distanceMax: упражнение целиком укладывается в порог (дальняя граница ≤ порога)', () => {
+  // Билл Дрилл — 3–23 м: на рубеже «до 10 м» его не выполнить
+  expect(run({ query: '', tags: [], distanceMax: 10 }).map((d) => d.id)).toEqual(['wall-dry']);
+  expect(run({ query: '', tags: [], distanceMax: 23 }).map((d) => d.id).sort()).toEqual(['bill-drill-carbine', 'wall-dry']);
 });
 
 test('диапазон сложности', () => {
@@ -127,6 +128,25 @@ test('loadCatalogState: пересечение include/exclude разрешае�
   const s = loadCatalogState();
   expect(s.tags).toEqual(['a']);
   expect(s.excludedTags).toEqual(['b']);
+});
+
+test('loadCatalogState: чужая или битая запись не роняет каталог — поле выживает только с допустимым значением', () => {
+  sessionStorage.setItem(
+    'shooting-catalog-filters-v1',
+    JSON.stringify({
+      difficulty: 3, maxRounds: 'abc', distanceMax: {}, fireMode: 'auto', discipline: 'laser',
+      review: true, query: 5, source: {}, favOnly: 'yes',
+    }),
+  );
+  const s = loadCatalogState();
+  expect(s).toEqual(INITIAL_CATALOG_STATE);
+  expect(() => toCatalogFilters(s, [])).not.toThrow();
+
+  sessionStorage.setItem(
+    'shooting-catalog-filters-v1',
+    JSON.stringify({ difficulty: 'hard', maxRounds: 10, fireMode: 'dry', favOnly: true }),
+  );
+  expect(loadCatalogState()).toMatchObject({ difficulty: 'hard', maxRounds: 10, fireMode: 'dry', favOnly: true });
 });
 
 test('toCatalogFilters: пустые значения UI не становятся фильтрами', () => {
