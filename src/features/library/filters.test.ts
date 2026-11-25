@@ -66,10 +66,9 @@ test('maxRounds: только упражнения с расходом ≤ по�
   expect(res.map((d) => d.id).sort()).toEqual(['bill-drill-carbine', 'wall-dry']);
 });
 
-test('distanceMax: упражнение целиком укладывается в порог (дальняя граница ≤ порога)', () => {
-  // Билл Дрилл — 3–23 м: на рубеже «до 10 м» его не выполнить
-  expect(run({ query: '', tags: [], distanceMax: 10 }).map((d) => d.id)).toEqual(['wall-dry']);
-  expect(run({ query: '', tags: [], distanceMax: 23 }).map((d) => d.id).sort()).toEqual(['bill-drill-carbine', 'wall-dry']);
+test('distanceMax: ближняя граница упражнения ≤ порога — Билл Дрилл (3–23 м) стреляется и на коротке', () => {
+  const res = run({ query: '', tags: [], distanceMax: 10 });
+  expect(res.map((d) => d.id).sort()).toEqual(['bill-drill-carbine', 'wall-dry']);
 });
 
 test('диапазон сложности', () => {

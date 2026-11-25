@@ -167,8 +167,9 @@ export function filterDrills(drills: Drill[], f: CatalogFilters): Drill[] {
     if (f.fireMode != null && !d.fireMode.includes(f.fireMode)) return false;
     if (f.discipline != null && !d.discipline.includes(f.discipline)) return false;
     if (f.maxRounds != null && d.rounds > f.maxRounds) return false;
-    // «дистанция до» — упражнение целиком укладывается в рубеж: смотрим на дальнюю границу
-    if (f.distanceMax != null && d.distance.max > f.distanceMax) return false;
+    // «дистанция до» — по ближней границе: упражнение можно начать на этом рубеже
+    // (решение владельца 2026-11-26: Билл Дрилл 3–23 м стреляется и на коротке)
+    if (f.distanceMax != null && d.distance.min > f.distanceMax) return false;
     if (f.needsReview != null && !!d.needsReview !== f.needsReview) return false;
     if (f.source != null && d.source.origin !== f.source) return false;
     if (f.favoritesOnly && !(f.favorites ?? []).includes(d.id)) return false;
