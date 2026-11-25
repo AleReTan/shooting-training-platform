@@ -2,7 +2,7 @@ import type { Drill } from '../../data/types';
 import { localized } from '../../app/i18n';
 
 /** Пять рисок сложности — как индикатор магазина: заполненные = уровень. */
-function DifficultyTicks({ level }: { level: number }) {
+export function DifficultyTicks({ level }: { level: number }) {
   return (
     <span class="drill-card__ticks" role="img" aria-label={`сложность ${level} из 5`}>
       {[1, 2, 3, 4, 5].map((i) => (

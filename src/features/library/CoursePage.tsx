@@ -1,8 +1,13 @@
-// Страница курса: фазы structure заголовками, упражнения по order (спека §4.1).
+// Страница курса: шапка с профилем сложности и «путь» — фазы вехами,
+// упражнения карточками (спека §4.1).
 
-import { localized } from '../../app/i18n';
+import { localized, plural } from '../../app/i18n';
 import type { AppData } from '../../data/load';
-import type { CourseItem } from '../../data/types';
+import type { CourseItem, Drill, Localized } from '../../data/types';
+import { DifficultyTicks } from './DrillCard';
+
+const distance = (d: Drill) =>
+  d.distance.min === d.distance.max ? `${d.distance.min} м` : `${d.distance.min}–${d.distance.max} м`;
 
 export function CoursePage({ id, data }: { id: string; data: AppData }) {
   const { courseById, drillById } = data;
@@ -21,45 +26,118 @@ export function CoursePage({ id, data }: { id: string; data: AppData }) {
 
   const items = [...course.items].sort((a, b) => a.order - b.order);
   const phases = course.structure ?? [];
+  const drill = (item: CourseItem) => drillById.get(item.drillId);
 
-  const renderItem = (item: CourseItem) => {
-    const drill = drillById.get(item.drillId);
+  // шаг — общий номер по курсу; группы — фазы (нет structure — одна группа без заголовка)
+  const groups: { label?: Localized; entries: { item: CourseItem; step: number }[] }[] = phases.length
+    ? phases.map((phase, idx) => ({
+        label: phase.label,
+        entries: items
+          .map((item, i) => ({ item, step: i + 1 }))
+          .filter((e) => (e.item.structureIndex ?? 0) === idx),
+      }))
+    : [{ entries: items.map((item, i) => ({ item, step: i + 1 })) }];
+
+  const drills = items.map(drill).filter((d): d is Drill => !!d);
+  const rounds = drills.reduce((s, d) => s + d.rounds, 0);
+  const dmin = drills.length ? Math.min(...drills.map((d) => d.difficulty)) : 1;
+  const dmax = drills.length ? Math.max(...drills.map((d) => d.difficulty)) : 5;
+
+  const renderItem = ({ item, step }: { item: CourseItem; step: number }) => {
+    const d = drill(item);
     return (
       <li key={item.drillId}>
-        {drill ? (
-          <a href={`#/drill/${item.drillId}`}>{localized(drill.name)}</a>
+        {d ? (
+          <article class="drill-card course-item">
+            <div class="drill-card__head">
+              <span class="course-item__step" aria-hidden="true">
+                {step}
+              </span>
+              <h4 class="drill-card__name">
+                <a href={`#/drill/${item.drillId}`}>{localized(d.name)}</a>
+              </h4>
+              <DifficultyTicks level={d.difficulty} />
+            </div>
+            <p class="drill-card__meta">
+              <span>{distance(d)}</span>
+              <span>{d.rounds > 0 ? `${d.rounds} патр.` : 'холостая'}</span>
+            </p>
+            {item.note ? <p class="course-item__note">{localized(item.note)}</p> : null}
+          </article>
         ) : (
           item.drillId
         )}
-        {item.note ? (
-          <>
-            {' — '}
-            <span class="course-note">{localized(item.note)}</span>
-          </>
-        ) : null}
       </li>
     );
   };
 
   return (
     <section>
-      <p>
+      <p class="drill-page__nav">
         <a href="#/">← В каталог</a>
       </p>
-      <h2>{localized(course.name)}</h2>
-      <p>Источник: {course.source.origin}</p>
-      <p>{localized(course.description)}</p>
 
-      {phases.length ? (
-        phases.map((phase, idx) => (
-          <div key={idx}>
-            <h3>{localized(phase.label)}</h3>
-            <ol>{items.filter((i) => (i.structureIndex ?? 0) === idx).map(renderItem)}</ol>
-          </div>
-        ))
-      ) : (
-        <ol>{items.map(renderItem)}</ol>
-      )}
+      <header class="course-hero">
+        <h2>{localized(course.name)}</h2>
+        <p class="drill-card__meta course-hero__meta">
+          <span>
+            {drills.length} {plural(drills.length, 'упражнение', 'упражнения', 'упражнений')}
+          </span>
+          <span>{rounds} патр.</span>
+          {phases.length ? (
+            <span>
+              {phases.length} {plural(phases.length, 'фаза', 'фазы', 'фаз')}
+            </span>
+          ) : null}
+          <span>сложность {dmin}–{dmax}</span>
+        </p>
+
+        {/* профиль курса: столбик сложности на каждое упражнение, по порядку и по фазам */}
+        <div
+          class="course-hero__profile"
+          role="img"
+          aria-label={`Сложность упражнений по порядку: от ${dmin} до ${dmax}`}
+        >
+          {groups.map((g, gi) => (
+            <div key={gi} class="course-hero__phase-bars">
+              {g.entries.map((e) => {
+                const d = drill(e.item);
+                return d ? (
+                  <span
+                    key={e.item.drillId}
+                    class="course-hero__bar"
+                    style={{ height: `${8 + d.difficulty * 4}px` }}
+                    title={`${localized(d.name)} — сложность ${d.difficulty}`}
+                  />
+                ) : null;
+              })}
+            </div>
+          ))}
+        </div>
+        <p class="course-hero__bars-hint">Сложность упражнений по порядку, группами по фазам</p>
+
+        <p class="course-hero__desc">{localized(course.description)}</p>
+        <p class="course-hero__source">
+          Источник: {course.source.origin}
+          {course.source.url ? (
+            <>
+              {' — '}
+              <a href={course.source.url} rel="noreferrer" target="_blank">
+                ссылка
+              </a>
+            </>
+          ) : null}
+        </p>
+      </header>
+
+      <ol class="course-path">
+        {groups.map((g, gi) => (
+          <li key={gi} class="course-phase">
+            {g.label ? <h3>{localized(g.label)}</h3> : null}
+            <ol class="course-phase__items">{g.entries.map(renderItem)}</ol>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
