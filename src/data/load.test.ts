@@ -24,9 +24,9 @@ test('loadData кешируется: повторный вызов — тот ж
   expect(b).toBe(a);
 });
 
-test('The Wall: сумма выстрелов в sequence равна rounds (брифинг автора: 7 серий)', async () => {
+test('The Wall: сумма выстрелов в sequence равна rounds — 50 (41 в корпус, 9 в голову)', async () => {
   const d = (await loadData()).drillById.get('the-wall');
-  expect(d?.rounds).toBe(48);
+  expect(d?.rounds).toBe(50);
   const shots = (d?.layout?.sequence ?? []).reduce(
     (sum, s) =>
       sum +
