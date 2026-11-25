@@ -6,6 +6,7 @@ import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { HitFactorSheet } from '../calc/HitFactorSheet';
 import { TimerPanel } from '../../features/timer/TimerPanel';
 import { useFavorites } from './favorites';
+import { presentStep } from './stepText';
 import type { AppData } from '../../data/load';
 import { shortId } from '../../data/shortId';
 import type { Drill } from '../../data/types';
@@ -54,6 +55,10 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const course = courses.length === 1 ? courses[0] : undefined;
 
   const isFav = favorites.includes(drill.id);
+
+  // шаги — заголовком и действиями построчно; нумерация не нужна, если заголовок есть у каждого
+  const steps = localizedList(drill.steps).map(presentStep);
+  const titled = steps.length > 0 && steps.every((s) => s.title != null);
 
   // свёрнутые блоки (схема) не печатаются: раскрываем на время печати
   const printCard = () => {
@@ -129,19 +134,26 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
       </p>
 
       <h3>Цель</h3>
-      <p>{localized(drill.goal)}</p>
+      <p class="drill-page__prose">{localized(drill.goal)}</p>
 
       {drill.setup ? (
         <>
           <h3>Условия</h3>
-          <p class="drill-page__setup">{localized(drill.setup)}</p>
+          <p class="drill-page__setup drill-page__prose">{localized(drill.setup)}</p>
         </>
       ) : null}
 
       <h3>Выполнение</h3>
-      <ol>
-        {localizedList(drill.steps).map((s, i) => (
-          <li key={i}>{s}</li>
+      <ol class={'drill-page__steps drill-page__prose' + (titled ? ' drill-page__steps--titled' : '')}>
+        {steps.map((s, i) => (
+          <li key={i}>
+            {s.title ? <b class="drill-page__step-title">{s.title}</b> : null}
+            {s.lines.map((line, k) => (
+              <span key={k} class="drill-page__step-line">
+                {line}
+              </span>
+            ))}
+          </li>
         ))}
       </ol>
 
@@ -164,7 +176,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
       {drill.safety ? (
         <>
           <h3>Техника безопасности</h3>
-          <p>{localized(drill.safety)}</p>
+          <p class="drill-page__prose">{localized(drill.safety)}</p>
         </>
       ) : null}
 
@@ -191,7 +203,7 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
       {drill.variants ? (
         <>
           <h3>Варианты</h3>
-          <ul>
+          <ul class="drill-page__prose">
             {localizedList(drill.variants).map((v, i) => (
               <li key={i}>{v}</li>
             ))}

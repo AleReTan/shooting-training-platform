@@ -273,6 +273,19 @@ body {
 .drill-page__head .drill-card__star { font-size: 1.4rem; }
 .drill-page__actions { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 
+/* Тексты карточки: переносы строк из данных (импорты) не схлопываются в сплошной абзац */
+.drill-page__prose { white-space: pre-line; }
+/* «Выполнение»: шаг — заголовок отдельной строкой («Серия 1 · метка 5 м», «Старт»)
+   и действия по «;» построчно; шаги разведены по вертикали. Если заголовок есть
+   у каждого шага, нумерация списка лишняя */
+.drill-page__steps { padding-left: 1.5rem; }
+.drill-page__steps li { padding-left: 0.3rem; }
+.drill-page__steps li + li { margin-top: 0.7rem; }
+.drill-page__steps li::marker { color: var(--accent); font-weight: 700; }
+.drill-page__steps--titled { padding-left: 0; list-style: none; }
+.drill-page__step-title { display: block; font-weight: 600; }
+.drill-page__step-line { display: block; }
+
 .empty { text-align: center; padding: 2rem 0; color: var(--muted); }
 .empty button {
   margin-top: 0.5rem; padding: 0.45rem 1rem; border-radius: 8px;

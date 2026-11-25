@@ -53,6 +53,28 @@ test('карточка Стены: тип «холостая», не «суха�
   expect(meta).not.toContain('0 патр.'); // без патронов — без пустого счётчика
 });
 
+test('«Выполнение» многосерийного упражнения: заголовок серии и действия — по строкам, без нумерации', () => {
+  render(<DrillPage id="the-wall" data={data} />);
+  const ol = document.querySelector('ol.drill-page__steps');
+  expect(ol?.classList.contains('drill-page__steps--titled')).toBe(true);
+  const items = ol?.querySelectorAll('li');
+  expect(items?.length).toBe(8); // 7 серий + итог
+  const second = items?.[1];
+  expect(second?.querySelector('.drill-page__step-title')?.textContent).toBe('Серия 2 · 5 м, «Mozambique»');
+  expect([...(second?.querySelectorAll('.drill-page__step-line') ?? [])].map((n) => n.textContent)).toEqual([
+    '2 выстрела в корпус и 1 в голову',
+    'перезарядка с сохранением',
+    'снова 2 в корпус и 1 в голову — в пассивном режиме',
+  ]);
+});
+
+test('«Выполнение» обычного упражнения остаётся нумерованным списком', () => {
+  render(<DrillPage id="bill-drill-carbine" data={data} />);
+  const ol = document.querySelector('ol.drill-page__steps');
+  expect(ol?.classList.contains('drill-page__steps--titled')).toBe(false);
+  expect(ol?.querySelectorAll('.drill-page__step-title').length ?? 0).toBe(0);
+});
+
 test('needsReview: на карточке видна пометка «на проверке»', () => {
   render(<DrillPage id="import-shootie-zmejkoj-begit" data={data} />);
   expect(screen.getByText('на проверке')).toBeTruthy();
