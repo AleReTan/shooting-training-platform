@@ -54,6 +54,23 @@ test('лист подсчёта: колонка NS есть всегда; без
   fireEvent.input(screen.getByLabelText('Мишень 1, зона NS'), { target: { value: '1' } });
   expect(text('.hfsheet__points')).toBe('Очки: -10'); // ношот по умолчанию −10
   expect(text('.hfsheet__hf')).toBe('Хит-фактор: -5.00');
-  // цены зон показаны под таблицей
-  expect(text('.hfsheet__prices')).toContain('ношот −10');
+  // цены зон — в полях под таблицей
+  expect(price('ношот')).toBe('-10');
+});
+
+const price = (zone: string) => (screen.getByLabelText(`Цена: ${zone}`) as HTMLInputElement).value;
+
+test('свои цены зон: вводятся на месте и сразу пересчитывают очки', () => {
+  render(<HitFactorSheet drill={drill()} />);
+  fireEvent.input(screen.getByLabelText('Мишень 1, зона A'), { target: { value: '10' } });
+  expect(text('.hfsheet__points')).toBe('Очки: 50');
+  // в бланке упражнения ношот −20 — поле показывает цену бланка, а не общую
+  expect(price('ношот')).toBe('-20');
+
+  fireEvent.input(screen.getByLabelText('Цена: A'), { target: { value: '10' } });
+  expect(text('.hfsheet__points')).toBe('Очки: 100');
+  // штраф — отрицательное число; менять можно и его
+  fireEvent.input(screen.getByLabelText('Цена: ношот'), { target: { value: '-25' } });
+  fireEvent.input(screen.getByLabelText('Мишень 1, зона NS'), { target: { value: '1' } });
+  expect(text('.hfsheet__points')).toBe('Очки: 75');
 });
