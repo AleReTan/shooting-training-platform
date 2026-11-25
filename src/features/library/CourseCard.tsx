@@ -1,16 +1,21 @@
 import type { Course, Drill } from '../../data/types';
 import { localized, plural } from '../../app/i18n';
 
+/** Итоги курса по его упражнениям: список, патроны и диапазон сложности. */
+export function courseStats(course: Course, drillById: Map<string, Drill>) {
+  const drills = course.items.map((it) => drillById.get(it.drillId)).filter((d): d is Drill => !!d);
+  return {
+    drills,
+    rounds: drills.reduce((s, d) => s + d.rounds, 0),
+    dmin: drills.length ? Math.min(...drills.map((d) => d.difficulty)) : 1,
+    dmax: drills.length ? Math.max(...drills.map((d) => d.difficulty)) : 5,
+  };
+}
+
 /** Карточка курса в каталоге: агрегаты упражнений, вся площадь — ссылка. */
 export function CourseCard(props: { course: Course; drillById: Map<string, Drill> }) {
   const { course, drillById } = props;
-  const drills = course.items
-    .map((it) => drillById.get(it.drillId))
-    .filter((d): d is Drill => !!d);
-
-  const rounds = drills.reduce((s, d) => s + d.rounds, 0);
-  const dmin = drills.length ? Math.min(...drills.map((d) => d.difficulty)) : 1;
-  const dmax = drills.length ? Math.max(...drills.map((d) => d.difficulty)) : 5;
+  const { drills, rounds, dmin, dmax } = courseStats(course, drillById);
   const phases = course.structure?.length ?? 0;
 
   return (
@@ -43,7 +48,7 @@ export function CourseCard(props: { course: Course; drillById: Map<string, Drill
       </p>
       <p class="course-card__desc">{localized(course.description)}</p>
       {course.structure?.length ? (
-        <ol class="course-card__phases">
+        <ol class="course-card__phases" role="list">
           {course.structure.map((s, i) => (
             <li key={i}>
               <span class="course-card__phase-num">{i + 1}</span>

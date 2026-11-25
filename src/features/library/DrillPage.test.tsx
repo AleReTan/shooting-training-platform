@@ -53,26 +53,46 @@ test('карточка Стены: тип «холостая», не «суха�
   expect(meta).not.toContain('0 патр.'); // без патронов — без пустого счётчика
 });
 
-test('«Выполнение» многосерийного упражнения: заголовок серии и действия — по строкам, без нумерации', () => {
+test('«Выполнение» многосерийного упражнения: номер серии бейджем, место — заголовком, действия по строкам', () => {
   render(<DrillPage id="the-wall" data={data} />);
   const ol = document.querySelector('ol.drill-page__steps');
   expect(ol?.classList.contains('drill-page__steps--titled')).toBe(true);
   const items = ol?.querySelectorAll('li');
   expect(items?.length).toBe(8); // 7 серий + итог
   const second = items?.[1];
-  expect(second?.querySelector('.drill-page__step-title')?.textContent).toBe('Серия 2 · 5 м, «Mozambique»');
-  expect([...(second?.querySelectorAll('.drill-page__step-line') ?? [])].map((n) => n.textContent)).toEqual([
+  expect(second?.querySelector('.drill-page__series')?.textContent).toBe('2');
+  // «Серия 2 · » скрыто visually — для читалки оно остаётся в заголовке
+  expect(second?.querySelector('.drill-page__label')?.textContent).toBe('Серия 2 · 5 м, «Mozambique»');
+  expect([...(second?.querySelectorAll('.drill-page__line') ?? [])].map((n) => n.textContent)).toEqual([
     '2 выстрела в корпус и 1 в голову',
     'перезарядка с сохранением',
     'снова 2 в корпус и 1 в голову — в пассивном режиме',
   ]);
+  // блок без серии («Итог по сериям») — с пустым бейджем: текст выровнен с сериями
+  expect(items?.[7]?.querySelector('.drill-page__series--empty')).toBeTruthy();
 });
 
-test('«Выполнение» обычного упражнения остаётся нумерованным списком', () => {
+test('«Выполнение» обычного упражнения остаётся нумерованным списком без маркеров у одиночных шагов', () => {
   render(<DrillPage id="bill-drill-carbine" data={data} />);
   const ol = document.querySelector('ol.drill-page__steps');
   expect(ol?.classList.contains('drill-page__steps--titled')).toBe(false);
-  expect(ol?.querySelectorAll('.drill-page__step-title').length ?? 0).toBe(0);
+  expect(ol?.querySelectorAll('.drill-page__label').length ?? 0).toBe(0);
+  expect(ol?.querySelectorAll('.drill-page__line').length ?? 0).toBe(0);
+});
+
+test('«Цель», «Условия» и «Техника безопасности» — по предложениям и «;», а не сплошной абзац', () => {
+  render(<DrillPage id="trex-50-round-cof" data={data} />);
+  // цель: три предложения — три абзаца, без заголовка и маркеров
+  const goal = document.querySelector('h3 + .drill-page__prose');
+  expect(goal?.querySelectorAll('.drill-page__para').length).toBe(3);
+  expect(goal?.querySelector('.drill-page__label, .drill-page__line')).toBeNull();
+  // условия: «Разметка 25×10 м» — заголовок, три факта — с маркерами
+  const setup = document.querySelector('.drill-page__setup');
+  expect(setup?.querySelector('.drill-page__label')?.textContent).toBe('Разметка 25×10 м');
+  expect(setup?.querySelectorAll('.drill-page__line').length).toBe(3);
+  // безопасность: одно предложение с «;» — две строки
+  const safety = document.querySelectorAll('.drill-page__prose')[3];
+  expect(safety?.querySelectorAll('.drill-page__line').length).toBe(2);
 });
 
 test('needsReview: на карточке видна пометка «на проверке»', () => {
@@ -205,7 +225,7 @@ test('условия — отдельным блоком до «Выполнен
   render(<DrillPage id="the-wall" data={data} />);
   expect(screen.getByRole('heading', { level: 3, name: 'Условия' })).toBeTruthy();
   expect(document.querySelector('.drill-page__setup')?.textContent).toContain('декорация на 25 м по центру');
-  expect(document.querySelector('ol li')?.textContent).toMatch(/^Серия 1/);
+  expect(document.querySelector('ol li .drill-page__label')?.textContent).toMatch(/^Серия 1/);
 });
 
 test('ни в одном упражнении условия не сдвигают нумерацию серий', async () => {

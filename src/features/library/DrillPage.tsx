@@ -6,13 +6,36 @@ import { SequencePlayer } from '../../app/diagram/SequencePlayer';
 import { HitFactorSheet } from '../calc/HitFactorSheet';
 import { TimerPanel } from '../../features/timer/TimerPanel';
 import { useFavorites } from './favorites';
-import { presentStep } from './stepText';
+import { presentText, type PresentedText } from './stepText';
+import { distanceText } from './DrillCard';
 import type { AppData } from '../../data/load';
 import { shortId } from '../../data/shortId';
 import type { Drill } from '../../data/types';
 
-const distanceText = (d: Drill['distance']) =>
-  d.min === d.max ? `${d.min} м` : `${d.min}–${d.max} м`;
+/** Текст карточки по строкам: заголовок (если есть) и строки. Маркер пункта — только
+ *  у настоящего перечисления (перенос строки, «;») или под заголовком; предложения
+ *  связного текста идут просто с новой строки. */
+function TextLines(props: { text: string; title?: boolean; bullets?: boolean }) {
+  const p = presentText(props.text, { title: props.title });
+  const plain = props.bullets === false || (p.title == null && !p.listed);
+  return (
+    <>
+      {p.title ? <b class="drill-page__label">{p.title}</b> : null}
+      {p.lines.map((line, i) => (
+        <span key={i} class={plain ? 'drill-page__para' : 'drill-page__line'}>
+          {line}
+        </span>
+      ))}
+    </>
+  );
+}
+
+/** Заголовок шага: «место серии» или подпись; «Серия N» — только без бейджа со номером. */
+const stepHeading = (s: PresentedText, badge: boolean): string | undefined => {
+  if (s.series == null) return s.title;
+  const series = badge ? '' : `Серия ${s.series}${s.title ? ' · ' : ''}`;
+  return `${series}${s.title ?? ''}` || undefined;
+};
 
 export function DrillPage({ id, data }: { id: string; data: AppData }) {
   const { drillById, coursesByDrillId, taxonomy } = data;
@@ -56,13 +79,15 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
 
   const isFav = favorites.includes(drill.id);
 
-  // шаги — заголовком и действиями построчно; нумерация не нужна, если заголовок есть у каждого
-  const steps = localizedList(drill.steps).map(presentStep);
-  const titled = steps.length > 0 && steps.every((s) => s.title != null);
+  // шаги — заголовком и действиями построчно; нумерация списка не нужна, если заголовок
+  // (место или номер серии) есть у каждого шага — серии получают бейдж с номером
+  const steps = localizedList(drill.steps).map((s) => presentText(s));
+  const titled = steps.length > 0 && steps.every((s) => s.title != null || s.series != null);
 
-  // свёрнутые блоки (схема) не печатаются: раскрываем на время печати
+  // свёрнутые блоки (схема) не печатаются: раскрываем верхние блоки на время печати —
+  // вложенный «Бланк — картинкой» остаётся закрытым, как и до печати
   const printCard = () => {
-    const folded = [...document.querySelectorAll<HTMLDetailsElement>('details:not([open])')];
+    const folded = [...document.querySelectorAll<HTMLDetailsElement>('details.drill-page__fold:not([open])')];
     folded.forEach((d) => (d.open = true));
     window.print();
     window.addEventListener('afterprint', () => folded.forEach((d) => (d.open = false)), { once: true });
@@ -134,33 +159,61 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
       </p>
 
       <h3>Цель</h3>
-      <p class="drill-page__prose">{localized(drill.goal)}</p>
+      <div class="drill-page__prose">
+        <TextLines text={localized(drill.goal)} title={false} bullets={false} />
+      </div>
 
       {drill.setup ? (
         <>
           <h3>Условия</h3>
-          <p class="drill-page__setup drill-page__prose">{localized(drill.setup)}</p>
+          <div class="drill-page__setup drill-page__prose">
+            <TextLines text={localized(drill.setup)} />
+          </div>
         </>
       ) : null}
 
       <h3>Выполнение</h3>
-      <ol class={'drill-page__steps drill-page__prose' + (titled ? ' drill-page__steps--titled' : '')}>
-        {steps.map((s, i) => (
-          <li key={i}>
-            {s.title ? <b class="drill-page__step-title">{s.title}</b> : null}
-            {s.lines.map((line, k) => (
-              <span key={k} class="drill-page__step-line">
-                {line}
-              </span>
-            ))}
-          </li>
-        ))}
+      <ol
+        class={'drill-page__steps drill-page__prose' + (titled ? ' drill-page__steps--titled' : '')}
+        role="list"
+      >
+        {steps.map((s, i) => {
+          const heading = stepHeading(s, titled);
+          return (
+            <li key={i}>
+              {titled ? (
+                <span
+                  class={'drill-page__series' + (s.series == null ? ' drill-page__series--empty' : '')}
+                  aria-hidden="true"
+                >
+                  {s.series}
+                </span>
+              ) : null}
+              <div class="drill-page__step-text">
+                {heading ? (
+                  <b class="drill-page__label">
+                    {/* списку с бейджами «Серия N» показывает бейдж; для читалки слово остаётся */}
+                    {s.series != null && titled ? (
+                      <span class="drill-page__vh">{`Серия ${s.series}${s.title ? ' · ' : ''}`}</span>
+                    ) : null}
+                    {heading}
+                  </b>
+                ) : null}
+                {s.lines.map((line, k) => (
+                  <span key={k} class={heading == null && !s.listed ? 'drill-page__para' : 'drill-page__line'}>
+                    {line}
+                  </span>
+                ))}
+              </div>
+            </li>
+          );
+        })}
       </ol>
 
       {drill.parTimes?.length ? (
         <>
           <h3>Пар-таймы</h3>
-          <table>
+          <table class="drill-page__pars">
             <tbody>
               {drill.parTimes.map((p) => (
                 <tr key={p.level}>
@@ -176,7 +229,9 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
       {drill.safety ? (
         <>
           <h3>Техника безопасности</h3>
-          <p class="drill-page__prose">{localized(drill.safety)}</p>
+          <div class="drill-page__prose">
+            <TextLines text={localized(drill.safety)} />
+          </div>
         </>
       ) : null}
 

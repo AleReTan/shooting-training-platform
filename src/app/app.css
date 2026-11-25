@@ -273,18 +273,40 @@ body {
 .drill-page__head .drill-card__star { font-size: 1.4rem; }
 .drill-page__actions { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 
-/* Тексты карточки: переносы строк из данных (импорты) не схлопываются в сплошной абзац */
+/* Тексты карточки — по строкам, а не сплошной массой: у блока есть заголовок
+   («метка 10 м, спиной к мишеням», «Старт», «Разметка 25×10 м») и строки с маркером.
+   У серии номер — бейджем слева, слово «Серия» скрыто (для читалки — есть) */
 .drill-page__prose { white-space: pre-line; }
-/* «Выполнение»: шаг — заголовок отдельной строкой («Серия 1 · метка 5 м», «Старт»)
-   и действия по «;» построчно; шаги разведены по вертикали. Если заголовок есть
-   у каждого шага, нумерация списка лишняя */
+.drill-page__label { display: block; font-weight: 600; }
+.drill-page__line {
+  display: block; padding-left: 0.95rem; text-indent: -0.95rem; /* маркер в висячем отступе */
+}
+.drill-page__line::before { content: '•'; color: var(--accent); padding-right: 0.45rem; }
+.drill-page__para { display: block; }
+.drill-page__para + .drill-page__para { margin-top: 0.45rem; }
+.drill-page__vh {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+/* «Выполнение»: шаги разведены по вертикали; нумерация списка не нужна, если заголовок
+   (место или номер серии) есть у каждого шага */
 .drill-page__steps { padding-left: 1.5rem; }
 .drill-page__steps li { padding-left: 0.3rem; }
-.drill-page__steps li + li { margin-top: 0.7rem; }
+.drill-page__steps li + li { margin-top: 0.85rem; }
 .drill-page__steps li::marker { color: var(--accent); font-weight: 700; }
 .drill-page__steps--titled { padding-left: 0; list-style: none; }
-.drill-page__step-title { display: block; font-weight: 600; }
-.drill-page__step-line { display: block; }
+.drill-page__steps--titled li { display: flex; gap: 0.6rem; padding-left: 0; }
+.drill-page__series {
+  flex-shrink: 0; width: 1.5rem; height: 1.5rem; margin-top: 0.05rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: var(--accent); color: #fff;
+  font-size: 0.8rem; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.drill-page__series--empty { background: none; } /* без серии колонка остаётся: текст выровнен */
+.drill-page__step-text { flex: 1; min-width: 0; }
+/* пар-таймы: уровень и время не должны слипаться на узком экране */
+.drill-page__pars td:first-child { padding-right: 1.25rem; white-space: nowrap; }
+.drill-page__pars td:last-child { font-variant-numeric: tabular-nums; }
 
 .empty { text-align: center; padding: 2rem 0; color: var(--muted); }
 .empty button {

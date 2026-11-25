@@ -1,6 +1,10 @@
 import type { Drill } from '../../data/types';
 import { localized } from '../../app/i18n';
 
+/** «5 м» или «5–25 м» — дистанция упражнения одной строкой (карточка, страница упражнения, курс). */
+export const distanceText = (d: Drill['distance']) =>
+  d.min === d.max ? `${d.min} м` : `${d.min}–${d.max} м`;
+
 /** Пять рисок сложности — как индикатор магазина: заполненные = уровень. */
 export function DifficultyTicks({ level }: { level: number }) {
   return (
@@ -20,10 +24,7 @@ export function DrillCard(props: {
   onToggleFavorite?: () => void;
 }) {
   const { drill } = props;
-  const dist =
-    drill.distance.min === drill.distance.max
-      ? `${drill.distance.min} м`
-      : `${drill.distance.min}–${drill.distance.max} м`;
+  const dist = distanceText(drill.distance);
   return (
     <article class="drill-card">
       <div class="drill-card__head">

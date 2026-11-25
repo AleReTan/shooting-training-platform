@@ -3,11 +3,9 @@
 
 import { localized, plural } from '../../app/i18n';
 import type { AppData } from '../../data/load';
-import type { CourseItem, Drill, Localized } from '../../data/types';
-import { DifficultyTicks } from './DrillCard';
-
-const distance = (d: Drill) =>
-  d.distance.min === d.distance.max ? `${d.distance.min} м` : `${d.distance.min}–${d.distance.max} м`;
+import type { CourseItem, Localized } from '../../data/types';
+import { DifficultyTicks, distanceText } from './DrillCard';
+import { courseStats } from './CourseCard';
 
 export function CoursePage({ id, data }: { id: string; data: AppData }) {
   const { courseById, drillById } = data;
@@ -38,10 +36,7 @@ export function CoursePage({ id, data }: { id: string; data: AppData }) {
       }))
     : [{ entries: items.map((item, i) => ({ item, step: i + 1 })) }];
 
-  const drills = items.map(drill).filter((d): d is Drill => !!d);
-  const rounds = drills.reduce((s, d) => s + d.rounds, 0);
-  const dmin = drills.length ? Math.min(...drills.map((d) => d.difficulty)) : 1;
-  const dmax = drills.length ? Math.max(...drills.map((d) => d.difficulty)) : 5;
+  const { drills, rounds, dmin, dmax } = courseStats(course, drillById);
 
   const renderItem = ({ item, step }: { item: CourseItem; step: number }) => {
     const d = drill(item);
@@ -59,7 +54,7 @@ export function CoursePage({ id, data }: { id: string; data: AppData }) {
               <DifficultyTicks level={d.difficulty} />
             </div>
             <p class="drill-card__meta">
-              <span>{distance(d)}</span>
+              <span>{distanceText(d.distance)}</span>
               <span>{d.rounds > 0 ? `${d.rounds} патр.` : 'холостая'}</span>
             </p>
             {item.note ? <p class="course-item__note">{localized(item.note)}</p> : null}
@@ -130,11 +125,11 @@ export function CoursePage({ id, data }: { id: string; data: AppData }) {
         </p>
       </header>
 
-      <ol class="course-path">
+      <ol class="course-path" role="list">
         {groups.map((g, gi) => (
           <li key={gi} class="course-phase">
             {g.label ? <h3>{localized(g.label)}</h3> : null}
-            <ol class="course-phase__items">{g.entries.map(renderItem)}</ol>
+            <ol class="course-phase__items" role="list">{g.entries.map(renderItem)}</ol>
           </li>
         ))}
       </ol>

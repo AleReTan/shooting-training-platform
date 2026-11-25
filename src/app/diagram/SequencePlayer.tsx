@@ -130,7 +130,7 @@ function StringPlayer(props: {
       <LayoutDiagram layout={layout} playback={playback} focus={focus} />
       {/* Легенда позиций: на схеме только id, расшифровка — здесь */}
       {layout.positions.length > 1 && (
-        <ul class="sequence-player__legend">
+        <ul class="sequence-player__legend" role="list">
           {layout.positions
             .filter((p) => !focus || focus.has(p.id))
             .map((p) => (
