@@ -209,3 +209,36 @@ test('несуществующий id → «Упражнение не найде
   const back = screen.getByText('← В каталог') as HTMLAnchorElement;
   expect(back.getAttribute('href')).toBe('#/');
 });
+
+test('многосерийные упражнения: переключатель серий на месте, расклад по сериям — полный расход', () => {
+  const marked = data.drills.filter((d) => (d.layout?.sequence ?? []).some((s) => s.string != null));
+  expect(marked.map((d) => d.id).sort()).toEqual([
+    'the-wall',
+    'trex-50-round-cof',
+    'trex-50-round-pistol',
+    'trex-cqr-assessment',
+    'trex-intermediate-carbine',
+  ]);
+
+  for (const d of marked) {
+    const steps = d.layout?.sequence ?? [];
+    // первая серия — с первого шага, остальные — по меткам
+    const count = 1 + steps.filter((s) => s.string != null).length;
+    const { container, unmount } = render(<DrillPage id={d.id} data={data} />);
+    const options = container.querySelectorAll('[role="radiogroup"][aria-label="Серия"] [role="radio"]').length;
+    expect(options, d.id).toBe(count);
+    unmount();
+    if (d.scoring.strings != null) expect(d.scoring.strings, d.id).toBe(count);
+
+    // выстрелы по всем сериям — весь боекомплект; позиция старта серии (at) существует
+    const shots = steps.reduce(
+      (sum, s) =>
+        sum + (s.action === 'engage' ? s.shots : s.action === 'move' ? (s.engage ?? []).reduce((a, e) => a + e.shots, 0) : 0),
+      0,
+    );
+    expect(shots, d.id).toBe(d.rounds);
+    for (const s of steps) {
+      if (s.at != null) expect(d.layout?.positions.some((p) => p.id === s.at), `${d.id}: at ${s.at}`).toBe(true);
+    }
+  }
+});

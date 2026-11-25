@@ -4,7 +4,7 @@ import taxonomyJson from '../../data/taxonomy.json';
 import oneTo5 from '../../data/drills/one-to-five.json';
 import billDrill from '../../data/drills/bill-drill-carbine.json';
 import trexCourse from '../../data/courses/trex-carbine.json';
-import type { Course, Drill, Taxonomy } from '../../src/data/types';
+import type { Course, Drill, SequenceStep, Taxonomy } from '../../src/data/types';
 
 const taxonomy = taxonomyJson as Taxonomy;
 
@@ -201,6 +201,48 @@ test('координаты вне width/depth отклоняются', () => {
   };
   const res = run([entry('x-drill.json', bad)]);
   expect(res.errors.join('\n')).toContain('вне габаритов');
+});
+
+// Упражнение со схемой из двух позиций и заданным sequence (+ подмены полей)
+const withSequence = (sequence: SequenceStep[], o: Record<string, unknown> = {}): Drill => {
+  const d = drill(o);
+  d.layout = {
+    unit: 'm', width: 10, depth: 20,
+    positions: [{ id: 'P1', x: 1, y: 1 }, { id: 'P2', x: 1, y: 5 }],
+    targets: [{ id: 'T1', x: 5, y: 18, type: 'ipsc-metric' }],
+    sequence,
+  };
+  return d;
+};
+
+const twoStrings: SequenceStep[] = [
+  { action: 'engage', target: 'T1', shots: 1 },
+  { action: 'engage', target: 'T1', shots: 1, string: 2 },
+];
+
+test('метки серий: нумеруются подряд со 2-й, at — существующая позиция', () => {
+  const bad = withSequence([
+    { action: 'engage', target: 'T1', shots: 1, string: 3 },
+    { action: 'engage', target: 'T1', shots: 1, string: 2 },
+    { action: 'engage', target: 'T1', shots: 1, string: 3, at: 'P9' },
+  ]);
+  const msg = run([entry('x-drill.json', bad)]).errors.join('\n');
+  expect(msg).toContain('ожидается 2, стоит 3');
+  expect(msg).toContain('P9');
+});
+
+test('метки серий: число серий сходится со scoring.strings и с текстом «Выполнения»', () => {
+  const sheet = { scoring: { type: 'hit-factor', points: 5, strings: 2 } };
+  const text = { steps: { ru: ['Серия 1 · 5 м: 1 выстрел', 'Серия 2 · 10 м: 1 выстрел'] } };
+  expect(run([entry('x-drill.json', withSequence(twoStrings, { ...sheet, ...text }))]).errors).toEqual([]);
+
+  const moreInSheet = withSequence(twoStrings, { scoring: { type: 'hit-factor', points: 5, strings: 3 } });
+  expect(run([entry('x-drill.json', moreInSheet)]).errors.join('\n')).toContain('размечено серий: 2, а scoring.strings = 3');
+
+  const moreInText = withSequence(twoStrings, {
+    steps: { ru: ['Серия 1 · 5 м', 'Серия 2 · 10 м', 'Серия 3 · 15 м'] },
+  });
+  expect(run([entry('x-drill.json', moreInText)]).errors.join('\n')).toContain('размечено серий: 2, а в steps.ru — 3');
 });
 
 test('layout: мишени без единой позиции отклоняются (рендер падает на пустом positions)', () => {

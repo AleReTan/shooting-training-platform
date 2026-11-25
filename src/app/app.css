@@ -287,6 +287,7 @@ body {
 .btn--primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
 
 /* Проигрыватель упражнения */
+.sequence-player__strings { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 0.5rem; color: var(--muted); font-size: 0.9rem; }
 .sequence-player__controls { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
 .sequence-player__counter { color: var(--muted); font-size: 0.9rem; }
 .sequence-player__legend {
@@ -341,6 +342,8 @@ body {
 .diagram-position { fill: #4a90d9; }
 .diagram-shooter { fill: #fff; }
 .diagram-reload { fill: var(--accent); font-size: 13px; text-anchor: end; font-weight: 700; }
+/* выбранная серия: позиции и линии движения, которых она не касается, бледнеют */
+.diagram--dim { opacity: 0.22; }
 
 
 /* Тост обновления PWA */
@@ -380,7 +383,7 @@ body {
 /* Печать карточки упражнения: только содержание, без навигации и интерактива */
 @media print {
   .app-header, .drill-page__nav, .drill-card__star, .drill-page__print, .drill-page__share, .no-print,
-  .sequence-player__controls, .update-toast { display: none; }
+  .sequence-player__strings, .sequence-player__controls, .update-toast { display: none; }
   .drill-page__fold > summary { list-style: none; } /* на листе — просто заголовок, без стрелки */
   body { background: #fff; color: #000; }
   .app-main { max-width: none; padding: 0; }

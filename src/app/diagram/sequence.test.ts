@@ -3,6 +3,7 @@ import {
   computeTimeline,
   stateAt,
   stepStates,
+  splitStrings,
   STEP_DURATIONS,
 } from './sequence';
 import type { SequenceStep } from '../../data/types';
@@ -138,4 +139,43 @@ test('стрельба в движении: несколько мишеней н
   expect(st.shotsDone).toEqual({ T1: 4 });
   expect(st.activeTarget).toBe('T2');
   expect(stepStates(tl)[0]?.shotsDone).toEqual({ T1: 4, T2: 4, T3: 4 });
+});
+
+test('splitStrings: без меток — одна серия, позиции — путь стрелка', () => {
+  const strings = splitStrings(sequence); // engage T1×2, move P1→P2, reload, engage T2×5
+  expect(strings).toHaveLength(1);
+  expect(strings[0]?.steps).toEqual(sequence);
+  expect([...(strings[0]?.positions ?? [])]).toEqual(['P1', 'P2']);
+});
+
+test('splitStrings: метки режут sequence на серии; позиции — где серия идёт', () => {
+  // «The Wall», сокращённо: серия 1 — от декорации к отметке 5 м; серия 2 — на 5 м;
+  // серия 3 — старт с центра 10 м (at), уход на крайнюю
+  const strings = splitStrings([
+    { action: 'engage', target: 'T1', shots: 4 },
+    { action: 'move', from: 'P25', to: 'P5' },
+    { action: 'engage', target: 'T1', shots: 4 },
+    { action: 'engage', target: 'T1', shots: 3, string: 2 },
+    { action: 'engage', target: 'T1', shots: 3, string: 3, at: 'P10c' },
+    { action: 'move', from: 'P10c', to: 'P10l' },
+    { action: 'engage', target: 'T1', shots: 3 },
+  ]);
+  expect(strings.map((s) => s.steps.length)).toEqual([3, 1, 3]);
+  expect(strings.map((s) => [...s.positions])).toEqual([
+    ['P25', 'P5'], // старт там, откуда первый переход упражнения
+    ['P5'], // без переходов — там, где закончилась предыдущая серия
+    ['P10c', 'P10l'], // at: серия стартует не там, где кончилась предыдущая
+  ]);
+});
+
+test('splitStrings: серия с перехода стартует от него; at бывает и у первой серии; пусто — без серий', () => {
+  // «Intermediate Carbine»: серия 1 — с линии огня, серия 2 — спринт со старта
+  const strings = splitStrings([
+    { action: 'engage', target: 'T50', shots: 6, at: 'LINE' },
+    { action: 'engage', target: 'T200', shots: 6, string: 2 },
+    { action: 'move', from: 'START', to: 'LINE', string: 3 },
+    { action: 'engage', target: 'T200', shots: 6 },
+  ]);
+  expect(strings.map((s) => [...s.positions])).toEqual([['LINE'], ['LINE'], ['START', 'LINE']]);
+  expect(splitStrings([])).toEqual([]);
 });

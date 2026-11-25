@@ -150,3 +150,37 @@ export function stepStates(timeline: Timeline): PlaybackState[] {
 
   return out;
 }
+
+/** Серия многосерийного упражнения: её шаги и позиции, которых она касается. */
+export interface DrillString {
+  steps: SequenceStep[];
+  positions: Set<string>;
+}
+
+const isMove = (s: SequenceStep): s is Extract<SequenceStep, { action: 'move' }> =>
+  s.action === 'move';
+
+/** Режет sequence на серии по меткам string. positions — путь стрелка серии:
+ *  откуда стартует и куда переходит; остальное на схеме бледнеет. */
+export function splitStrings(sequence: SequenceStep[]): DrillString[] {
+  const strings: DrillString[] = [];
+  // до первого перехода стрелок стоит там, откуда тот начнётся
+  let at = sequence.find(isMove)?.from;
+  for (const step of sequence) {
+    const first = strings.length === 0 || step.string != null;
+    if (first) strings.push({ steps: [], positions: new Set() });
+    const cur = strings[strings.length - 1];
+    if (!cur) continue;
+    cur.steps.push(step);
+    if (first) {
+      // серия с перехода стартует от него; иначе — там, где стоит (at или конец предыдущей)
+      at = step.at ?? (isMove(step) ? step.from : at);
+      if (at) cur.positions.add(at);
+    }
+    if (isMove(step)) {
+      at = step.to;
+      cur.positions.add(step.to);
+    }
+  }
+  return strings;
+}

@@ -84,16 +84,21 @@ export interface LayoutMovement {
   distance?: number;
 }
 
+/** Шаг с string начинает серию многосерийного упражнения (первая серия — с первого
+ *  шага sequence, метки идут 2, 3, …). at — позиция, откуда серия стартует, если это
+ *  не конец предыдущей серии: между сериями стрелок просто доходит до места старта. */
 export type SequenceStep =
-  | { action: 'engage'; target: string; shots: number }
+  | { action: 'engage'; target: string; shots: number; string?: number; at?: string }
   | {
       action: 'move';
       from: string;
       to: string;
       /** Стрельба в движении: выстрелы распределены по переходу, по порядку списка. */
       engage?: { target: string; shots: number }[];
+      string?: number;
+      at?: string;
     }
-  | { action: 'reload' };
+  | { action: 'reload'; string?: number; at?: string };
 
 export interface Layout {
   unit: 'm';

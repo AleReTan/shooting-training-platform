@@ -105,3 +105,19 @@ test('playback подсвечивает активную мишень и счё�
   expect(active?.getAttribute('class')).toContain('diagram-target--active');
   expect(container.textContent).toContain('×3');
 });
+
+test('focus: позиции и линии движения вне выбранной серии бледнеют, мишени — нет', () => {
+  // в fixture позиции P1, P2 и одна линия P1→P2
+  const dimmed = (focus?: ReadonlySet<string>) => {
+    const { container, unmount } = render(<LayoutDiagram layout={layout} focus={focus} />);
+    const out = (['[data-position="P1"]', '[data-position="P2"]', '[data-move="P1→P2"]', '[data-target="T1"]']).map(
+      (sel) => (container.querySelector(sel)?.getAttribute('class') ?? '').includes('diagram--dim'),
+    );
+    unmount();
+    return out;
+  };
+  expect(dimmed()).toEqual([false, false, false, false]);
+  expect(dimmed(new Set(['P1', 'P2']))).toEqual([false, false, false, false]);
+  // серия только на P2: P1 и линия до неё бледнеют
+  expect(dimmed(new Set(['P2']))).toEqual([true, false, true, false]);
+});

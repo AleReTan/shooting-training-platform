@@ -158,7 +158,22 @@ function validateDrill(
     }
   }
 
-  if (d.layout) validateLayout(file, d.layout, targetTypeIds, errors);
+  if (d.layout) {
+    validateLayout(file, d.layout, targetTypeIds, errors);
+    // размеченные серии сходятся с листом подсчёта и с текстом «Выполнения»:
+    // иначе проигрыватель режет не там, где серии в карточке
+    const seq = expectList(file, 'layout.sequence', d.layout.sequence, errors);
+    if (seq.length) {
+      const marked = 1 + seq.filter((s) => isRecord(s) && s.string != null).length;
+      const written = (Array.isArray(d.steps?.ru) ? d.steps.ru : []).filter((s) => /^Серия \d+\b/.test(s)).length;
+      if (d.scoring?.strings != null && d.scoring.strings !== marked) {
+        errors.push(`${file}: в layout.sequence размечено серий: ${marked}, а scoring.strings = ${d.scoring.strings}`);
+      }
+      if (written > 1 && written !== marked) {
+        errors.push(`${file}: в layout.sequence размечено серий: ${marked}, а в steps.ru — ${written}`);
+      }
+    }
+  }
 
   return d;
 }
@@ -231,10 +246,23 @@ function validateLayout(
       errors.push(`${file}: movement.distance ${m.from}→${m.to} должен быть положительным числом`);
     }
   }
-  for (const s of expectList(file, 'layout.sequence', layout.sequence, errors)) {
+  // многосерийные: шаг с string начинает серию 2, 3, … по порядку; at — позиция старта серии
+  let marks = 0;
+  expectList(file, 'layout.sequence', layout.sequence, errors).forEach((s, i) => {
     if (!isRecord(s)) {
       errors.push(`${file}: layout.sequence содержит не-объект`);
-      continue;
+      return;
+    }
+    if (s.string != null) {
+      marks++;
+      if (s.string !== marks + 1) {
+        errors.push(
+          `${file}: layout.sequence[${i}]: string — ожидается ${marks + 1}, стоит ${s.string} (серии нумеруются подряд со 2-й)`,
+        );
+      }
+    }
+    if (s.at != null && !posIds.has(s.at)) {
+      errors.push(`${file}: layout.sequence[${i}]: at ссылается на несуществующую позицию ${s.at}`);
     }
     if (s.action === 'engage' && !tgtIds.has(s.target)) {
       errors.push(`${file}: sequence ссылается на несуществующую мишень ${s.target}`);
@@ -257,7 +285,7 @@ function validateLayout(
         }
       }
     }
-  }
+  });
 }
 
 export function validateAll(

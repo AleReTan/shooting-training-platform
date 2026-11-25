@@ -15,9 +15,15 @@ interface Point {
 
 const dist = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
 
-/** SVG-схема мишенной обстановки; playback подсвечивает текущее действие. */
-export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState }) {
-  const { layout, playback } = props;
+/** SVG-схема мишенной обстановки; playback подсвечивает текущее действие.
+ *  focus — позиции выбранной серии: остальные и линии движения вне её бледнеют. */
+export function LayoutDiagram(props: {
+  layout: Layout;
+  playback?: PlaybackState;
+  focus?: ReadonlySet<string>;
+}) {
+  const { layout, playback, focus } = props;
+  const off = (...ids: string[]) => !!focus && ids.some((id) => !focus.has(id));
 
   const W = layout.width * S + 2 * M;
   const H = layout.depth * S + 2 * M + CAP;
@@ -70,7 +76,11 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
         const midX = (px(from.x) + px(to.x)) / 2;
         const midY = (py(from.y) + py(to.y)) / 2;
         return (
-          <g key={`mv-${i}`}>
+          <g
+            key={`mv-${i}`}
+            data-move={`${m.from}→${m.to}`}
+            class={off(m.from, m.to) ? 'diagram--dim' : undefined}
+          >
             <title>{`Движение ${m.from}→${m.to} (${m.style})`}</title>
             <line
               x1={px(from.x)}
@@ -139,7 +149,7 @@ export function LayoutDiagram(props: { layout: Layout; playback?: PlaybackState 
 
       {/* Позиции стрелка */}
       {layout.positions.map((p) => (
-        <g key={p.id}>
+        <g key={p.id} data-position={p.id} class={off(p.id) ? 'diagram--dim' : undefined}>
           <circle cx={px(p.x)} cy={py(p.y)} r="7" class="diagram-position" />
           <text x={px(p.x)} y={py(p.y) + 20} class="diagram-position-label">
             {p.id}
