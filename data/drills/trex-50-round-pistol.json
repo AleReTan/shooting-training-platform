@@ -209,7 +209,8 @@
       {
         "action": "engage",
         "target": "T2",
-        "shots": 2
+        "shots": 2,
+        "string": 2
       },
       {
         "action": "move",
@@ -219,7 +220,8 @@
       {
         "action": "engage",
         "target": "T3",
-        "shots": 2
+        "shots": 2,
+        "string": 3
       },
       {
         "action": "move",
@@ -229,7 +231,8 @@
       {
         "action": "engage",
         "target": "T2",
-        "shots": 1
+        "shots": 1,
+        "string": 4
       },
       {
         "action": "engage",
@@ -249,7 +252,8 @@
       {
         "action": "engage",
         "target": "T1",
-        "shots": 3
+        "shots": 3,
+        "string": 5
       },
       {
         "action": "reload"
@@ -262,7 +266,8 @@
       {
         "action": "engage",
         "target": "T1",
-        "shots": 2
+        "shots": 2,
+        "string": 6
       },
       {
         "action": "move",
@@ -277,7 +282,8 @@
       {
         "action": "engage",
         "target": "T1",
-        "shots": 2
+        "shots": 2,
+        "string": 7
       },
       {
         "action": "engage",
@@ -315,7 +321,8 @@
       {
         "action": "move",
         "from": "P20R",
-        "to": "PC"
+        "to": "PC",
+        "string": 8
       },
       {
         "action": "engage",

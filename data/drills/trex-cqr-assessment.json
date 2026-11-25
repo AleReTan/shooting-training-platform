@@ -120,7 +120,7 @@
       { "action": "engage", "target": "CL", "shots": 3 },
       { "action": "engage", "target": "CR", "shots": 3 },
       { "action": "move", "from": "L5", "to": "L10" },
-      { "action": "engage", "target": "CL", "shots": 2 },
+      { "action": "engage", "target": "CL", "shots": 2, "string": 2 },
       { "action": "move", "from": "L10", "to": "L10L" },
       { "action": "engage", "target": "FL", "shots": 2 },
       { "action": "move", "from": "L10L", "to": "L10R" },
@@ -128,20 +128,20 @@
       { "action": "move", "from": "L10R", "to": "L10" },
       { "action": "engage", "target": "CR", "shots": 2 },
       { "action": "move", "from": "L10", "to": "L15" },
-      { "action": "engage", "target": "CL", "shots": 3 },
+      { "action": "engage", "target": "CL", "shots": 3, "string": 3 },
       { "action": "engage", "target": "CR", "shots": 3 },
       { "action": "reload" },
       { "action": "engage", "target": "FL", "shots": 3 },
       { "action": "engage", "target": "FR", "shots": 3 },
       { "action": "move", "from": "L15", "to": "L25L" },
-      { "action": "engage", "target": "FL", "shots": 2 },
+      { "action": "engage", "target": "FL", "shots": 2, "string": 4 },
       { "action": "move", "from": "L25L", "to": "L25R", "engage": [
         { "target": "CL", "shots": 2 },
         { "target": "CR", "shots": 2 }
       ] },
       { "action": "engage", "target": "FR", "shots": 2 },
       { "action": "move", "from": "L25R", "to": "L50" },
-      { "action": "engage", "target": "FL", "shots": 2 },
+      { "action": "engage", "target": "FL", "shots": 2, "string": 5 },
       { "action": "engage", "target": "FR", "shots": 2 },
       { "action": "engage", "target": "CL", "shots": 2 },
       { "action": "engage", "target": "CR", "shots": 2 },
@@ -150,7 +150,7 @@
       { "action": "engage", "target": "FR", "shots": 2 },
       { "action": "engage", "target": "CL", "shots": 2 },
       { "action": "engage", "target": "CR", "shots": 2 },
-      { "action": "move", "from": "L25", "to": "L10", "engage": [
+      { "action": "move", "from": "L25", "to": "L10", "string": 6, "engage": [
         { "target": "FL", "shots": 5 },
         { "target": "FR", "shots": 5 }
       ] }

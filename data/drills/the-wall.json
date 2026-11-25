@@ -125,31 +125,31 @@
       { "action": "reload" },
       { "action": "engage", "target": "T1", "shots": 4 },
 
-      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T1", "shots": 3, "string": 2 },
       { "action": "reload" },
       { "action": "engage", "target": "T1", "shots": 3 },
 
-      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T1", "shots": 3, "string": 3, "at": "P10c" },
       { "action": "move", "from": "P10c", "to": "P10l" },
       { "action": "engage", "target": "T1", "shots": 3 },
       { "action": "move", "from": "P10l", "to": "P10r" },
       { "action": "engage", "target": "T1", "shots": 3 },
 
-      { "action": "engage", "target": "T1", "shots": 2 },
+      { "action": "engage", "target": "T1", "shots": 2, "string": 4, "at": "P10c" },
       { "action": "move", "from": "P10c", "to": "P25" },
       { "action": "engage", "target": "T1", "shots": 2 },
 
-      { "action": "move", "from": "P25", "to": "P25r" },
+      { "action": "move", "from": "P25", "to": "P25r", "string": 5 },
       { "action": "engage", "target": "T1", "shots": 3 },
       { "action": "reload" },
       { "action": "move", "from": "P25r", "to": "P25l" },
       { "action": "engage", "target": "T1", "shots": 3 },
 
-      { "action": "engage", "target": "T1", "shots": 4 },
+      { "action": "engage", "target": "T1", "shots": 4, "string": 6, "at": "P25r" },
       { "action": "move", "from": "P25r", "to": "P25l" },
       { "action": "engage", "target": "T1", "shots": 4 },
 
-      { "action": "engage", "target": "T1", "shots": 3 },
+      { "action": "engage", "target": "T1", "shots": 3, "string": 7, "at": "P25" },
       { "action": "move", "from": "P25", "to": "P10c", "engage": [{ "target": "T1", "shots": 3 }] },
       { "action": "move", "from": "P10c", "to": "P5", "engage": [{ "target": "T1", "shots": 3 }] }
     ]
