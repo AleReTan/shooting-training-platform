@@ -51,16 +51,18 @@
     "ru": "Ассесмент T-Rex «Скрэмблер»: 28 выстрелов, 3 USPSA-мишени в ряд, рубеж 20×10 м, четыре палки A/B/C/D. Два зеркальных прогона по 14: с каждой палки — 2 выстрела в мишень напротив, на каждом переходе — 2 в центральную в движении. Тренирует стрельбу в движении, управление «газом», механику корпуса и коллинг выстрелов при малом расходе патронов. Хит-фактор: очки ÷ время, максимум 140",
     "en": "T-Rex Scrambler Assessment: 28 rounds, 3 USPSA targets in a row, a 20×10 m bay, four sticks A/B/C/D. Two mirrored runs of 14: 2 rounds on the target in front from each stick, 2 on the center target while moving between sticks. Trains shooting on the move, throttle control, body mechanics and shot calling on a low round count. Hit factor: points ÷ time, 140 max"
   },
+  "setup": {
+    "ru": "Разметка 20×10 м: три USPSA-мишени в ряд на дальней линии — через 5 м. Палки A и B — на ближней линии, в 20 м от мишеней; палки D и C — посередине, в 10 м от мишеней (D под левой, C под правой)",
+    "en": "Setup, 20×10 m: three USPSA targets in a row on the far line, 5 m apart. Sticks A and B on the near line, 20 m from the targets; sticks D and C midway, 10 m from the targets (D under the left target, C under the right)"
+  },
   "steps": {
     "ru": [
-      "Разметка 20×10 м: три USPSA-мишени в ряд на дальней линии — через 5 м. Палки A и B — на ближней линии, в 20 м от мишеней; палки D и C — посередине, в 10 м от мишеней (D под левой, C под правой)",
       "Прогон 1, старт с A: с A — 2 в левую; движение к B — в движении 2 в центральную; с B — 2 в правую; по диагонали к D — в движении 2 в центральную; с D — 2 в левую; переход на C — в движении 2 в центральную; с C — 2 в правую",
       "Прогон 2, старт с B (зеркально): с B — 2 в правую; движение к A — в движении 2 в центральную; с A — 2 в левую; по диагонали к C — в движении 2 в центральную; с C — 2 в правую; переход на D — в движении 2 в центральную; с D — 2 в левую",
       "Счёт: A=5, C=3, D=1, промах −10; 28 патронов, максимум 140 очков, дострелы запрещены; хит-фактор = очки ÷ суммарное время серий. Итог по мишеням: левая 8, центральная 12, правая 8",
       "Бланк допускает пистолет или карабин (здесь — карабин). Стартовая готовность оружия в бланке не указана — задай её до прогона"
     ],
     "en": [
-      "Setup, 20×10 m: three USPSA targets in a row on the far line, 5 m apart. Sticks A and B on the near line, 20 m from the targets; sticks D and C midway, 10 m from the targets (D under the left target, C under the right)",
       "Run 1, start at A: at A — 2 on the left; moving to B — 2 on the center on the move; at B — 2 on the right; diagonally to D — 2 on the center on the move; at D — 2 on the left; across to C — 2 on the center on the move; at C — 2 on the right",
       "Run 2, start at B (mirrored): at B — 2 on the right; moving to A — 2 on the center on the move; at A — 2 on the left; diagonally to C — 2 on the center on the move; at C — 2 on the right; across to D — 2 on the center on the move; at D — 2 on the left",
       "Scoring: A=5, C=3, D=1, Mike −10; 28 rounds, 140 points max, no make-ups; hit factor = points ÷ total time of all strings. Per target: left 8, center 12, right 8",

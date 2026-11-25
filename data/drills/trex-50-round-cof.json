@@ -53,9 +53,12 @@
     "ru": "Ассесмент T-Rex на 50 выстрелов: 3 USPSA-мишени в ряд через 5 м, палки-маркеры 25 м — по краям ближней линии, метки 5 м и 10 м — перед центральной мишенью. Семь серий: одиночные в голову из низкой и высокой готовности, «лесенка» 1-2-3-4, разворот на 180° с перезарядкой, головы с отходом на палку 25 м, работа с двух палок и финал по 4 выстрела на мишень в движении к метке 5 м. Счёт — хит-фактор: очки ÷ время, максимум 250 очков",
     "en": "T-Rex 50-round assessment: 3 USPSA targets in a row 5 m apart, 25 m stick markers at both ends of the near line, 5 m and 10 m marks in front of the center target. Seven strings: single head shots from low/high ready, a 1-2-3-4 ladder, a 180° turn with bolt-lock reload, head shots with a move back to a 25 m stick, work from both sticks, and 4 rounds per target moving up to the 5 m mark. Hit factor: points ÷ time, 250 max"
   },
+  "setup": {
+    "ru": "Разметка 25×10 м: 3 USPSA-мишени в ряд через 5 м; палки — по краям ближней линии, в 25 м от крайних мишеней; метки 5 м и 10 м — перед центральной мишенью",
+    "en": "Setup, 25×10 m: 3 USPSA targets in a row 5 m apart; sticks at both ends of the near line, 25 m from the flank targets; 5 m and 10 m marks in front of the center target"
+  },
   "steps": {
     "ru": [
-      "Разметка 25×10 м: 3 USPSA-мишени в ряд через 5 м; палки — по краям ближней линии, в 25 м от крайних мишеней; метки 5 м и 10 м — перед центральной мишенью",
       "Серия 1 · метка 5 м, напротив центральной: из низкой готовности — 1 выстрел в голову",
       "Серия 2 · метка 5 м: из высокой готовности — 1 выстрел в голову центральной",
       "Серия 3 · метка 10 м: 1 — центральная, 2 — левая, 3 — правая, 4 — центральная (по корпусу)",
@@ -66,7 +69,6 @@
       "Счёт: A=5, C=3, D=1, промах −10; максимум 250 очков, дострелы запрещены; хит-фактор = очки ÷ время. Итог по мишеням: левая 2 в голову + 15 в корпус, центральная 2 + 13, правая 2 + 16"
     ],
     "en": [
-      "Setup, 25×10 m: 3 USPSA targets in a row 5 m apart; sticks at both ends of the near line, 25 m from the flank targets; 5 m and 10 m marks in front of the center target",
       "String 1 · 5 m mark: from low ready — 1 round to the head",
       "String 2 · 5 m mark: from high ready — 1 round to the center target's head",
       "String 3 · 10 m mark: 1 — center, 2 — left, 3 — right, 4 — center (body)",

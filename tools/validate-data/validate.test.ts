@@ -87,6 +87,11 @@ test('hit-factor без points отклоняется', () => {
   expect(res.errors.join('\n')).toContain('points');
 });
 
+test('setup: не объект или без ru — ошибка (строка роняет страницу упражнения)', () => {
+  expect(run([entry('x-drill.json', drill({ setup: 'разметка' as unknown as Drill['setup'] }))]).errors.join('\n')).toContain('setup');
+  expect(run([entry('x-drill.json', drill({ setup: { en: 'setup' } as unknown as Drill['setup'] }))]).errors.join('\n')).toContain('пустой setup.ru');
+});
+
 test('scoring: для hit-factor strings — целое ≥ 1, zones — конечные числа', () => {
   const bad = drill({
     scoring: {

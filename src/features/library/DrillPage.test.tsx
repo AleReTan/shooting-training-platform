@@ -116,6 +116,22 @@ test('бланк источника картинкой: сворачивающи
   }
 });
 
+test('условия — отдельным блоком до «Выполнения»: серии нумеруются с 1', () => {
+  render(<DrillPage id="the-wall" data={data} />);
+  expect(screen.getByRole('heading', { level: 3, name: 'Условия' })).toBeTruthy();
+  expect(document.querySelector('.drill-page__setup')?.textContent).toContain('декорация на 25 м по центру');
+  expect(document.querySelector('ol li')?.textContent).toMatch(/^Серия 1/);
+});
+
+test('ни в одном упражнении условия не сдвигают нумерацию серий', async () => {
+  const { drills } = await loadData();
+  const displaced = drills.filter((d) => {
+    const i = (d.steps.ru ?? []).findIndex((s) => /^Серия 1\b/.test(s));
+    return i > 0;
+  });
+  expect(displaced.map((d) => d.id)).toEqual([]);
+});
+
 test('лист подсчёта хит-фактора: есть у упражнений с хит-фактором, у остальных нет', () => {
   render(<DrillPage id="trex-50-round-cof" data={data} />);
   expect(document.querySelector('.hfsheet')).toBeTruthy();

@@ -120,6 +120,13 @@ export function DrillPage({ id, data }: { id: string; data: AppData }) {
       <h3>Цель</h3>
       <p>{localized(drill.goal)}</p>
 
+      {drill.setup ? (
+        <>
+          <h3>Условия</h3>
+          <p class="drill-page__setup">{localized(drill.setup)}</p>
+        </>
+      ) : null}
+
       <h3>Выполнение</h3>
       <ol>
         {localizedList(drill.steps).map((s, i) => (

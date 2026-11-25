@@ -141,6 +141,7 @@ export interface Drill {
   parTimes?: ParTime[];
   scoring: Scoring;
   goal: Localized;
+  setup?: Localized; // разметка рубежа: показывается до «Выполнения», вне нумерации серий
   steps: LocalizedList;
   safety?: Localized;
   equipment: string[];

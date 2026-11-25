@@ -70,6 +70,11 @@ function validateDrill(
   } else if (d.safety && !d.safety.ru) {
     errors.push(`${file}: пустой safety.ru`);
   }
+  if (d.setup != null && !isRecord(d.setup)) {
+    errors.push(`${file}: setup — не объект`);
+  } else if (d.setup && !d.setup.ru) {
+    errors.push(`${file}: пустой setup.ru`);
+  }
 
   for (const tag of expectList(file, 'tags', d.tags, errors)) {
     if (!tagIds.has(tag)) errors.push(`${file}: тег "${tag}" вне таксономии`);
